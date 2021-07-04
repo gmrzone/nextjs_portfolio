@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,4 +6,90 @@
 
 #__next {
   @apply h-full;
+}
+
+h1 {
+  @apply text-5xl-sm;
+  @apply font-bold;
+  
+}
+
+h2 {
+  @apply text-4xl-sm;
+  @apply font-bold;
+  
+}
+h3 {
+  @apply text-3xl-sm;
+  @apply font-semibold;
+}
+
+
+
+a {
+  @apply text-blue-600;
+  @apply transition-colors;
+  @apply duration-100;
+}
+
+a:hover {
+  @apply text-blue-400;
+}
+
+@media (min-width: 500px){
+  h1 {
+    @apply text-5xl-500;
+    @apply font-bold;
+    line-height: 1.3;
+  }
+  
+  h2 {
+    @apply text-4xl-500;
+    @apply font-bold;
+    line-height: 1.1;
+  }
+  h3 {
+    @apply text-3xl-500;
+    @apply font-semibold;
+  }
+  
+
+
+}
+@media (min-width: 992px){
+  h1 {
+    @apply text-5xl-992;
+    @apply font-bold;
+    line-height: 1.3;
+  }
+  
+  h2 {
+    @apply text-4xl-992;
+    @apply font-bold;
+    line-height: 1.1;
+  }
+  h3 {
+    @apply text-3xl-992;
+    @apply font-semibold;
+  }
+  
+}
+
+@media (min-width: 1200px){
+  h1 {
+    @apply text-5xl;
+    @apply font-bold;
+    line-height: 1.3;
+  }
+  
+  h2 {
+    @apply text-4xl;
+    @apply font-bold;
+    line-height: 1.2;
+  }
+  h3 {
+    @apply text-3xl;
+    @apply font-semibold;
+  }
+  
 }

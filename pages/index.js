@@ -6,9 +6,11 @@ export default function Home() {
         <>
           <Head title="Afzal Saiyed" url="/" />
           <div>
-            <h1 className="font-bold text-5xl text-red-500 dark:text-green-500">Afzal</h1>
-            <h1 className="font-bold font-serif text-5xl text-yellow-500">Afzal</h1>
-            <h1 className="font-bold font-serif text-5xl text-blue-500">Afzal</h1>
+            <h1>Afzal Saiyed</h1>
+            <h2>Afzal Saiyed</h2>
+            <h3>Afzal Saiyed</h3>
+            <p>Afzal Saiyed</p>
+            <a href="">Afzal Saiyed</a>
           </div>
         </>
       </MainLayout>
