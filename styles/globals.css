@@ -40,13 +40,13 @@ a:hover {
   h1 {
     @apply text-5xl-500;
     @apply font-bold;
-    line-height: 1.3;
+   
   }
   
   h2 {
     @apply text-4xl-500;
     @apply font-bold;
-    line-height: 1.1;
+   
   }
   h3 {
     @apply text-3xl-500;
@@ -60,13 +60,13 @@ a:hover {
   h1 {
     @apply text-5xl-992;
     @apply font-bold;
-    line-height: 1.3;
+    
   }
   
   h2 {
     @apply text-4xl-992;
     @apply font-bold;
-    line-height: 1.1;
+    
   }
   h3 {
     @apply text-3xl-992;
@@ -80,16 +80,19 @@ a:hover {
     @apply text-5xl;
     @apply font-bold;
     line-height: 1.3;
+    
   }
   
   h2 {
     @apply text-4xl;
     @apply font-bold;
-    line-height: 1.2;
+    line-height: 1.3;
+    
   }
   h3 {
     @apply text-3xl;
     @apply font-semibold;
+    line-height: 1.3;
   }
   
 }
