@@ -18,7 +18,7 @@ class MyDocument extends Document {
                         key="fontawesome"
                     />
                 </Head>
-                <body className="font-poppins h-full w-full antialiased">
+                <body className="font-poppins h-full w-full antialiased bg-bg-sec">
                     <Main className="h-full" />
                     <NextScript />
                 </body>
