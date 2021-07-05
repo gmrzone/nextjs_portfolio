@@ -4,6 +4,7 @@ import {useState, useRef} from 'react'
 const Navbar = () => {
     const [mobileNanActive, setMobileNavActive] = useState(false)
     const mobileNav= useRef()
+    const backdrop = useRef()
     const navData = [
         {
             name: "Home",
@@ -29,20 +30,32 @@ const Navbar = () => {
     const transitionMobileNav = () => {
         mobileNav.current.classList.remove('translate-x-full')
         mobileNav.current.classList.add('translate-x-0')
+        backdrop.current.classList.remove('backdrop-opacity-0')
+        backdrop.current.classList.remove('bg-opacity-0')
+        backdrop.current.classList.add('bg-opacity-30')
+        backdrop.current.classList.add('backdrop-opacity-100')
     }
     const openMobileNav = () => {
         mobileNav.current.classList.remove("hidden")
+        backdrop.current.classList.remove("hidden")
         mobileNav.current.classList.add('flex')
+        backdrop.current.classList.add("block")
         setTimeout(transitionMobileNav, 25)
         
     }
     const hideMobileNav = () => {
         mobileNav.current.classList.remove("flex")
         mobileNav.current.classList.add('hidden')
+        backdrop.current.classList.remove("block")
+        backdrop.current.classList.add("hidden")
     }
     const closeMobileNav = () => {
         mobileNav.current.classList.remove('translate-x-0')
         mobileNav.current.classList.add('translate-x-full')
+        backdrop.current.classList.remove("backdrop-opacity-100")
+        backdrop.current.classList.add("backdrop-opacity-0")
+        backdrop.current.classList.remove("bg-opacity-30")
+        backdrop.current.classList.add("bg-opacity-0")
         setTimeout(hideMobileNav, 500)
     }
     const renderNavItems = navData.map((x, i) => {
@@ -50,19 +63,26 @@ const Navbar = () => {
     })
     return (
         <nav className="container flex justify-between items-center p-2 mx-5">
+            {/* Logo */}
             <NavbarLogo />
-            <div className="flex flex-col p-4 desktop-st:hidden space-y-1" onClick={openMobileNav}>
+            {/* Burger Icon */}
+            <div className="flex flex-col p-4 desktop-st:hidden space-y-1 cursor-pointer" onClick={openMobileNav}>
                 <span className="bg-gray-800 h-1 w-8"></span>
                 <span className="bg-gray-800 h-1 w-10"></span>
                 <span className="bg-gray-800 h-1 w-10"></span>
                 <span className="bg-gray-800 h-1 w-10"></span>
             </div>
+            {/* backdrop */}
+            <div className="fixed top-0 right-0 w-screen h-screen bg-gray-600 backdrop-filter backdrop-blur-sm bg-opacity-0 backdrop-opacity-0 hidden desktop-st:hidden transition-all duration-500" ref={backdrop}>
+                
+            </div>
+            {/* Nav */}
             <ul className="hidden fixed right-0 translate-x-full transition-transform duration-500 top-0 h-full w-full max-w-full flex-col bg-white text-black shadow-mobile-nav sm:max-w-sm desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0" ref={mobileNav}>
-                <div className="flex flex-row align-middle justify-items-start py-4 px-4 text-gray-800 border-b border-gray-200 sm:px-6 desktop-st:hidden">
+                <div className="flex flex-row align-middle justify-items-start py-3 px-4 text-gray-800 border-b border-gray-200 sm:px-6 desktop-st:hidden">
                     <i className="far fa-times text-2xl cursor-pointer" onClick={closeMobileNav}/>
                     <div className="text-xl font-semibold w-full text-center leading-8">Close</div>
                 </div>
-                <div className="flex flex-col text-center mt-10 mb-auto desktop-st:flex-row desktop-st:space-x-10 desktop-st:mt-0">   
+                <div className="flex flex-col text-center mt-6 mb-auto desktop-st:flex-row desktop-st:space-x-10 desktop-st:mt-0">   
                     {renderNavItems}
                 </div>
             </ul>
