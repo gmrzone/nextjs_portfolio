@@ -67,10 +67,10 @@ const Navbar = () => {
             <NavbarLogo />
             {/* Burger Icon */}
             <div className="flex flex-col p-4 desktop-st:hidden space-y-1 cursor-pointer" onClick={openMobileNav}>
-                <span className="bg-gray-800 h-1 w-8"></span>
-                <span className="bg-gray-800 h-1 w-10"></span>
-                <span className="bg-gray-800 h-1 w-10"></span>
-                <span className="bg-gray-800 h-1 w-10"></span>
+                <span className="bg-gray-800 h-1 w-8 rounded-sm"></span>
+                <span className="bg-gray-800 h-1 w-10 rounded-sm"></span>
+                <span className="bg-gray-800 h-1 w-10 rounded-sm"></span>
+                <span className="bg-gray-800 h-1 w-10 rounded-sm"></span>
             </div>
             {/* backdrop */}
             <div
@@ -84,9 +84,9 @@ const Navbar = () => {
                     <i className="far fa-times text-2xl cursor-pointer" onClick={closeMobileNav} />
                     <div className="text-xl font-semibold w-full text-center leading-8">Close</div>
                 </div>
-                <div className="flex flex-col text-center mt-6 mb-auto desktop-st:flex-row desktop-st:space-x-10 desktop-st:mt-0">
+                <div className="flex flex-col text-center py-6 mb-auto overflow-x-auto desktop-st:flex-row desktop-st:space-x-10 desktop-st:mt-0 desktop-st:py-0 desktop-st:overflow-hidden">
                     {renderNavItems}
-                    <ThemeSwitcher />
+                    <li className="flex justify-center mt-6 desktop-st:mt-0"><ThemeSwitcher /></li>
                 </div>
             </ul>
         </nav>
