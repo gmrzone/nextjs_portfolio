@@ -30,6 +30,19 @@ module.exports = {
                 "3xl-sm": ["1.6rem", { lineHeight: "2.25rem" }],
                 "3xl-500": ["1.7rem", { lineHeight: "2.25rem" }],
                 "3xl-992": ["1.8rem", { lineHeight: "2.25rem" }],
+            },
+            screens: {
+                "desktop-st": "992px",
+
+            },
+            colors: {
+                main: "rgb(5, 55, 66)",
+                sec: "rgb(57, 162, 219)",
+                "sec-lg": "rgb(162, 219, 250)",
+                "bg-sec": "rgb(232, 240, 242)",
+            },
+            boxShadow: {
+                "mobile-nav": "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
             }
         },
     },

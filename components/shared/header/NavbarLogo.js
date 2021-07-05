@@ -10,7 +10,7 @@ const NavbarLogo = () => {
                         L457.7,387z" style={{fill: "#12232E"}}/>
                 </g>
                 {/* <path id="XMLID_23_" className="st1" d="M81,306c150,0,301,0,451.3,0"/> */}
-                <polygon id="XMLID_31_" className="st4" points="558,378 54.1,378 79.5,306 530.2,306 " style={{fill: "#007CC7"}}/>
+                <polygon id="XMLID_31_" className="st4 fill-current text-sec" points="558,378 54.1,378 79.5,306 530.2,306 "/>
             </svg>
         </div>
     )
