@@ -1,6 +1,7 @@
 import NavBarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
 import { useState, useRef } from "react";
+import ThemeSwitcher from '../ThemeSwitcher'
 const Navbar = () => {
     const [mobileNanActive, setMobileNavActive] = useState(false);
     const mobileNav = useRef();
@@ -85,6 +86,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-col text-center mt-6 mb-auto desktop-st:flex-row desktop-st:space-x-10 desktop-st:mt-0">
                     {renderNavItems}
+                    <ThemeSwitcher />
                 </div>
             </ul>
         </nav>
