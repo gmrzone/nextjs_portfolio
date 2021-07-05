@@ -75,7 +75,7 @@ const ThemeSwitcher = () => {
         <div className={`relative border border-solid bg-white rounded-full transition duration-300 ${darkThemeActive ? "border-blue-400" : "border-gray-400"} ${style['theme-switcher__container']}`}>
             <div className={`absolute left-0 rounded-full transition-all duration-300 w-8 h-8 ${darkThemeActive ? "translate-x-full bg-sec" : "translate-x-0 bg-black"} ${style['main-switch']}`} onClick={toggleTheme}>
                 <i className={`fas fa-moon w-3 text-white text-xl mr-1 transition-opacity`} ref={dartIcon}/>
-                <i className={`fas fa-sun w-3 text-white text-xl mr-2 transition-opacity`} ref={LightIcon}/>
+                <i className={`fas fa-sun w-3 text-white text-xl transition-opacity ${style['dark-icon']}`} ref={LightIcon}/>
             </div>
         </div>
     )

@@ -43,6 +43,14 @@ module.exports = {
             boxShadow: {
                 "mobile-nav": "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
             },
+            height: {
+                "hero-xl": "40rem",
+                "hero-large": "38rem",
+                "hero-sl": "36rem",
+                "hero-mid": "34rem",
+                "hero-sm": "32rem",
+                hero: "30rem",
+            }
         },
     },
     variants: {

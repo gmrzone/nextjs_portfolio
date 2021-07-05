@@ -74,11 +74,11 @@ const Navbar = () => {
             </div>
             {/* backdrop */}
             <div
-                className="fixed top-0 right-0 w-screen h-screen bg-gray-600 backdrop-filter backdrop-blur-sm bg-opacity-0 backdrop-opacity-0 hidden desktop-st:hidden transition-all duration-500"
+                className="fixed top-0 right-0 w-screen h-screen bg-gray-600 backdrop-filter backdrop-blur-sm bg-opacity-0 backdrop-opacity-0 hidden desktop-st:hidden transition-all duration-500 z-50"
                 ref={backdrop}></div>
             {/* Nav */}
             <ul
-                className="hidden fixed right-0 translate-x-full transition-transform duration-500 top-0 h-full w-full max-w-full flex-col bg-white text-black shadow-mobile-nav sm:max-w-sm desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0"
+                className="hidden fixed right-0 translate-x-full transition-transform duration-500 top-0 h-full w-full max-w-full flex-col bg-white text-black shadow-mobile-nav sm:max-w-sm desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0 z-50"
                 ref={mobileNav}>
                 <div className="flex flex-row align-middle justify-items-start py-3 px-4 text-gray-800 border-b border-gray-200 sm:px-6 desktop-st:hidden">
                     <i className="far fa-times text-2xl cursor-pointer" onClick={closeMobileNav} />
