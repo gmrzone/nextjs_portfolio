@@ -3,138 +3,118 @@
 @tailwind components;
 @tailwind utilities;
 
-
 #__next {
-  @apply h-full;
+    @apply h-full;
 }
 
 h1 {
-  @apply text-5xl-sm;
-  @apply font-bold;
-  
+    @apply text-5xl-sm;
+    @apply font-bold;
 }
 
 h2 {
-  @apply text-4xl-sm;
-  @apply font-bold;
-  
+    @apply text-4xl-sm;
+    @apply font-bold;
 }
 h3 {
-  @apply text-3xl-sm;
-  @apply font-semibold;
+    @apply text-3xl-sm;
+    @apply font-semibold;
 }
 
-
-
 a {
-  @apply text-blue-600;
-  @apply transition-colors;
-  @apply duration-100;
+    @apply text-blue-600;
+    @apply transition-colors;
+    @apply duration-100;
 }
 
 a:hover {
-  @apply text-blue-400;
+    @apply text-blue-400;
 }
 
-@media (min-width: 500px){
-  h1 {
-    @apply text-5xl-500;
-    @apply font-bold;
-   
-  }
-  
-  h2 {
-    @apply text-4xl-500;
-    @apply font-bold;
-   
-  }
-  h3 {
-    @apply text-3xl-500;
-    @apply font-semibold;
-  }
-  
+@media (min-width: 500px) {
+    h1 {
+        @apply text-5xl-500;
+        @apply font-bold;
+    }
 
-
+    h2 {
+        @apply text-4xl-500;
+        @apply font-bold;
+    }
+    h3 {
+        @apply text-3xl-500;
+        @apply font-semibold;
+    }
 }
-@media (min-width: 992px){
-  h1 {
-    @apply text-5xl-992;
-    @apply font-bold;
-    
-  }
-  
-  h2 {
-    @apply text-4xl-992;
-    @apply font-bold;
-    
-  }
-  h3 {
-    @apply text-3xl-992;
-    @apply font-semibold;
-  }
-  
+@media (min-width: 992px) {
+    h1 {
+        @apply text-5xl-992;
+        @apply font-bold;
+    }
+
+    h2 {
+        @apply text-4xl-992;
+        @apply font-bold;
+    }
+    h3 {
+        @apply text-3xl-992;
+        @apply font-semibold;
+    }
 }
 
-@media (min-width: 1200px){
-  h1 {
-    @apply text-5xl;
-    @apply font-bold;
-    line-height: 1.3;
-    
-  }
-  
-  h2 {
-    @apply text-4xl;
-    @apply font-bold;
-    line-height: 1.3;
-    
-  }
-  h3 {
-    @apply text-3xl;
-    @apply font-semibold;
-    line-height: 1.3;
-  }
-  
-}
+@media (min-width: 1200px) {
+    h1 {
+        @apply text-5xl;
+        @apply font-bold;
+        line-height: 1.3;
+    }
 
+    h2 {
+        @apply text-4xl;
+        @apply font-bold;
+        line-height: 1.3;
+    }
+    h3 {
+        @apply text-3xl;
+        @apply font-semibold;
+        line-height: 1.3;
+    }
+}
 
 .container {
-  @apply w-auto;
-  @apply max-w-full;
-  @apply ml-3;
-  @apply mr-3;
+    @apply w-auto;
+    @apply max-w-full;
+    @apply ml-3;
+    @apply mr-3;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .container {
-    width: 723px;
-    @apply ml-auto;
-    @apply mr-auto;
-  }
+    .container {
+        width: 723px;
+        @apply ml-auto;
+        @apply mr-auto;
+    }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .container {
-
-    width: 933px;
-    @apply ml-auto;
-    @apply mr-auto;
-
-  }
+    .container {
+        width: 933px;
+        @apply ml-auto;
+        @apply mr-auto;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
-  .container {
-    width: 1127px;
-    @apply ml-auto;
-    @apply mr-auto;
-  }
+    .container {
+        width: 1127px;
+        @apply ml-auto;
+        @apply mr-auto;
+    }
 }
 @media only screen and (min-width: 1400px) {
-  .container {
-    width: 1227px;
-    @apply ml-auto;
-    @apply mr-auto;
-  }
+    .container {
+        width: 1227px;
+        @apply ml-auto;
+        @apply mr-auto;
+    }
 }
-

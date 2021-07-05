@@ -1,6 +1,6 @@
 module.exports = {
     purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
-    mode: 'jit',
+    mode: "jit",
     darkMode: "class", // or 'media' or 'class'
     theme: {
         extend: {
@@ -23,8 +23,8 @@ module.exports = {
             fontSize: {
                 "5xl-sm": ["2rem", { lineHeight: "1.3" }],
                 "5xl-500": ["2.2rem", { lineHeight: "1.3" }],
-                "5xl-992": ["2.6rem", { lineHeight: "1.3" }], 
-                "4xl-sm": ["1.7rem", { lineHeight: "1.3"}],
+                "5xl-992": ["2.6rem", { lineHeight: "1.3" }],
+                "4xl-sm": ["1.7rem", { lineHeight: "1.3" }],
                 "4xl-500": ["1.85rem", { lineHeight: "2.5rem" }],
                 "4xl-992": ["2.1rem", { lineHeight: "2.5rem" }],
                 "3xl-sm": ["1.6rem", { lineHeight: "2.25rem" }],
@@ -33,7 +33,6 @@ module.exports = {
             },
             screens: {
                 "desktop-st": "992px",
-
             },
             colors: {
                 main: "rgb(5, 55, 66)",
@@ -42,8 +41,8 @@ module.exports = {
                 "bg-sec": "rgb(232, 240, 242)",
             },
             boxShadow: {
-                "mobile-nav": "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px"
-            }
+                "mobile-nav": "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",
+            },
         },
     },
     variants: {
