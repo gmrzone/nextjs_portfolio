@@ -50,6 +50,9 @@ module.exports = {
                 "hero-mid": "34rem",
                 "hero-sm": "32rem",
                 hero: "30rem",
+            },
+            animation: {
+                "spin-fast": "spin 0.6s linear infinite",
             }
         },
     },
