@@ -12,7 +12,7 @@ class MyDocument extends Document {
         <Head>
           <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-iKbFRxucmOHIcpWdX9NTZ5WETOPm0Goy0WmfyNcl52qSYtc2Buk0NCe6jU1sWWNB" crossOrigin="anonymous" key="fontawesome"/>
         </Head>
-        <body className="font-poppins h-full">
+        <body className="font-poppins h-full antialiased">
           <Main className="h-full"/>
           <NextScript />
         </body>
