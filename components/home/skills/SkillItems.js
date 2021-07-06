@@ -1,5 +1,5 @@
 import SkillItem from './skillItem';
-const RenderItems = ({ data, activeAccordian, id }) => {
+const RenderItems = ({ data, activeAccordian, id, forceFull=false }) => {
     const renderData = data.map((x, i) => {
         return <SkillItem item={x} key={i}/>
     })
@@ -11,14 +11,14 @@ const RenderItems = ({ data, activeAccordian, id }) => {
                     .accordian-content {
                         height: auto;
                         max-height: ${activeAccordian === id ? "1000px" : "0px"};
-                        transition: max-height 0.4s ease-in-out, padding 0.35s 0.07s ease-in-out;
+                        transition: ${forceFull ? "none" : "max-height 0.4s ease-in-out, padding 0.35s 0.07s ease-in-out"};
                         padding: ${activeAccordian === id ? "" : "0px"};
                         
                     }
                 }
                 @media (min-width: 993px) {
                     .accordian-content {
-                       height: 285px;
+                       height: ${forceFull ? "auto" : "285px"};
                     }
                 }
             `}</style>

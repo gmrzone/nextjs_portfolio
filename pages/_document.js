@@ -19,6 +19,7 @@ class MyDocument extends Document {
                     />
                 </Head>
                 <body className="font-poppins h-full w-full antialiased bg-bg-sec">
+                    <div id="modal"></div>
                     <Main className="h-full" />
                     <NextScript />
                 </body>
