@@ -1,4 +1,4 @@
-const SkillsAccordian = ({title, meta, data, icon, last}) => {
+const SkillsAccordian = ({item: {title, meta, data, icon, id,}, last ,  activeAccordian , activateAccordian}) => {
     const renderData = data.map((x, i) => {
         return (
             <div key={i} className="space-y-2">
@@ -15,8 +15,8 @@ const SkillsAccordian = ({title, meta, data, icon, last}) => {
         )
     })
     return (
-        <div className={`w-full max-w-full desktop-st:max-w-md space-y-4 accordian-item`}>  
-            <div className="flex justify-between bg-white px-6 py-2 rounded-md overflow-hidden border border-solid border-sec">
+        <div className={`w-full max-w-full desktop-st:max-w-md space-y-2 accordian-item`} onClick={() => activateAccordian(id)}>  
+            <div className="flex justify-between bg-white px-6 py-2 rounded-md overflow-hidden border border-solid border-sec cursor-pointer">
                 <div className="flex flex-col justify-center">
                     <i className={`${icon} text-3xl text-main`} />
                 </div>
@@ -28,7 +28,7 @@ const SkillsAccordian = ({title, meta, data, icon, last}) => {
                 <i className="fas fa-caret-down text-xl text-main" />
                 </div>
             </div>
-            <div className="space-y-6">
+            <div className={`space-y-6 bg-white px-4 py-6 shadow-md rounded-md ${activeAccordian && activeAccordian === id ? "block" : "hidden"}`}>
                 {renderData}
             </div>
             <style jsx>{`

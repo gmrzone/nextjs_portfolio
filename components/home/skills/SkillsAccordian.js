@@ -1,8 +1,10 @@
-import SkillsAccordian from "./SkillsAccordianItem"
-import SkillAccordianItem from './SkillsAccordianItem'
+import SkillsAccordian from "./SkillsAccordianItem";
+import SkillAccordianItem from './SkillsAccordianItem';
+import {useState} from 'react';
 const SkillAccordian = () => {
     const skillsData = [
-        {
+        {   
+            id: 1,
             title: "Frontend",
             meta: "More Then 2 years",
             icon: "fad fa-code",
@@ -56,6 +58,7 @@ const SkillAccordian = () => {
             ]
         },
         {
+            id: 2,
             title: "Backend",
             meta: "More Then 2.5 years",
             icon: "fas fa-server",
@@ -89,6 +92,7 @@ const SkillAccordian = () => {
             ]
         },
         {
+            id: 3,
             title: "Others",
             icon: "fas fa-toolbox",
             data: [
@@ -121,10 +125,15 @@ const SkillAccordian = () => {
             ]
         }
     ]
+    const [activeAccordian, setActiveAccordian] = useState(skillsData[0].id)
+    const activateAccordian = (id) => {
+
+        setActiveAccordian(id)
+    }
+   
     const renderItems = skillsData.map((x, i, a) => {
-        return <SkillAccordianItem key={i} title={x.title} meta={x.meta} data={x.data} icon={x.icon} last={a.length === i + 1}/>
+        return <SkillAccordianItem key={i} item={x} last={a.length === i + 1} activeAccordian={activeAccordian} activateAccordian={activateAccordian}/>
     })
-    console.log(skillsData)
     return (
         <div className="flex justify-center flex-col gap-y-10 flex-wrap mt-6 desktop-st:flex-row desktop-st:gap-x-5 xl:gap-x-10 xl:flex-nowrap">
             {renderItems}
