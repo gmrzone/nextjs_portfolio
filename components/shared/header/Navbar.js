@@ -1,7 +1,7 @@
 import NavBarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
 import { useState, useRef } from "react";
-import ThemeSwitcher from '../ThemeSwitcher'
+import ThemeSwitcher from "../ThemeSwitcher";
 import BlurBackDrop from "./BlurBackDrop";
 const Navbar = () => {
     const [mobileNanActive, setMobileNavActive] = useState(false);
@@ -74,7 +74,7 @@ const Navbar = () => {
                 <span className="bg-gray-800 h-1 w-10 rounded-sm"></span>
             </div>
             {/* backdrop */}
-            <BlurBackDrop backdrop={backdrop} close={closeMobileNav} zIndex="35"/>
+            <BlurBackDrop backdrop={backdrop} close={closeMobileNav} zIndex="35" />
             {/* Nav */}
             <ul
                 className="hidden fixed right-0 translate-x-full transition-transform duration-500 top-0 h-full w-full max-w-full flex-col bg-white text-black shadow-mobile-nav sm:max-w-sm desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0 z-40"
@@ -85,7 +85,9 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-col text-center py-6 mb-auto overflow-x-auto desktop-st:flex-row desktop-st:space-x-10 desktop-st:mt-0 desktop-st:py-0 desktop-st:overflow-hidden">
                     {renderNavItems}
-                    <li className="flex justify-center mt-6 desktop-st:mt-0"><ThemeSwitcher /></li>
+                    <li className="flex justify-center mt-6 desktop-st:mt-0">
+                        <ThemeSwitcher />
+                    </li>
                 </div>
             </ul>
         </nav>

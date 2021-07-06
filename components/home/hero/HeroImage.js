@@ -1,10 +1,7 @@
 const HeroImage = () => {
     return (
         <>
-            <svg
-                viewBox="0 0 650 265"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 650 265" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 <g id="Website" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
                     <g id="Group-32" transform="translate(0.000000, 3.000000)">
                         <path
@@ -159,9 +156,27 @@ const HeroImage = () => {
                             className="stroke-current text-sec"
                             strokeWidth="2.08142999"
                             fill="#FFFFFF"></path>
-                        <ellipse id="Oval-5" fill="rgb(5, 55, 66)" cx="191.093612" cy="6.50446872" rx="2.34310968" ry="2.34160874"></ellipse>
-                        <ellipse id="Oval-5" fill="rgb(5, 55, 66)" cx="198.903978" cy="6.50446872" rx="2.34310968" ry="2.34160874"></ellipse>
-                        <ellipse id="Oval-5" fill="rgb(5, 55, 66)" cx="206.714343" cy="6.50446872" rx="2.34310968" ry="2.34160874"></ellipse>
+                        <ellipse
+                            id="Oval-5"
+                            fill="rgb(5, 55, 66)"
+                            cx="191.093612"
+                            cy="6.50446872"
+                            rx="2.34310968"
+                            ry="2.34160874"></ellipse>
+                        <ellipse
+                            id="Oval-5"
+                            fill="rgb(5, 55, 66)"
+                            cx="198.903978"
+                            cy="6.50446872"
+                            rx="2.34310968"
+                            ry="2.34160874"></ellipse>
+                        <ellipse
+                            id="Oval-5"
+                            fill="rgb(5, 55, 66)"
+                            cx="206.714343"
+                            cy="6.50446872"
+                            rx="2.34310968"
+                            ry="2.34160874"></ellipse>
                         <rect
                             id="Rectangle-11"
                             fill="rgb(5, 55, 66)"
@@ -374,9 +389,27 @@ const HeroImage = () => {
                             className="stroke-current text-sec"
                             strokeWidth="2.08142999"
                             fill="#FFFFFF"></path>
-                        <ellipse id="Oval-5" fill="rgb(5, 55, 66)" cx="426.185617" cy="88.2005958" rx="2.34310968" ry="2.34160874"></ellipse>
-                        <ellipse id="Oval-5" fill="rgb(5, 55, 66)" cx="433.995982" cy="88.2005958" rx="2.34310968" ry="2.34160874"></ellipse>
-                        <ellipse id="Oval-5" fill="rgb(5, 55, 66)" cx="441.806348" cy="88.2005958" rx="2.34310968" ry="2.34160874"></ellipse>
+                        <ellipse
+                            id="Oval-5"
+                            fill="rgb(5, 55, 66)"
+                            cx="426.185617"
+                            cy="88.2005958"
+                            rx="2.34310968"
+                            ry="2.34160874"></ellipse>
+                        <ellipse
+                            id="Oval-5"
+                            fill="rgb(5, 55, 66)"
+                            cx="433.995982"
+                            cy="88.2005958"
+                            rx="2.34310968"
+                            ry="2.34160874"></ellipse>
+                        <ellipse
+                            id="Oval-5"
+                            fill="rgb(5, 55, 66)"
+                            cx="441.806348"
+                            cy="88.2005958"
+                            rx="2.34310968"
+                            ry="2.34160874"></ellipse>
                         <ellipse
                             id="Oval-6"
                             className="stroke-current text-sec"
@@ -428,8 +461,20 @@ const HeroImage = () => {
                             className="stroke-current text-sec"
                             strokeWidth="2.08142999"
                             strokeLinecap="square"></line>
-                        <ellipse id="Oval-5" fill="rgb(5, 55, 66)" cx="529.282443" cy="123.845084" rx="3.12414624" ry="3.12214499"></ellipse>
-                        <ellipse id="Oval-5" fill="rgb(5, 55, 66)" cx="529.282443" cy="173.279047" rx="3.12414624" ry="3.12214499"></ellipse>
+                        <ellipse
+                            id="Oval-5"
+                            fill="rgb(5, 55, 66)"
+                            cx="529.282443"
+                            cy="123.845084"
+                            rx="3.12414624"
+                            ry="3.12214499"></ellipse>
+                        <ellipse
+                            id="Oval-5"
+                            fill="rgb(5, 55, 66)"
+                            cx="529.282443"
+                            cy="173.279047"
+                            rx="3.12414624"
+                            ry="3.12214499"></ellipse>
                         <g
                             id="Group-60"
                             transform="translate(439.463238, 115.519364)"
