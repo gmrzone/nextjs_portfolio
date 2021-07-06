@@ -1,6 +1,6 @@
-const SkillsItemHeader = ({ icon, title, meta, activeAccordian, id }) => {
+const SkillsItemHeader = ({ icon, title, meta, activeAccordian, id, activateAccordian }) => {
     return (
-            <div className="flex justify-between bg-white px-6 py-2 rounded-md overflow-hidden cursor-pointer shadow-lg">
+            <div className="flex justify-between bg-white px-6 py-2 rounded-md overflow-hidden cursor-pointer shadow-lg" onClick={() => activateAccordian(id)}>
                 <div className="flex flex-col justify-center">
                     <i className={`${icon} text-3xl text-main`} />
                 </div>

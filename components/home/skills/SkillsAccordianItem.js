@@ -3,9 +3,9 @@ import SkillsItemHeader from './SkillItemHeader'
 const SkillsAccordian = ({item: {title, meta, data, icon, id,}, last ,  activeAccordian , activateAccordian}) => {
 
     return (
-        <div className={`w-full max-w-full desktop-st:max-w-md space-y-2 accordian-item`} onClick={() => activateAccordian(id)}>  
-            <SkillsItemHeader icon={icon} title={title} meta={meta} activeAccordian={activateAccordian} id={id}/>
-            <SkillItems data={data} activateAccordian={activeAccordian} id={id}/>
+        <div className={`w-full max-w-full desktop-st:max-w-md space-y-2 accordian-item`}>  
+            <SkillsItemHeader icon={icon} title={title} meta={meta} activeAccordian={activeAccordian} activateAccordian={activateAccordian} id={id}/>
+            <SkillItems data={data} activeAccordian={activeAccordian} id={id}/>
             <div className="bg-sec text-white px-3 font-bold mb-8 py-3 text-center shadow-md rounded-md hidden cursor-pointer transition-colors duration-300 bg-opacity-100 hover:bg-opacity-75 desktop-st:block">
                 View All
             </div>
