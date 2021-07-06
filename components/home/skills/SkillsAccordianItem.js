@@ -16,7 +16,7 @@ const SkillsAccordian = ({item: {title, meta, data, icon, id,}, last ,  activeAc
     })
     return (
         <div className={`w-full max-w-full desktop-st:max-w-md space-y-2 accordian-item`} onClick={() => activateAccordian(id)}>  
-            <div className="flex justify-between bg-white px-6 py-2 rounded-md overflow-hidden border border-solid border-sec cursor-pointer">
+            <div className="flex justify-between bg-white px-6 py-2 rounded-md overflow-hidden cursor-pointer shadow-lg">
                 <div className="flex flex-col justify-center">
                     <i className={`${icon} text-3xl text-main`} />
                 </div>
