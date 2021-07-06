@@ -25,7 +25,7 @@ const SkillsAccordian = ({item: {title, meta, data, icon, id,}, last ,  activeAc
                     <span className="text-gray-600">{meta}&nbsp;</span>
                 </div>
                 <div className="flex flex-col justify-center">
-                <i className="fas fa-caret-down text-xl text-main" />
+                    <i className={`fas fa-caret-down text-xl text-main transition-transform duration-300 delay-100 desktop-st:hidden desktop-st:transition-none desktop-st:rotate-0 ${activeAccordian === id ? "rotate-180" : "rotate-0"}`} />
                 </div>
             </div>
             <div className={`space-y-6 bg-white px-4 py-6 shadow-md rounded-md accordian-content overflow-hidden`}>

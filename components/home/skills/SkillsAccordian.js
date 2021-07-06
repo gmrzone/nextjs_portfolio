@@ -94,6 +94,7 @@ const SkillAccordian = () => {
         {
             id: 3,
             title: "Others",
+            meta: "More Then 1.5 years",
             icon: "fas fa-toolbox",
             data: [
                 {
