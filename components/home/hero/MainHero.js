@@ -16,8 +16,7 @@ const MainHero = () => {
             <div className="container h-full flex flex-col justify-center sm:flex-row">
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
                     <div className="space-y-3">
-                        <h1 className="text-white 2xl:text-6xl">Hi,</h1>
-                        <h1 className="text-white 2xl:text-6xl tracking-widest">I&apos;am <span className="text-action">AFzal</span></h1>
+                        <h1 className="text-white 2xl:text-6xl tracking-widest">Hi, I&apos;am <span className="text-action">AFzal</span></h1>
                         <span className="text-gray-200 text-2xl font-semibold m-0">FullStack Developer</span>
                     </div>
                     <div className="space-x-4">

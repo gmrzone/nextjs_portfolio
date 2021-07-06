@@ -5,6 +5,7 @@ const SkillAccordian = () => {
         {
             title: "Frontend",
             meta: "More Then 2 years",
+            icon: "fad fa-code",
             data: [
                 {
                     name: "HTML",
@@ -57,6 +58,7 @@ const SkillAccordian = () => {
         {
             title: "Backend",
             meta: "More Then 2.5 years",
+            icon: "fas fa-server",
             data: [
                 {
                     name: "Python",
@@ -88,6 +90,7 @@ const SkillAccordian = () => {
         },
         {
             title: "Others",
+            icon: "fas fa-toolbox",
             data: [
                 {
                     name: "Git CLI",
@@ -118,12 +121,12 @@ const SkillAccordian = () => {
             ]
         }
     ]
-    const renderItems = skillsData.map((x, i) => {
-        return <SkillAccordianItem key={i} title={x.title} meta={x.meta} data={x.data}/>
+    const renderItems = skillsData.map((x, i, a) => {
+        return <SkillAccordianItem key={i} title={x.title} meta={x.meta} data={x.data} icon={x.icon} last={a.length === i + 1}/>
     })
     console.log(skillsData)
     return (
-        <div>
+        <div className="flex justify-center flex-col gap-y-10 flex-wrap mt-6 desktop-st:flex-row desktop-st:gap-x-5 xl:gap-x-10 xl:flex-nowrap">
             {renderItems}
         </div>
     )
