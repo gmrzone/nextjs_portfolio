@@ -2,6 +2,7 @@ import NavBarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
 import { useState, useRef } from "react";
 import ThemeSwitcher from '../ThemeSwitcher'
+import BlurBackDrop from "./BlurBackDrop";
 const Navbar = () => {
     const [mobileNanActive, setMobileNavActive] = useState(false);
     const mobileNav = useRef();
@@ -73,9 +74,7 @@ const Navbar = () => {
                 <span className="bg-gray-800 h-1 w-10 rounded-sm"></span>
             </div>
             {/* backdrop */}
-            <div
-                className="fixed top-0 right-0 w-screen h-screen bg-gray-600 backdrop-filter backdrop-blur-sm bg-opacity-0 backdrop-opacity-0 hidden desktop-st:hidden transition-all duration-500 z-50"
-                ref={backdrop}></div>
+            <BlurBackDrop backdrop={backdrop} close={closeMobileNav}/>
             {/* Nav */}
             <ul
                 className="hidden fixed right-0 translate-x-full transition-transform duration-500 top-0 h-full w-full max-w-full flex-col bg-white text-black shadow-mobile-nav sm:max-w-sm desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0 z-50"
