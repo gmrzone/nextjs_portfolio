@@ -1,6 +1,7 @@
 import MainLayout from "../components/common/MainLayout";
 import Head from "../components/common/Head";
 import MainHero from '../components/home/hero/MainHero'
+import SkillSection from '../components/home/skills'
 export default function Home() {
     return (
         <MainLayout>
@@ -13,6 +14,7 @@ export default function Home() {
                 />
                 <>
                     <MainHero />
+                    <SkillSection />
                 </>
             </>
         </MainLayout>

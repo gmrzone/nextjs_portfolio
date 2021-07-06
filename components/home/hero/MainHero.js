@@ -25,9 +25,9 @@ const MainHero = () => {
                         <ButtonLink text="Get CV" href="#" download/>
                     </div>
                     <div className=" space-x-4 text-4xl">
-                        <a href=""><i className="fab fa-github text-sec cursor-pointer transition-all duration-300" onMouseOver={socialMouseOver} onMouseOut={socialMouseOut}/></a>
-                        <a href=""><i className="fab fa-linkedin text-sec cursor-pointer transition-all duration-300" onMouseOver={socialMouseOver} onMouseOut={socialMouseOut}/></a>
-                        <a href=""><i className="fab fa-instagram text-sec cursor-pointer transition-all duration-300" onMouseOver={socialMouseOver} onMouseOut={socialMouseOut}/></a>
+                        <a href="https://github.com/gmrzone" target="_blank" rel="noreferrer"><i className="fab fa-github text-sec cursor-pointer transition-all duration-300" onMouseOver={socialMouseOver} onMouseOut={socialMouseOut}/></a>
+                        <a href="https://www.instagram.com/afzal__saiyed/" target="_blank" rel="noreferrer"><i className="fab fa-instagram text-sec cursor-pointer transition-all duration-300" onMouseOver={socialMouseOver} onMouseOut={socialMouseOut}/></a>
+                        <a href="" target="_blank" rel="noreferrer"><i className="fab fa-linkedin text-sec cursor-pointer transition-all duration-300" onMouseOver={socialMouseOver} onMouseOut={socialMouseOut}/></a>
                     </div>
                 </div>
                 <div className="w-10/12 absolute order-1 flex flex-col justify-center right-0 left-0 mr-auto ml-auto mb-10 opacity-10 sm:opacity-20 sm:static sm:w-2/5 sm:order-2 sm:mb-0">
