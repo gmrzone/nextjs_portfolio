@@ -4,6 +4,8 @@ const DesktopFullSkillModalItem = ({ active, close }) => {
     const backdrop = useRef()
 
     const transitionIn = () => {
+        backdrop.current.classList.remove("backdrop-opacity-0");
+        backdrop.current.classList.remove("bg-opacity-0");
         backdrop.current.classList.add("bg-opacity-30");
         backdrop.current.classList.add("backdrop-opacity-100");
     }
@@ -19,6 +21,8 @@ const DesktopFullSkillModalItem = ({ active, close }) => {
         else{
             backdrop.current.classList.remove("bg-opacity-30");
             backdrop.current.classList.remove("backdrop-opacity-100");
+            backdrop.current.classList.add("backdrop-opacity-0");
+            backdrop.current.classList.add("bg-opacity-0");
             setTimeout(transitionOut, 500)
 
         }
