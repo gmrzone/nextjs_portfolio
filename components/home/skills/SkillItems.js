@@ -4,7 +4,7 @@ const RenderItems = ({ data, activeAccordian, id, forceFull = false }) => {
         return <SkillItem item={x} key={i} />;
     });
     return (
-        <div className={`space-y-6 bg-white px-4 mb-8 py-6 shadow-md rounded-md accordian-content overflow-hidden h-auto`}>
+        <div className={`space-y-6 bg-white px-4 mb-8 py-6 rounded-md accordian-content overflow-hidden h-auto ${forceFull ? "shadow-none" : "shadow-md"}`}>
             {renderData}
             <style jsx>{`
                 @media (max-width: 992px) {

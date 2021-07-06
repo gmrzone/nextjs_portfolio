@@ -77,7 +77,7 @@ const Navbar = () => {
             <BlurBackDrop backdrop={backdrop} close={closeMobileNav} zIndex="35" />
             {/* Nav */}
             <ul
-                className="hidden fixed right-0 translate-x-full transition-transform duration-500 top-0 h-full w-full max-w-full flex-col bg-white text-black shadow-mobile-nav sm:max-w-sm desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0 z-40"
+                className="hidden fixed right-0 translate-x-full transition-transform duration-500 top-0 h-full w-full max-w-full flex-col bg-white text-black shadow-mobile-nav sm:max-w-sm z-40 desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0 desktop-st:z-0"
                 ref={mobileNav}>
                 <div className="flex flex-row align-middle justify-items-start py-3 px-4 text-gray-800 border-b border-gray-200 sm:px-6 desktop-st:hidden">
                     <i className="far fa-times text-2xl cursor-pointer" onClick={closeMobileNav} />
