@@ -15,6 +15,7 @@ export default function Home() {
                 <>
                     <MainHero />
                     <SkillSection />
+                    <h1>Afzal</h1>
                 </>
             </>
         </MainLayout>

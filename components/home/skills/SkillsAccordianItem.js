@@ -1,18 +1,7 @@
+import SkillItem from './skillItem'
 const SkillsAccordian = ({item: {title, meta, data, icon, id,}, last ,  activeAccordian , activateAccordian}) => {
     const renderData = data.map((x, i) => {
-        return (
-            <div key={i} className="space-y-2">
-                <div className="flex flex-row justify-between">
-                    <div className="font-semibold text-gray-600">{x.name}</div>
-                    <span className="text-gray-600">{x.skill}%</span>
-                </div>
-                <div className="relative">
-                    <div className="w-full h-2 bg-sec-lg rounded-full">
-                        <div className="h-full bg-sec rounded-l-full" style={{width: `${x.skill}%`}}></div>
-                    </div>
-                </div>
-            </div>
-        )
+        return <SkillItem item={x} key={i}/>
     })
     return (
         <div className={`w-full max-w-full desktop-st:max-w-md space-y-2 accordian-item`} onClick={() => activateAccordian(id)}>  
@@ -28,8 +17,11 @@ const SkillsAccordian = ({item: {title, meta, data, icon, id,}, last ,  activeAc
                     <i className={`fas fa-caret-down text-xl text-main transition-transform duration-300 delay-100 desktop-st:hidden desktop-st:transition-none desktop-st:rotate-0 ${activeAccordian === id ? "rotate-180" : "rotate-0"}`} />
                 </div>
             </div>
-            <div className={`space-y-6 bg-white px-4 py-6 shadow-md rounded-md accordian-content overflow-hidden`}>
+            <div className={`space-y-6 bg-white px-4 mb-8 py-6 shadow-md rounded-md accordian-content overflow-hidden h-auto`}>
                 {renderData}
+            </div>
+            <div className="bg-sec text-white px-3 font-bold mb-8 py-3 text-center shadow-md rounded-md hidden cursor-pointer transition-colors duration-300 hover:bg-main desktop-st:block">
+                View All
             </div>
             <style jsx>{`
                 @media only screen and (min-width: 992px) and (max-width: 1280px) {
@@ -44,6 +36,11 @@ const SkillsAccordian = ({item: {title, meta, data, icon, id,}, last ,  activeAc
                         transition: max-height 0.4s ease-in-out, padding 0.35s 0.07s ease-in-out;
                         padding: ${activeAccordian === id ? "" : "0px"};
                         
+                    }
+                }
+                @media (min-width: 993px) {
+                    .accordian-content {
+                       height: 285px;
                     }
                 }
             `}</style>
