@@ -39,6 +39,9 @@ module.exports = {
                 sec: "rgb(57, 162, 219)",
                 "sec-lg": "rgb(162, 219, 250)",
                 "bg-sec": "rgb(232, 240, 242)",
+                "action": "#ff4747",
+                "action-hover": "#ff6666"
+
             },
             boxShadow: {
                 "mobile-nav": "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",

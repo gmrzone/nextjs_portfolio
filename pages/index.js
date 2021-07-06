@@ -1,6 +1,6 @@
 import MainLayout from "../components/common/MainLayout";
 import Head from "../components/common/Head";
-import MainHero from '../components/home/MainHero'
+import MainHero from '../components/home/hero/MainHero'
 export default function Home() {
     return (
         <MainLayout>
