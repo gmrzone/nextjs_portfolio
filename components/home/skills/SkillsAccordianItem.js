@@ -28,13 +28,22 @@ const SkillsAccordian = ({item: {title, meta, data, icon, id,}, last ,  activeAc
                 <i className="fas fa-caret-down text-xl text-main" />
                 </div>
             </div>
-            <div className={`space-y-6 bg-white px-4 py-6 shadow-md rounded-md ${activeAccordian && activeAccordian === id ? "block" : "hidden"}`}>
+            <div className={`space-y-6 bg-white px-4 py-6 shadow-md rounded-md accordian-content overflow-hidden`}>
                 {renderData}
             </div>
             <style jsx>{`
-            @media only screen and (min-width: 992px) and (max-width: 1280px) {
+                @media only screen and (min-width: 992px) and (max-width: 1280px) {
                     .accordian-item {
                         display: ${last ? "none" : "block"}
+                    }
+                }
+                @media (max-width: 992px){
+                    .accordian-content {
+                        height: auto;
+                        max-height: ${activeAccordian === id ? "1000px" : "0px"};
+                        transition: max-height 0.4s ease-in-out, padding 0.35s 0.07s ease-in-out;
+                        padding: ${activeAccordian === id ? "" : "0px"};
+                        
                     }
                 }
             `}</style>
