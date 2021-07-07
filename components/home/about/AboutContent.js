@@ -15,3 +15,9 @@ const AboutContent = () => {
 }
 
 export default AboutContent
+
+/*
+ * Created on Wed Jul 07 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */

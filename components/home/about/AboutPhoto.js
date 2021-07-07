@@ -1,4 +1,5 @@
 import photo from '../../../public/placeholder.png';
+// import photo from '../../../public/1621831871271.jpeg';
 import Image from 'next/image'
 const AboutPhoto = () => {
     return (
@@ -11,3 +12,9 @@ const AboutPhoto = () => {
 }
 
 export default AboutPhoto
+
+/*
+ * Created on Wed Jul 07 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */

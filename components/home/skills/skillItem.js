@@ -34,3 +34,10 @@ const SkillItem = ({ item }) => {
 };
 
 export default SkillItem;
+
+
+/*
+ * Created on Wed Jul 07 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */

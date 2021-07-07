@@ -32,3 +32,10 @@ const MetaHead = ({ title, url, keywords, description }) => {
 };
 
 export default MetaHead;
+
+/*
+ * Created on Wed Jul 07 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */
+

@@ -62,7 +62,7 @@ const DesktopFullSkillModalItem = ({ active, close, title, data, id }) => {
             <div className="absolute z-50 hidden desktop-st:hidden modal-main w-auto rounded-sm opacity-0 transition-all duration-300" ref={modal}>
                 <div className="w-full flex flex-col justify-center desktop-skill-item-content bg-main p-12 space-y-8 relative -translate-y-full transition-all duration-500">
                     <div className="absolute top-0 left-0">
-                        <i className="far fa-times text-2xl cursor-pointer text-white transition-colors duration-300 hover:text-sec px-6 py-3" onClick={close}/>
+                        <i className="far fa-times text-2xl cursor-pointer text-white transition-colors duration-300 px-6 py-3" onClick={close}/>
                     </div>
                     <h2 className="text-white">{title}</h2>
                     <hr></hr>
