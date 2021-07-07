@@ -5,7 +5,7 @@ const About = () => {
     const aboutContentRef = useRef()
     useEffect(()=> {
          const options = {
-            rootMargin: '0px 0px -100px 0px',
+            rootMargin: '0px 0px -70px 0px',
          }
          const observer = new IntersectionObserver((entries, observer)=> {
               entries.forEach(x => {
