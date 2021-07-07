@@ -3,6 +3,7 @@ import Head from "../components/common/Head";
 import MainHero from "../components/home/hero/MainHero";
 import SkillSection from "../components/home/skills";
 import AboutSection from "../components/home/about";
+import ContactSection from '../components/home/contact'
 export default function Home() {
     return (
         <MainLayout>
@@ -17,6 +18,7 @@ export default function Home() {
                     <MainHero />
                     <SkillSection />
                     <AboutSection />
+                    <ContactSection />
                 </>
             </>
         </MainLayout>

@@ -36,7 +36,7 @@ module.exports = {
             },
             colors: {
                 main: "rgb(5, 55, 66)",
-                sec: "rgb(57, 162, 219)",
+                sec: "rgb(29, 161, 242)",
                 "sec-lg": "rgb(162, 219, 250)",
                 "bg-sec": "rgb(232, 240, 242)",
                 action: "#ff4747",
@@ -59,7 +59,9 @@ module.exports = {
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            textColor: ['group-focus']
+        },
     },
     plugins: [],
 };
