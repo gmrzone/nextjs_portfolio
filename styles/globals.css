@@ -5,6 +5,7 @@
 
 #__next {
     @apply h-full;
+    @apply overflow-x-hidden;
 }
 
 h1 {
