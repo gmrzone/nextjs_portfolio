@@ -8,7 +8,6 @@ const LoginFooter = () => {
                     target="_blank"
                     rel="noopener noreferrer">
                     <i className="fab fa-facebook-square text-3xl transition-transform duration-200 hover:scale-125" />
-                    
                 </a>
                 <a
                     href="#afzal"

@@ -38,4 +38,3 @@ export default MetaHead;
  *
  * Copyright (c) 2021 AFzal Saiyed
  */
-

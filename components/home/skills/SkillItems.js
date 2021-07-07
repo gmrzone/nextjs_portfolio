@@ -4,7 +4,10 @@ const RenderItems = ({ data, activeAccordian, id, forceFull = false }) => {
         return <SkillItem item={x} key={i} />;
     });
     return (
-        <div className={`space-y-6 bg-white px-4 mb-8 py-6 rounded-md accordian-content overflow-hidden h-auto ${forceFull ? "shadow-none" : "shadow-md"}`}>
+        <div
+            className={`space-y-6 bg-white px-4 mb-8 py-6 rounded-md accordian-content overflow-hidden h-auto ${
+                forceFull ? "shadow-none" : "shadow-md"
+            }`}>
             {renderData}
             <style jsx>{`
                 @media (max-width: 992px) {
@@ -27,10 +30,8 @@ const RenderItems = ({ data, activeAccordian, id, forceFull = false }) => {
 
 export default RenderItems;
 
-
 /*
  * Created on Wed Jul 07 2021
  *
  * Copyright (c) 2021 AFzal Saiyed
  */
-

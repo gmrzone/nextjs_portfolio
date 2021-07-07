@@ -23,7 +23,6 @@ const SkillsItemHeader = ({ icon, title, meta, activeAccordian, id, activateAcco
 
 export default SkillsItemHeader;
 
-
 /*
  * Created on Wed Jul 07 2021
  *
