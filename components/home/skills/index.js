@@ -1,7 +1,7 @@
 import SkillAccordian from "./SkillsAccordian";
 const Skills = () => {
     return (
-        <div className="mt-6">
+        <div className="mt-6 desktop-st:mt-12">
             <div className="container">
                 <h2 className="text-main text-center">Skills</h2>
                 <SkillAccordian />

@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang="en" className="h-full w-full">
+            <Html lang="en" className="h-full    w-full">
                 <Head>
                     <link
                         rel="stylesheet"
