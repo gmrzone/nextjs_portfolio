@@ -9,7 +9,7 @@ const DesktopFullSkillModalItem = ({ active, close, title, data, id }) => {
     const transitionIn = () => {
         backdrop.current.classList.remove("backdrop-opacity-0");
         backdrop.current.classList.remove("bg-opacity-0");
-        backdrop.current.classList.add("bg-opacity-30");
+        backdrop.current.classList.add("bg-opacity-50");
         backdrop.current.classList.add("backdrop-opacity-100");
 
         modal.current.classList.remove("opacity-0");
@@ -35,7 +35,7 @@ const DesktopFullSkillModalItem = ({ active, close, title, data, id }) => {
             modal.current.classList.add("desktop-st:flex");
             setTimeout(transitionIn, 25);
         } else {
-            backdrop.current.classList.remove("bg-opacity-30");
+            backdrop.current.classList.remove("bg-opacity-50");
             backdrop.current.classList.remove("backdrop-opacity-100");
             backdrop.current.classList.add("backdrop-opacity-0");
             backdrop.current.classList.add("bg-opacity-0");

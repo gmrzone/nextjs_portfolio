@@ -34,7 +34,7 @@ const Navbar = () => {
         mobileNav.current.classList.add("translate-x-0");
         backdrop.current.classList.remove("backdrop-opacity-0");
         backdrop.current.classList.remove("bg-opacity-0");
-        backdrop.current.classList.add("bg-opacity-30");
+        backdrop.current.classList.add("bg-opacity-50");
         backdrop.current.classList.add("backdrop-opacity-100");
     };
     const openMobileNav = () => {
@@ -55,7 +55,7 @@ const Navbar = () => {
         mobileNav.current.classList.add("translate-x-full");
         backdrop.current.classList.remove("backdrop-opacity-100");
         backdrop.current.classList.add("backdrop-opacity-0");
-        backdrop.current.classList.remove("bg-opacity-30");
+        backdrop.current.classList.remove("bg-opacity-50");
         backdrop.current.classList.add("bg-opacity-0");
         setTimeout(hideMobileNav, 500);
     };
