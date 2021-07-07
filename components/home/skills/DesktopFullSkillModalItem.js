@@ -14,6 +14,11 @@ const DesktopFullSkillModalItem = ({ active, close, title, data, id }) => {
 
         modal.current.classList.remove("opacity-0");
         modal.current.classList.add("opacity-100");
+
+        modal.current.children[0].classList.remove('-translate-y-full')
+        modal.current.children[0].classList.add('translate-y-0')
+        modal.current.children[1].classList.remove('translate-y-full')
+        modal.current.children[1].classList.add('translate-y-0')
     };
     const transitionOut = () => {
         backdrop.current.classList.add("desktop-st:hidden");
@@ -42,6 +47,11 @@ const DesktopFullSkillModalItem = ({ active, close, title, data, id }) => {
 
             modal.current.classList.remove("opacity-100");
             modal.current.classList.add("opacity-0");
+
+            modal.current.children[0].classList.remove('translate-y-0')
+            modal.current.children[0].classList.add('-translate-y-full')
+            modal.current.children[1].classList.remove('translate-y-0')
+            modal.current.children[1].classList.add('translate-y-full')
             setTimeout(transitionOut, 500);
         }
     }, [active]);
@@ -49,12 +59,16 @@ const DesktopFullSkillModalItem = ({ active, close, title, data, id }) => {
     return reactDom.createPortal(
         <div className="hidden fixed desktop-st:hidden w-screen h-screen z-40 justify-center items-center" ref={container}>
             <BlurBackDrop backdrop={backdrop} close={close} zIndex="40" />
-            <div className="absolute z-50 hidden desktop-st:hidden opacity-0 transition-all duration-500 modal-main w-auto rounded-sm overflow-hidden" ref={modal}>
-                <div className="w-full desktop-skill-item-content bg-main p-12">
+            <div className="absolute z-50 hidden desktop-st:hidden modal-main w-auto rounded-sm opacity-0 transition-all duration-300" ref={modal}>
+                <div className="w-full flex flex-col justify-center desktop-skill-item-content bg-main p-12 space-y-8 relative -translate-y-full transition-all duration-500">
+                    <div className="absolute top-0 left-0">
+                        <i className="far fa-times text-2xl cursor-pointer text-white transition-colors duration-300 hover:text-sec px-6 py-3" onClick={close}/>
+                    </div>
                     <h2 className="text-white">{title}</h2>
-                    <h2 className="text-white">Skills</h2>
+                    <hr></hr>
+                    <h2 className="text-white text-right">Skills</h2>
                 </div>
-                <div className="w-full bg-white max-w-md p-6">
+                <div className="w-full bg-white max-w-md p-6 relative translate-y-full transition-all duration-500">
                     <SkillItems data={data} id={id} forceFull={true}/>
                 </div>
             </div>
