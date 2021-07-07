@@ -1,4 +1,23 @@
+import {useEffect, useRef} from 'react'
 const SkillItem = ({ item }) => {
+    const progressBar = useRef()
+    useEffect(() => {
+      const options = {
+          rootMargin: "0px 0px 0px 0px"
+      }
+      const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(x => {
+              if (x.isIntersecting){
+                  console.log("AFzal")
+                  x.target.classList.remove('w-0')
+                  x.target.style.width = `${item.skill}%`;
+                  observer.unobserve(x.target)
+              }
+              
+          })
+      }, options)
+      observer.observe(progressBar.current)
+    }, [])
     return (
         <div className="space-y-2">
             <div className="flex flex-row justify-between">
@@ -6,8 +25,8 @@ const SkillItem = ({ item }) => {
                 <span className="text-gray-600">{item.skill}%</span>
             </div>
             <div className="relative">
-                <div className="w-full h-2 bg-sec-lg rounded-full">
-                    <div className="h-full bg-sec rounded-l-full" style={{ width: `${item.skill}%` }}></div>
+                <div className="w-full h-2 bg-sec-lg rounded-full overflow-hidden">
+                    <div className="h-full bg-sec w-0 transition-all duration-500"ref={progressBar}></div>
                 </div>
             </div>
         </div>

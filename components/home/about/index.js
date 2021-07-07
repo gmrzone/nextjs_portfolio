@@ -10,8 +10,6 @@ const About = () => {
          const observer = new IntersectionObserver((entries, observer)=> {
               entries.forEach(x => {
                   if (x.isIntersecting){
-                      console.log(x.target)
-                      console.log(x.target.dataset.name)
                       if (x.target.dataset.name === "photo"){
                           x.target.classList.remove('-translate-x-full')
                           x.target.classList.remove('opacity-0')
@@ -24,6 +22,7 @@ const About = () => {
                           x.target.classList.add('translate-x-0')
                           x.target.classList.add('opacity-100')
                       }
+                      observer.unobserve(x.target)
                   }
 
               })
