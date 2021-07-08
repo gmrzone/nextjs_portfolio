@@ -1,4 +1,4 @@
-const contact = (req, res) => {
+const contact = async (req, res) => {
     let nodemailer = require('nodemailer')
     const transporter = nodemailer.createTransport({
         port: 587,
@@ -25,12 +25,12 @@ const contact = (req, res) => {
         if (err){
             
             res.json({status: "error", message: "Something is wrong with the server please try again later"})
-            res.status(200)
+            res.status(200).end()
         }
         else{
             
             res.json({status: 'ok', message:`Hello ${req.body.name}, Your message was send sucessfully.`})
-            res.status(401)
+            res.status(401).end()
         }
     })
     

@@ -19,15 +19,7 @@ const ContactForm = () => {
              body: JSON.stringify(inputValues)
          })
          .then(response => {
-             if (response.status === 200){
-
-                return response.json()
-             }
-             else{
-                 setFormStats({status: "error", message: "Something is wrong with the Server. Please try again later."})
-             }
-             
-             
+            return response.json()
          })
          .then(data => {
              console.log(data)
