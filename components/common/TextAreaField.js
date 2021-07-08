@@ -1,4 +1,4 @@
-import style from '../../styles/textarea.module.scss';
+import style from '../../styles/customInput.module.scss';
 import {useRef} from  "react";
 const TextAreaField = ({name, ...attrs}) => {
     const inputRef = useRef()
@@ -11,7 +11,7 @@ const TextAreaField = ({name, ...attrs}) => {
         }
     }
     return (
-        <div className={style['main-container']}>
+        <div className={style['main-container'] + " " + style['textarea']}>
             <label className={style['custom-input']} ref={inputRef}>
                 <textArea {...attrs} className={style['main-input']} onBlur={handleBlur}/>
                 <span className={style['custom-input__placeholder']}>{name}</span>

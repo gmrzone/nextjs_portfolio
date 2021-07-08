@@ -20,6 +20,23 @@
     --input-transition-out-bottom-delay: 0.1s;
     --input-transition-out-left-delay: 0s;
 }
+.textarea {
+
+    --input-transition-width-duration: 0.2s;
+    --input-transition-height-duration: 0.1s;
+
+    --input-transition-in-top-delay: 0s;
+    --input-transition-in-right-delay: 0.2s;
+    --input-transition-in-bottom-delay: 0.3s;
+    --input-transition-in-left-delay: 0.5s;
+
+    --input-transition-out-top-delay: 0.5s;
+    --input-transition-out-right-delay: 0.3s;
+    --input-transition-out-bottom-delay: 0.1s;
+    --input-transition-out-left-delay: 0s;
+}
+
+
 #__next {
     @apply h-full;
     @apply overflow-x-hidden;

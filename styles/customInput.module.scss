@@ -1,0 +1,103 @@
+.main-container {
+    width: 100%;   
+    padding: 25px 0px 0px 0px;
+    overflow: hidden;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+
+
+    .custom-input {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+
+    }
+    .main-input {
+        width: 100%;
+        height: 100%;
+        background-color: white;    
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 16px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        outline: none;
+        font-family: Poppins;
+        border: 1px solid rgba($color: #000000, $alpha: 0.2);
+
+        &:focus + .custom-input__placeholder {
+            transform: translate(-14px, -40px);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-main);
+        }
+        &:focus ~ .custom-border::before {
+            transition: transform var(--input-transition-width-duration) var(--input-transition-in-top-delay) linear, height var(--input-transition-height-duration) var(--input-transition-in-right-delay) linear;
+            transform: translateX(0%);
+            height: 100%;
+        }
+        &:focus ~ .custom-border::after {
+            transition: transform var(--input-transition-width-duration) var(--input-transition-in-bottom-delay) linear, height var(--input-transition-height-duration) var(--input-transition-in-left-delay) linear;
+            transform: translateX(0%);
+            height: 100%;
+        }
+
+    }
+    .custom-input__placeholder {
+        position: absolute;
+        left: 14px;
+        top: 14px;
+        font-size: 18px;
+        font-family: Poppins;
+        transform: translate(0, 0);
+        transition: 0.4s transform ease-in-out, color 0.4s ease-in-out, font-size 0.4s linear;
+        font-weight: 400;
+        color: rgba(87, 87, 87, 0.945);
+        text-transform: uppercase;  
+        padding: 0 5px;
+    }
+    .custom-border {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 4px;
+
+
+    }
+    .custom-border::before {
+        content: "";
+        position: absolute;
+        border-radius: 4px;
+        top: 0;
+        right: 0;
+        border-top: 2px solid var(--color-sec);
+        border-right: 2px solid var(--color-sec);
+        width: 100%;
+        transform: translateX(-100%);
+        height: 0%;
+        transition: height var(--input-transition-height-duration) var( --input-transition-out-right-delay) linear, transform var(--input-transition-width-duration) var( --input-transition-out-top-delay) linear;
+    }
+    .custom-border::after {
+        content: "";
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        border-bottom: 2px solid var(--color-sec);
+        border-left: 2px solid var(--color-sec);
+        transform: translateX(100%);
+        width: 100%;
+        height: 0%;
+        transition: height var(--input-transition-height-duration) var( --input-transition-out-left-delay) linear, transform var(--input-transition-width-duration) var( --input-transition-out-bottom-delay) linear;
+    }
+    
+    
+    &.textarea {
+        height: 275px;
+    }
+
+
+}

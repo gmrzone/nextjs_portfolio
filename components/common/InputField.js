@@ -1,4 +1,4 @@
-import style from '../../styles/input.module.scss';
+import style from '../../styles/customInput.module.scss';
 import {useRef} from  "react";
 const InputField = ({name, ...attrs}) => {
     const inputRef = useRef()
@@ -11,7 +11,7 @@ const InputField = ({name, ...attrs}) => {
         }
     }
     return (
-        <div className={style['main-container']}>
+        <div className={style['main-container']+ " " + style['input']}>
             <label className={style['custom-input']} ref={inputRef}>
                 <input {...attrs} className={style['main-input']} onBlur={handleBlur}/>
                 <span className={style['custom-input__placeholder']}>{name}</span>
