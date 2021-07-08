@@ -1,6 +1,6 @@
 const ContactContent = () => {
     return (
-        <div className="w-full space-y-8 mt-6 p-6 desktop-st:w-1/2 desktop-st:text-left desktop-st:mt-12">
+        <div className="w-full space-y-8 desktop-st:pt-6 desktop-st:w-1/2 desktop-st:text-left">
             <div>
                 <div className="flex flex-nowrap space-x-6 items-center">
                     <i className="fal fa-phone-alt text-4xl text-sec" />

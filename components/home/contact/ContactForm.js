@@ -3,7 +3,7 @@ import TextAreaField from '../../common/TextAreaField';
 import CustomButton from '../../common/CustomButton'
 const ContactForm = () => {
     return (
-        <form className="space-y-6 w-full desktop-st:w-1/2 mt-6">
+        <form className="space-y-6 w-full desktop-st:w-1/2">
             <div className="space-y-2">
                 <InputField type="text" name="name"/>
                 <InputField type="email" name="Email"/>

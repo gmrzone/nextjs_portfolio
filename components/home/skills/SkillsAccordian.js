@@ -24,7 +24,7 @@ const SkillAccordian = () => {
         );
     });
     return (
-        <div className="flex justify-center flex-col gap-y-2 flex-wrap mt-6 desktop-st:flex-row desktop-st:gap-x-5 xl:gap-x-10 xl:flex-nowrap">
+        <div className="flex justify-center flex-col gap-y-2 flex-wrap desktop-st:flex-row desktop-st:gap-x-5 xl:gap-x-10 xl:flex-nowrap">
             {renderItems}
         </div>
     );
