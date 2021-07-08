@@ -17,17 +17,20 @@ const contact = (req, res) => {
         from: process.env['EMAIL'],
         to: process.env['TO_EMAIL'],
         subject: `Message From ${req.body.name}`,
-        text: req.body.message,
+        text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nMessage: ${req.body.message}`,
+        
        
        }
     transporter.sendMail(mailData, function(err, success){
         if (err){
             
-            res.json({status: "Error", message: "Something is wrong with the server please try again later"})
+            res.json({status: "error", message: "Something is wrong with the server please try again later"})
+            res.status(200)
         }
         else{
             
-            res.json({status: `Hello ${req.body.name}, Your message was send sucessfully.`})
+            res.json({status: 'ok', message:`Hello ${req.body.name}, Your message was send sucessfully.`})
+            res.status(401)
         }
     })
     
