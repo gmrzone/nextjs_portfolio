@@ -9,7 +9,10 @@ const contact = (req,res) => {
         from: process.env['EMAIL'], // Use the email address or domain you verified above
         subject: `Message by ${req.body.name}`,
         text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nMessage: ${req.body.message}`,
-        html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+        html: `<strong>Name: ${req.body.name}</strong> <br>
+               <strong>Email: ${req.body.email}</strong> <br>
+               <strong>Message: ${req.body.message}</strong><br>`,
+               
       };
       mail.send(msg)
       .then(() => {
