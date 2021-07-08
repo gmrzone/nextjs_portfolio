@@ -6,7 +6,7 @@ import {useState} from 'react'
 const ContactForm = () => {
     const {inputValues, handleChange, resetForm} = useForm({name:"", email: "", message:""})
     const [loading, setLoading] = useState(false)
-    const [formStats, setFormStats] = useState({status: "error", message: "Successfully send Message"})
+    const [formStats, setFormStats] = useState({status: null, message: null})
     const handleSubmit = (e) => {
          e.preventDefault()
          setLoading(true)
