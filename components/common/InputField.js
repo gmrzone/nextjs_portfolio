@@ -14,7 +14,7 @@ const InputField = ({label, value, ...attrs}) => {
     return (
         <div className={style['main-container']+ " " + style['input']}>
             <label className={style['custom-input']} ref={inputRef}>
-                <input {...attrs} className={style['main-input']} value={value} />
+                <input {...attrs} className={style['main-input']} value={value} autoCorrect="off" spellCheck="false" autoComplete="off"/>
                 <span className={style['custom-input__placeholder']}>{label}</span>
                 <span className={style['custom-border']}></span>
             </label>
