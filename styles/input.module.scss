@@ -58,7 +58,7 @@
             border-top: 2px solid var(--color-sec);
             border-right: 2px solid var(--color-sec);
             transform: translateX(-110%);
-            transition: transform var(--input-transition-width-duration) 0.4s linear, height var(--input-transition-height-duration) 0.3s linear;
+            transition: transform var(--input-transition-width-duration) var(--input-transition-out-top-delay) linear, height var(--input-transition-height-duration) var(--input-transition-out-right-delay) linear;
             
             
            
@@ -75,7 +75,7 @@
             border-bottom: 2px solid var(--color-sec);
             border-left: 2px solid var(--color-sec);
             transform: translateX(110%);
-            transition: transform var(--input-transition-width-duration) 0.1s linear, height var(--input-transition-height-duration) linear;
+            transition: transform var(--input-transition-width-duration) var(--input-transition-out-bottom-delay) linear, height var(--input-transition-height-duration) var(--input-transition-out-left-delay) linear;
             
            
            
@@ -89,7 +89,7 @@
             
         }
         .main-input:focus ~ .custom-border::before {
-            transition: transform var(--input-transition-width-duration) linear, height var(--input-transition-height-duration) 0.1s linear;
+            transition: transform var(--input-transition-width-duration) var(--input-transition-in-top-delay) linear, height var(--input-transition-height-duration) var(--input-transition-in-right-delay) linear;
             transform: translateX(0%);
             height: 100%;
             
@@ -97,13 +97,13 @@
         .main-input:focus ~ .custom-border::after {
             transform: translateX(0%);
             height: 100%;
-            transition: transform var(--input-transition-width-duration) 0.2s linear, height var(--input-transition-height-duration) 0.3s linear;    
+            transition: transform var(--input-transition-width-duration) var(--input-transition-in-bottom-delay) linear, height var(--input-transition-height-duration) var(--input-transition-in-left-delay) linear;    
         }
 
         &.not-empty {
             .custom-input__placeholder {
                 transform: translate(-14px, -35px);
-                color: rgb(5, 55, 66);
+                color: var(--color-main);
                 font-size: 14px;
                 font-weight: 600;
             }
@@ -117,6 +117,7 @@
             
                 height: 100%;
                 transform: translateX(0);
+
                
             }
         }
