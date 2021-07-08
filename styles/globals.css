@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+    --color-sec: rgb(57, 162, 219);
+    --input-transition-width-duration: 0.1s;
+    --input-transition-height-duration: 0.1s;
+}
 #__next {
     @apply h-full;
     @apply overflow-x-hidden;

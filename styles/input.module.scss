@@ -1,6 +1,6 @@
 .main-container {
     width: 400px;
-    padding: 25px 0px 0px 0 px;
+    padding: 25px 0px 0px 0px;
     overflow: hidden;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
@@ -34,7 +34,7 @@
             transform: translate(0, 0);
             font-weight: 400;
             color: rgba(87, 87, 87, 0.945);
-            transition: 0.2s transform ease-in-out, color 0.4s ease-in-out, font-size 0.2s ease, font-w;
+            transition: 0.4s transform ease-in-out, color 0.4s ease-in-out, font-size 0.4s ease, font-w;
             text-transform: uppercase;  
             padding: 0 5px;
         }
@@ -55,10 +55,10 @@
             top: 0;
             right: 0;
             border-radius: 4px;
-            border-top: 2px solid rgb(57, 162, 219);
-            border-right: 2px solid rgb(57, 162, 219);
+            border-top: 2px solid var(--color-sec);
+            border-right: 2px solid var(--color-sec);
             transform: translateX(-110%);
-            transition: transform 0.1s 0.4s linear, height 0.1s 0.3s linear;
+            transition: transform var(--input-transition-width-duration) 0.4s linear, height var(--input-transition-height-duration) 0.3s linear;
             
             
            
@@ -72,10 +72,10 @@
             bottom: 0;
             left: 0;
             border-radius: 4px;
-            border-bottom: 2px solid rgb(57, 162, 219);
-            border-left: 2px solid rgb(57, 162, 219);
+            border-bottom: 2px solid var(--color-sec);
+            border-left: 2px solid var(--color-sec);
             transform: translateX(110%);
-            transition: transform 0.1s 0.1s linear, height 0.1s linear;
+            transition: transform var(--input-transition-width-duration) 0.1s linear, height var(--input-transition-height-duration) linear;
             
            
            
@@ -89,7 +89,7 @@
             
         }
         .main-input:focus ~ .custom-border::before {
-            transition: transform 0.1s linear, height 0.1s 0.1s linear;
+            transition: transform var(--input-transition-width-duration) linear, height var(--input-transition-height-duration) 0.1s linear;
             transform: translateX(0%);
             height: 100%;
             
@@ -97,7 +97,7 @@
         .main-input:focus ~ .custom-border::after {
             transform: translateX(0%);
             height: 100%;
-            transition: transform 0.1s 0.2s linear, height 0.1s 0.3s linear;    
+            transition: transform var(--input-transition-width-duration) 0.2s linear, height var(--input-transition-height-duration) 0.3s linear;    
         }
     }
 
