@@ -1,12 +1,11 @@
 const contact = async (req, res) => {
     let nodemailer = require('nodemailer')
     const transporter = nodemailer.createTransport({
-        port: 587,
-        // host: "smtp.gmail.com",
-        service: "gmail",
+        port: 465,
+        host: "smtp.gmail.com",
         auth: {
-        user: "saiyedafzal0@gmail.com",
-        pass: "27021992samgalnote4",
+        user: process.env['EMAIL'],
+        pass: process.env['PASSWORD'],
         },
         tls: {
             rejectUnauthorized: false
@@ -14,8 +13,8 @@ const contact = async (req, res) => {
         // secure: true,
     });
     const mailData = {
-        from: "saiyedafzal0@gmail.com",
-        to: "saiyedafzalgz@gmail.com",
+        from: process.env['EMAIL'],
+        to: process.env['TO_EMAIL'],
         subject: `Message From ${req.body.name}`,
         text: `Name: ${req.body.name}\nEmail: ${req.body.email}\nMessage: ${req.body.message}`,
         
@@ -24,18 +23,18 @@ const contact = async (req, res) => {
     transporter.sendMail(mailData, function(err, success){
         if (err){
             
-            res.json({status: "error", message: "Something is wrong with the server please try again later"})
-            res.status(200).end()
-            res.send()
+            res.status(401).json({status: "error", message: "Something is wrong with the server please try again later"})
         }
         else{
-            
-            res.json({status: 'ok', message:`Hello ${req.body.name}, Your message was send sucessfully.`})
-            res.status(401).end()
-            res.send()
+            res.status(200).json({status: 'ok', message:`Hello ${req.body.name}, Your message was send sucessfully.`})
         }
     })
     
 }
 
 export default contact
+
+
+// 149786971691-ktm4609tqajv66ntbfqnjj5trp5ec42u.apps.googleusercontent.com
+
+// rgLaWQa-bKCooMgTFcXlwHnG
