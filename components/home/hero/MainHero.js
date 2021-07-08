@@ -15,11 +15,11 @@ const MainHero = () => {
         <div className="w-full bg-main h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative">
             <div className="container h-full flex flex-col justify-center sm:flex-row">
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
-                    <div className="space-y-3">
-                        <h1 className="text-white 2xl:text-6xl tracking-widest">
+                    <div className="">
+                        <h1 className="text-white 2xl:text-6xl tracking-widest mb-2 desktop-st:mb-4">
                             Hi, I&apos;am <span className="text-action">AFzal</span>
                         </h1>
-                        <span className="text-gray-200 text-2xl font-semibold m-0">FullStack Developer</span>
+                        <span className="text-gray-200 text-xl desktop-st:text-2xl font-semibold m-0">FullStack Developer</span>
                     </div>
                     <div className="space-x-4">
                         <ButtonLink text="Hire Me" href="#" download action={true} />

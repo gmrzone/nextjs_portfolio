@@ -8,7 +8,6 @@ const SkillItem = ({ item }) => {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach((x) => {
                 if (x.isIntersecting) {
-                    console.log("AFzal");
                     x.target.classList.remove("w-0");
                     x.target.style.width = `${item.skill}%`;
                     observer.unobserve(x.target);
@@ -16,7 +15,7 @@ const SkillItem = ({ item }) => {
             });
         }, options);
         observer.observe(progressBar.current);
-    }, []);
+    }, [item]);
     return (
         <div className="space-y-2">
             <div className="flex flex-row justify-between">
