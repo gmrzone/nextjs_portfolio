@@ -11,6 +11,7 @@
         "check": "prettier --check ."
     },
     "dependencies": {
+        "@sendgrid/mail": "^6.5.5",
         "next": "11.0.1",
         "nodemailer": "^6.6.2",
         "nodemailer-sendgrid": "^1.0.3",
