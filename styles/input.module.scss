@@ -60,9 +60,6 @@
             transform: translateX(-110%);
             transition: transform var(--input-transition-width-duration) var(--input-transition-out-top-delay) linear, height var(--input-transition-height-duration) var(--input-transition-out-right-delay) linear;
             
-            
-           
-            
         }
         .custom-border::after {
             content: "";
@@ -121,7 +118,12 @@
                
             }
         }
+
     }
 
 }
+
+
+
+// TextArea
 
