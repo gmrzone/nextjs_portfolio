@@ -12,6 +12,22 @@
         height: 100%;
         display: block;
 
+        &.not-empty {
+            .custom-input__placeholder {
+                transform: translate(-14px, -40px);
+                font-size: 14px;
+                font-weight: 600;
+            }
+            .custom-border::after {
+                transform: translateX(0%);
+                height: 100%;
+            }
+            .custom-border::before {
+                transform: translateX(0%);
+                height: 100%;
+            }   
+        }
+
     }
     .main-input {
         width: 100%;
@@ -58,6 +74,7 @@
         color: rgba(87, 87, 87, 0.945);
         text-transform: uppercase;  
         padding: 0 5px;
+        
     }
     .custom-border {
         position: absolute;
@@ -99,6 +116,5 @@
     &.textarea {
         height: 275px;
     }
-
 
 }
