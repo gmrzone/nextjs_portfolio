@@ -62,7 +62,6 @@ module.exports = {
     },
     variants: {
         extend: {
-            textColor: ["group-focus"],
         },
     },
     plugins: [],
