@@ -1,5 +1,7 @@
 import { reviewData } from '../data';
 import SliderItems from './SliderItem';
+import style from '../../../styles/reviewSlider.module.scss';
+
 const TestimonialSlider = () => {
     const renderReviewData = reviewData.map(x => {
         return (
@@ -7,10 +9,20 @@ const TestimonialSlider = () => {
         )
     })
     return (
-        <div className="w-full relative overflow-hidden pb-12">
-            <div className="flex space-x-5 overflow-hidden" style={{width: "600%"}}>
+        <div className={style['outer-container']}>
+            <div className={style['inner-container'] + " inner-container"}>
                 {renderReviewData}
             </div>
+            <style jsx>{`
+                .inner-container {
+                    width: 100%;
+                }
+                @media (min-width: 767px){
+                    .inner-container {
+                        width: calc(var(--slider-item-width) * ${renderReviewData.length} + 160px);
+                    }
+                }
+            `}</style>
         </div>
     )
 }

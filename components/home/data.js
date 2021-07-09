@@ -167,9 +167,7 @@ export const reviewData = [
         name: "@briankraminit",
         review: "I had a great experience working with Afzal, he was responsive and met all of his deadlines. He understood what I was asking of him and delivered, I would recommend and plan to use again.",
         star: 5,
-    },
-
-    
+    }
 ]
 /*
  * Created on Wed Jul 07 2021
