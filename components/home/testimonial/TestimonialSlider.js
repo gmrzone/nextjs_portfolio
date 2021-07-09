@@ -26,11 +26,11 @@ const TestimonialSlider = () => {
     }
     const handleTouchEnd = (e) => {
         currentTransPosition1.current = currentTransPosition.current
-        // const transitionAmount = getComputedStyle(mainContainer.current).getPropertyValue('--slider-item-width')
+        const transitionAmount = getComputedStyle(mainContainer.current).getPropertyValue('--slider-item-width')
         if (!maxRightTransaction){
 
         }
-        maxRightTransaction = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.clientWidth)
+        
         if (currentTransPosition1.current > 0){
             mainContainer.current.style.transitionDuration = "0.3s"
             mainContainer.current.style.transform = "translate3d(0px, 0px, 0px)"
@@ -47,23 +47,28 @@ const TestimonialSlider = () => {
         // const transitionAmount = getComputedStyle(mainContainer.current).getPropertyValue('--slider-item-width')
         
         // if (currentTouchPosition){
+        //     let transitionMouseEnd;
         //     if (currentTouchPosition > startTouchPosition){
-
-        //         currentTransPosition = !currentTransPosition ? (0 - parseInt(transitionAmount)).toString().concat(transitionAmount.slice(-1)) : (parseInt(currentTransPosition) - parseInt(transitionAmount)).toString().concat(transitionAmount.slice(-1))
+        //         // mainContainer.current.style.transitionDuration = "0.3s";
+        //         // mainContainer.current.style.transform = `translateX(${transitionAmount})`
+        //         // console.log(transitionAmount)
         //     }
         //     else{
-
-        //         currentTransPosition = !currentTransPosition ? (0 + parseInt(transitionAmount)).toString().concat(transitionAmount.slice(-1)) : (parseInt(currentTransPosition) + parseInt(transitionAmount)).toString().concat(transitionAmount.slice(-1))
+        //         mainContainer.current.style.transitionDuration = "0.3s";
+        //         mainContainer.current.style.transform = `translateX(calc(-${transitionAmount} - 20px))`
         //     }
             
+
         // }
-        // // console.log(currentTransPosition)    
+        // console.log(currentTransPosition)    
     }
     // Touch Move Event
     const handleTouchMove = (e) => {
         
-        
 
+        if (!maxRightTransaction){
+            maxRightTransaction = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.parentNode.clientWidth)
+        }
         // Get Touches object
         const touches = e.touches ;
         // get current Page Position same as clientX
@@ -82,31 +87,8 @@ const TestimonialSlider = () => {
         mainContainer.current.style.transform = `translate3d(${tr}px, 0px, 0px)`
         console.log(tr)
         currentTransPosition.current = tr
-        // setCurrentTrans(touches[0].pageX)
 
 
-        // if (startTouchPosition){
-        //     if (!previousTouchPosition){
-        //         previousTouchPosition = startTouchPosition
-        //     }
-        //     if (currentTouchPosition < previousTouchPosition){
-        //         console.log("Swipe Left")
-                
-        //         currentLiveTransition =  startTouchPosition - currentTouchPosition
-                
-        //     }
-        //     else{
-                
-        //         currentLiveTransition =  startTouchPosition + currentTouchPosition
-        //         console.log("Swipe Right")
- 
-        //     }
-        //     // currentLiveTransition =  startTouchPosition - currentTouchPosition
-        //     // mainContainer.current.style.transitionDuration = '0s'
-        //     // mainContainer.current.style.transform = `translate3d(-${currentLiveTransition}px, 0px, 0px)`
-        //     // console.log(currentLiveTransition)
-        // }
-        // previousTouchPosition = currentTouchPosition
     }
     console.log(currentTrans)
     return (
