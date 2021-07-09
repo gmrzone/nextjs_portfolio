@@ -3,11 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
     --color-sec: rgb(57, 162, 219);
     --color-main: rgb(5, 55, 66);
-    
+
     --input-transition-width-duration: 0.1s;
     --input-transition-height-duration: 0.1s;
 
@@ -22,7 +21,6 @@
     --input-transition-out-left-delay: 0s;
 }
 .textarea {
-
     --input-transition-width-duration: 0.2s;
     --input-transition-height-duration: 0.1s;
 
@@ -36,7 +34,6 @@
     --input-transition-out-bottom-delay: 0.1s;
     --input-transition-out-left-delay: 0s;
 }
-
 
 #__next {
     @apply h-full;

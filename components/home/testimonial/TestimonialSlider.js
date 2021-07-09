@@ -3,7 +3,7 @@ const TestimonialSlider = () => {
         <div>
             <h1>Afzal</h1>
         </div>
-    )
-}
+    );
+};
 
-export default TestimonialSlider
+export default TestimonialSlider;

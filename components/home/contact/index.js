@@ -1,5 +1,5 @@
-import ContactContainer from './ContactContainer';
-import SectionHeader from '../../common/SectionHeader';
+import ContactContainer from "./ContactContainer";
+import SectionHeader from "../../common/SectionHeader";
 const ContactMain = () => {
     return (
         <div className="mt-10 desktop-st:mt-16">
@@ -10,10 +10,9 @@ const ContactMain = () => {
                 </div>
             </div>
         </div>
-    )
-}
-export default ContactMain
-
+    );
+};
+export default ContactMain;
 
 /*
  * Created on Thu Jul 08 2021

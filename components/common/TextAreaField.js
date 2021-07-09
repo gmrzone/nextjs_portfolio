@@ -1,25 +1,24 @@
-import style from '../../styles/customInput.module.scss';
-import {useRef, useEffect} from  "react";
-const TextAreaField = ({label, value, ...attrs}) => {
-    const inputRef = useRef()
+import style from "../../styles/customInput.module.scss";
+import { useRef, useEffect } from "react";
+const TextAreaField = ({ label, value, ...attrs }) => {
+    const inputRef = useRef();
     useEffect(() => {
-        if (value){
-            inputRef.current.classList.add(style['not-empty'])
+        if (value) {
+            inputRef.current.classList.add(style["not-empty"]);
+        } else {
+            inputRef.current.classList.remove(style["not-empty"]);
         }
-        else{
-            inputRef.current.classList.remove(style['not-empty'])
-        }
-    }, [value])
+    }, [value]);
 
     return (
-        <div className={style['main-container'] + " " + style['textarea']}>
-            <label className={style['custom-input']} ref={inputRef}>
-                <textarea {...attrs} className={style['main-input']} value={value} />
-                <span className={style['custom-input__placeholder']}>{label}</span>
-                <span className={style['custom-border']}></span>
+        <div className={style["main-container"] + " " + style["textarea"]}>
+            <label className={style["custom-input"]} ref={inputRef}>
+                <textarea {...attrs} className={style["main-input"]} value={value} />
+                <span className={style["custom-input__placeholder"]}>{label}</span>
+                <span className={style["custom-border"]}></span>
             </label>
-    </div>
-    )
-}
+        </div>
+    );
+};
 
-export default TextAreaField
+export default TextAreaField;

@@ -101,7 +101,6 @@ export const skillsData = [
     },
 ];
 
-
 /*
  * Created on Wed Jul 07 2021
  *

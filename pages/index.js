@@ -3,8 +3,8 @@ import Head from "../components/common/Head";
 import MainHero from "../components/home/hero/MainHero";
 import SkillSection from "../components/home/skills";
 import AboutSection from "../components/home/about";
-import ContactSection from '../components/home/contact'
-import TestimonialSection from '../components/home/testimonial'
+import ContactSection from "../components/home/contact";
+import TestimonialSection from "../components/home/testimonial";
 export default function Home() {
     return (
         <MainLayout>

@@ -25,8 +25,7 @@ const ContactContent = () => {
                 </div>
             </div>
         </div>
-    )
+    );
+};
 
-}
-
-export default ContactContent
+export default ContactContent;

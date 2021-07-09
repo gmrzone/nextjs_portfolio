@@ -1,7 +1,7 @@
 import AboutPhoto from "./AboutPhoto";
 import AboutContent from "./AboutContent";
 import { useEffect, useRef } from "react";
-import SectionHeader from '../../common/SectionHeader'
+import SectionHeader from "../../common/SectionHeader";
 const About = () => {
     const aboutContentRef = useRef();
     useEffect(() => {
@@ -34,10 +34,8 @@ const About = () => {
     return (
         <div className="mt-10 desktop-st:mt-16">
             <div className="container">
-                <SectionHeader title="About" meta="My Introduction"/>
-                <div
-                    className="flex flex-col text-center desktop-st:flex-row desktop-st:text-left"
-                    ref={aboutContentRef}>
+                <SectionHeader title="About" meta="My Introduction" />
+                <div className="flex flex-col text-center desktop-st:flex-row desktop-st:text-left" ref={aboutContentRef}>
                     <AboutPhoto />
                     <AboutContent />
                 </div>
