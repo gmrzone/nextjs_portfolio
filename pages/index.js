@@ -4,6 +4,7 @@ import MainHero from "../components/home/hero/MainHero";
 import SkillSection from "../components/home/skills";
 import AboutSection from "../components/home/about";
 import ContactSection from '../components/home/contact'
+import TestimonialSection from '../components/home/testimonial'
 export default function Home() {
     return (
         <MainLayout>
@@ -18,6 +19,7 @@ export default function Home() {
                     <MainHero />
                     <SkillSection />
                     <AboutSection />
+                    <TestimonialSection />
                     <ContactSection />
                 </>
             </>
