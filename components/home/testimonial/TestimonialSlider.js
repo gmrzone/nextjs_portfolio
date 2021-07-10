@@ -113,22 +113,23 @@ const TestimonialSlider = () => {
         // if event type is mousemove then check if the mouse button is pressed. It the button is pressed then only transition the slider else do nothing
         if (e.type === "mousemove"){
             if (mousePressed){
-                // get current Page Position same as clientX
+                // get current touch or mouse Position 
                 currentPointerCapturePosition = e.clientX
-                let tr = currentTransPosition1.current + (startPointerCapturePosition > currentPointerCapturePosition ? -(startPointerCapturePosition - currentPointerCapturePosition) : (currentPointerCapturePosition - startPointerCapturePosition))
-                if (tr > 0){
-                    tr /= 6    
+                // get transition amount in px based on touchstart or mousedown position and current position
+                let transitionAmount = currentTransPosition1.current + (startPointerCapturePosition > currentPointerCapturePosition ? -(startPointerCapturePosition - currentPointerCapturePosition) : (currentPointerCapturePosition - startPointerCapturePosition))
+                if (transitionAmount > 0){
+                    transitionAmount /= 6    
                 }
-                else if (maxRightTransition.current && tr < maxRightTransition.current){
-                    let extra_trans = maxRightTransition.current - tr
+                else if (maxRightTransition.current && transitionAmount < maxRightTransition.current){
+                    let extra_trans = maxRightTransition.current - transitionAmount
                     extra_trans /= 6
-                    tr = maxRightTransition.current - extra_trans
+                    transitionAmount = maxRightTransition.current - extra_trans
                     
                 }
                 mainContainer.current.style.transitionDuration = '0s'
-                mainContainer.current.style.transform = `translate3d(${tr}px, 0px, 0px)`
-                console.log(tr)
-                currentTransPosition.current = tr
+                mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`
+    
+                currentTransPosition.current = transitionAmount
             }
         }
         else{
@@ -136,39 +137,47 @@ const TestimonialSlider = () => {
             const touches = e.touches ;
             // get current Page Position same as clientX
             currentPointerCapturePosition = touches[0].clientX
-            let tr = currentTransPosition1.current + (startPointerCapturePosition > currentPointerCapturePosition ? -(startPointerCapturePosition - currentPointerCapturePosition) : (currentPointerCapturePosition - startPointerCapturePosition))
-            if (tr > 0){
-                tr /= 6    
+            let transitionAmount = currentTransPosition1.current + (startPointerCapturePosition > currentPointerCapturePosition ? -(startPointerCapturePosition - currentPointerCapturePosition) : (currentPointerCapturePosition - startPointerCapturePosition))
+            if (transitionAmount > 0){
+                transitionAmount /= 6    
             }
-            else if (maxRightTransition.current && tr < maxRightTransition.current){
-                let extra_trans = maxRightTransition.current - tr
+            else if (maxRightTransition.current && transitionAmount < maxRightTransition.current){
+                let extra_trans = maxRightTransition.current - transitionAmount
                 extra_trans /= 6
-                tr = maxRightTransition.current - extra_trans
+                transitionAmount = maxRightTransition.current - extra_trans
                 
             }
             mainContainer.current.style.transitionDuration = '0s'
-            mainContainer.current.style.transform = `translate3d(${tr}px, 0px, 0px)`
-            console.log(tr)
-            currentTransPosition.current = tr
+            mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`
+
+            currentTransPosition.current = transitionAmount
         }
     }
 
     return (
-        <div className={style['outer-container']}>
-            <div className={style['inner-container'] + " inner-container"} onTouchMove={handlePointerMove} onTouchStart={handlePointerStart} onTouchEnd={handlePointerEnd} onMouseDown={handlePointerStart} onMouseUp={handlePointerEnd} onMouseMove={handlePointerMove} ref={mainContainer}>
-                {renderReviewData}
+        <div className={style['main-container']}>
+            <div className={style['go-left']}>
+                <i className="far fa-chevron-left" />
             </div>
-            <style jsx>{`
-                .inner-container {
-                    width: 100%;
-
-                }
-                @media (min-width: 767px){
+            <div className={style['go-right']}>
+                <i className="far fa-chevron-right" />
+            </div>
+            <div className={style['outer-container']}>
+                <div className={style['inner-container'] + " inner-container"} onTouchMove={handlePointerMove} onTouchStart={handlePointerStart} onTouchEnd={handlePointerEnd} onMouseDown={handlePointerStart} onMouseUp={handlePointerEnd} onMouseMove={handlePointerMove} ref={mainContainer}>
+                    {renderReviewData}
+                </div>
+                <style jsx>{`
                     .inner-container {
-                        width: calc(var(--slider-item-width) * ${renderReviewData.length} + 160px);
+                        width: 100%;
+
                     }
-                }
-            `}</style>
+                    @media (min-width: 767px){
+                        .inner-container {
+                            width: calc(var(--slider-item-width) * ${renderReviewData.length} + 160px);
+                        }
+                    }
+                `}</style>
+            </div>
         </div>
     )
 }
