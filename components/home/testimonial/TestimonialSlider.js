@@ -74,7 +74,7 @@ const TestimonialSlider = () => {
             if (currentPointerCapturePosition > startPointerCapturePosition) {
                 if (currentTransPosition1.current < 0) {
                     const ratio = Math.ceil(currentTransPosition.current / (sliderItemWidth + 20));
-                    const transitionTo = sliderItemWidth * ratio + ratio * 20;
+                    const transitionTo = (sliderItemWidth + 20) * ratio;
                     console.log(transitionTo);
                     mainContainer.current.style.transitionDuration = "0.3s";
                     mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
@@ -83,7 +83,7 @@ const TestimonialSlider = () => {
             } else {
                 if (currentTransPosition1.current > maxRightTransition.current) {
                     const ratio = Math.floor(currentTransPosition.current / (sliderItemWidth + 20));
-                    const transitionTo = sliderItemWidth * ratio + ratio * 20;
+                    const transitionTo = (sliderItemWidth + 20) * ratio;
                     console.log(transitionTo);
                     mainContainer.current.style.transitionDuration = "0.3s";
                     mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
@@ -152,12 +152,25 @@ const TestimonialSlider = () => {
         }
     };
 
+
+    const slideLEft = () => {
+        console.log(currentTransPosition.current)
+        if (currentTransPosition.current < 0){
+           console.log("going Left")
+        }
+        
+    }
+    const slideRight = () => {
+        if (currentTransPosition.current > maxRightTransition.current){
+            console.log("Going Right")
+        }
+    }
     return (
         <div className={style["main-container"]}>
-            <div className={style["go-left"]}>
+            <div className={style["left-icon"] + " left-jsx"} onClick={slideRight}>
                 <i className="far fa-chevron-left" />
             </div>
-            <div className={style["go-right"]}>
+            <div className={style["right-icon"] + " right-jsx"} onClick={slideLEft}>
                 <i className="far fa-chevron-right" />
             </div>
             <div className={style["outer-container"]}>
@@ -172,7 +185,8 @@ const TestimonialSlider = () => {
                     ref={mainContainer}>
                     {renderReviewData}
                 </div>
-                <style jsx>{`
+            </div>
+            <style jsx>{`
                     .inner-container {
                         width: 100%;
                     }
@@ -182,7 +196,6 @@ const TestimonialSlider = () => {
                         }
                     }
                 `}</style>
-            </div>
         </div>
     );
 };
