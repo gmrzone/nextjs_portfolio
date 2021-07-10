@@ -179,10 +179,13 @@ const TestimonialSlider = () => {
         
     }
     const slideRight = () => {
-        if (currentTransPosition.current > maxRightTransition.current){
-            console.log("Going Right")
+        if (currentTransPosition.current < 0){
+            const transitionAmount = currentTransPosition.current + mainContainer.current.firstChild.clientWidth + 20
+            mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`
+            currentTransPosition.current = transitionAmount
+            currentTransPositionMain.current = transitionAmount
         }
-        console.log(maxRightTransition.current)
+        
     }
     return (
         <div className={style["main-container"]}>
