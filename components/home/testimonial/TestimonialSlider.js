@@ -1,7 +1,7 @@
 import { reviewData } from '../data';
 import SliderItems from './SliderItem';
 import style from '../../../styles/reviewSlider.module.scss';
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 
 const TestimonialSlider = () => {
     const mainContainer = useRef()
@@ -13,19 +13,23 @@ const TestimonialSlider = () => {
     })
     const currentTransPosition = useRef(0);
     const currentTransPosition1 = useRef(0);
-    const slideCount = useRef(1)
-    let maxRightTransaction = 0
-    const maxLeftTransaction  = 0
+    const maxRightTransition = useRef(0)
     let startTouchPosition = null;
     let currentTouchPosition = null;
-    let previousTouchPosition = null;                                                 
-    let currentLiveTransition = 0
-
+    useEffect(() => {
+        const resetSlider = () => {
+            mainContainer.current.style.transform = "translate3d(0px, 0px, 0px)"
+            currentTransPosition1.current = 0
+            currentTransPosition.current = 0
+        }
+        window.addEventListener('resize', resetSlider)
+    }, [])
     const handleTouchStart = (e) => {
         startTouchPosition = e.touches[0].clientX;                                      
         
     }
     const handleTouchEnd = (e) => {
+        maxRightTransition.current = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.parentNode.clientWidth)
         currentTransPosition1.current = currentTransPosition.current
         
         if (currentTransPosition1.current > 0){
@@ -35,12 +39,12 @@ const TestimonialSlider = () => {
             currentTransPosition1.current = 0
             currentTransPosition.current = 0
         }
-        else if (currentTransPosition1.current < maxRightTransaction){
+        else if (currentTransPosition1.current < maxRightTransition.current){
             console.log("Stop Right")
             mainContainer.current.style.transitionDuration = "0.3s"
-            mainContainer.current.style.transform = `translate3d(${maxRightTransaction}px, 0px, 0px)`
-            currentTransPosition1.current = maxRightTransaction
-            currentTransPosition.current = maxRightTransaction
+            mainContainer.current.style.transform = `translate3d(${maxRightTransition.current}px, 0px, 0px)`
+            currentTransPosition1.current = maxRightTransition.current
+            currentTransPosition.current = maxRightTransition.current
         }
         
         if (currentTouchPosition){
@@ -57,8 +61,7 @@ const TestimonialSlider = () => {
                 }
             }
             else{
-                if (slideCount.current < reviewData.length){
-                    if (currentTransPosition1.current > maxRightTransaction){
+                    if (currentTransPosition1.current > maxRightTransition.current){
                         const ratio = Math.floor(currentTransPosition.current / (sliderItemWidth + 20))
                         const transitionTo = ((sliderItemWidth * ratio) + ratio * 20)
                         console.log(transitionTo)
@@ -67,8 +70,6 @@ const TestimonialSlider = () => {
                         currentTransPosition1.current = transitionTo
 
                     }
-                }
-
             }
         }
     }
@@ -76,8 +77,8 @@ const TestimonialSlider = () => {
     const handleTouchMove = (e) => {
         
 
-        if (!maxRightTransaction){
-            maxRightTransaction = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.parentNode.clientWidth)
+        if (!maxRightTransition.current){
+            maxRightTransition.current = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.parentNode.clientWidth)
         }
         // Get Touches object
         const touches = e.touches ;
@@ -87,10 +88,10 @@ const TestimonialSlider = () => {
         if (tr > 0){
             tr /= 6    
         }
-        else if (maxRightTransaction && tr < maxRightTransaction){
-            let extra_trans = maxRightTransaction - tr
+        else if (maxRightTransition.current && tr < maxRightTransition.current){
+            let extra_trans = maxRightTransition.current - tr
             extra_trans /= 6
-            tr = maxRightTransaction - extra_trans
+            tr = maxRightTransition.current - extra_trans
             
         }
         mainContainer.current.style.transitionDuration = '0s'
@@ -109,8 +110,7 @@ const TestimonialSlider = () => {
             <style jsx>{`
                 .inner-container {
                     width: 100%;
-                    transform: translate3d(${currentTrans}px, 0px, 0px);
-                    
+
                 }
                 @media (min-width: 767px){
                     .inner-container {
