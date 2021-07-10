@@ -53,9 +53,16 @@ const TestimonialSlider = () => {
             else{
                 if (slideCount.current < reviewData.length){
                     if (currentTransPosition1.current > maxRightTransaction){
+                        const swipeLength = startTouchPosition - currentTouchPosition
+                        if (swipeLength >= 85){
+                            console.log("Swipe")
+                        }
+                        else{
+                            console.log("Restore")
+                        }
                         sliderItemWidth *= slideCount.current
                         mainContainer.current.style.transitionDuration = "0.3s";
-                        mainContainer.current.style.transform = `translateX(calc(${-sliderItemWidth}px - ${20 * slideCount.current}px))`
+                        mainContainer.current.style.transform = `translate3d(calc(${-sliderItemWidth}px - ${20 * slideCount.current}px), 0px, 0px)`
                         currentTransPosition1.current = -sliderItemWidth - (20 * slideCount.current)
                         console.log(currentTransPosition1.current, maxRightTransaction)
                         slideCount.current += 1
