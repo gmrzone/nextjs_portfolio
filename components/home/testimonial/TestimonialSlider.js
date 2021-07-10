@@ -26,9 +26,36 @@ const TestimonialSlider = () => {
         window.addEventListener('resize', resetSlider)
     }, [])
 
+
+    let mousePressed = false
+
+    const handleMouseUp = (e) => {
+        console.log("Mouse Leave", e)
+        mousePressed = false
+    }
+
+
+    const handleMouseMove = (e) => {
+        if (mousePressed){
+            console.log(e)
+        }
+        
+    }
+
+
     // this event callback is triggered on touch start. Save touch start position so we can compare it with current touch position to find if the user has swiped left or right
     const handleTouchStart = (e) => {
-        startTouchPosition = e.touches[0].clientX;                                      
+        if (e.type === "mousedown"){
+            e.preventDefault()
+            startTouchPosition = e.clientX
+            mousePressed = true
+        }
+        else{
+            startTouchPosition = e.touches[0].clientX;
+                                
+
+        }
+
         
     }
 
@@ -38,6 +65,10 @@ const TestimonialSlider = () => {
     // next if startTouchPosition and currentTouchPosition is captured by touchStart and touchMove event callback we find out if its a left swipe or right swipe and depending on 
     // that we increase or decrease the transition of the container by sliderItem width + padding to meke it slide exactly 1 item inside the container
     const handleTouchEnd = (e) => {
+        if (e.type === "mouseup"){
+            mousePressed = false
+        }
+
         maxRightTransition.current = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.parentNode.clientWidth)
         currentTransPosition1.current = currentTransPosition.current
         
@@ -93,30 +124,56 @@ const TestimonialSlider = () => {
             maxRightTransition.current = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.parentNode.clientWidth)
         }
         // Get Touches object
-        const touches = e.touches ;
-        // get current Page Position same as clientX
-        currentTouchPosition = touches[0].clientX
-        let tr = currentTransPosition1.current + (startTouchPosition > currentTouchPosition ? -(startTouchPosition - currentTouchPosition) : (currentTouchPosition - startTouchPosition))
-        if (tr > 0){
-            tr /= 6    
+        if (e.type === "mousemove"){
+            console.log(mousePressed)
+            if (mousePressed){
+                console.log("AaSSSDD")
+                // get current Page Position same as clientX
+                currentTouchPosition = e.clientX
+                let tr = currentTransPosition1.current + (startTouchPosition > currentTouchPosition ? -(startTouchPosition - currentTouchPosition) : (currentTouchPosition - startTouchPosition))
+                if (tr > 0){
+                    tr /= 6    
+                }
+                else if (maxRightTransition.current && tr < maxRightTransition.current){
+                    let extra_trans = maxRightTransition.current - tr
+                    extra_trans /= 6
+                    tr = maxRightTransition.current - extra_trans
+                    
+                }
+                mainContainer.current.style.transitionDuration = '0s'
+                mainContainer.current.style.transform = `translate3d(${tr}px, 0px, 0px)`
+                console.log(tr)
+                currentTransPosition.current = tr
+            }
         }
-        else if (maxRightTransition.current && tr < maxRightTransition.current){
-            let extra_trans = maxRightTransition.current - tr
-            extra_trans /= 6
-            tr = maxRightTransition.current - extra_trans
-            
+        else{
+
+            const touches = e.touches ;
+            // get current Page Position same as clientX
+            currentTouchPosition = touches[0].clientX
+            let tr = currentTransPosition1.current + (startTouchPosition > currentTouchPosition ? -(startTouchPosition - currentTouchPosition) : (currentTouchPosition - startTouchPosition))
+            if (tr > 0){
+                tr /= 6    
+            }
+            else if (maxRightTransition.current && tr < maxRightTransition.current){
+                let extra_trans = maxRightTransition.current - tr
+                extra_trans /= 6
+                tr = maxRightTransition.current - extra_trans
+                
+            }
+            mainContainer.current.style.transitionDuration = '0s'
+            mainContainer.current.style.transform = `translate3d(${tr}px, 0px, 0px)`
+            console.log(tr)
+            currentTransPosition.current = tr
         }
-        mainContainer.current.style.transitionDuration = '0s'
-        mainContainer.current.style.transform = `translate3d(${tr}px, 0px, 0px)`
-        console.log(tr)
-        currentTransPosition.current = tr
+
 
 
     }
 
     return (
         <div className={style['outer-container']}>
-            <div className={style['inner-container'] + " inner-container"} onTouchMove={handleTouchMove} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} ref={mainContainer}>
+            <div className={style['inner-container'] + " inner-container"} onTouchMove={handleTouchMove} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onMouseDown={handleTouchStart} onMouseUp={handleTouchEnd} onMouseMove={handleTouchMove} ref={mainContainer}>
                 {renderReviewData}
             </div>
             <style jsx>{`
