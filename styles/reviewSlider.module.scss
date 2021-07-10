@@ -14,10 +14,12 @@
         text-align: center;
         top: 45%;
         padding: 4px;
+        transition: background-color 0.2s linear;
 
         i {
             font-weight: bold;
             color: white;
+            transition: color 0.2s linear;
         }
 
         @media (min-width: 800px) {
@@ -25,7 +27,13 @@
         }
 
         &.hidden {
-            display: none;
+            background-color: rgb(128, 128, 128);
+            cursor: not-allowed;
+            // display: none;
+
+            i {
+                color: rgb(175, 175, 175);
+            }
         }
     }
     .left-icon {
