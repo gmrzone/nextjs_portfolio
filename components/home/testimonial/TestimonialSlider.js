@@ -102,6 +102,14 @@ const TestimonialSlider = () => {
                     mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
                     currentTransPositionMain.current = transitionTo;
                     currentTransPosition.current = transitionTo;
+
+                    //  Hide right slide button when slide not available and show left slide button as soon as slide on left side are available
+                    if (currentTransPosition.current > maxRightTransition.current){
+                        sliderRightButton.current.classList.remove(style['hidden'])
+                    }
+                    if (currentTransPosition.current === 0){
+                        sliderLeftButton.current.classList.add(style['hidden'])
+                    }
                 }
             } else {
                 if (currentTransPositionMain.current > maxRightTransition.current) {
@@ -112,6 +120,14 @@ const TestimonialSlider = () => {
                     mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
                     currentTransPositionMain.current = transitionTo;
                     currentTransPosition.current = transitionTo
+
+                    //  Hide left slide button when slide not available and show right slide button as soon as slide on right side are available
+                    if (currentTransPosition.current < 0){
+                        sliderLeftButton.current.classList.remove(style['hidden'])
+                    }
+                    if (currentTransPosition.current === maxRightTransition.current){
+                        sliderRightButton.current.classList.add(style['hidden'])
+                    }
                 }
             }
         }
@@ -176,7 +192,8 @@ const TestimonialSlider = () => {
            mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`
            currentTransPosition.current = transitionAmount
            currentTransPositionMain.current = transitionAmount
-           console.log(maxRightTransition)
+
+           //  Hide left slide button when slide not available and show right slide button as soon as slide on right side are available
            if (currentTransPosition.current < 0){
                sliderLeftButton.current.classList.remove(style['hidden'])
            }
@@ -193,6 +210,7 @@ const TestimonialSlider = () => {
             currentTransPosition.current = transitionAmount
             currentTransPositionMain.current = transitionAmount
         }
+         //  Hide right slide button when slide not available and show left slide button as soon as slide on left side are available
         if (currentTransPosition.current > maxRightTransition.current){
             sliderRightButton.current.classList.remove(style['hidden'])
         }
