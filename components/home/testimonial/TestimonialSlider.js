@@ -1,11 +1,10 @@
 import { reviewData } from '../data';
 import SliderItems from './SliderItem';
 import style from '../../../styles/reviewSlider.module.scss';
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 
 const TestimonialSlider = () => {
     const mainContainer = useRef()
-    const [currentTrans, setCurrentTrans] = useState(0)
     const renderReviewData = reviewData.map(x => {
         return (
             <SliderItems item={x} key={x.id}/>
@@ -16,6 +15,8 @@ const TestimonialSlider = () => {
     const maxRightTransition = useRef(0)
     let startTouchPosition = null;
     let currentTouchPosition = null;
+
+    // reset slider transition position to zero on window resize to avoid layout mess (workaround)
     useEffect(() => {
         const resetSlider = () => {
             mainContainer.current.style.transform = "translate3d(0px, 0px, 0px)"
@@ -24,10 +25,18 @@ const TestimonialSlider = () => {
         }
         window.addEventListener('resize', resetSlider)
     }, [])
+
+    // this event callback is triggered on touch start. Save touch start position so we can compare it with current touch position to find if the user has swiped left or right
     const handleTouchStart = (e) => {
         startTouchPosition = e.touches[0].clientX;                                      
         
     }
+
+    // this event callback is triggered when the touch end in this callback first we check if the slider is transitioned more then its container on
+    // left and right during touch move event if its transitioned more then 0 on left we reset it to zero and if its transitioned more then container width to right
+    // we reset its transitioned to containers width. This way the slider does not go outside container from both left and right.
+    // next if startTouchPosition and currentTouchPosition is captured by touchStart and touchMove event callback we find out if its a left swipe or right swipe and depending on 
+    // that we increase or decrease the transition of the container by sliderItem width + padding to meke it slide exactly 1 item inside the container
     const handleTouchEnd = (e) => {
         maxRightTransition.current = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.parentNode.clientWidth)
         currentTransPosition1.current = currentTransPosition.current
@@ -73,10 +82,13 @@ const TestimonialSlider = () => {
             }
         }
     }
-    // Touch Move Event
+    // Touch Move Event. This callback will slide the slider as user holds and move touch
+    // This event callback is triggered when user hold touch and move. In this callback we capture currentTouchposition and if the currentTouchPosition is greater 
+    // then touchStartPosition then its a right swipe else its a left swipe. Then based on the startTouchvalue and currentTouchValue we find how much we have to transition 
+    // the slider. Then before transitioning the slider we check if the transition amount is > 0 or < container width we devide it by 6 to create animation like the slider 
+    // cannot slide anymore. then we transition the slider and in touchend callback we potion the slider based on current transition 
     const handleTouchMove = (e) => {
         
-
         if (!maxRightTransition.current){
             maxRightTransition.current = -(((mainContainer.current.firstChild.clientWidth + 20) * reviewData.length) - 20 - mainContainer.current.parentNode.clientWidth)
         }
@@ -101,7 +113,7 @@ const TestimonialSlider = () => {
 
 
     }
-    console.log(currentTrans)
+
     return (
         <div className={style['outer-container']}>
             <div className={style['inner-container'] + " inner-container"} onTouchMove={handleTouchMove} onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} ref={mainContainer}>
@@ -125,3 +137,10 @@ const TestimonialSlider = () => {
 export default TestimonialSlider
 
  
+
+
+/*
+ * Created on Sat Jul 10 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */
