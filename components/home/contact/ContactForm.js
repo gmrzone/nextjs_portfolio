@@ -2,8 +2,9 @@ import InputField from "../../common/InputField";
 import TextAreaField from "../../common/TextAreaField";
 import CustomButton from "../../common/CustomButton";
 import useForm from "../../../hooks/useForm";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 const ContactForm = () => {
+    const animationObj = useRef()
     const { inputValues, handleChange, resetForm } = useForm({ name: "", email: "", message: "" });
     const [loading, setLoading] = useState(false);
     const [formStats, setFormStats] = useState({ status: null, message: null });
@@ -33,8 +34,28 @@ const ContactForm = () => {
                 setFormStats({ status: "error", message: data.message });
             });
     };
+    useEffect(() => {
+        const options = {
+            rootMargin: "0px 0px -70px 0px",
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(x => {
+                if (x.isIntersecting){
+                    x.target.classList.remove('translate-x-full')
+                    x.target.classList.remove('opacity-0')
+                    x.target.classList.add("translate-x-0")
+                    x.target.classList.add('opacity-100')
+                    observer.unobserve(x.target)
+                }
+
+            })
+        }, options)
+
+
+        observer.observe(animationObj.current)
+    }, [])
     return (
-        <form className="space-y-6 w-full desktop-st:w-1/2" onSubmit={handleSubmit}>
+        <form className="space-y-6 w-full opacity-0 translate-x-full transition-all duration-500 desktop-st:w-1/2" onSubmit={handleSubmit} ref={animationObj}>
             <div className="space-y-2">
                 <InputField type="text" name="name" label="Name" value={inputValues.name} onChange={handleChange} required />
                 <InputField type="email" name="email" label="Email" value={inputValues.email} onChange={handleChange} required />
