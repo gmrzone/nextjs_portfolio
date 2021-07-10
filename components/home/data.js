@@ -1,11 +1,11 @@
-import review_image1 from '../../public/review_1.jpg';
-import review_image2 from '../../public/review_2.jpg';
-import review_image3 from '../../public/review_3.jpeg';
-import review_image4 from '../../public/review_4.jpg';
-import review_image5 from '../../public/review_5.jpg';
-import review_image6 from '../../public/review_6.jpg';
-import review_image7 from '../../public/review_7.jpg';
-import review_image8 from '../../public/review_8.jpg';
+import review_image1 from "../../public/review_1.jpg";
+import review_image2 from "../../public/review_2.jpg";
+import review_image3 from "../../public/review_3.jpeg";
+import review_image4 from "../../public/review_4.jpg";
+import review_image5 from "../../public/review_5.jpg";
+import review_image6 from "../../public/review_6.jpg";
+import review_image7 from "../../public/review_7.jpg";
+import review_image8 from "../../public/review_8.jpg";
 
 export const skillsData = [
     {
@@ -110,7 +110,6 @@ export const skillsData = [
     },
 ];
 
-
 export const reviewData = [
     {
         id: 1,
@@ -167,8 +166,8 @@ export const reviewData = [
         name: "@briankraminit",
         review: "I had a great experience working with Afzal, he was responsive and met all of his deadlines. He understood what I was asking of him and delivered, I would recommend and plan to use again.",
         star: 5,
-    }
-]
+    },
+];
 /*
  * Created on Wed Jul 07 2021
  *

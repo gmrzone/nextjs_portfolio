@@ -24,32 +24,29 @@
     /* --slider-container-width: 100%;
     --slider-container-height: 200px;
     --slider-item-width: 100%; */
-        --slider-container-width: 100%;
-        --slider-container-height: 230px;
-        --slider-item-width: 100%;
+    --slider-container-width: 100%;
+    --slider-container-height: 230px;
+    --slider-item-width: 100%;
 }
-@media (min-width: 767px){
+@media (min-width: 767px) {
     :root {
         --slider-item-width: 350px;
         --slider-container-height: 230px;
-        
     }
 }
-@media (min-width: 992px){
+@media (min-width: 992px) {
     :root {
         --slider-item-width: 296px;
         --slider-container-height: 230px;
-        
     }
 }
-@media (min-width: 1200px){
+@media (min-width: 1200px) {
     :root {
         --slider-item-width: 360px;
         --slider-container-height: 200px;
-        
-    } 
+    }
 }
-@media (min-width: 1400px){
+@media (min-width: 1400px) {
     :root {
         --slider-item-width: 390px;
         --slider-container-height: 200px;
