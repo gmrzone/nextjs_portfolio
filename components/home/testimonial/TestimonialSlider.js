@@ -12,7 +12,8 @@ const TestimonialSlider = () => {
         )
     })
     const currentTransPosition = useRef(0);
-    const currentTransPosition1 = useRef(0)
+    const currentTransPosition1 = useRef(0);
+    const slideCount = useRef(1)
     let maxRightTransaction = 0
     const maxLeftTransaction  = 0
     let startTouchPosition = null;
@@ -26,41 +27,43 @@ const TestimonialSlider = () => {
     }
     const handleTouchEnd = (e) => {
         currentTransPosition1.current = currentTransPosition.current
-        const transitionAmount = getComputedStyle(mainContainer.current).getPropertyValue('--slider-item-width')
-        if (!maxRightTransaction){
-
-        }
         
         if (currentTransPosition1.current > 0){
+            console.log('Stop Left')
             mainContainer.current.style.transitionDuration = "0.3s"
             mainContainer.current.style.transform = "translate3d(0px, 0px, 0px)"
             currentTransPosition1.current = 0
             currentTransPosition.current = 0
         }
         else if (currentTransPosition1.current < maxRightTransaction){
+            console.log("Stop Right")
             mainContainer.current.style.transitionDuration = "0.3s"
             mainContainer.current.style.transform = `translate3d(${maxRightTransaction}px, 0px, 0px)`
             currentTransPosition1.current = maxRightTransaction
             currentTransPosition.current = maxRightTransaction
         }
-        console.log("inner Width", maxRightTransaction, currentTransPosition1.current)
-        // const transitionAmount = getComputedStyle(mainContainer.current).getPropertyValue('--slider-item-width')
         
-        // if (currentTouchPosition){
-        //     let transitionMouseEnd;
-        //     if (currentTouchPosition > startTouchPosition){
-        //         // mainContainer.current.style.transitionDuration = "0.3s";
-        //         // mainContainer.current.style.transform = `translateX(${transitionAmount})`
-        //         // console.log(transitionAmount)
-        //     }
-        //     else{
-        //         mainContainer.current.style.transitionDuration = "0.3s";
-        //         mainContainer.current.style.transform = `translateX(calc(-${transitionAmount} - 20px))`
-        //     }
-            
+        if (currentTouchPosition){
+            let sliderItemWidth = mainContainer.current.firstChild.clientWidth
+            if (currentTouchPosition > startTouchPosition){
+                if (currentTransPosition1.current < 0){
+                    console.log("Slide Right Fuly")
+                }
+            }
+            else{
+                if (slideCount.current < reviewData.length){
+                    if (currentTransPosition1.current > maxRightTransaction){
+                        sliderItemWidth *= slideCount.current
+                        mainContainer.current.style.transitionDuration = "0.3s";
+                        mainContainer.current.style.transform = `translateX(calc(${-sliderItemWidth}px - ${20 * slideCount.current}px))`
+                        currentTransPosition1.current = -sliderItemWidth - (20 * slideCount.current)
+                        console.log(currentTransPosition1.current, maxRightTransaction)
+                        slideCount.current += 1
+                    }
+                }
 
-        // }
-        // console.log(currentTransPosition)    
+            }
+        }
     }
     // Touch Move Event
     const handleTouchMove = (e) => {
