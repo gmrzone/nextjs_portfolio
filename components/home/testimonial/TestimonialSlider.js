@@ -25,6 +25,8 @@ const TestimonialSlider = () => {
         window.addEventListener("resize", resetSlider);
     }, []);
 
+
+
     // this event callback is triggered on touch start and mouse down . Save touch start position of mouse down button press position so we can compare it with current touch position or mouse up button position to find if the user has swiped left or right
     const handlePointerStart = (e) => {
         if (e.type === "mousedown") {
@@ -43,7 +45,7 @@ const TestimonialSlider = () => {
     // that we increase or decrease the transition of the container by sliderItem width + padding to meke it slide exactly 1 item inside the container
     const handlePointerEnd = (e) => {
         // It the event type is mouseup the save the status on mousePressed so we can stop sliding the slider in handlePoinerMove
-        if (e.type === "mouseup") {
+        if (e.type === "mouseup" || e.type === "mouseleave") {
             mousePressed = false;
         }
 
@@ -73,7 +75,7 @@ const TestimonialSlider = () => {
 
             if (currentPointerCapturePosition > startPointerCapturePosition) {
                 if (currentTransPosition1.current < 0) {
-                    const ratio = Math.ceil(currentTransPosition.current / (sliderItemWidth + 20));
+                    const ratio = Math.ceil(currentTransPosition1.current / (sliderItemWidth + 20));
                     const transitionTo = (sliderItemWidth + 20) * ratio;
                     console.log(transitionTo);
                     mainContainer.current.style.transitionDuration = "0.3s";
@@ -82,7 +84,7 @@ const TestimonialSlider = () => {
                 }
             } else {
                 if (currentTransPosition1.current > maxRightTransition.current) {
-                    const ratio = Math.floor(currentTransPosition.current / (sliderItemWidth + 20));
+                    const ratio = Math.floor(currentTransPosition1.current / (sliderItemWidth + 20));
                     const transitionTo = (sliderItemWidth + 20) * ratio;
                     console.log(transitionTo);
                     mainContainer.current.style.transitionDuration = "0.3s";
@@ -182,6 +184,7 @@ const TestimonialSlider = () => {
                     onMouseDown={handlePointerStart}
                     onMouseUp={handlePointerEnd}
                     onMouseMove={handlePointerMove}
+                    onMouseLeave={handlePointerEnd}
                     ref={mainContainer}>
                     {renderReviewData}
                 </div>
