@@ -8,6 +8,8 @@ const TestimonialSlider = () => {
     const renderReviewData = reviewData.map((x) => {
         return <SliderItems item={x} key={x.id} />;
     });
+    const sliderLeftButton = useRef()
+    const sliderRightButton = useRef()
     const currentTransPosition = useRef(0); // variable to capture current transition value in mouse move or touch move
     const currentTransPositionMain = useRef(0); // we cannot use currentTransPosition variable in pointerMove callback as start transaction bcoz its is constantly changing in that callback so we create a copy of that variable to use as start transition value
     const maxRightTransition = useRef(0); // variable to keep track of maxRightTransition to avoid slider from getting outside of wrapper container
@@ -175,6 +177,12 @@ const TestimonialSlider = () => {
            currentTransPosition.current = transitionAmount
            currentTransPositionMain.current = transitionAmount
            console.log(maxRightTransition)
+           if (currentTransPosition.current < 0){
+               sliderLeftButton.current.classList.remove(style['hidden'])
+           }
+           if (currentTransPosition.current === maxRightTransition.current){
+               sliderRightButton.current.classList.add(style['hidden'])
+           }
         }
         
     }
@@ -185,14 +193,20 @@ const TestimonialSlider = () => {
             currentTransPosition.current = transitionAmount
             currentTransPositionMain.current = transitionAmount
         }
+        if (currentTransPosition.current > maxRightTransition.current){
+            sliderRightButton.current.classList.remove(style['hidden'])
+        }
+        if (currentTransPosition.current === 0){
+            sliderLeftButton.current.classList.add(style['hidden'])
+        }
         
     }
     return (
         <div className={style["main-container"]}>
-            <div className={style["left-icon"] + " left-jsx"} onClick={slideRight}>
+            <div className={`${style["left-icon"]} left-jsx ${currentTransPosition.current === 0 && style['hidden']}`} onClick={slideRight} ref={sliderLeftButton}>
                 <i className="far fa-chevron-left" />
             </div>
-            <div className={style["right-icon"] + " right-jsx"} onClick={slideLEft}>
+            <div className={style["right-icon"] + " right-jsx"} onClick={slideLEft} ref={sliderRightButton}>
                 <i className="far fa-chevron-right" />
             </div>
             <div className={style["outer-container"]}>

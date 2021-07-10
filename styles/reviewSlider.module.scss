@@ -23,6 +23,10 @@
         @media (min-width: 800px) {
             display: block;
         }
+
+        &.hidden {
+            display: none;
+        }
     }
     .left-icon {
         left: -24px;
