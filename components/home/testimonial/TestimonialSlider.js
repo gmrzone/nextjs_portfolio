@@ -45,27 +45,27 @@ const TestimonialSlider = () => {
         
         if (currentTouchPosition){
             let sliderItemWidth = mainContainer.current.firstChild.clientWidth
+            
             if (currentTouchPosition > startTouchPosition){
                 if (currentTransPosition1.current < 0){
-                    console.log("Slide Right Fuly")
+                    const ratio = Math.ceil(currentTransPosition.current / (sliderItemWidth + 20))
+                    const transitionTo = ((sliderItemWidth * ratio) + ratio * 20)
+                    console.log(transitionTo)
+                    mainContainer.current.style.transitionDuration = "0.3s";
+                    mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`
+                    currentTransPosition1.current = transitionTo
                 }
             }
             else{
                 if (slideCount.current < reviewData.length){
                     if (currentTransPosition1.current > maxRightTransaction){
-                        const swipeLength = startTouchPosition - currentTouchPosition
-                        if (swipeLength >= 85){
-                            console.log("Swipe")
-                        }
-                        else{
-                            console.log("Restore")
-                        }
-                        sliderItemWidth *= slideCount.current
+                        const ratio = Math.floor(currentTransPosition.current / (sliderItemWidth + 20))
+                        const transitionTo = ((sliderItemWidth * ratio) + ratio * 20)
+                        console.log(transitionTo)
                         mainContainer.current.style.transitionDuration = "0.3s";
-                        mainContainer.current.style.transform = `translate3d(calc(${-sliderItemWidth}px - ${20 * slideCount.current}px), 0px, 0px)`
-                        currentTransPosition1.current = -sliderItemWidth - (20 * slideCount.current)
-                        console.log(currentTransPosition1.current, maxRightTransaction)
-                        slideCount.current += 1
+                        mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`
+                        currentTransPosition1.current = transitionTo
+
                     }
                 }
 
