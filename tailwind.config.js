@@ -55,6 +55,9 @@ module.exports = {
                 "hero-sm": "32rem",
                 hero: "30rem",
             },
+            width: {
+                "project-image": "30rem"
+            },
             animation: {
                 "spin-fast": "spin 0.6s linear infinite",
             },

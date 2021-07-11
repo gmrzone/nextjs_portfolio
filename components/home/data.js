@@ -6,7 +6,9 @@ import review_image5 from "../../public/review_5.jpg";
 import review_image6 from "../../public/review_6.jpg";
 import review_image7 from "../../public/review_7.jpg";
 import review_image8 from "../../public/review_8.jpg";
+
 import corecare_main from '../../public/corecare_main.png';
+import corecare_old from '../../public/corecare_old.png'
 import corecare_admin from '../../public/corecare_admin.png'; 
 
 export const skillsData = [
@@ -181,7 +183,7 @@ export const ProjectData = [
         period: "October 2020",
         about: "A Fullstack cleaning and maintanence service platform created using React, redux on frontend and django, Postgresql and Redis as backend.",
         link: "https://www.corecare.in/",
-        main_image: corecare_main,
+        main_image: corecare_old,
         points: [
             'Used React with Redux for Front-end along with HTML, CSS, and SCSS',
             "Lazy Load Images with placeholder to avoid Layout shift",
@@ -211,21 +213,6 @@ export const ProjectData = [
         ] 
     },
     {
-        id: 3,
-        name: "Cleaning and Maintanence Service Platform (Redesign Frontend)",
-        context: "Frontend Redesign using Nextjs",
-        role: "Frontend Developer",
-        period: "January 2021",
-        about: "Cleaning and maintanence Services Platform frontend created using next.js and SWR",
-        link: "https://dev.corecare.in/",
-        main_image: corecare_main,
-        points: [
-            "Redesigned the frontend to use next.js instead of create-react-app for Static site generation and server-side rendering and to improve the SEO.",
-            "Remove Redux and used SWR for fetching data from api to implement caching and to improve overall performance",
-            "'Fully Responsive Design'"
-        ]
-    },
-    {
         id: 4,
         name: "My Portfolio Website",
         context: "Created using Nextjs and Tailwing css",
@@ -238,7 +225,22 @@ export const ProjectData = [
             "Created the frontend with next.js",
             "'Fully Responsive Design'"
         ]
-    }
+    },
+    {
+        id: 3,
+        name: "Corecare Frontend Redesign",
+        context: "Frontend Redesign using Nextjs",
+        role: "Frontend Developer",
+        period: "January 2021",
+        about: "Cleaning and maintanence Services Platform frontend created using next.js and SWR",
+        link: "https://dev.corecare.in/",
+        main_image: corecare_main,
+        points: [
+            "Redesigned the frontend to use next.js instead of create-react-app for Static site generation and server-side rendering and to improve the SEO.",
+            "Remove Redux and used SWR for fetching data from api to implement caching and to improve overall performance",
+            "'Fully Responsive Design'"
+        ]
+    },
 ]
 /*
  * Created on Wed Jul 07 2021

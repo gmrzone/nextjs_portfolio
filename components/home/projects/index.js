@@ -1,4 +1,5 @@
-import SectionHeader from "../../common/SectionHeader"
+import SectionHeader from "../../common/SectionHeader";
+import ProjectItems from "./ProjectItems";
 const ProjectSection = () => {
  
     return (
@@ -6,7 +7,7 @@ const ProjectSection = () => {
         <div className="container">
             <SectionHeader title="Latest Work" meta="My recent projects" />
             <div className="flex flex-col text-center desktop-st:flex-row desktop-st:text-left">
-                
+                <ProjectItems />
             </div>
         </div>
     </div>
