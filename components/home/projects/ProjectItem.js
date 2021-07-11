@@ -23,12 +23,12 @@ const ProjectItem = ({ item }) => {
     }, [])
 
     return (
-        <div className="rounded-lg overflow-hidden shadow-md cursor-pointer relative after:block after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 after:bg-gradient-to-r after:from-main after:to-sec after:translate-x-0 after:transition-transform after:duration-500 after:opacity-95" ref={projectRef}>
+        <div className="group rounded-lg overflow-hidden shadow-md cursor-pointer relative after:block after:absolute after:top-0 after:left-0 after:w-full after:h-full after:z-10 after:bg-gradient-to-r after:from-main after:to-sec after:translate-x-0 after:transition-transform after:duration-500 after:opacity-95" ref={projectRef}>
             <div className="">
                 <Image alt="project_image" src={item.main_image} layout="intrinsic" width={600} height={296} />
             </div>
-            <div className="text-center bg-white p-2">
-                <p className="text-main inline-block font-semibold overflow-hidden text-lg relative after:absolute after:top-0 after:h-full after:w-full after:bg-sec after:left-0 after:translate-x-0 after:transition-transform after:duration-500" ref={projectText}>{item.name}</p>
+            <div className="text-center bg-white p-2 desktop-st:group-hover:before:translate-x-0 desktop-st:relative before:hidden desktop-st:before:block before:absolute before:w-full before:h-full before:bg-sec before:top-0 before:left-0 before:-translate-x-full before:transition-transform before:duration-300">
+                <p className="text-main desktop-st:group-hover:text-white transition-colors duration-300 inline-block font-semibold overflow-hidden text-lg relative after:absolute after:top-0 after:h-full after:w-full after:bg-sec after:left-0 after:translate-x-0 after:transition-transform after:duration-500" ref={projectText}>{item.name}</p>
             </div>
         </div>
     )

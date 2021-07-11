@@ -64,7 +64,9 @@ module.exports = {
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            translate: ['group-hover']
+        },
     },
     plugins: [],
 };
