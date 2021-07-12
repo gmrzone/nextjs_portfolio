@@ -34,7 +34,7 @@ const ProjectItem = ({ item, openProjectModal }) => {
             <div className="relative after:hidden desktop-st:after:block after:absolute after:top-0 after:left-0 after:w-full after:h-full after:bg-main z-0 after:bg-opacity-90 after:-translate-x-full after:transition-transform after:duration-300 group-hover:after:translate-x-0">
                 <Image alt="project_image" src={item.main_image} layout="intrinsic" width={600} height={296} placeholder="blur" />
                 <div className="absolute hidden desktop-st:inline-block desktop-st:bottom-0 desktop-st:right-full desktop-st:top-auto desktop-st:mb-8 desktop-st:mr-8 desktop-st:z-10 desktop-st:transition-all desktop-st:duration-300 desktop-st:group-hover:right-0">
-                    <ResponsiveLink title="Detail" action={openItemModal} />
+                    <ResponsiveLink title="Detail" icon="far fa-info-square text-sm" action={openItemModal} />
                 </div>
                 <div className="absolute hidden desktop-st:block z-10 text-center top-1/3 w-full px-4 desktop-st:transition-transform duration-300 desktop-st:-translate-x-full group-hover:translate-x-0">
                     <p className="text-bg-sec w-full text-lg font-semibold">{item.about}</p>

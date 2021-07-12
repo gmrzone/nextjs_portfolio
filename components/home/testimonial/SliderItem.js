@@ -28,3 +28,10 @@ const SliderItems = ({ item }) => {
 };
 
 export default SliderItems;
+
+/*
+ * Created on Tue Jul 13 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */
+
