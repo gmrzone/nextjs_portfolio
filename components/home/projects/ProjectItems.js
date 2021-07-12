@@ -10,7 +10,9 @@ const ProjectItems = () => {
         setModalActive({active: true, activeItem: item})
     }
     const closeProjectModal = () => {
-        setModalActive({active: false, activeItem: null})
+        setModalActive(s => {
+            return {...s, active: false}
+        })
     }
     const renderItems = ProjectData.map(x => {
         return (
@@ -19,7 +21,7 @@ const ProjectItems = () => {
     })
     return (
         <div className="grid gap-x-8 gap-y-12 grid-cols-1 desktop-st:grid-cols-2">
-            <ProjectModal active={modalActive.active} activeItem={modalActive.activeItem} closeModal={closeProjectModal}/>
+            <ProjectModal active={modalActive.active} activeItem={modalActive.activeItem} closeModal={closeProjectModal} />
             {renderItems}
         </div>
     )
