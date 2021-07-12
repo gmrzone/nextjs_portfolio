@@ -13,7 +13,7 @@ const AboutContent = () => {
                 </p>
             </div>
             <div className="mt-8">
-                <ButtonLink text="Download CV" href="#" download />
+                <ButtonLink text="Download CV" icon="far fa-file text-xl" href="#" download />
             </div>
         </div>
     );

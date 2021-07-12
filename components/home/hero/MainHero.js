@@ -22,10 +22,10 @@ const MainHero = () => {
                         <span className="text-gray-200 text-xl desktop-st:text-2xl font-semibold m-0">FullStack Developer</span>
                     </div>
                     <div className="space-x-4">
-                        <ButtonLink text="Hire Me" href="#" forceBig={true} download action={true} />
-                        <ButtonLink text="Get CV" href="#" forceBig={true} download />
+                        <ButtonLink text="Hire Me" href="#" icon="far fa-shield-check text-xl" forceBig={true} download action={true} />
+                        <ButtonLink text="Get CV" href="#" icon="far fa-file text-xl" forceBig={true} download />
                     </div>
-                    <div className=" space-x-4 text-4xl">
+                    <div className="space-x-4 text-4xl">
                         <a href="https://github.com/gmrzone" target="_blank" rel="noreferrer">
                             <i
                                 className="fab fa-github text-sec cursor-pointer transition-all duration-300"
