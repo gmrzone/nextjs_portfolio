@@ -8,3 +8,9 @@ const SectionHeader = ({ title, meta, inverted = false }) => {
 };
 
 export default SectionHeader;
+
+/*
+ * Created on Tue Jul 13 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */

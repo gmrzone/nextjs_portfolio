@@ -22,3 +22,9 @@ const InputField = ({ label, value, ...attrs }) => {
 };
 
 export default InputField;
+
+/*
+ * Created on Tue Jul 13 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */

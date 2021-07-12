@@ -12,3 +12,9 @@ const Testimonial = () => {
 };
 
 export default Testimonial;
+
+/*
+ * Created on Tue Jul 13 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */

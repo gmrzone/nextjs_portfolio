@@ -7,12 +7,12 @@ import review_image6 from "../../public/review_6.jpg";
 import review_image7 from "../../public/review_7.jpg";
 import review_image8 from "../../public/review_8.jpg";
 
-import corecare_main from '../../public/corecare_main.png';
-import corecare_old from '../../public/corecare_old.png'
-import corecare_admin from '../../public/corecare_admin.png';
+import corecare_main from "../../public/corecare_main.png";
+import corecare_old from "../../public/corecare_old.png";
+import corecare_admin from "../../public/corecare_admin.png";
 
-import corecare_main_secondary from '../../public/corecare_dev-dark-blue-.jpg';
-import corecare_admin_secondary from '../../public/corecare_admin_secondary.jpg';
+import corecare_main_secondary from "../../public/corecare_dev-dark-blue-.jpg";
+import corecare_admin_secondary from "../../public/corecare_admin_secondary.jpg";
 
 export const skillsData = [
     {
@@ -176,7 +176,6 @@ export const reviewData = [
     },
 ];
 
-
 export const ProjectData = [
     {
         id: 1,
@@ -189,17 +188,16 @@ export const ProjectData = [
         main_image: corecare_old,
         secondary_image: corecare_main_secondary,
         points: [
-            'Used React with Redux for Front-end along with HTML, CSS, and SCSS',
+            "Used React with Redux for Front-end along with HTML, CSS, and SCSS",
             "Lazy Load Images with placeholder to avoid Layout shift",
-            'Used Django and Django REST Framework to Create a Backend Restful API',
-            'Used Postgres as Database and Redis for Caching DB queried and for creating Service Recommendation Engine',
-            'Implemented JWT based authentication system with Custom User and httpOnly Cookie',
-            'Used Django Session To create Cart and Coupon System',
-            'Use Celery to generate Invoice asynchronously and Sent it via Email on Successful order',
-            'Integrated Razor Pay Payment Gateway',
-            'Deployed backend on Digital Ocean with NGINX, UWSGI',
-        ]
-
+            "Used Django and Django REST Framework to Create a Backend Restful API",
+            "Used Postgres as Database and Redis for Caching DB queried and for creating Service Recommendation Engine",
+            "Implemented JWT based authentication system with Custom User and httpOnly Cookie",
+            "Used Django Session To create Cart and Coupon System",
+            "Use Celery to generate Invoice asynchronously and Sent it via Email on Successful order",
+            "Integrated Razor Pay Payment Gateway",
+            "Deployed backend on Digital Ocean with NGINX, UWSGI",
+        ],
     },
     {
         id: 2,
@@ -212,10 +210,10 @@ export const ProjectData = [
         main_image: corecare_admin,
         secondary_image: corecare_admin_secondary,
         points: [
-            'Used React with SWR to create a Performant Admin Dashboard',
-            'Used Chart.js to visualize data',
-            'Fully Responsive Design'
-        ] 
+            "Used React with SWR to create a Performant Admin Dashboard",
+            "Used Chart.js to visualize data",
+            "Fully Responsive Design",
+        ],
     },
     {
         id: 4,
@@ -227,10 +225,7 @@ export const ProjectData = [
         link: "https://afzalsaiyed.xyz/",
         main_image: corecare_main,
         secondary_image: corecare_main_secondary,
-        points: [
-            "Created the frontend with next.js",
-            "'Fully Responsive Design'"
-        ]
+        points: ["Created the frontend with next.js", "'Fully Responsive Design'"],
     },
     {
         id: 3,
@@ -245,10 +240,10 @@ export const ProjectData = [
         points: [
             "Redesigned the frontend to use next.js instead of create-react-app for Static site generation and server-side rendering and to improve the SEO.",
             "Remove Redux and used SWR for fetching data from api to implement caching and to improve overall performance",
-            "'Fully Responsive Design'"
-        ]
+            "'Fully Responsive Design'",
+        ],
     },
-]
+];
 /*
  * Created on Wed Jul 07 2021
  *

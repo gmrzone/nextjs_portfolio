@@ -1,31 +1,30 @@
-import {useEffect, useRef} from 'react'
+import { useEffect, useRef } from "react";
 const ContactContent = () => {
-    const container = useRef()
+    const container = useRef();
     useEffect(() => {
         const options = {
             rootMargin: "0px 0px -70px 0px",
         };
         const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(x => {
-                if (x.isIntersecting){
-                    x.target.classList.remove('-translate-x-full')
-                    x.target.classList.remove('opacity-0')
-                    x.target.classList.add("translate-x-0")
-                    x.target.classList.add('opacity-100')
+            entries.forEach((x) => {
+                if (x.isIntersecting) {
+                    x.target.classList.remove("-translate-x-full");
+                    x.target.classList.remove("opacity-0");
+                    x.target.classList.add("translate-x-0");
+                    x.target.classList.add("opacity-100");
+                } else {
+                    x.target.classList.remove("translate-x-0");
+                    x.target.classList.remove("opacity-100");
+                    x.target.classList.add("-translate-x-full");
+                    x.target.classList.add("opacity-0");
                 }
-                else{
-                    x.target.classList.remove('translate-x-0')
-                    x.target.classList.remove('opacity-100')
-                    x.target.classList.add('-translate-x-full')
-                    x.target.classList.add('opacity-0')
-                }
-            })
-        }, options)
+            });
+        }, options);
 
-        Array.from(container.current.children).forEach(x => {
-            observer.observe(x)
-        })
-    }, [])
+        Array.from(container.current.children).forEach((x) => {
+            observer.observe(x);
+        });
+    }, []);
     return (
         <div className="w-full space-y-4 desktop-st:space-y-8 desktop-st:pt-6 desktop-st:w-1/2 desktop-st:text-left" ref={container}>
             <div className="flex flex-nowrap space-x-2 items-center -translate-x-full opacity-0 transition-all duration-500 ease-in-out">

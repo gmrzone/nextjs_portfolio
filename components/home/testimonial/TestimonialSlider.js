@@ -8,8 +8,8 @@ const TestimonialSlider = () => {
     const renderReviewData = reviewData.map((x) => {
         return <SliderItems item={x} key={x.id} />;
     });
-    const sliderLeftButton = useRef()
-    const sliderRightButton = useRef()
+    const sliderLeftButton = useRef();
+    const sliderRightButton = useRef();
     const currentTransPosition = useRef(0); // variable to capture current transition value in mouse move or touch move
     const currentTransPositionMain = useRef(0); // we cannot use currentTransPosition variable in pointerMove callback as start transaction bcoz its is constantly changing in that callback so we create a copy of that variable to use as start transition value
     const maxRightTransition = useRef(0); // variable to keep track of maxRightTransition to avoid slider from getting outside of wrapper container
@@ -19,38 +19,28 @@ const TestimonialSlider = () => {
 
     // reset slider transition position to zero on window resize to avoid layout mess (workaround)
     const calculateMAxRightTransaction = () => {
-        if (typeof window !== undefined){
-            if (window.innerWidth <= 766){
-                maxRightTransition.current = -(
-                    (mainContainer.current.firstChild.clientWidth + 20) * (reviewData.length - 1)
-                );
-            }
-            else if (window.innerWidth <= 991 && window.innerWidth >=767){
-                maxRightTransition.current = -(
-                    (mainContainer.current.firstChild.clientWidth + 20) * (reviewData.length - 2)
-                );
-            }
-            else{
-                maxRightTransition.current = -(
-                    (mainContainer.current.firstChild.clientWidth + 20) * (reviewData.length - 3)
-                );
+        if (typeof window !== undefined) {
+            if (window.innerWidth <= 766) {
+                maxRightTransition.current = -((mainContainer.current.firstChild.clientWidth + 20) * (reviewData.length - 1));
+            } else if (window.innerWidth <= 991 && window.innerWidth >= 767) {
+                maxRightTransition.current = -((mainContainer.current.firstChild.clientWidth + 20) * (reviewData.length - 2));
+            } else {
+                maxRightTransition.current = -((mainContainer.current.firstChild.clientWidth + 20) * (reviewData.length - 3));
             }
         }
-    }
+    };
     useEffect(() => {
         const resetSlider = () => {
             mainContainer.current.style.transform = "translate3d(0px, 0px, 0px)";
             currentTransPositionMain.current = 0;
             currentTransPosition.current = 0;
-            calculateMAxRightTransaction()
+            calculateMAxRightTransaction();
         };
         window.addEventListener("resize", resetSlider);
         if (!maxRightTransition.current) {
-            calculateMAxRightTransaction()
-        }   
+            calculateMAxRightTransaction();
+        }
     }, []);
-
-
 
     // this event callback is triggered on touch start and mouse down . Save touch start position of mouse down button press position so we can compare it with current touch position or mouse up button position to find if the user has swiped left or right
     const handlePointerStart = (e) => {
@@ -104,11 +94,11 @@ const TestimonialSlider = () => {
                     currentTransPosition.current = transitionTo;
 
                     //  Hide right slide button when slide not available and show left slide button as soon as slide on left side are available
-                    if (currentTransPosition.current > maxRightTransition.current){
-                        sliderRightButton.current.classList.remove(style['hidden'])
+                    if (currentTransPosition.current > maxRightTransition.current) {
+                        sliderRightButton.current.classList.remove(style["hidden"]);
                     }
-                    if (currentTransPosition.current === 0){
-                        sliderLeftButton.current.classList.add(style['hidden'])
+                    if (currentTransPosition.current === 0) {
+                        sliderLeftButton.current.classList.add(style["hidden"]);
                     }
                 }
             } else {
@@ -119,14 +109,14 @@ const TestimonialSlider = () => {
                     mainContainer.current.style.transitionDuration = "0.3s";
                     mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
                     currentTransPositionMain.current = transitionTo;
-                    currentTransPosition.current = transitionTo
+                    currentTransPosition.current = transitionTo;
 
                     //  Hide left slide button when slide not available and show right slide button as soon as slide on right side are available
-                    if (currentTransPosition.current < 0){
-                        sliderLeftButton.current.classList.remove(style['hidden'])
+                    if (currentTransPosition.current < 0) {
+                        sliderLeftButton.current.classList.remove(style["hidden"]);
                     }
-                    if (currentTransPosition.current === maxRightTransition.current){
-                        sliderRightButton.current.classList.add(style['hidden'])
+                    if (currentTransPosition.current === maxRightTransition.current) {
+                        sliderRightButton.current.classList.add(style["hidden"]);
                     }
                 }
             }
@@ -185,43 +175,43 @@ const TestimonialSlider = () => {
         }
     };
 
-
     const slideLEft = () => {
-        if (currentTransPosition.current > maxRightTransition.current){
-           const transitionAmount = currentTransPosition.current - mainContainer.current.firstChild.clientWidth - 20
-           mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`
-           currentTransPosition.current = transitionAmount
-           currentTransPositionMain.current = transitionAmount
+        if (currentTransPosition.current > maxRightTransition.current) {
+            const transitionAmount = currentTransPosition.current - mainContainer.current.firstChild.clientWidth - 20;
+            mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
+            currentTransPosition.current = transitionAmount;
+            currentTransPositionMain.current = transitionAmount;
 
-           //  Hide left slide button when slide not available and show right slide button as soon as slide on right side are available
-           if (currentTransPosition.current < 0){
-               sliderLeftButton.current.classList.remove(style['hidden'])
-           }
-           if (currentTransPosition.current === maxRightTransition.current){
-               sliderRightButton.current.classList.add(style['hidden'])
-           }
+            //  Hide left slide button when slide not available and show right slide button as soon as slide on right side are available
+            if (currentTransPosition.current < 0) {
+                sliderLeftButton.current.classList.remove(style["hidden"]);
+            }
+            if (currentTransPosition.current === maxRightTransition.current) {
+                sliderRightButton.current.classList.add(style["hidden"]);
+            }
         }
-        
-    }
+    };
     const slideRight = () => {
-        if (currentTransPosition.current < 0){
-            const transitionAmount = currentTransPosition.current + mainContainer.current.firstChild.clientWidth + 20
-            mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`
-            currentTransPosition.current = transitionAmount
-            currentTransPositionMain.current = transitionAmount
+        if (currentTransPosition.current < 0) {
+            const transitionAmount = currentTransPosition.current + mainContainer.current.firstChild.clientWidth + 20;
+            mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
+            currentTransPosition.current = transitionAmount;
+            currentTransPositionMain.current = transitionAmount;
         }
-         //  Hide right slide button when slide not available and show left slide button as soon as slide on left side are available
-        if (currentTransPosition.current > maxRightTransition.current){
-            sliderRightButton.current.classList.remove(style['hidden'])
+        //  Hide right slide button when slide not available and show left slide button as soon as slide on left side are available
+        if (currentTransPosition.current > maxRightTransition.current) {
+            sliderRightButton.current.classList.remove(style["hidden"]);
         }
-        if (currentTransPosition.current === 0){
-            sliderLeftButton.current.classList.add(style['hidden'])
+        if (currentTransPosition.current === 0) {
+            sliderLeftButton.current.classList.add(style["hidden"]);
         }
-        
-    }
+    };
     return (
         <div className={style["main-container"]}>
-            <div className={`${style["left-icon"]} left-jsx ${currentTransPosition.current === 0 && style['hidden']}`} onClick={slideRight} ref={sliderLeftButton}>
+            <div
+                className={`${style["left-icon"]} left-jsx ${currentTransPosition.current === 0 && style["hidden"]}`}
+                onClick={slideRight}
+                ref={sliderLeftButton}>
                 <i className="far fa-chevron-left" />
             </div>
             <div className={style["right-icon"] + " right-jsx"} onClick={slideLEft} ref={sliderRightButton}>
@@ -242,15 +232,15 @@ const TestimonialSlider = () => {
                 </div>
             </div>
             <style jsx>{`
+                .inner-container {
+                    width: 100%;
+                }
+                @media (min-width: 767px) {
                     .inner-container {
-                        width: 100%;
+                        width: calc(var(--slider-item-width) * ${renderReviewData.length} + 160px);
                     }
-                    @media (min-width: 767px) {
-                        .inner-container {
-                            width: calc(var(--slider-item-width) * ${renderReviewData.length} + 160px);
-                        }
-                    }
-                `}</style>
+                }
+            `}</style>
         </div>
     );
 };

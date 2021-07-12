@@ -56,7 +56,7 @@ module.exports = {
                 hero: "30rem",
             },
             width: {
-                "project-image": "30rem"
+                "project-image": "30rem",
             },
             animation: {
                 "spin-fast": "spin 0.6s linear infinite",
@@ -65,7 +65,7 @@ module.exports = {
     },
     variants: {
         extend: {
-            translate: ['group-hover']
+            translate: ["group-hover"],
         },
     },
     plugins: [],

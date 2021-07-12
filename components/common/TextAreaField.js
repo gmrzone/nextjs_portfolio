@@ -22,3 +22,9 @@ const TextAreaField = ({ label, value, ...attrs }) => {
 };
 
 export default TextAreaField;
+
+/*
+ * Created on Tue Jul 13 2021
+ *
+ * Copyright (c) 2021 AFzal Saiyed
+ */
