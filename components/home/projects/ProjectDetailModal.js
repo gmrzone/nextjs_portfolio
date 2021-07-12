@@ -111,9 +111,9 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
     })
 
     return reactDom.createPortal(
-        <div className="fixed w-screen h-screen z-40 justify-center items-center hidden" ref={container}>
+        <div className="fixed w-full h-full z-40 justify-center items-center hidden overflow-y-auto" ref={container}>
             <BlurBackDrop backdrop={backdrop} zIndex="40" close={closeModal}/>
-            <div className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 desktop-st:grid-cols-2 rounded-md" style={{maxHeight: "95%"}}>
+            <div className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 px-4 desktop-st:px-0 desktop-st:grid-cols-2 rounded-md" style={{maxHeight: "95%"}}>
                 <div className="bg-main hidden opacity-0 transition-all duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full" ref={modalLeft}>
                     <i className="far fa-times text-2xl cursor-pointer text-white transition-colors duration-300 px-6 py-3" onClick={closeModal}/>
                     <div className="flex justify-center">
@@ -123,7 +123,7 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
                     </div>
                 </div>
                 <div className="bg-bg-sec hidden p-8 opacity-0 text-main transition-all duration-500 translate-x-full desktop-st:translate-x-0 desktop-st:translate-y-full" ref={modalRight}>
-                     <div>
+                     <div className="space-y-2">
                          <h3>{activeItem?.name}</h3>
                          <p className="text-sm desktop-st:text-lg">{activeItem?.about}</p>
                      </div>
