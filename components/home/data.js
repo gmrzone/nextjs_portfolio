@@ -198,7 +198,7 @@ export const ProjectData = [
 
     },
     {
-        id: 21,
+        id: 2,
         name: "Admin Dashboard",
         context: "Frontend Redesign using Nextjs",
         role: "Frontend Developer",
