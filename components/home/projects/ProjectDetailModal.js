@@ -2,6 +2,7 @@ import BlurBackDrop from "../../shared/header/BlurBackDrop";
 import {useRef, useEffect} from 'react';
 import reactDom from 'react-dom';
 import ButtonLink from '../../common/ButtonLink'
+import Image from 'next/image';
 const ProjectDetailModal = ({active, closeModal, activeItem}) => {
     const backdrop = useRef()
     const container = useRef()
@@ -56,21 +57,23 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
             <BlurBackDrop backdrop={backdrop} zIndex="40" close={closeModal}/>
             <div className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-2" style={{maxHeight: "95%"}}>
                 <div className="bg-main">
-                    <i className="far fa-times text-2xl cursor-pointer text-main transition-colors duration-300 px-6 py-3" />
+                    <i className="far fa-times text-2xl cursor-pointer text-white transition-colors duration-300 px-6 py-3" onClick={closeModal}/>
                     <div>
-
+                        <div className="p-4">
+                            {activeItem && <Image src={activeItem?.secondary_image} alt={activeItem?.name + " secondary"} layout="intrinsic" width={688} height={363}/>}
+                        </div>
                     </div>
                 </div>
-                <div className="bg-bg-sec">
+                <div className="bg-bg-sec p-8 text-main">
                      <div>
                          <h3>{activeItem?.name}</h3>
                          <p>{activeItem?.about}</p>
                      </div>
-                     <ul className="list-disc pl-6">
+                     <ul className="list-disc p-6">
                          {renderPoints}
                      </ul>
-                     <div>
-                         <ButtonLink text="Live Link" action={true}/>
+                     <div className="space-x-2">
+                         {activeItem?.link &&  <ButtonLink text="Live Link" action={true} href={activeItem?.link    }/>}
                          <ButtonLink text="Github" icon="fab fa-github text-xl" cssClasses="bg-gray-900 hover:bg-gray-700"/>
                      </div>
                 </div>

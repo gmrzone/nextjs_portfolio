@@ -9,7 +9,10 @@ import review_image8 from "../../public/review_8.jpg";
 
 import corecare_main from '../../public/corecare_main.png';
 import corecare_old from '../../public/corecare_old.png'
-import corecare_admin from '../../public/corecare_admin.png'; 
+import corecare_admin from '../../public/corecare_admin.png';
+
+import corecare_main_secondary from '../../public/corecare_dev-dark-blue-.jpg';
+import corecare_admin_secondary from '../../public/corecare_admin_secondary.jpg';
 
 export const skillsData = [
     {
@@ -184,6 +187,7 @@ export const ProjectData = [
         about: "A Fullstack cleaning and maintanence service platform created using React, redux on frontend and django, Postgresql and Redis as backend.",
         link: "https://www.corecare.in/",
         main_image: corecare_old,
+        secondary_image: corecare_main_secondary,
         points: [
             'Used React with Redux for Front-end along with HTML, CSS, and SCSS',
             "Lazy Load Images with placeholder to avoid Layout shift",
@@ -206,6 +210,7 @@ export const ProjectData = [
         about: "Admin Dashboard created using React and Charts.js",
         link: "https://corecare-admin.vercel.app/",
         main_image: corecare_admin,
+        secondary_image: corecare_admin_secondary,
         points: [
             'Used React with SWR to create a Performant Admin Dashboard',
             'Used Chart.js to visualize data',
@@ -221,6 +226,7 @@ export const ProjectData = [
         about: "Personal portfolio website created using nextjs and tailwing css.",
         link: "https://afzalsaiyed.xyz/",
         main_image: corecare_main,
+        secondary_image: corecare_main_secondary,
         points: [
             "Created the frontend with next.js",
             "'Fully Responsive Design'"
@@ -235,6 +241,7 @@ export const ProjectData = [
         about: "Cleaning and maintanence Services Platform frontend created using next.js and SWR",
         link: "https://dev.corecare.in/",
         main_image: corecare_main,
+        secondary_image: corecare_main_secondary,
         points: [
             "Redesigned the frontend to use next.js instead of create-react-app for Static site generation and server-side rendering and to improve the SEO.",
             "Remove Redux and used SWR for fetching data from api to implement caching and to improve overall performance",
