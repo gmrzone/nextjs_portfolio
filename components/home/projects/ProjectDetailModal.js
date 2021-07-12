@@ -35,7 +35,7 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
         modalRight.current.classList.remove('opacity-0')
         modalLeft.current.classList.add('opacity-100')
         modalRight.current.classList.add('opacity-100')
-        
+
         if (typeof window !== undefined){
             if (window.innerWidth > 991){
                 
@@ -45,7 +45,10 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
                 modalRight.current.classList.add('desktop-st:translate-y-0')
             }
             else{
-
+                modalLeft.current.classList.remove('-translate-x-full')
+                modalRight.current.classList.remove('translate-x-full')
+                modalLeft.current.classList.add('translate-x-0')
+                modalRight.current.classList.add('translate-x-0')
             }
         }
     }
@@ -59,18 +62,12 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
             container.current.classList.remove('hidden')
             container.current.classList.add('flex')
 
-            if (window.innerWidth > 991){
-                modalRight.current.classList.remove('hidden')
-                modalLeft.current.classList.remove('hidden')
-                modalRight.current.classList.add('block')
-                modalLeft.current.classList.add('block')
+            modalRight.current.classList.remove('hidden')
+            modalLeft.current.classList.remove('hidden')
+            modalRight.current.classList.add('block')
+            modalLeft.current.classList.add('block')
                 
-            }
-            else{
-
-            }
-
-
+            
             setTimeout(transitionInModal, 50)
         }
         else{
@@ -93,7 +90,11 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
                     modalRight.current.classList.add('desktop-st:translate-y-full')
                 }
                 else{
-                    
+
+                    modalLeft.current.classList.remove('translate-x-0')
+                    modalRight.current.classList.remove('translate-x-0')
+                    modalLeft.current.classList.add('-translate-x-full')
+                    modalRight.current.classList.add('translate-x-full')
                 }
             }
 
@@ -112,8 +113,8 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
     return reactDom.createPortal(
         <div className="fixed w-screen h-screen z-40 justify-center items-center hidden" ref={container}>
             <BlurBackDrop backdrop={backdrop} zIndex="40" close={closeModal}/>
-            <div className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-2 rounded-md" style={{maxHeight: "95%"}}>
-                <div className="bg-main hidden opacity-0 transition-all duration-500 desktop-st:-translate-y-full" ref={modalLeft}>
+            <div className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 desktop-st:grid-cols-2 rounded-md" style={{maxHeight: "95%"}}>
+                <div className="bg-main hidden opacity-0 transition-all duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full" ref={modalLeft}>
                     <i className="far fa-times text-2xl cursor-pointer text-white transition-colors duration-300 px-6 py-3" onClick={closeModal}/>
                     <div className="flex justify-center">
                         <div className="p-4">
@@ -121,7 +122,7 @@ const ProjectDetailModal = ({active, closeModal, activeItem}) => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-bg-sec hidden p-8 opacity-0 text-main transition-all duration-500 desktop-st:translate-y-full" ref={modalRight}>
+                <div className="bg-bg-sec hidden p-8 opacity-0 text-main transition-all duration-500 translate-x-full desktop-st:translate-x-0 desktop-st:translate-y-full" ref={modalRight}>
                      <div>
                          <h3>{activeItem?.name}</h3>
                          <p className="text-sm desktop-st:text-lg">{activeItem?.about}</p>
