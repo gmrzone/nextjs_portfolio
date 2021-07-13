@@ -16,10 +16,10 @@ const MainHero = () => {
             <div className="container h-full flex flex-col justify-center sm:flex-row absolute right-0 left-0 mx-auto">
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
                     <div className="">
-                        <h1 className="text-white 2xl:text-6xl tracking-widest mb-2 desktop-st:mb-4">
+                        <h1 className="text-white 2xl:text-6xl tracking-widest mb-2 inline-block overflow-hidden relative after:absolute after:w-full after:h-full after:bg-bg-sec after:left-0 after:top-0 after:animate-theme-text desktop-st:mb-4">
                             Hi, I&apos;am <span className="text-action">AFzal</span>
-                        </h1>
-                        <span className="text-gray-200 text-xl desktop-st:text-2xl font-semibold m-0">FullStack Developer</span>
+                        </h1><br />
+                        <span className="text-gray-200 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-full after:h-full after:bg-bg-sec after:top-0 after:left-0 after:animate-theme-text">FullStack Developer</span>
                     </div>
                     <div className="space-x-4">
                         <ButtonLink text="Hire Me" href="#" icon="far fa-shield-check text-xl" forceBig={true} download action={true} />
