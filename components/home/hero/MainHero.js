@@ -12,7 +12,7 @@ const MainHero = () => {
         e.target.classList.add("text-sec");
     };
     return (
-        <div className="w-full bg-main h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative">
+        <div className="w-full bg-main h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative main-gradiant">
             <div className="container h-full flex flex-col justify-center sm:flex-row">
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
                     <div className="">
@@ -53,6 +53,15 @@ const MainHero = () => {
                     <HeroImage />
                 </div>
             </div>
+            <style jsx>{`
+                @media (min-width: 767px){
+                    .main-gradiant {
+                        background: rgb(13,189,228);
+background: linear-gradient(290deg, rgba(5,55,66,1) 42%, rgb(9, 98, 119) 42%);
+                    }
+                }
+            
+            `}</style>
         </div>
     );
 };

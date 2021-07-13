@@ -1,6 +1,6 @@
 const NavbarLogo = () => {
     return (
-        <div className="w-14">
+        <div className="w-14 cursor-pointer">
             {/* <?xml version="1.0" encoding="utf-8"?> */}
             <svg
                 version="1.1"
