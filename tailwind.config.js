@@ -60,6 +60,21 @@ module.exports = {
             },
             animation: {
                 "spin-fast": "spin 0.6s linear infinite",
+                "logo-center": "logo-one 0.3s 1s ease-in forwards",
+                "logo-main": "logo-two 0.3s 0.8s ease-in forwards"
+            },
+            keyframes: {
+                "logo-one": {
+                    to: {
+                        transform: "translateX(0px)",
+                        opacity: "1"
+                    }
+                },
+                "logo-two": {
+                    to: {
+                        opacity: "1"
+                    }
+                }
             },
         },
     },
