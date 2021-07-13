@@ -60,8 +60,8 @@ module.exports = {
             },
             animation: {
                 "spin-fast": "spin 0.6s linear infinite",
-                "logo-center": "logo-one 0.3s 0.9s ease-in forwards",
-                "logo-main": "logo-two 0.3s 0.6s ease-in forwards",
+                "logo-center": "logo-one 0.3s 1s ease-in forwards",
+                "logo-main": "logo-two 0.3s 0.7s ease-in forwards",
                 "main-gradiant": "gradiant-bg 0.6s ease-in forwards",
                 "theme-text": "animated-text 0.3s 0.35s ease-in forwards",
                 "theme-text-m": "animated-text 0.3s 0.05s ease-in forwards",
@@ -84,8 +84,16 @@ module.exports = {
                     }
                 },
                 "animated-text": {
-                    to: {
-                        transform: "translateX(100%)"
+                    "0%": {
+                        transform: 'translateX(0px)'
+                    },
+                    "99%": {
+                        transform: "translateX(100%)",
+                        opacity: "1"
+                    },
+                    "100%": {
+                        transform: "translateX(100%)",
+                        opacity: "0"
                     }
                 }
             },
