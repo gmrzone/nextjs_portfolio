@@ -49,17 +49,21 @@ const MainHero = () => {
                         </a>
                     </div>
                 </div>
-                <div className="w-10/12 absolute order-1 flex flex-col justify-center right-0 left-0 mr-auto ml-auto mb-10 opacity-10 sm:opacity-20 sm:static sm:w-2/5 sm:order-2 sm:mb-0">
+                <div className="w-full absolute order-1 flex flex-col justify-center right-0 left-0 mr-auto ml-auto mb-10 opacity-10 sm:opacity-20 sm:static sm:w-2/5 sm:order-2 sm:mb-0">
                     <HeroImage />
                 </div>
             </div>
             <style jsx>{`
+                .main-gradiant::before {
+                    display: none;
+                }
                 @media (min-width: 640px){
                     .main-gradiant {
                         background: var(--color-main);
                         background: linear-gradient(290deg, var(--color-main) 100%, var(--color-main-gradiant) 100%);
                     }
                     .main-gradiant::before {
+                        display: block;
                         background: linear-gradient(290deg, transparent 44%, var(--color-main-gradiant) 44%);
                     }
 
