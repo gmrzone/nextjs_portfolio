@@ -6,6 +6,7 @@
 :root {
     --color-sec: rgb(57, 162, 219);
     --color-main: rgb(5, 55, 66);
+    --color-main-gradiant: rgb(7, 79, 95);
 
     --input-transition-width-duration: 0.1s;
     --input-transition-height-duration: 0.1s;

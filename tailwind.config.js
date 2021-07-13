@@ -38,7 +38,6 @@ module.exports = {
             },
             colors: {
                 main: "rgb(5, 55, 66)",
-                "main-to-gradiant": "rgb(12, 138, 166)",
                 sec: "rgb(29, 161, 242)",
                 "sec-lg": "rgb(162, 219, 250)",
                 "bg-sec": "rgb(232, 240, 242)",

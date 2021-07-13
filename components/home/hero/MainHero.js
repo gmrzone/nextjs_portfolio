@@ -56,8 +56,8 @@ const MainHero = () => {
             <style jsx>{`
                 @media (min-width: 767px){
                     .main-gradiant {
-                        background: rgb(13,189,228);
-background: linear-gradient(290deg, rgba(5,55,66,1) 42%, rgb(9, 98, 119) 42%);
+                        background: var(--color-main);
+                        background: linear-gradient(290deg, var(--color-main) 42%, var(--color-main-gradiant) 42%);
                     }
                 }
             
