@@ -185,6 +185,7 @@ export const ProjectData = [
         period: "October 2020",
         about: "A Fullstack cleaning and maintanence service platform created using React, redux on frontend and django, Postgresql and Redis as backend.",
         link: "https://www.corecare.in/",
+        github: "https://github.com/gmrzone/corecare_backend",
         main_image: corecare_old,
         secondary_image: corecare_main_secondary,
         points: [
@@ -207,6 +208,7 @@ export const ProjectData = [
         period: "March 2021",
         about: "Admin Dashboard created using React and Charts.js",
         link: "https://corecare-admin.vercel.app/",
+        github: "https://github.com/gmrzone/corecare_admin",
         main_image: corecare_admin,
         secondary_image: corecare_admin_secondary,
         points: [
@@ -223,6 +225,7 @@ export const ProjectData = [
         period: "August 2021",
         about: "Personal portfolio website created using nextjs and tailwing css.",
         link: "https://afzalsaiyed.xyz/",
+        github: "https://github.com/gmrzone/nextjs_portfolio",
         main_image: corecare_main,
         secondary_image: corecare_main_secondary,
         points: ["Created the frontend with next.js", "'Fully Responsive Design'"],
@@ -235,6 +238,7 @@ export const ProjectData = [
         period: "January 2021",
         about: "Cleaning and maintanence Services Platform frontend created using next.js and SWR",
         link: "https://dev.corecare.in/",
+        github: "https://github.com/gmrzone/corecare_frontend_nextjs",
         main_image: corecare_main,
         secondary_image: corecare_main_secondary,
         points: [
