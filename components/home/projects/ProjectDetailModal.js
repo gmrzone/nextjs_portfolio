@@ -100,7 +100,7 @@ const ProjectDetailModal = ({ active, closeModal, activeItem }) => {
         <div className="fixed w-full h-full z-40 justify-center items-center hidden overflow-y-auto" ref={container}>
             <BlurBackDrop backdrop={backdrop} zIndex="40" close={closeModal} />
             <div
-                className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 px-4 desktop-st:px-0 desktop-st:grid-cols-2 rounded-md"
+                className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 px-4 desktop-st:px-0 desktop-st:grid-cols-2"
                 style={{ maxHeight: "95%" }}>
                 <div
                     className="bg-main hidden opacity-0 transition-all duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full"
@@ -118,6 +118,7 @@ const ProjectDetailModal = ({ active, closeModal, activeItem }) => {
                                     layout="intrinsic"
                                     width={688}
                                     height={363}
+                                    placeholder="blur"
                                 />
                             )}
                         </div>
@@ -131,7 +132,7 @@ const ProjectDetailModal = ({ active, closeModal, activeItem }) => {
                         <p className="text-sm desktop-st:text-lg">{activeItem?.about}</p>
                     </div>
                     <ul className="list-disc p-6 text-sm desktop-st:text-lg">{renderPoints}</ul>
-                    <div className="space-x-1 text-center">
+                    <div className="space-x-1 text-center desktop-st:text-left">
                         {activeItem?.link && (
                             <ButtonLink text="Live Link" icon="far fa-link text-xl" action={true} href={activeItem?.link} target="_blank" rel="noreferrer"/>
                         )}
