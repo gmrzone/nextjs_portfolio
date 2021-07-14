@@ -7,6 +7,9 @@
     --color-sec: rgb(57, 162, 219);
     --color-main: rgb(5, 55, 66);
     --color-main-gradiant: rgb(7, 79, 95);
+    --color-theme: #ff4747;
+    --color-bg: rgb(232, 240, 242);
+
 
     --input-transition-width-duration: 0.1s;
     --input-transition-height-duration: 0.1s;
@@ -28,11 +31,15 @@
     --slider-container-width: 100%;
     --slider-container-height: 230px;
     --slider-item-width: 100%;
+    
 }
 
 .dark {
     --color-main: rgb(29,31,31);
     --color-main-gradiant: rgb(34,34,45);
+    --color-sec: rgb(34,34,45);
+    --color-theme: rgb(37, 99, 235);
+    --color-bg: rgb(226,226,233);
 }
 @media (min-width: 767px) {
     :root {

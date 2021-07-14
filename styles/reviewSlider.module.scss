@@ -7,7 +7,7 @@
         cursor: pointer;
         position: absolute;
         z-index: 10;
-        background-color: var(--color-sec);
+        background-color: var(--color-theme);
         border-radius: 50%;
         width: 30px;
         height: 30px;
@@ -69,7 +69,8 @@
                 flex-shrink: 0;
                 position: relative;
                 padding: 12px;
-                background-color: white;
+                background-color: var(--color-bg);
+                transition: background-color 0.3s linera;
                 width: var(--slider-item-width);
                 cursor: move; /* fallback if grab cursor is unsupported */
                 cursor: grab;
