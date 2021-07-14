@@ -27,7 +27,7 @@ const SkillsAccordianItem = ({ item: { title, meta, data, icon, id }, last, acti
             />
             <SkillItems data={data} activeAccordian={activeAccordian} id={id} />
             <div
-                className="bg-sec text-white px-3 font-bold mb-8 py-3 text-center shadow-md rounded-md hidden cursor-pointer transition-colors duration-300 bg-opacity-100 hover:bg-opacity-75 desktop-st:block"
+                className="bg-sec dark:bg-sec-dark text-bg-sec dark:text-bg-sec-inverted px-3 font-bold mb-8 py-3 text-center shadow-md rounded-md hidden cursor-pointer transition-colors duration-300 bg-opacity-100 hover:bg-opacity-75 dark:hover:bg-opacity-70 desktop-st:block"
                 onClick={openDesktopSkillModal}>
                 View All
             </div>

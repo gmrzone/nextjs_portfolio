@@ -23,8 +23,8 @@ const SkillItem = ({ item }) => {
                 <span className="text-gray-600">{item.skill}%</span>
             </div>
             <div className="relative">
-                <div className="w-full h-2 bg-sec-lg rounded-full overflow-hidden">
-                    <div className="h-full bg-sec w-0 transition-all duration-500" ref={progressBar}></div>
+                <div className="w-full h-2 bg-sec-lg dark:bg-bg-sec-dark rounded-full overflow-hidden">
+                    <div className="h-full bg-sec dark:bg-sec-dark w-0 transition-all duration-500" ref={progressBar}></div>
                 </div>
             </div>
         </div>

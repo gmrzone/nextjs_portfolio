@@ -1,13 +1,13 @@
 const SkillsItemHeader = ({ icon, title, meta, activeAccordian, id, activateAccordian }) => {
     return (
         <div
-            className="flex justify-between bg-white px-6 py-2 rounded-md overflow-hidden cursor-pointer shadow-lg"
+            className="flex justify-between bg-white dark:bg-bg-sec-inverted transition-colors duration-300 px-6 py-2 rounded-md overflow-hidden cursor-pointer shadow-lg"
             onClick={() => activateAccordian(id)}>
             <div className="flex flex-col justify-center">
                 <i className={`${icon} text-3xl text-main`} />
             </div>
             <div>
-                <h3 className="text-main">{title}</h3>
+                <h3 className="text-main dark:text-main-dark transition-colors duration-300">{title}</h3>
                 <span className="text-gray-600">{meta}&nbsp;</span>
             </div>
             <div className="flex flex-col justify-center">

@@ -47,7 +47,7 @@ module.exports = {
 
                 "nav-dark": "rgb(22,21,23)",
                 "main-dark": "rgb(29,31,31)",
-                "sec-dark": "rgb(25,33,33)",
+                "sec-dark": "rgb(34,34,45)",
 
                 "sec-lg-dark": "rgb(162, 219, 250)",
 
