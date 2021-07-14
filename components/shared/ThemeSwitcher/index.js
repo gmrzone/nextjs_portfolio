@@ -1,20 +1,17 @@
 import style from "../../../styles/themeSwitcher.module.scss";
 import { useState, useEffect, useRef } from "react";
 const ThemeSwitcher = ({ main }) => {
-    const darkThemeInitial = (localStorage.getItem('dark') === "true")
+    const darkThemeInitial = localStorage.getItem("dark") === "true";
     const [darkThemeActive, setDarkThemeActive] = useState(darkThemeInitial);
     const toggleTheme = () => {
-        
         setDarkThemeActive((s) => !s);
-        localStorage.setItem('dark', !darkThemeActive)
-        if (!darkThemeActive){
-            main.current.classList.add('dark')
+        localStorage.setItem("dark", !darkThemeActive);
+        if (!darkThemeActive) {
+            main.current.classList.add("dark");
+        } else {
+            main.current.classList.remove("dark");
         }
-        else{
-            main.current.classList.remove('dark')
-        }
-
-    };  
+    };
     const dartIcon = useRef();
     const LightIcon = useRef();
     const firstRender = useRef(true);
@@ -34,7 +31,7 @@ const ThemeSwitcher = ({ main }) => {
     const hideLightIcon = () => {
         LightIcon.current.classList.add("hidden");
     };
-    console.log(darkThemeActive)
+    console.log(darkThemeActive);
     useEffect(() => {
         if (darkThemeActive) {
             if (fr) {
@@ -78,7 +75,8 @@ const ThemeSwitcher = ({ main }) => {
             className={`relative border border-solid bg-white rounded-full transition duration-300 ${
                 darkThemeActive ? "border-blue-400" : "border-gray-400"
             } ${style["theme-switcher__container"]}`}>
-            <div className={`absolute left-0 rounded-full transition-all duration-300 w-8 h-8 ${
+            <div
+                className={`absolute left-0 rounded-full transition-all duration-300 w-8 h-8 ${
                     darkThemeActive ? "translate-x-full bg-sec" : "translate-x-0 bg-black"
                 } ${style["main-switch"]}`}
                 onClick={toggleTheme}>

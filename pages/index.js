@@ -6,9 +6,9 @@ import AboutSection from "../components/home/about";
 import ContactSection from "../components/home/contact";
 import TestimonialSection from "../components/home/testimonial";
 import ProjectSection from "../components/home/projects";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const MainLayout = dynamic(() => import('../components/common/MainLayout'), {ssr: false})
+const MainLayout = dynamic(() => import("../components/common/MainLayout"), { ssr: false });
 export default function Home() {
     return (
         <MainLayout>

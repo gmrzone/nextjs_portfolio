@@ -134,9 +134,23 @@ const ProjectDetailModal = ({ active, closeModal, activeItem }) => {
                     <ul className="list-disc p-6 text-sm desktop-st:text-lg">{renderPoints}</ul>
                     <div className="space-x-1 text-center desktop-st:text-left">
                         {activeItem?.link && (
-                            <ButtonLink text="Live Link" icon="far fa-link text-xl" action={true} href={activeItem?.link} target="_blank" rel="noreferrer"/>
+                            <ButtonLink
+                                text="Live Link"
+                                icon="far fa-link text-xl"
+                                action={true}
+                                href={activeItem?.link}
+                                target="_blank"
+                                rel="noreferrer"
+                            />
                         )}
-                        <ButtonLink text="Github" icon="fab fa-github text-xl" cssClasses="bg-gray-900 hover:bg-gray-700" href={activeItem?.github} target="_blank" rel="noreferrer"/>
+                        <ButtonLink
+                            text="Github"
+                            icon="fab fa-github text-xl"
+                            cssClasses="bg-gray-900 hover:bg-gray-700"
+                            href={activeItem?.github}
+                            target="_blank"
+                            rel="noreferrer"
+                        />
                     </div>
                 </div>
             </div>

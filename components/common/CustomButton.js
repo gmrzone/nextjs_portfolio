@@ -1,4 +1,4 @@
-const ButtonLink = ({ loading = false, text, action, icon=null, ...attr }) => {
+const ButtonLink = ({ loading = false, text, action, icon = null, ...attr }) => {
     return (
         <button
             {...attr}

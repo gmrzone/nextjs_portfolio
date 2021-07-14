@@ -34,4 +34,3 @@ export default SliderItems;
  *
  * Copyright (c) 2021 AFzal Saiyed
  */
-

@@ -70,32 +70,32 @@ module.exports = {
                 "logo-one": {
                     to: {
                         transform: "translateX(0px)",
-                        opacity: "1"
-                    }
+                        opacity: "1",
+                    },
                 },
                 "logo-two": {
                     to: {
-                        opacity: "1"
-                    }
+                        opacity: "1",
+                    },
                 },
                 "gradiant-bg": {
                     to: {
-                        transform: "translateX(0px)"
-                    }
+                        transform: "translateX(0px)",
+                    },
                 },
                 "animated-text": {
                     "0%": {
-                        transform: 'translateX(0px)'
+                        transform: "translateX(0px)",
                     },
                     "99%": {
                         transform: "translateX(100%)",
-                        opacity: "1"
+                        opacity: "1",
                     },
                     "100%": {
                         transform: "translateX(100%)",
-                        opacity: "0"
-                    }
-                }
+                        opacity: "0",
+                    },
+                },
             },
         },
     },

@@ -18,8 +18,11 @@ const MainHero = () => {
                     <div className="">
                         <h1 className="text-white 2xl:text-6xl tracking-widest mb-2 inline-block overflow-hidden relative after:absolute after:w-full after:h-full after:bg-bg-sec after:left-0 after:translate-x-0 after:top-0 after:animate-theme-text desktop-st:mb-4">
                             Hi, I&apos;am <span className="text-action">AFzal</span>
-                        </h1><br />
-                        <span className="text-gray-200 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-full after:h-full after:bg-bg-sec after:top-0 after:left-0 after:animate-theme-text">FullStack Developer</span>
+                        </h1>
+                        <br />
+                        <span className="text-gray-200 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-full after:h-full after:bg-bg-sec after:top-0 after:left-0 after:animate-theme-text">
+                            FullStack Developer
+                        </span>
                     </div>
                     <div className="space-x-4">
                         <ButtonLink text="Hire Me" href="#" icon="far fa-shield-check text-xl" forceBig={true} download action={true} />
@@ -57,7 +60,7 @@ const MainHero = () => {
                 .main-gradiant::before {
                     display: none;
                 }
-                @media (min-width: 640px){
+                @media (min-width: 640px) {
                     .main-gradiant {
                         background: var(--color-main);
                         background: linear-gradient(290deg, var(--color-main) 100%, var(--color-main-gradiant) 100%);
@@ -66,9 +69,7 @@ const MainHero = () => {
                         display: block;
                         background: linear-gradient(290deg, transparent 44%, var(--color-main-gradiant) 44%);
                     }
-
                 }
-            
             `}</style>
         </div>
     );
