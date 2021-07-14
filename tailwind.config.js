@@ -37,12 +37,24 @@ module.exports = {
                 "desktop-st": "992px",
             },
             colors: {
+                "nav": "transparent",
                 main: "rgb(5, 55, 66)",
                 sec: "rgb(29, 161, 242)",
                 "sec-lg": "rgb(162, 219, 250)",
                 "bg-sec": "rgb(232, 240, 242)",
                 action: "#ff4747",
                 "action-hover": "#ff6666",
+
+                "nav-dark": "rgb(22,21,23)",
+                "main-dark": "rgb(29,31,31)",
+                "sec-dark": "rgb(25,33,33)",
+
+                "sec-lg-dark": "rgb(162, 219, 250)",
+
+                "bg-sec-dark": "rgb(110, 110, 145)",
+                "bg-sec-inverted": "rgb(254, 252, 250)",
+                "action-dark": "#ff4747",
+                "action-hover-dark": "#ff6666",
             },
             boxShadow: {
                 "mobile-nav": "rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px",

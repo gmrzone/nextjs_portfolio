@@ -29,6 +29,11 @@
     --slider-container-height: 230px;
     --slider-item-width: 100%;
 }
+
+.dark {
+    --color-main: rgb(29,31,31);
+    --color-main-gradiant: rgb(34,34,45);
+}
 @media (min-width: 767px) {
     :root {
         --slider-item-width: 350px;
