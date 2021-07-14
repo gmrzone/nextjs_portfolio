@@ -6,7 +6,7 @@ const MainLayout = ({ children }) => {
             <header id="header" className="bg-nav transition-colors duration-300 dark:bg-nav-dark">
                 <Navbar />
             </header>
-            <main id="main" className="mb-10">
+            <main id="main" className="bg-bg-sec dark:bg-bg-sec-dark transition-colors duration-300">
                 {children}
             </main>
             <footer id="footer" className="bg-main transition-colors duration-300 dark:bg-black mt-auto w-full text-center">

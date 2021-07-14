@@ -51,7 +51,7 @@ module.exports = {
 
                 "sec-lg-dark": "rgb(162, 219, 250)",
 
-                "bg-sec-dark": "rgb(110, 110, 145)",
+                "bg-sec-dark": "rgb(124, 124, 156)",
                 "bg-sec-inverted": "rgb(254, 252, 250)",
                 "action-dark": "#ff4747",
                 "action-hover-dark": "#ff6666",

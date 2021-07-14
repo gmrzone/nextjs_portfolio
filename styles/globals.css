@@ -76,7 +76,10 @@
 #__next {
     @apply h-full;
     @apply overflow-x-hidden;
+        
 }
+
+
 
 h1 {
     @apply text-5xl-sm;
