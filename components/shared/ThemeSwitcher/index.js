@@ -76,7 +76,7 @@ const ThemeSwitcher = () => {
                 darkThemeActive ? "border-blue-400" : "border-gray-400"
             } ${style["theme-switcher__container"]}`}>
             <div
-                className={`absolute left-0 rounded-full transition-all duration-300 w-8 h-8 bg-sec-dark dark:bg-sec ${
+                className={`absolute left-0 rounded-full transition-all duration-300 w-8 h-8 bg-sec-dark dark:bg-sec cursor-pointer ${
                     darkThemeActive ? "translate-x-full" : "translate-x-0"
                 } ${style["main-switch"]}`}
                 onClick={toggleTheme}>
