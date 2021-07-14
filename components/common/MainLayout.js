@@ -1,12 +1,10 @@
 import Navbar from "../shared/header/Navbar";
 import Footer from "../shared/footer/Footer";
-import { useRef } from "react";
 const MainLayout = ({ children }) => {
-    const main = useRef();
     return (
-        <div className="main-body h-full flex flex-col" ref={main}>
+        <div className="main-body h-full flex flex-col">
             <header id="header" className="bg-transparent transition-colors duration-300 dark:bg-black">
-                <Navbar main={main} />
+                <Navbar />
             </header>
             <main id="main" className="mb-10">
                 {children}

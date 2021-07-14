@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang="en" className="h-full    w-full">
+            <Html lang="en" className="h-full w-full">
                 <Head>
                     <link
                         rel="stylesheet"
@@ -19,6 +19,11 @@ class MyDocument extends Document {
                     />
                 </Head>
                 <body className="font-poppins h-full w-full antialiased bg-bg-sec overflow-x-hidden">
+                    <script
+						dangerouslySetInnerHTML={{
+							__html: SetInitialTheme,
+						}}
+					></script>
                     <div id="modal"></div>
                     <Main className="h-full" />
                     <NextScript />
@@ -27,5 +32,14 @@ class MyDocument extends Document {
         );
     }
 }
+
+const SetInitialTheme = `(function(){
+    const isDarkTheme = (localStorage.getItem('dark') === 'true')
+    if (isDarkTheme){
+        document.body.classList.add("dark")
+    }
+    
+    
+})()`
 
 export default MyDocument;

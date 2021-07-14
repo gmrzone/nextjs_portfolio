@@ -1,15 +1,15 @@
 import style from "../../../styles/themeSwitcher.module.scss";
 import { useState, useEffect, useRef } from "react";
-const ThemeSwitcher = ({ main }) => {
+const ThemeSwitcher = () => {
     const darkThemeInitial = localStorage.getItem("dark") === "true";
     const [darkThemeActive, setDarkThemeActive] = useState(darkThemeInitial);
     const toggleTheme = () => {
         setDarkThemeActive((s) => !s);
         localStorage.setItem("dark", !darkThemeActive);
         if (!darkThemeActive) {
-            main.current.classList.add("dark");
+          document.body.classList.add("dark");
         } else {
-            main.current.classList.remove("dark");
+            document.body.classList.remove("dark");
         }
     };
     const dartIcon = useRef();

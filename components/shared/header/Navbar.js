@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import BlurBackDrop from "./BlurBackDrop";
 
 const ThemeSwitcher = dynamic(() => import("../ThemeSwitcher"), { ssr: false });
-const Navbar = ({ main }) => {
+const Navbar = () => {
     // const [mobileNanActive, setMobileNavActive] = useState(false);
     const mobileNav = useRef();
     const backdrop = useRef();
@@ -88,7 +88,7 @@ const Navbar = ({ main }) => {
                 <div className="flex flex-col text-center py-6 mb-auto overflow-x-auto desktop-st:flex-row desktop-st:space-x-10 desktop-st:mt-0 desktop-st:py-0 desktop-st:overflow-hidden">
                     {renderNavItems}
                     <li className="flex justify-center mt-6 desktop-st:mt-0">
-                        <ThemeSwitcher main={main} />
+                        <ThemeSwitcher />
                     </li>
                 </div>
             </ul>
