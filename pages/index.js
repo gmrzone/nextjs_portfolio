@@ -1,4 +1,4 @@
-import MainLayout from "../components/common/MainLayout";
+// import MainLayout from "../components/common/MainLayout";
 import Head from "../components/common/Head";
 import MainHero from "../components/home/hero/MainHero";
 import SkillSection from "../components/home/skills";
@@ -6,6 +6,9 @@ import AboutSection from "../components/home/about";
 import ContactSection from "../components/home/contact";
 import TestimonialSection from "../components/home/testimonial";
 import ProjectSection from "../components/home/projects";
+import dynamic from 'next/dynamic';
+
+const MainLayout = dynamic(() => import('../components/common/MainLayout'), {ssr: false})
 export default function Home() {
     return (
         <MainLayout>
