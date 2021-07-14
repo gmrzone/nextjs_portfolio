@@ -103,7 +103,7 @@ const ProjectDetailModal = ({ active, closeModal, activeItem }) => {
                 className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 px-4 desktop-st:px-0 desktop-st:grid-cols-2"
                 style={{ maxHeight: "95%" }}>
                 <div
-                    className="bg-main hidden opacity-0 transition-all duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full"
+                    className="bg-main dark:bg-sec-dark hidden opacity-0 transition-all duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full"
                     ref={modalLeft}>
                     <i
                         className="far fa-times text-2xl cursor-pointer text-white transition-colors duration-300 px-6 py-3"
@@ -125,11 +125,11 @@ const ProjectDetailModal = ({ active, closeModal, activeItem }) => {
                     </div>
                 </div>
                 <div
-                    className="bg-bg-sec hidden p-8 opacity-0 text-main transition-all duration-500 translate-x-full desktop-st:translate-x-0 desktop-st:translate-y-full"
+                    className="bg-bg-sec dark:bg-bg-sec-inverted hidden p-8 opacity-0 text-main transition-all duration-500 translate-x-full desktop-st:translate-x-0 desktop-st:translate-y-full"
                     ref={modalRight}>
                     <div className="space-y-2">
-                        <h3>{activeItem?.name}</h3>
-                        <p className="text-sm desktop-st:text-lg">{activeItem?.about}</p>
+                        <h3 className="text-main dark:text-main-dark">{activeItem?.name}</h3>
+                        <p className="text-sm desktop-st:text-lg text-main dark:text-main-dark  ">{activeItem?.about}</p>
                     </div>
                     <ul className="list-disc p-6 text-sm desktop-st:text-lg">{renderPoints}</ul>
                     <div className="space-x-1 text-center desktop-st:text-left">
@@ -146,7 +146,7 @@ const ProjectDetailModal = ({ active, closeModal, activeItem }) => {
                         <ButtonLink
                             text="Github"
                             icon="fab fa-github text-xl"
-                            cssClasses="bg-gray-900 hover:bg-gray-700"
+                            cssClasses="bg-gray-900 dark:bg-gray-900 hover:bg-gray-700 dark:hover:bg-gray-700 dark:text-white"
                             href={activeItem?.github}
                             target="_blank"
                             rel="noreferrer"
