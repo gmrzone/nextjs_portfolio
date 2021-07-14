@@ -73,7 +73,7 @@ const ContactForm = () => {
             <div className="text-right">
                 <CustomButton
                     type="submit"
-                    text="Contact me"
+                    text="Send"
                     icon="far fa-address-book text-md desktop-st:text-xl"
                     action={true}
                     loading={loading}
