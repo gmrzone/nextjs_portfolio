@@ -3,14 +3,14 @@ import Footer from "../shared/footer/Footer";
 import { useEffect, useRef } from 'react'
 const MainLayout = ({ children }) => {
     const headerRef = useRef()
-
+    
     return (
         <div className="main-body h-full flex flex-col">
             <header id="header" className="bg-bg-sec transition-colors duration-500 dark:bg-bg-sec-inverted sm:dark:bg-sec-dark fixed w-full z-50" ref={headerRef}>
                 <Navbar />
             </header>
             <main id="main" className="bg-bg-sec dark:bg-bg-sec-dark transition-colors duration-300">
-                {children}
+                {children(headerRef)}
             </main>
             <footer id="footer" className="bg-main transition-colors duration-300 dark:bg-black mt-auto w-full text-center">
                 <Footer />

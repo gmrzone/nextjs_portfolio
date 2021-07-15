@@ -1,6 +1,8 @@
 import HeroImage from "./HeroImageMain";
 import ButtonLink from "../../common/ButtonLink";
-const MainHero = () => {
+import { useEffect, useRef } from "react";
+const MainHero = ({ headerRef }) => {
+    const mainRef = useRef()
     const socialMouseOver = (e) => {
         // e.target.classList.remove("text-sec");
         e.target.classList.add("scale-125");
@@ -11,8 +13,35 @@ const MainHero = () => {
         e.target.classList.remove("scale-125");
         // e.target.classList.add("text-sec");
     };
+    useEffect(() => {
+        const options = {
+            rootMargin: "-150px 0px 0px 0px"
+        }
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(x => {
+                if (x.isIntersecting){
+                    headerRef.current.classList.remove('bg-main')
+                    headerRef.current.classList.remove('dark:bg-main-dark')
+                    headerRef.current.classList.remove('sm:dark:bg-main-dark')
+                    headerRef.current.classList.add('bg-bg-sec')
+                    headerRef.current.classList.add('dark:bg-bg-sec-inverted')
+                    headerRef.current.classList.add('sm:dark:bg-sec-dark')
+                }
+                else{
+                    headerRef.current.classList.remove('bg-bg-sec')
+                    headerRef.current.classList.remove('dark:bg-bg-sec-inverted')
+                    headerRef.current.classList.remove('sm:dark:bg-sec-dark')
+                    headerRef.current.classList.add('bg-main')
+                    headerRef.current.classList.add('dark:bg-main-dark')
+                    headerRef.current.classList.add('sm:dark:bg-main-dark')
+                    
+                }
+            })
+        }, options)
+        observer.observe(mainRef.current)
+    }, [])
     return (
-        <div className="w-full bg-main transition-colors duration-300 dark:bg-main-dark h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative main-gradiant before:absolute before:w-full before:h-full before:-translate-x-full before:animate-main-gradiant">
+        <div className="w-full bg-main transition-colors duration-300 dark:bg-main-dark h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative main-gradiant before:absolute before:w-full before:h-full before:-translate-x-full before:animate-main-gradiant" ref={mainRef}>
             <div className="container h-full flex flex-col justify-center sm:flex-row absolute right-0 left-0 mx-auto">
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
                     <div className="">

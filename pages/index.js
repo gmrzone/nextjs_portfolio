@@ -12,22 +12,24 @@ const MainLayout = dynamic(() => import("../components/common/MainLayout"), { ss
 export default function Home() {
     return (
         <MainLayout>
-            <>
+            {(headerRef) => (
+                <>
                 <Head
                     title="Afzal Saiyed"    
                     url="/"
                     keywords="afzal, saiyed, fullstack, developer, python, javascript, react, nextjs, django, restapi"
                     description="Afzal Saiyed is a Fullstack developer based in Mumbai with expertise in python/Django and Javascript/React."
-                />
-                <>
-                    <MainHero />
-                    <SkillSection />
-                    <ProjectSection />
-                    <AboutSection />
-                    <TestimonialSection />
-                    <ContactSection />
+                    />
+                    <>
+                        <MainHero headerRef={headerRef}/>
+                        <SkillSection />
+                        <ProjectSection />
+                        <AboutSection />
+                        <TestimonialSection />
+                        <ContactSection />
+                    </>
                 </>
-            </>
+            )}
         </MainLayout>
     );
 }
