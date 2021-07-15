@@ -35,7 +35,7 @@ const About = () => {
         <div className="mt-10 desktop-st:mt-16">
             <div className="container">
                 <SectionHeader title="About" meta="My Introduction" />
-                <div className="flex flex-col text-center desktop-st:flex-row desktop-st:text-left" ref={aboutContentRef}>
+                <div className="flex flex-col text-center desktop-st:flex-row desktop-st:text-left overflow-x-hidden md:overflow-x-auto" ref={aboutContentRef}>
                     <AboutPhoto />
                     <AboutContent />
                 </div>

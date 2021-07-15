@@ -18,7 +18,7 @@ class MyDocument extends Document {
                         key="fontawesome"
                     />
                 </Head>
-                <body className="font-poppins h-full w-full antialiased overflow-x-hidden">
+                <body className="font-poppins h-full w-full antialiased">
                     <script
 						dangerouslySetInnerHTML={{
 							__html: SetInitialTheme,
