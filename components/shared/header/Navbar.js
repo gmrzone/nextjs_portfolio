@@ -70,10 +70,10 @@ const Navbar = () => {
             <NavbarLogo />
             {/* Burger Icon */}
             <div className="flex flex-col p-4 desktop-st:hidden space-y-1 cursor-pointer" onClick={openMobileNav}>
-                <span className="bg-gray-800 dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-8 rounded-sm"></span>
-                <span className="bg-gray-800 dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
-                <span className="bg-gray-800 dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
-                <span className="bg-gray-800 dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-8 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
             </div>
             {/* backdrop */}
             <BlurBackDrop backdrop={backdrop} close={closeMobileNav} zIndex="35" />

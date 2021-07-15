@@ -5,7 +5,7 @@ const RenderItems = ({ data, activeAccordian, id, forceFull = false }) => {
     });
     return (
         <div
-            className={`space-y-6 bg-bg-sec dark:bg-bg-sec-inverted transition-colors duration-300 px-4 mb-8 py-6 rounded-md accordian-content overflow-hidden h-auto ${
+            className={`space-y-6 bg-white dark:bg-bg-sec-inverted transition-colors duration-300 px-4 mb-8 py-6 rounded-md accordian-content overflow-hidden h-auto ${
                 forceFull ? "shadow-none" : "shadow-md"
             }`}>
             {renderData}
