@@ -70,10 +70,10 @@ const Navbar = () => {
             <NavbarLogo />
             {/* Burger Icon */}
             <div className="flex flex-col p-4 desktop-st:hidden space-y-1 cursor-pointer" onClick={openMobileNav}>
-                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-8 rounded-sm"></span>
-                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
-                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
-                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted transition-colors duration-300 h-1 w-8 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted transition-colors duration-300 h-1 w-10 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted transition-colors duration-300 h-1 w-10 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted transition-colors duration-300 h-1 w-10 rounded-sm"></span>
             </div>
             {/* backdrop */}
             <BlurBackDrop backdrop={backdrop} close={closeMobileNav} zIndex="35" />
@@ -87,7 +87,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-col text-center py-6 mb-auto overflow-x-auto desktop-st:flex-row desktop-st:space-x-10 desktop-st:mt-0 desktop-st:py-0 desktop-st:overflow-hidden">
                     {renderNavItems}
-                    <li className="flex justify-center mt-6 desktop-st:mt-0">
+                    <li className="flex justify-center mt-6 desktop-st:mt-0" data-ignore="true">
                         <ThemeSwitcher />
                     </li>
                 </div>

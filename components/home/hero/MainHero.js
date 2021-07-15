@@ -50,6 +50,13 @@ const MainHero = ({ headerRef }) => {
                         x.classList.add('sm:dark:bg-bg-sec-inverted')
                     })
 
+                    // Nav Items    
+                    Array.from(headerRef.current.children[0].children[3].children[1].children).forEach((x, i) => {
+                        if (!x?.dataset?.ignore){
+                            x.classList.remove('desktop-st:text-bg-sec')
+                            x.classList.add('desktop-st:text-main')
+                        }
+                    })
                     
                 }   
                 else{
@@ -87,7 +94,14 @@ const MainHero = ({ headerRef }) => {
                     })
 
 
-                  
+                    // Nav Items    
+                    Array.from(headerRef.current.children[0].children[3].children[1].children).forEach((x, i) => {
+                        if (!x?.dataset?.ignore){
+                            x.classList.remove('desktop-st:text-main')
+                            x.classList.add('desktop-st:text-bg-sec')
+                            
+                        }
+                    })
                     
                 }
             })
