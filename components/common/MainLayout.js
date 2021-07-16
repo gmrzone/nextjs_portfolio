@@ -1,6 +1,6 @@
 import Navbar from "../shared/header/Navbar";
 import Footer from "../shared/footer/Footer";
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 const MainLayout = ({ children }) => {
     const headerRef = useRef()
     

@@ -1,6 +1,12 @@
 import Head from "next/head";
-
-const MetaHead = ({ title, url, keywords, description }) => {
+import { FC } from 'react'
+interface headProps {
+    title: string,
+    url: string,
+    keywords: string,
+    description: string
+}
+const MetaHead: FC<headProps> = ({ title, url, keywords, description }) => {
     return (
         <Head>
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

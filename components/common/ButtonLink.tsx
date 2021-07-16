@@ -1,4 +1,13 @@
-const ButtonLink = ({ text, action, icon = null, forceBig, cssClasses = null, ...attr }) => {
+import { FC } from 'react'
+interface ButtonProps {
+    text: string,
+    action: string,
+    icon: null | string,
+    forceBig: boolean,
+    cssClasses: string,
+    
+}
+const ButtonLink: FC<ButtonProps> = ({ text, action, icon = null, forceBig, cssClasses = null, ...attr }) => {
     return (
         <a
             {...attr}

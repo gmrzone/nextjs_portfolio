@@ -1,11 +1,11 @@
 import NavBarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
-import { useState, useRef, MutableRefObject } from "react";
+import { useRef, FC } from "react";
 import dynamic from "next/dynamic";
 import BlurBackDrop from "./BlurBackDrop";
 
 const ThemeSwitcher = dynamic(() => import("../ThemeSwitcher"), { ssr: false });
-const Navbar = () => {
+const Navbar: FC = () => {
     // const [mobileNanActive, setMobileNavActive] = useState(false);
     const mobileNav = useRef<HTMLUListElement | null>(null);
     const backdrop = useRef<HTMLDivElement | null>(null);

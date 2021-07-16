@@ -1,4 +1,12 @@
-const ButtonLink = ({ loading = false, text, action, icon = null, ...attr }) => {
+import {FC} from 'react'
+interface ButtonProps {
+    loading: boolean,
+    text: string,
+    action: boolean,
+    icon: string,
+
+}
+const ButtonLink: FC<ButtonProps> = ({ loading = false, text, action, icon = null, ...attr }) => {
     return (
         <button
             {...attr}

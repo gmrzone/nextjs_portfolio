@@ -1,4 +1,5 @@
-const NavbarLogo = () => {
+import { FC } from 'react'
+const NavbarLogo: FC = () => {
     return (
         <div className="w-14 cursor-pointer">
             {/* style={{ enableBackground: "new 0 0 567 500" }} */}
