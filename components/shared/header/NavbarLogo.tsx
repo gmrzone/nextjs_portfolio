@@ -1,7 +1,7 @@
 const NavbarLogo = () => {
     return (
         <div className="w-14 cursor-pointer">
-            {/* <?xml version="1.0" encoding="utf-8"?> */}
+            {/* style={{ enableBackground: "new 0 0 567 500" }} */}
             <svg
                 version="1.1"
                 id="Layer_1"
@@ -10,7 +10,7 @@ const NavbarLogo = () => {
                 x="0px"
                 y="0px"
                 viewBox="0 0 567 500"
-                style={{ enableBackground: "new 0 0 567 500" }}
+                
                 xmlSpace="preserve">
                 <g id="XMLID_3_">
                     <path

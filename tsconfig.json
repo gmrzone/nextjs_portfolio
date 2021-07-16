@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/shared/header/NavbarLogo.js", "components/shared/header/NavbarLogo.js", "components/shared/header/NavbarLogo.js"  ],
   "exclude": [
     "node_modules"
   ]
