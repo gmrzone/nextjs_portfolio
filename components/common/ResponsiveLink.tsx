@@ -1,4 +1,10 @@
-const ResponsiveLink = ({ title, action, icon }) => {
+import {FC, MouseEventHandler} from 'react';
+interface ResponsiveLinkProps {
+    title: string,
+    action: MouseEventHandler<HTMLDivElement>,
+    icon: string
+}
+const ResponsiveLink: FC<ResponsiveLinkProps> = ({ title, action, icon }) => {
     return (
         <div
             className={`inline-block bg-sec dark:bg-bg-sec-inverted font-semibold p-2 shadow-md rounded-md transition-colors duration-200 text-white dark:text-main-dark hover:bg-bg-sec dark:hover:bg-bg-sec-dark desktop-st:p-3 hover:text-main ${

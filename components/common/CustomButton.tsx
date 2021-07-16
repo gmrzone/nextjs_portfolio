@@ -3,10 +3,10 @@ interface ButtonProps {
     loading: boolean,
     text: string,
     action: boolean,
-    icon: string,
+    icon: string | undefined,
 
 }
-const ButtonLink: FC<ButtonProps> = ({ loading = false, text, action, icon = null, ...attr }) => {
+const ButtonLink: FC<ButtonProps> = ({ loading = false, text, action, icon = undefined, ...attr }) => {
     return (
         <button
             {...attr}

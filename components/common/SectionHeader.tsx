@@ -1,4 +1,11 @@
-const SectionHeader = ({ title, meta, inverted = false }) => {
+import { FC } from 'react'
+
+interface SectionProps {
+    title: string,
+    meta: string,
+    inverted: boolean
+}
+const SectionHeader: FC<SectionProps> = ({ title, meta, inverted = false }) => {
     return (
         <div className="mb-10 desktop-st:mb-16">
             <h2 className={`text-center ${inverted ? "text-white" : "text-main dark:text-main-dark"}`}>{title}</h2>

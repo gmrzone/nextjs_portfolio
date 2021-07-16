@@ -1,8 +1,13 @@
 import Navbar from "../shared/header/Navbar";
 import Footer from "../shared/footer/Footer";
-import { useRef } from 'react'
-const MainLayout = ({ children }) => {
-    const headerRef = useRef()
+import { useRef, MutableRefObject, ReactNode, FC } from 'react'
+
+
+interface IHeader {
+    children: (headerRef: MutableRefObject<HTMLHeadElement | null>) => ReactNode
+}
+const MainLayout: FC<IHeader> = ({ children }) => {
+    const headerRef = useRef<HTMLHeadElement | null>(null)
     
     return (
         <div className="main-body h-full flex flex-col">

@@ -1,12 +1,21 @@
 import style from "../../styles/customInput.module.scss";
-import { useRef, useEffect } from "react";
-const TextAreaField = ({ label, value, ...attrs }) => {
-    const inputRef = useRef();
+import { useRef, useEffect, FC } from "react";
+
+interface TextAreaProps {
+    label: string,
+    value: string
+}
+const TextAreaField: FC<TextAreaProps> = ({ label, value, ...attrs }) => {
+    const inputRef = useRef<HTMLLabelElement | null>(null);
     useEffect(() => {
         if (value) {
-            inputRef.current.classList.add(style["not-empty"]);
+            if (inputRef.current){
+                inputRef.current.classList.add(style["not-empty"]);
+            }
         } else {
-            inputRef.current.classList.remove(style["not-empty"]);
+            if (inputRef.current){
+                inputRef.current.classList.remove(style["not-empty"]);
+            }
         }
     }, [value]);
 
