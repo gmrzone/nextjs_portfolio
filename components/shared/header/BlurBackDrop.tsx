@@ -1,8 +1,8 @@
-import {FC, LegacyRef, CSSProperties} from 'react'
+import {FC, LegacyRef, CSSProperties, MutableRefObject} from 'react'
 
 interface backdropProps {
     close: () => void,
-    backdrop: LegacyRef<HTMLDivElement>,
+    backdrop: MutableRefObject<HTMLDivElement | null>,
     zIndex: CSSProperties
 }
 const BlurBackDrop: FC<backdropProps> = ({ backdrop, close, zIndex }) => {
