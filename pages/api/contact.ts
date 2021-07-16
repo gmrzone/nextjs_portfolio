@@ -15,7 +15,7 @@ const contact = (req: NextApiRequest, res: NextApiResponse) => {
         .then(() => {
             res.status(200).json({ status: "ok", message: `Hello ${req.body.name}, Your message was send sucessfully.` });
         })
-        .catch((e) => {
+        .catch(() => {
             res.status(403).json({ status: "error", message: "There was a problem with the server. Please try again later." });
         });
 };
