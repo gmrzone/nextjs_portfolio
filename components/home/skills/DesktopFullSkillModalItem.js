@@ -58,7 +58,7 @@ const DesktopFullSkillModalItem = ({ active, close, title, data, id }) => {
 
     return reactDom.createPortal(
         <div className="hidden fixed desktop-st:hidden w-screen h-screen z-40 justify-center items-center" ref={container}>
-            <BlurBackDrop backdrop={backdrop} close={close} zIndex="40" />
+            <BlurBackDrop backdrop={backdrop} close={close} zIndex={{zIndex: "40"}} />
             <div
                 className="absolute z-50 hidden desktop-st:hidden modal-main w-auto rounded-sm opacity-0 transition-all duration-300"
                 ref={modal}>

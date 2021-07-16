@@ -76,7 +76,7 @@ const Navbar = () => {
                 <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted transition-colors duration-300 h-1 w-10 rounded-sm"></span>
             </div>
             {/* backdrop */}
-            <BlurBackDrop backdrop={backdrop} close={closeMobileNav} zIndex="35" />
+            <BlurBackDrop backdrop={backdrop} close={closeMobileNav} zIndex={{zIndex: "35"}} />
             {/* Nav */}
             <ul
                 className="hidden fixed right-0 translate-x-full transition-all p-2 duration-500 top-0 h-full w-full max-w-full flex-col bg-bg-sec dark:bg-sec-dark desktop-st:dark:bg-transparent shadow-mobile-nav sm:max-w-sm z-40 desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0 desktop-st:z-0"

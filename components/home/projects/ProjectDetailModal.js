@@ -98,7 +98,7 @@ const ProjectDetailModal = ({ active, closeModal, activeItem }) => {
 
     return reactDom.createPortal(
         <div className="fixed w-full h-full z-50 justify-center items-center hidden overflow-y-auto" ref={container}>
-            <BlurBackDrop backdrop={backdrop} zIndex="40" close={closeModal} />
+            <BlurBackDrop backdrop={backdrop} zIndex={{zIndex: "40"}} close={closeModal} />
             <div
                 className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 px-4 desktop-st:px-0 desktop-st:grid-cols-2"
                 style={{ maxHeight: "95%" }}>
