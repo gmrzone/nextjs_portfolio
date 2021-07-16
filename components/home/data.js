@@ -222,7 +222,7 @@ export const ProjectData = [
     {
         id: 4,
         name: "My Portfolio Website",
-        context: "Created using Nextjs and Tailwing css",
+        context: "Created usingTypeScript, Nextjs and Tailwing css",
         role: "Frontend Developer",
         period: "August 2021",
         about: "Personal portfolio website created using nextjs and tailwing css.",
