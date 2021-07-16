@@ -6,7 +6,7 @@ const MainLayout = ({ children }) => {
     
     return (
         <div className="main-body h-full flex flex-col">
-            <header id="header" className="bg-bg-sec transition-colors duration-500 dark:bg-bg-sec-inverted sm:dark:bg-sec-dark fixed w-full z-50" ref={headerRef}>
+            <header id="header" className="bg-bg-sec transition-colors duration-500 dark:bg-bg-sec-inverted sm:dark:bg-sec-dark fixed w-full z-40" ref={headerRef}>
                 <Navbar />
             </header>
             <main id="main" className="bg-bg-sec dark:bg-bg-sec-dark transition-colors duration-300">

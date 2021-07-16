@@ -8,7 +8,7 @@ const ProjectItem = ({ item, openProjectModal }) => {
 
     useEffect(() => {
         const options = {
-            rootMargin: "0px 0px -50px 0px",
+            rootMargin: "0px 0px 0px 0px",
         };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach((x) => {
