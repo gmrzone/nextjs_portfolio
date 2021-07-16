@@ -10,9 +10,11 @@ import review_image8 from "../../public/review_8.jpg";
 import corecare_main from "../../public/corecare_main.png";
 import corecare_old from "../../public/corecare_old.png";
 import corecare_admin from "../../public/corecare_admin.png";
+import portfolio_main from '../../public/portfolio_main.jpg'
 
-import corecare_main_secondary from "../../public/corecare_dev-dark-blue-.jpg";
-import corecare_admin_secondary from "../../public/corecare_admin_secondary.jpg";
+import corecare_main_secondary from "../../public/corecare_main-trans.png";
+import corecare_admin_secondary from "../../public/corecare_admin-trans.png";
+import protfolio_secondary from '../../public/portfolio-trans.png'
 
 export const skillsData = [
     {
@@ -226,8 +228,8 @@ export const ProjectData = [
         about: "Personal portfolio website created using nextjs and tailwing css.",
         link: "https://afzalsaiyed.xyz/",
         github: "https://github.com/gmrzone/nextjs_portfolio",
-        main_image: corecare_main,
-        secondary_image: corecare_main_secondary,
+        main_image: portfolio_main,
+        secondary_image: protfolio_secondary,
         points: ["Created the frontend with next.js", "'Fully Responsive Design'"],
     },
     {
