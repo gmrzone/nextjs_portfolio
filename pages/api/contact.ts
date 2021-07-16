@@ -1,7 +1,7 @@
 const mail = require("@sendgrid/mail");
 mail.setApiKey(process.env["SEND_GRID_API_KEY"]);
-
-const contact = (req, res) => {
+import type { NextApiRequest, NextApiResponse } from 'next'
+const contact = (req: NextApiRequest, res: NextApiResponse) => {
     const msg = {
         to: process.env["TO_EMAIL"],
         from: process.env["EMAIL"], // Use the email address or domain you verified above
