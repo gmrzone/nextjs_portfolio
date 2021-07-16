@@ -1,6 +1,6 @@
-import {FC} from 'react'
+import { NextPage } from "next";
 
-const LoginFooter: FC = () => {
+const LoginFooter: NextPage = () => {
     return (
         <div className="login-footer py-1 space-y-1">
             <div className="space-x-6 desktop-st:space-x-12">

@@ -1,19 +1,20 @@
 import style from "../../styles/customInput.module.scss";
-import { useRef, useEffect, FC } from "react";
+import { useRef, useEffect } from "react";
+import { NextPage } from "next";
 
 interface TextAreaProps {
-    label: string,
-    value: string
+    label: string;
+    value: string;
 }
-const TextAreaField: FC<TextAreaProps> = ({ label, value, ...attrs }) => {
+const TextAreaField: NextPage<TextAreaProps> = ({ label, value, ...attrs }) => {
     const inputRef = useRef<HTMLLabelElement | null>(null);
     useEffect(() => {
         if (value) {
-            if (inputRef.current){
+            if (inputRef.current) {
                 inputRef.current.classList.add(style["not-empty"]);
             }
         } else {
-            if (inputRef.current){
+            if (inputRef.current) {
                 inputRef.current.classList.remove(style["not-empty"]);
             }
         }

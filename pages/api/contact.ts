@@ -1,6 +1,6 @@
 const mail = require("@sendgrid/mail");
 mail.setApiKey(process.env["SEND_GRID_API_KEY"]);
-import type { NextApiRequest, NextApiResponse } from 'next'
+import type { NextApiRequest, NextApiResponse } from "next";
 const contact = (req: NextApiRequest, res: NextApiResponse) => {
     const msg = {
         to: process.env["TO_EMAIL"],

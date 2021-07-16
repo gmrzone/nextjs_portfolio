@@ -1,7 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
-
     render() {
         return (
             <Html lang="en" className="h-full w-full">
@@ -16,10 +15,9 @@ class MyDocument extends Document {
                 </Head>
                 <body className="font-poppins h-full w-full antialiased">
                     <script
-						dangerouslySetInnerHTML={{
-							__html: SetInitialTheme,
-						}}
-					></script>
+                        dangerouslySetInnerHTML={{
+                            __html: SetInitialTheme,
+                        }}></script>
                     <div id="modal"></div>
                     <Main />
                     <NextScript />
@@ -36,6 +34,6 @@ const SetInitialTheme = `(function(){
     }
     
     
-})()`
+})()`;
 
 export default MyDocument;

@@ -1,12 +1,12 @@
 import Head from "next/head";
-import { FC } from 'react'
+import { NextPage } from "next";
 interface headProps {
-    title: string,
-    url: string,
-    keywords: string,
-    description: string
+    title: string;
+    url: string;
+    keywords: string;
+    description: string;
 }
-const MetaHead: FC<headProps> = ({ title, url, keywords, description }) => {
+const MetaHead: NextPage<headProps> = ({ title, url, keywords, description }) => {
     return (
         <Head>
             <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

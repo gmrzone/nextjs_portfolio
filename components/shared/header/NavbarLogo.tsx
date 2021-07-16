@@ -1,5 +1,5 @@
-import { FC } from 'react'
-const NavbarLogo: FC = () => {
+import { NextPage } from "next";
+const NavbarLogo: NextPage = () => {
     return (
         <div className="w-14 cursor-pointer">
             {/* style={{ enableBackground: "new 0 0 567 500" }} */}
@@ -11,7 +11,6 @@ const NavbarLogo: FC = () => {
                 x="0px"
                 y="0px"
                 viewBox="0 0 567 500"
-                
                 xmlSpace="preserve">
                 <g id="XMLID_3_">
                     <path
@@ -23,7 +22,11 @@ const NavbarLogo: FC = () => {
                     />
                 </g>
                 {/* <path id="XMLID_23_" className="st1" d="M81,306c150,0,301,0,451.3,0"/> */}
-                <polygon id="XMLID_31_" className="st4 fill-current text-sec dark:text-main-dark sm:dark:text-bg-sec-dark" points="558,378 54.1,378 79.5,306 530.2,306 " />
+                <polygon
+                    id="XMLID_31_"
+                    className="st4 fill-current text-sec dark:text-main-dark sm:dark:text-bg-sec-dark"
+                    points="558,378 54.1,378 79.5,306 530.2,306 "
+                />
             </svg>
         </div>
     );

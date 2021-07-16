@@ -10,11 +10,11 @@ import review_image8 from "../../public/review_8.jpg";
 import corecare_main from "../../public/corecare_main.png";
 import corecare_old from "../../public/corecare_old.png";
 import corecare_admin from "../../public/corecare_admin.png";
-import portfolio_main from '../../public/portfolio_main.jpg'
+import portfolio_main from "../../public/portfolio_main.jpg";
 
 import corecare_main_secondary from "../../public/corecare_main-trans.png";
 import corecare_admin_secondary from "../../public/corecare_admin-trans.png";
-import protfolio_secondary from '../../public/portfolio-trans.png'
+import protfolio_secondary from "../../public/portfolio-trans.png";
 
 export const skillsData = [
     {

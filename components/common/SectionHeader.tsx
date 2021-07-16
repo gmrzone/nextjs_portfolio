@@ -1,15 +1,17 @@
-import { FC } from 'react'
+import { NextPage } from "next";
 
 interface SectionProps {
-    title: string,
-    meta: string,
-    inverted: boolean
+    title: string;
+    meta: string;
+    inverted: boolean;
 }
-const SectionHeader: FC<SectionProps> = ({ title, meta, inverted = false }) => {
+const SectionHeader: NextPage<SectionProps> = ({ title, meta, inverted = false }) => {
     return (
         <div className="mb-10 desktop-st:mb-16">
             <h2 className={`text-center ${inverted ? "text-white" : "text-main dark:text-main-dark"}`}>{title}</h2>
-            <span className={`text-center block font-semibold ${inverted ? "text-gray-400" : "text-gray-500 dark:text-gray-700"}`}>{meta}</span>
+            <span className={`text-center block font-semibold ${inverted ? "text-gray-400" : "text-gray-500 dark:text-gray-700"}`}>
+                {meta}
+            </span>
         </div>
     );
 };

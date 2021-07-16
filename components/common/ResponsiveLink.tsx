@@ -1,10 +1,11 @@
-import {FC, MouseEventHandler} from 'react';
+import { MouseEventHandler } from "react";
+import { NextPage } from "next";
 interface ResponsiveLinkProps {
-    title: string,
-    action: MouseEventHandler<HTMLDivElement>,
-    icon: string
+    title: string;
+    action: MouseEventHandler<HTMLDivElement>;
+    icon: string;
 }
-const ResponsiveLink: FC<ResponsiveLinkProps> = ({ title, action, icon }) => {
+const ResponsiveLink: NextPage<ResponsiveLinkProps> = ({ title, action, icon }) => {
     return (
         <div
             className={`inline-block bg-sec dark:bg-bg-sec-inverted font-semibold p-2 shadow-md rounded-md transition-colors duration-200 text-white dark:text-main-dark hover:bg-bg-sec dark:hover:bg-bg-sec-dark desktop-st:p-3 hover:text-main ${

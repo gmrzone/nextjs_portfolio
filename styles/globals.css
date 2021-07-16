@@ -31,16 +31,15 @@
     --slider-container-width: 100%;
     --slider-container-height: 230px;
     --slider-item-width: 100%;
-    
 }
 
 .dark {
-    --color-main: rgb(29,31,31);
-    --color-main-gradiant: rgb(34,34,45);
-    --color-sec: rgb(34,34,45);
+    --color-main: rgb(29, 31, 31);
+    --color-main-gradiant: rgb(34, 34, 45);
+    --color-sec: rgb(34, 34, 45);
     --color-theme: rgb(37, 99, 235);
-    --color-bg: rgb(226,226,233);
-    --color-bg-input: rgb(226,226,233);
+    --color-bg: rgb(226, 226, 233);
+    --color-bg-input: rgb(226, 226, 233);
 }
 @media (min-width: 767px) {
     :root {
@@ -83,11 +82,7 @@
 
 #__next {
     @apply h-full;
-
-        
 }
-
-
 
 h1 {
     @apply text-5xl-sm;

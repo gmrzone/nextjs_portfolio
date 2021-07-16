@@ -1,17 +1,20 @@
 import Navbar from "../shared/header/Navbar";
 import Footer from "../shared/footer/Footer";
-import { useRef, MutableRefObject, ReactNode, FC } from 'react'
-
+import { NextPage } from "next";
+import { useRef, MutableRefObject, ReactNode } from "react";
 
 interface IHeader {
-    children: (headerRef: MutableRefObject<HTMLHeadElement | null>) => ReactNode
+    children: (headerRef: MutableRefObject<HTMLHeadElement | null>) => ReactNode;
 }
-const MainLayout: FC<IHeader> = ({ children }) => {
-    const headerRef = useRef<HTMLHeadElement | null>(null)
-    
+const MainLayout: NextPage<IHeader> = ({ children }) => {
+    const headerRef = useRef<HTMLHeadElement | null>(null);
+
     return (
         <div className="main-body h-full flex flex-col">
-            <header id="header" className="bg-bg-sec transition-colors duration-500 dark:bg-bg-sec-inverted sm:dark:bg-sec-dark fixed w-full z-30" ref={headerRef}>
+            <header
+                id="header"
+                className="bg-bg-sec transition-colors duration-500 dark:bg-bg-sec-inverted sm:dark:bg-sec-dark fixed w-full z-30"
+                ref={headerRef}>
                 <Navbar />
             </header>
             <main id="main" className="bg-bg-sec dark:bg-bg-sec-dark transition-colors duration-300">
@@ -24,12 +27,11 @@ const MainLayout: FC<IHeader> = ({ children }) => {
                 #main {
                     margin-top: 76px;
                 }
-                @media (min-width: 992px){
+                @media (min-width: 992px) {
                     #main {
                         margin-top: 70px;
                     }
                 }
-
             `}</style>
         </div>
     );
