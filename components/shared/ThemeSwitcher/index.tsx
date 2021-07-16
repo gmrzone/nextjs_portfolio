@@ -1,70 +1,88 @@
 import style from "../../../styles/themeSwitcher.module.scss";
 import { useState, useEffect, useRef } from "react";
 const ThemeSwitcher = () => {
-    const darkThemeInitial = localStorage.getItem("dark") === "true";
-    const [darkThemeActive, setDarkThemeActive] = useState(darkThemeInitial);
+    const darkThemeInitial = (localStorage.getItem("dark") === "true");
+    const [darkThemeActive, setDarkThemeActive] = useState<boolean>(darkThemeInitial);
+
     const toggleTheme = () => {
         setDarkThemeActive((s) => !s);
-        localStorage.setItem("dark", !darkThemeActive);
+        localStorage.setItem("dark", (!darkThemeActive).toString());
         if (!darkThemeActive) {
           document.body.classList.add("dark");
         } else {
             document.body.classList.remove("dark");
         }
     };
-    const dartIcon = useRef();
-    const LightIcon = useRef();
-    const firstRender = useRef(true);
+
+    const dartIcon = useRef<HTMLDivElement | null>(null);
+    const LightIcon = useRef<HTMLDivElement | null>(null);
+    const firstRender = useRef<boolean>(true);
     const fr = firstRender.current;
 
     const displayDarkIcon = () => {
-        dartIcon.current.classList.remove("opacity-0");
-        dartIcon.current.classList.remove("opacity-100");
+        if (dartIcon.current){
+            dartIcon.current.classList.remove("opacity-0");
+            dartIcon.current.classList.remove("opacity-100");
+        }
     };
     const hideDarkIcon = () => {
-        dartIcon.current.classList.add("hidden");
+        if (dartIcon.current){
+            dartIcon.current.classList.add("hidden");
+        }
     };
     const displayLightIcon = () => {
-        LightIcon.current.classList.remove("opacity-0");
-        LightIcon.current.classList.remove("opacity-100");
+        if (LightIcon.current){
+            LightIcon.current.classList.remove("opacity-0");
+            LightIcon.current.classList.remove("opacity-100");
+        }
     };
     const hideLightIcon = () => {
-        LightIcon.current.classList.add("hidden");
+        if (LightIcon.current){
+            LightIcon.current.classList.add("hidden");
+        }
+        
     };
     console.log(darkThemeActive);
     useEffect(() => {
         if (darkThemeActive) {
             if (fr) {
                 // If First Render then without animating show approprite icon
-                LightIcon.current.classList.remove("hidden");
-                LightIcon.current.classList.add("opacity-100");
+                if (LightIcon.current && dartIcon.current){
+                    LightIcon.current.classList.remove("hidden");
+                    LightIcon.current.classList.add("opacity-100");
+                    dartIcon.current.classList.add("hidden");
+                    dartIcon.current.classList.remove("opacity-100");
+                }
 
-                dartIcon.current.classList.add("hidden");
-                dartIcon.current.classList.remove("opacity-100");
             } else {
+                if (LightIcon.current && dartIcon.current){
+                    LightIcon.current.classList.remove("hidden");
+                    dartIcon.current.classList.remove("opacity-100");
+                    dartIcon.current.classList.add("opacity-0");
+                }
                 // if not first render show approprite icon by animating
-                LightIcon.current.classList.remove("hidden");
                 setTimeout(displayLightIcon, 100);
-
-                dartIcon.current.classList.remove("opacity-100");
-                dartIcon.current.classList.add("opacity-0");
                 setTimeout(hideDarkIcon, 100);
             }
         } else {
             if (fr) {
                 // If First Render then without animating show approprite icon
-                dartIcon.current.classList.remove("hidden");
-                dartIcon.current.classList.add("opacity-100");
+                if (dartIcon.current && LightIcon.current){
+                    dartIcon.current.classList.remove("hidden");
+                    dartIcon.current.classList.add("opacity-100");
+    
+                    LightIcon.current.classList.add("hidden");
+                    LightIcon.current.classList.remove("opacity-100");
+                }
 
-                LightIcon.current.classList.add("hidden");
-                LightIcon.current.classList.remove("opacity-100");
             } else {
                 // if not first render show approprite icon by animating
-                dartIcon.current.classList.remove("hidden");
+                if (dartIcon.current && LightIcon.current){
+                    dartIcon.current.classList.remove("hidden");
+                    LightIcon.current.classList.remove("opacity-100");
+                    LightIcon.current.classList.add("opacity-0");
+                }
                 setTimeout(displayDarkIcon, 100);
-
-                LightIcon.current.classList.remove("opacity-100");
-                LightIcon.current.classList.add("opacity-0");
                 setTimeout(hideLightIcon, 100);
             }
         }
