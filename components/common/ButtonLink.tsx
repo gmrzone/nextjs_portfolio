@@ -1,10 +1,12 @@
 import { NextPage } from "next";
 interface ButtonProps {
     text: string;
-    action: string;
+    action?: boolean;
     icon: null | string;
     forceBig: boolean;
-    cssClasses: string;
+    cssClasses?: string;
+    href: string;
+    download: boolean
 }
 const ButtonLink: NextPage<ButtonProps> = ({ text, action, icon = null, forceBig, cssClasses = null, ...attr }) => {
     return (

@@ -59,7 +59,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                     });
 
                     // Nav Items
-                    Array.from(headerRef.current.children[0].children[3].children[1].children).forEach((x, i) => {
+                    Array.from<HTMLElement>((headerRef.current.children[0].children[3].children[1].children as unknown) as HTMLElement[]).forEach(x => {
                         if (!x?.dataset?.ignore) {
                             x.classList.remove("desktop-st:text-bg-sec");
                             x.classList.add("desktop-st:text-main");
@@ -129,8 +129,8 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         </span>
                     </div>
                     <div className="space-x-4">
-                        <ButtonLink text="Hire Me" href="#" icon="far fa-shield-check text-xl" forceBig={true} download action={true} />
-                        <ButtonLink text="Get CV" href="#" icon="far fa-file text-xl" forceBig={true} download />
+                        <ButtonLink text="Hire Me" href="#" icon="far fa-shield-check text-xl" forceBig={true} download={true} action={true} />
+                        <ButtonLink text="Get CV" href="#" icon="far fa-file text-xl" forceBig={true} download={true} />
                     </div>
                     <div className="space-x-4 text-4xl">
                         <a href="https://github.com/gmrzone" target="_blank" rel="noreferrer" className="group">
