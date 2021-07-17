@@ -5,7 +5,7 @@ import { useEffect, useRef, MutableRefObject, MouseEvent } from "react";
 import { NextPage } from 'next'
 
 interface IMainHeroProps {
-    headerRef: MutableRefObject<HTMLHeadElement>
+    headerRef: MutableRefObject<HTMLHeadElement | null>
 }
 const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
     const mainRef = useRef<HTMLDivElement | null>(null);
@@ -26,47 +26,52 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((x) => {
                 if (x.isIntersecting) {
-                    // light/dark Theme nav without sticky color
-                    headerRef.current.classList.remove("bg-main");
-                    headerRef.current.classList.remove("dark:bg-main-dark");
-                    headerRef.current.classList.remove("sm:dark:bg-main-dark");
-                    headerRef.current.classList.add("bg-bg-sec");
-                    headerRef.current.classList.add("dark:bg-bg-sec-inverted");
-                    headerRef.current.classList.add("sm:dark:bg-sec-dark");
-                    headerRef.current.classList.remove("shadow-xl");
+                    
+                    if (headerRef.current){
+                        // light/dark Theme nav without sticky color
+                        headerRef.current.classList.remove("bg-main");
+                        headerRef.current.classList.remove("dark:bg-main-dark");
+                        headerRef.current.classList.remove("sm:dark:bg-main-dark");
+                        headerRef.current.classList.add("bg-bg-sec");
+                        headerRef.current.classList.add("dark:bg-bg-sec-inverted");
+                        headerRef.current.classList.add("sm:dark:bg-sec-dark");
+                        headerRef.current.classList.remove("shadow-xl");
+    
+                        // Logo main
+                        headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove("text-bg-sec");
+                        headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove(
+                            "dark:text-bg-sec-inverted",
+                        );
+                        headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add("text-main");
+                        headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add("dark:text-sec-dark");
+    
+                        // logo center dark only
+                        headerRef.current.children[0].children[0].children[0].children[1].classList.remove("dark:text-bg-sec-dark");
+                        headerRef.current.children[0].children[0].children[0].children[1].classList.add("dark:text-main-dark");
+    
+                        // mobile Nav opener
+    
+                        Array.from(headerRef.current.children[0].children[1].children).forEach((x) => {
+                            x.classList.remove("bg-bg-sec");
+                            x.classList.remove("dark:bg-bg-sec-inverted");
+                            x.classList.remove("sm:dark:bg-bg-sec-dark");
+                            x.classList.add("bg-main");
+                            x.classList.add("dark:bg-main-dark");
+                            x.classList.add("sm:dark:bg-bg-sec-inverted");
+                        });
+    
+                        // Nav Items
+                        Array.from<HTMLElement>((headerRef.current.children[0].children[3].children[1].children as unknown) as HTMLElement[]).forEach(x => {
+                            if (!x?.dataset?.ignore) {
+                                x.classList.remove("desktop-st:text-bg-sec");
+                                x.classList.add("desktop-st:text-main");
+                            }
+                        });
+                    }
 
-                    // Logo main
-                    headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove("text-bg-sec");
-                    headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove(
-                        "dark:text-bg-sec-inverted",
-                    );
-                    headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add("text-main");
-                    headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add("dark:text-sec-dark");
-
-                    // logo center dark only
-                    headerRef.current.children[0].children[0].children[0].children[1].classList.remove("dark:text-bg-sec-dark");
-                    headerRef.current.children[0].children[0].children[0].children[1].classList.add("dark:text-main-dark");
-
-                    // mobile Nav opener
-
-                    Array.from(headerRef.current.children[0].children[1].children).forEach((x) => {
-                        x.classList.remove("bg-bg-sec");
-                        x.classList.remove("dark:bg-bg-sec-inverted");
-                        x.classList.remove("sm:dark:bg-bg-sec-dark");
-                        x.classList.add("bg-main");
-                        x.classList.add("dark:bg-main-dark");
-                        x.classList.add("sm:dark:bg-bg-sec-inverted");
-                    });
-
-                    // Nav Items
-                    Array.from<HTMLElement>((headerRef.current.children[0].children[3].children[1].children as unknown) as HTMLElement[]).forEach(x => {
-                        if (!x?.dataset?.ignore) {
-                            x.classList.remove("desktop-st:text-bg-sec");
-                            x.classList.add("desktop-st:text-main");
-                        }
-                    });
                 } else {
-                    // light/dark Theme nav when sticky color
+                    if (headerRef.current){
+                                            // light/dark Theme nav when sticky color
                     headerRef.current.classList.remove("bg-white");
                     headerRef.current.classList.remove("dark:bg-bg-sec-inverted");
                     headerRef.current.classList.remove("sm:dark:bg-sec-dark");
@@ -106,6 +111,8 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             x.classList.add("desktop-st:text-bg-sec");
                         }
                     });
+                    }
+
                 }
             });
         }, options);
