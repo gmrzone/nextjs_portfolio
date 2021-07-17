@@ -1,10 +1,11 @@
 import SkillAccordian from "./SkillsAccordian";
 import SectionHeader from "../../common/SectionHeader";
-const Skills = () => {
+import { NextPage } from 'next'
+const Skills:NextPage = () => {
     return (
         <div className="mt-10 desktop-st:mt-16">
             <div className="container">
-                <SectionHeader title="Skills" meta="My Tech Stack" />
+                <SectionHeader title="Skills" meta="My Tech Stack" inverted={false} />
                 <SkillAccordian />
             </div>
         </div>

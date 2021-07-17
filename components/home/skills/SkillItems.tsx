@@ -1,5 +1,15 @@
 import SkillItem from "./skillItem";
-const RenderItems = ({ data, activeAccordian, id, forceFull = false }) => {
+import { NextPage } from 'next';
+import { ISkillsDataStats } from '../data'
+
+
+interface IProps {
+    data: ISkillsDataStats[],
+    activeAccordian?: number | null,
+    id: number,
+    forceFull: boolean,
+}
+const RenderItems: NextPage<IProps> = ({ data, activeAccordian, id, forceFull = false }) => {
     const renderData = data.map((x, i) => {
         return <SkillItem item={x} key={i} />;
     });

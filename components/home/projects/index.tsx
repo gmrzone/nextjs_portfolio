@@ -1,6 +1,7 @@
 import SectionHeader from "../../common/SectionHeader";
 import ProjectItems from "./ProjectItems";
-const ProjectSection = () => {
+import { NextPage } from "next"
+const ProjectSection:NextPage = () => {
     return (
         <div className="mt-10 desktop-st:mt-16">
             <div className="container">

@@ -1,20 +1,30 @@
 import { useEffect, useRef } from "react";
-const SkillItem = ({ item }) => {
-    const progressBar = useRef();
+import { NextPage } from 'next'
+import { ISkillsDataStats } from '../data'
+
+
+interface iProps {
+    item: ISkillsDataStats
+}
+const SkillItem: NextPage<iProps> = ({ item }) => {
+    const progressBar = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         const options = {
             rootMargin: "0px 0px 0px 0px",
         };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach((x) => {
+                const target = x.target as HTMLDivElement
                 if (x.isIntersecting) {
-                    x.target.classList.remove("w-0");
-                    x.target.style.width = `${item.skill}%`;
+                    target.classList.remove("w-0");
+                    target.style.width = `${item.skill}%`;
                     observer.unobserve(x.target);
                 }
             });
         }, options);
-        observer.observe(progressBar.current);
+        if (progressBar.current){
+            observer.observe(progressBar.current);
+        }
     }, [item]);
     return (
         <div className="space-y-2">

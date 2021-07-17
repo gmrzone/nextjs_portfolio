@@ -1,10 +1,10 @@
-import SkillsAccordian from "./SkillsAccordianItem";
 import SkillAccordianItem from "./SkillsAccordianItem";
-import { skillsData } from "../data";
+import { skillsData, ISkillData } from "../data";
 import { useState } from "react";
-const SkillAccordian = () => {
-    const [activeAccordian, setActiveAccordian] = useState(skillsData[0].id);
-    const activateAccordian = (id) => {
+import { NextPage } from "next"
+const SkillAccordian: NextPage = () => {
+    const [activeAccordian, setActiveAccordian] = useState<number | null>(skillsData[0].id);
+    const activateAccordian: (id:number) => void = (id) => {
         if (id === activeAccordian) {
             setActiveAccordian(null);
         } else {
@@ -12,7 +12,7 @@ const SkillAccordian = () => {
         }
     };
 
-    const renderItems = skillsData.map((x, i, a) => {
+    const renderItems = skillsData.map<JSX.Element>((x, i, a): JSX.Element => {
         return (
             <SkillAccordianItem
                 key={i}

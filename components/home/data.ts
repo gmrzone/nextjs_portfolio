@@ -16,15 +16,17 @@ import corecare_main_secondary from "../../public/corecare_main-trans.png";
 import corecare_admin_secondary from "../../public/corecare_admin-trans.png";
 import protfolio_secondary from "../../public/portfolio-trans.png";
 
-interface ISkillData {
+
+export interface ISkillsDataStats {
+    name: string;
+    skill: number;
+}
+export interface ISkillData {
     id: number;
     title: string;
     meta: string;
     icon: string;
-    data: {
-        name: string;
-        skill: number;
-    }[];
+    data: ISkillsDataStats[];
 }
 export const skillsData: ISkillData[] = [
     {

@@ -1,4 +1,15 @@
-const SkillsItemHeader = ({ icon, title, meta, activeAccordian, id, activateAccordian }) => {
+import {NextPage} from 'next'
+
+interface IProps {
+    icon: string;
+    title: string;
+    meta: string;
+    activeAccordian: number | null;
+    id: number;
+    activateAccordian: (id: number) => void
+
+}
+const SkillsItemHeader: NextPage<IProps> = ({ icon, title, meta, activeAccordian, id, activateAccordian }) => {
     return (
         <div
             className="flex justify-between bg-white dark:bg-bg-sec-inverted transition-colors duration-300 px-6 py-2 rounded-md overflow-hidden cursor-pointer shadow-lg"
