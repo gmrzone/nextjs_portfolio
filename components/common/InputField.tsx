@@ -1,9 +1,14 @@
 import style from "../../styles/customInput.module.scss";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, ChangeEvent } from "react";
 import { NextPage } from "next";
 interface inputFieldProps {
     label: string;
     value: string;
+    type: string;
+    name: string;
+    required: boolean;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+    
 }
 const InputField: NextPage<inputFieldProps> = ({ label, value, ...attrs }) => {
     const inputRef = useRef<HTMLLabelElement | null>(null);

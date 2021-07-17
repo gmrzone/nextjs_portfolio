@@ -2,7 +2,8 @@ import AboutPhoto from "./AboutPhoto";
 import AboutContent from "./AboutContent";
 import { useEffect, useRef } from "react";
 import SectionHeader from "../../common/SectionHeader";
-const About = () => {
+import {NextPage} from 'next'
+const About: NextPage = () => {
     const aboutContentRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         const options = {

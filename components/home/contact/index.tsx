@@ -1,10 +1,11 @@
 import ContactContainer from "./ContactContainer";
 import SectionHeader from "../../common/SectionHeader";
-const ContactMain = () => {
+import { NextPage } from 'next'
+const ContactMain: NextPage = () => {
     return (
         <div className="mt-10 mb-10 desktop-st:mt-16 overflow-x-hidden">
             <div className="container">
-                <SectionHeader title="Contact Me" meta="Get in Touch" />
+                <SectionHeader title="Contact Me" meta="Get in Touch" inverted={false} />
                 <div>
                     <ContactContainer />
                 </div>

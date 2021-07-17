@@ -2,13 +2,18 @@ import InputField from "../../common/InputField";
 import TextAreaField from "../../common/TextAreaField";
 import CustomButton from "../../common/CustomButton";
 import useForm from "../../../hooks/useForm";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
+
+interface IFormStatus {
+    status: string | null,
+    message: string | null
+}
 const ContactForm = () => {
-    const animationObj = useRef();
+    const animationObj = useRef<HTMLFormElement | null>(null);
     const { inputValues, handleChange, resetForm } = useForm({ name: "", email: "", message: "" });
-    const [loading, setLoading] = useState(false);
-    const [formStats, setFormStats] = useState({ status: null, message: null });
-    const handleSubmit = (e) => {
+    const [loading, setLoading] = useState<boolean>(false);
+    const [formStats, setFormStats] = useState<IFormStatus>({ status: null, message: null });
+    const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = (e) => {
         e.preventDefault();
         setLoading(true);
         fetch("/api/contact/", {
@@ -31,7 +36,7 @@ const ContactForm = () => {
             .catch((e) => {
                 console.log(e);
                 setLoading(false);
-                setFormStats({ status: "error", message: data.message });
+                setFormStats({ status: "error", message: e.response.data.message });
             });
     };
     useEffect(() => {
@@ -50,7 +55,9 @@ const ContactForm = () => {
             });
         }, options);
 
-        observer.observe(animationObj.current);
+        if (animationObj.current){
+            observer.observe(animationObj.current);
+        }
     }, []);
     return (
         <form
@@ -58,7 +65,7 @@ const ContactForm = () => {
             onSubmit={handleSubmit}
             ref={animationObj}>
             <div className="space-y-2">
-                <InputField type="text" name="name" label="Name" value={inputValues.name} onChange={handleChange} required />
+                <InputField type="text" name="name" label="Name" value={inputValues.name} onChange={handleChange} required/>
                 <InputField type="email" name="email" label="Email" value={inputValues.email} onChange={handleChange} required />
                 <TextAreaField name="message" label="Message" value={inputValues.message} onChange={handleChange} required />
             </div>

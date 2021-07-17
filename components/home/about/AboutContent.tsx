@@ -1,5 +1,6 @@
 import ButtonLink from "../../common/ButtonLink";
-const AboutContent = () => {
+import {NextPage} from 'next'
+const AboutContent: NextPage = () => {
     return (
         <div
             className="w-full flex flex-col justify-center desktop-st:w-2/3 translate-x-full opacity-0 transition-all duration-500"

@@ -1,29 +1,34 @@
 import { useEffect, useRef } from "react";
-const ContactContent = () => {
-    const container = useRef();
+import {NextPage} from 'next'
+const ContactContent: NextPage = () => {
+    const container = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         const options = {
             rootMargin: "0px 0px -70px 0px",
         };
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach((x) => {
+                const target = x.target as HTMLDivElement
                 if (x.isIntersecting) {
-                    x.target.classList.remove("-translate-x-full");
-                    x.target.classList.remove("opacity-0");
-                    x.target.classList.add("translate-x-0");
-                    x.target.classList.add("opacity-100");
+                    target.classList.remove("-translate-x-full");
+                    target.classList.remove("opacity-0");
+                    target.classList.add("translate-x-0");
+                    target.classList.add("opacity-100");
                 } else {
-                    x.target.classList.remove("translate-x-0");
-                    x.target.classList.remove("opacity-100");
-                    x.target.classList.add("-translate-x-full");
-                    x.target.classList.add("opacity-0");
+                    
+                    target.classList.remove("translate-x-0");
+                    target.classList.remove("opacity-100");
+                    target.classList.add("-translate-x-full");
+                    target.classList.add("opacity-0");
                 }
             });
         }, options);
 
-        Array.from(container.current.children).forEach((x) => {
-            observer.observe(x);
-        });
+        if (container.current){
+            Array.from(container.current.children).forEach((x) => {
+                observer.observe(x);
+            });
+        }
     }, []);
     return (
         <div className="w-full space-y-4 desktop-st:space-y-8 desktop-st:pt-6 desktop-st:w-1/2 desktop-st:text-left" ref={container}>

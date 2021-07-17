@@ -1,10 +1,13 @@
 import style from "../../styles/customInput.module.scss";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, ChangeEvent } from "react";
 import { NextPage } from "next";
 
 interface TextAreaProps {
     label: string;
     value: string;
+    name: string;
+    onChange: (event: ChangeEvent<HTMLInputElement>) => void
+    required: boolean
 }
 const TextAreaField: NextPage<TextAreaProps> = ({ label, value, ...attrs }) => {
     const inputRef = useRef<HTMLLabelElement | null>(null);
