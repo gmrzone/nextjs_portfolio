@@ -8,37 +8,69 @@ interface IFormStatus {
     status: string | null,
     message: string | null
 }
+
+interface IResponse {
+    status: string;
+    message: string;
+}
+
+interface IFetchOpt {
+    method: string,
+    headers: {
+        Accept: string,
+        "Content-Type": string
+    },
+    body: string
+
+}
 const ContactForm = () => {
     const animationObj = useRef<HTMLFormElement | null>(null);
     const { inputValues, handleChange, resetForm } = useForm({ name: "", email: "", message: "" });
     const [loading, setLoading] = useState<boolean>(false);
     const [formStats, setFormStats] = useState<IFormStatus>({ status: null, message: null });
+
+    function postContactData<T>(url: string, options: IFetchOpt): Promise<T> {
+        return fetch(url, options)
+        .then(response => {
+            if (!response.ok){
+                throw new Error(response.statusText)
+            }
+            return response.json() as Promise<{ data: T }>
+        })
+        .then(data => {
+            return data
+        })
+        .catch(error => error)
+    }
+
     const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = (e) => {
         e.preventDefault();
         setLoading(true);
-        fetch("/api/contact/", {
+
+        const fetchOptions = {
             method: "POST",
             headers: {
                 Accept: "application/json, text/plain, */*",
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(inputValues),
+        }
+
+        postContactData<IResponse>("/api/contact/", fetchOptions)
+        .then((data) => {
+            console.log(data);
+            setFormStats({ status: "ok", message: data.message });
+            resetForm();
+            setLoading(false);
         })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                console.log(data);
-                setFormStats({ status: "ok", message: data.message });
-                resetForm();
-                setLoading(false);
-            })
-            .catch((e) => {
-                console.log(e);
-                setLoading(false);
-                setFormStats({ status: "error", message: e.response.data.message });
-            });
+        .catch((e) => {
+            console.log(e);
+            setLoading(false);
+            setFormStats({ status: "error", message: "error" });
+        });
     };
+
+
     useEffect(() => {
         const options = {
             rootMargin: "0px 0px -70px 0px",
