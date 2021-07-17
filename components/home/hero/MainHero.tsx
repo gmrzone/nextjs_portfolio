@@ -1,23 +1,29 @@
 import HeroImage from "./HeroImageMain";
 import ButtonLink from "../../common/ButtonLink";
-import { useEffect, useRef } from "react";
-const MainHero = ({ headerRef }) => {
-    const mainRef = useRef();
-    const socialMouseOver = (e) => {
+import { useEffect, useRef, MutableRefObject, MouseEvent } from "react";
+
+import { NextPage } from 'next'
+
+interface IMainHeroProps {
+    headerRef: MutableRefObject<HTMLHeadElement>
+}
+const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
+    const mainRef = useRef<HTMLDivElement | null>(null);
+    const socialMouseOver = (e: MouseEvent<HTMLDivElement>) => {
         // e.target.classList.remove("text-sec");
-        e.target.classList.add("scale-125");
+        (e.target as HTMLDivElement).classList.add("scale-125");
         // e.target.classList.add("text-action");
     };
-    const socialMouseOut = (e) => {
+    const socialMouseOut = (e: MouseEvent<HTMLDivElement>) => {
         // e.target.classList.remove("text-action");
-        e.target.classList.remove("scale-125");
+        (e.target as HTMLDivElement).classList.remove("scale-125");
         // e.target.classList.add("text-sec");
     };
     useEffect(() => {
         const options = {
             rootMargin: "-150px 0px 0px 0px",
         };
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach((x) => {
                 if (x.isIntersecting) {
                     // light/dark Theme nav without sticky color
@@ -94,7 +100,7 @@ const MainHero = ({ headerRef }) => {
                     });
 
                     // Nav Items
-                    Array.from(headerRef.current.children[0].children[3].children[1].children).forEach((x, i) => {
+                    Array.from<HTMLElement>((headerRef.current.children[0].children[3].children[1].children as unknown) as HTMLElement[]).forEach(x => {
                         if (!x?.dataset?.ignore) {
                             x.classList.remove("desktop-st:text-main");
                             x.classList.add("desktop-st:text-bg-sec");
@@ -103,7 +109,9 @@ const MainHero = ({ headerRef }) => {
                 }
             });
         }, options);
-        observer.observe(mainRef.current);
+        if (mainRef.current){
+            observer.observe(mainRef.current);
+        }
     }, [headerRef]);
     return (
         <div

@@ -9,7 +9,6 @@ const HeroImageMain = () => {
                 x="0px"
                 y="0px"
                 viewBox="0 0 567 500"
-                style={{ enableBackground: "new 0 0 567 500" }}
                 xmlSpace="preserve">
                 <g id="XMLID_3_">
                     <path
