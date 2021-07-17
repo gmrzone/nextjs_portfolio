@@ -12,7 +12,7 @@ const useForm = (initialValue: IinitialValues) => {
     const resetForm = () => {
         setInputValues(initialValue);
     };
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInputValues((s) => {
             return { ...s, [e.target.name]: e.target.value };
         });
