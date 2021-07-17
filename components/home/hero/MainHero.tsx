@@ -2,10 +2,10 @@ import HeroImage from "./HeroImageMain";
 import ButtonLink from "../../common/ButtonLink";
 import { useEffect, useRef, MutableRefObject, MouseEvent } from "react";
 
-import { NextPage } from 'next'
+import { NextPage } from "next";
 
 interface IMainHeroProps {
-    headerRef: MutableRefObject<HTMLHeadElement | null>
+    headerRef: MutableRefObject<HTMLHeadElement | null>;
 }
 const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
     const mainRef = useRef<HTMLDivElement | null>(null);
@@ -26,8 +26,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((x) => {
                 if (x.isIntersecting) {
-                    
-                    if (headerRef.current){
+                    if (headerRef.current) {
                         // light/dark Theme nav without sticky color
                         headerRef.current.classList.remove("bg-main");
                         headerRef.current.classList.remove("dark:bg-main-dark");
@@ -36,7 +35,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         headerRef.current.classList.add("dark:bg-bg-sec-inverted");
                         headerRef.current.classList.add("sm:dark:bg-sec-dark");
                         headerRef.current.classList.remove("shadow-xl");
-    
+
                         // Logo main
                         headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove("text-bg-sec");
                         headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove(
@@ -44,13 +43,13 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         );
                         headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add("text-main");
                         headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add("dark:text-sec-dark");
-    
+
                         // logo center dark only
                         headerRef.current.children[0].children[0].children[0].children[1].classList.remove("dark:text-bg-sec-dark");
                         headerRef.current.children[0].children[0].children[0].children[1].classList.add("dark:text-main-dark");
-    
+
                         // mobile Nav opener
-    
+
                         Array.from(headerRef.current.children[0].children[1].children).forEach((x) => {
                             x.classList.remove("bg-bg-sec");
                             x.classList.remove("dark:bg-bg-sec-inverted");
@@ -59,64 +58,68 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             x.classList.add("dark:bg-main-dark");
                             x.classList.add("sm:dark:bg-bg-sec-inverted");
                         });
-    
+
                         // Nav Items
-                        Array.from<HTMLElement>((headerRef.current.children[0].children[3].children[1].children as unknown) as HTMLElement[]).forEach(x => {
+                        Array.from<HTMLElement>(
+                            headerRef.current.children[0].children[3].children[1].children as unknown as HTMLElement[],
+                        ).forEach((x) => {
                             if (!x?.dataset?.ignore) {
                                 x.classList.remove("desktop-st:text-bg-sec");
                                 x.classList.add("desktop-st:text-main");
                             }
                         });
                     }
-
                 } else {
-                    if (headerRef.current){
-                                            // light/dark Theme nav when sticky color
-                    headerRef.current.classList.remove("bg-white");
-                    headerRef.current.classList.remove("dark:bg-bg-sec-inverted");
-                    headerRef.current.classList.remove("sm:dark:bg-sec-dark");
-                    headerRef.current.classList.add("bg-main");
-                    headerRef.current.classList.add("dark:bg-main-dark");
-                    headerRef.current.classList.add("sm:dark:bg-main-dark");
-                    headerRef.current.classList.add("shadow-xl");
+                    if (headerRef.current) {
+                        // light/dark Theme nav when sticky color
+                        headerRef.current.classList.remove("bg-white");
+                        headerRef.current.classList.remove("dark:bg-bg-sec-inverted");
+                        headerRef.current.classList.remove("sm:dark:bg-sec-dark");
+                        headerRef.current.classList.add("bg-main");
+                        headerRef.current.classList.add("dark:bg-main-dark");
+                        headerRef.current.classList.add("sm:dark:bg-main-dark");
+                        headerRef.current.classList.add("shadow-xl");
 
-                    // Logo
+                        // Logo
 
-                    headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove("text-main");
-                    headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove("dark:text-sec-dark");
-                    headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add("text-bg-sec");
-                    headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add(
-                        "dark:text-bg-sec-inverted",
-                    );
+                        headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove("text-main");
+                        headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.remove(
+                            "dark:text-sec-dark",
+                        );
+                        headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add("text-bg-sec");
+                        headerRef.current.children[0].children[0].children[0].children[0].children[0].classList.add(
+                            "dark:text-bg-sec-inverted",
+                        );
 
-                    // logo center dark only
-                    headerRef.current.children[0].children[0].children[0].children[1].classList.remove("dark:text-main-dark");
-                    headerRef.current.children[0].children[0].children[0].children[1].classList.add("dark:text-bg-sec-inverted");
+                        // logo center dark only
+                        headerRef.current.children[0].children[0].children[0].children[1].classList.remove("dark:text-main-dark");
+                        headerRef.current.children[0].children[0].children[0].children[1].classList.add("dark:text-bg-sec-inverted");
 
-                    // mobile Nav opener
+                        // mobile Nav opener
 
-                    Array.from(headerRef.current.children[0].children[1].children).forEach((x) => {
-                        x.classList.remove("bg-main");
-                        x.classList.remove("dark:bg-main-dark");
-                        x.classList.remove("sm:dark:bg-bg-sec-inverted");
-                        x.classList.add("bg-bg-sec");
-                        x.classList.add("dark:bg-bg-sec-inverted");
-                        x.classList.add("sm:dark:bg-bg-sec-dark");
-                    });
+                        Array.from(headerRef.current.children[0].children[1].children).forEach((x) => {
+                            x.classList.remove("bg-main");
+                            x.classList.remove("dark:bg-main-dark");
+                            x.classList.remove("sm:dark:bg-bg-sec-inverted");
+                            x.classList.add("bg-bg-sec");
+                            x.classList.add("dark:bg-bg-sec-inverted");
+                            x.classList.add("sm:dark:bg-bg-sec-dark");
+                        });
 
-                    // Nav Items
-                    Array.from<HTMLElement>((headerRef.current.children[0].children[3].children[1].children as unknown) as HTMLElement[]).forEach(x => {
-                        if (!x?.dataset?.ignore) {
-                            x.classList.remove("desktop-st:text-main");
-                            x.classList.add("desktop-st:text-bg-sec");
-                        }
-                    });
+                        // Nav Items
+                        Array.from<HTMLElement>(
+                            headerRef.current.children[0].children[3].children[1].children as unknown as HTMLElement[],
+                        ).forEach((x) => {
+                            if (!x?.dataset?.ignore) {
+                                x.classList.remove("desktop-st:text-main");
+                                x.classList.add("desktop-st:text-bg-sec");
+                            }
+                        });
                     }
-
                 }
             });
         }, options);
-        if (mainRef.current){
+        if (mainRef.current) {
             observer.observe(mainRef.current);
         }
     }, [headerRef]);
@@ -136,7 +139,14 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         </span>
                     </div>
                     <div className="space-x-4">
-                        <ButtonLink text="Hire Me" href="#" icon="far fa-shield-check text-xl" forceBig={true} download={true} action={true} />
+                        <ButtonLink
+                            text="Hire Me"
+                            href="#"
+                            icon="far fa-shield-check text-xl"
+                            forceBig={true}
+                            download={true}
+                            action={true}
+                        />
                         <ButtonLink text="Get CV" href="#" icon="far fa-file text-xl" forceBig={true} download={true} />
                     </div>
                     <div className="space-x-4 text-4xl">

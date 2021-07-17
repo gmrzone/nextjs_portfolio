@@ -2,7 +2,7 @@ import AboutPhoto from "./AboutPhoto";
 import AboutContent from "./AboutContent";
 import { useEffect, useRef } from "react";
 import SectionHeader from "../../common/SectionHeader";
-import {NextPage} from 'next'
+import { NextPage } from "next";
 const About: NextPage = () => {
     const aboutContentRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
@@ -12,7 +12,7 @@ const About: NextPage = () => {
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach((x: IntersectionObserverEntry) => {
                 if (x.isIntersecting) {
-                    const target = x.target as HTMLDivElement
+                    const target = x.target as HTMLDivElement;
                     if (target.dataset.name === "photo") {
                         target.classList.remove("-translate-x-full");
                         target.classList.remove("opacity-0");
@@ -29,7 +29,7 @@ const About: NextPage = () => {
             });
         }, options);
 
-        if (aboutContentRef.current){
+        if (aboutContentRef.current) {
             Array.from(aboutContentRef.current.children).forEach((x) => {
                 observer.observe(x);
             });

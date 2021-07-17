@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import {NextPage} from 'next'
+import { NextPage } from "next";
 const ContactContent: NextPage = () => {
     const container = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
@@ -8,14 +8,13 @@ const ContactContent: NextPage = () => {
         };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((x) => {
-                const target = x.target as HTMLDivElement
+                const target = x.target as HTMLDivElement;
                 if (x.isIntersecting) {
                     target.classList.remove("-translate-x-full");
                     target.classList.remove("opacity-0");
                     target.classList.add("translate-x-0");
                     target.classList.add("opacity-100");
                 } else {
-                    
                     target.classList.remove("translate-x-0");
                     target.classList.remove("opacity-100");
                     target.classList.add("-translate-x-full");
@@ -24,7 +23,7 @@ const ContactContent: NextPage = () => {
             });
         }, options);
 
-        if (container.current){
+        if (container.current) {
             Array.from(container.current.children).forEach((x) => {
                 observer.observe(x);
             });

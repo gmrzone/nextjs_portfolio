@@ -7,7 +7,7 @@ interface TextAreaProps {
     value: string;
     name: string;
     required: boolean;
-    onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void
+    onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 const TextAreaField: NextPage<TextAreaProps> = ({ label, value, ...attrs }) => {
     const inputRef = useRef<HTMLLabelElement | null>(null);

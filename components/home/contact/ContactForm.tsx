@@ -5,8 +5,8 @@ import useForm from "../../../hooks/useForm";
 import { useState, useEffect, useRef, FormEvent } from "react";
 
 interface IFormStatus {
-    status: string | null,
-    message: string | null
+    status: string | null;
+    message: string | null;
 }
 
 interface IResponse {
@@ -15,13 +15,12 @@ interface IResponse {
 }
 
 interface IFetchOpt {
-    method: string,
+    method: string;
     headers: {
-        Accept: string,
-        "Content-Type": string
-    },
-    body: string
-
+        Accept: string;
+        "Content-Type": string;
+    };
+    body: string;
 }
 const ContactForm = () => {
     const animationObj = useRef<HTMLFormElement | null>(null);
@@ -31,16 +30,16 @@ const ContactForm = () => {
 
     function postContactData<T>(url: string, options: IFetchOpt): Promise<T> {
         return fetch(url, options)
-        .then(response => {
-            if (!response.ok){
-                throw new Error(response.statusText)
-            }
-            return response.json() as Promise<{ data: T }>
-        })
-        .then(data => {
-            return data
-        })
-        .catch(error => error)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                return response.json() as Promise<{ data: T }>;
+            })
+            .then((data) => {
+                return data;
+            })
+            .catch((error) => error);
     }
 
     const handleSubmit: (event: FormEvent<HTMLFormElement>) => void = (e) => {
@@ -54,22 +53,21 @@ const ContactForm = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(inputValues),
-        }
+        };
 
         postContactData<IResponse>("/api/contact/", fetchOptions)
-        .then((data) => {
-            console.log(data);
-            setFormStats({ status: "ok", message: data.message });
-            resetForm();
-            setLoading(false);
-        })
-        .catch((e) => {
-            console.log(e);
-            setLoading(false);
-            setFormStats({ status: "error", message: "error" });
-        });
+            .then((data) => {
+                console.log(data);
+                setFormStats({ status: "ok", message: data.message });
+                resetForm();
+                setLoading(false);
+            })
+            .catch((e) => {
+                console.log(e);
+                setLoading(false);
+                setFormStats({ status: "error", message: "error" });
+            });
     };
-
 
     useEffect(() => {
         const options = {
@@ -87,7 +85,7 @@ const ContactForm = () => {
             });
         }, options);
 
-        if (animationObj.current){
+        if (animationObj.current) {
             observer.observe(animationObj.current);
         }
     }, []);
@@ -97,7 +95,7 @@ const ContactForm = () => {
             onSubmit={handleSubmit}
             ref={animationObj}>
             <div className="space-y-2">
-                <InputField type="text" name="name" label="Name" value={inputValues.name} onChange={handleChange} required/>
+                <InputField type="text" name="name" label="Name" value={inputValues.name} onChange={handleChange} required />
                 <InputField type="email" name="email" label="Email" value={inputValues.email} onChange={handleChange} required />
                 <TextAreaField name="message" label="Message" value={inputValues.message} onChange={handleChange} required />
             </div>

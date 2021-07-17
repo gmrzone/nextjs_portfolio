@@ -16,7 +16,17 @@ import corecare_main_secondary from "../../public/corecare_main-trans.png";
 import corecare_admin_secondary from "../../public/corecare_admin-trans.png";
 import protfolio_secondary from "../../public/portfolio-trans.png";
 
-export const skillsData = [
+interface ISkillData {
+    id: number;
+    title: string;
+    meta: string;
+    icon: string;
+    data: {
+        name: string;
+        skill: number;
+    }[];
+}
+export const skillsData: ISkillData[] = [
     {
         id: 1,
         title: "Frontend",
@@ -118,8 +128,14 @@ export const skillsData = [
         ],
     },
 ];
-
-export const reviewData = [
+interface IReviewData {
+    id: number;
+    photo: StaticImageData;
+    name: string;
+    review: string;
+    star: number;
+}
+export const reviewData: IReviewData[] = [
     {
         id: 1,
         photo: review_image1,
@@ -178,7 +194,20 @@ export const reviewData = [
     },
 ];
 
-export const ProjectData = [
+interface IProjectData {
+    id: number;
+    name: string;
+    context: string;
+    role: string;
+    period: string;
+    about: string;
+    link: string;
+    github: string;
+    main_image: StaticImageData;
+    secondary_image: StaticImageData;
+    points: string[];
+}
+export const ProjectData: IProjectData[] = [
     {
         id: 1,
         name: "Cleaning and Maintanence Service Platform",

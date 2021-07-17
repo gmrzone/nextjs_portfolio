@@ -1,5 +1,5 @@
 import ButtonLink from "../../common/ButtonLink";
-import {NextPage} from 'next'
+import { NextPage } from "next";
 const AboutContent: NextPage = () => {
     return (
         <div

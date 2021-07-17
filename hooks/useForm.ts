@@ -4,7 +4,6 @@ interface IinitialValues {
     name: string;
     email: string;
     message: string;
-
 }
 
 const useForm = (initialValue: IinitialValues) => {

@@ -4,11 +4,9 @@ interface ButtonProps {
     text: string;
     action: boolean;
     icon: string | undefined;
-    type: "button" | "submit" | undefined,
-
-    
+    type: "button" | "submit" | undefined;
 }
-const ButtonLink: NextPage<ButtonProps> = ({ loading = false, text, action, icon = undefined , ...attr }) => {
+const ButtonLink: NextPage<ButtonProps> = ({ loading = false, text, action, icon = undefined, ...attr }) => {
     return (
         <button
             {...attr}

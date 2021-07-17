@@ -8,7 +8,6 @@ interface inputFieldProps {
     name: string;
     required: boolean;
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-    
 }
 const InputField: NextPage<inputFieldProps> = ({ label, value, ...attrs }) => {
     const inputRef = useRef<HTMLLabelElement | null>(null);

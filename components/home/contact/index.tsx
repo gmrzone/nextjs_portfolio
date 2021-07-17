@@ -1,6 +1,6 @@
 import ContactContainer from "./ContactContainer";
 import SectionHeader from "../../common/SectionHeader";
-import { NextPage } from 'next'
+import { NextPage } from "next";
 const ContactMain: NextPage = () => {
     return (
         <div className="mt-10 mb-10 desktop-st:mt-16 overflow-x-hidden">
