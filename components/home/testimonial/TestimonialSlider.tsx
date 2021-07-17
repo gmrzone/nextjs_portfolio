@@ -50,10 +50,10 @@ const TestimonialSlider: NextPage = () => {
     }, []);
 
     const isMouseEvent = (e: MouseEvent | TouchEvent): e is MouseEvent => {
-        return e.type === "mouseup" || e.type === "mousemove"
+        return e.type === "mouseup" || e.type === "mousedown" || e.type === "mousemove"
     }
     const isTouchEvent = (e: MouseEvent | TouchEvent): e is TouchEvent => {
-        return e.type === "touchstart" || e.type === "touchmove"
+        return e.type === "touchstart" || e.type === "touchend" || e.type === "touchmove"
     }
 
     // this event callback is triggered on touch start and mouse down . Save touch start position of mouse down button press position so we can compare it with current touch position or mouse up button position to find if the user has swiped left or right
@@ -81,13 +81,11 @@ const TestimonialSlider: NextPage = () => {
         currentTransPositionMain.current = currentTransPosition.current;
         if (mainContainer.current){
             if (currentTransPositionMain.current > 0) {
-                console.log("Stop Left");
                 mainContainer.current.style.transitionDuration = "0.3s";
                 mainContainer.current.style.transform = "translate3d(0px, 0px, 0px)";
                 currentTransPositionMain.current = 0;
                 currentTransPosition.current = 0;
             } else if (currentTransPositionMain.current < maxRightTransition.current) {
-                console.log("Stop Right");
                 mainContainer.current.style.transitionDuration = "0.3s";
                 mainContainer.current.style.transform = `translate3d(${maxRightTransition.current}px, 0px, 0px)`;
                 currentTransPositionMain.current = maxRightTransition.current;
@@ -102,7 +100,6 @@ const TestimonialSlider: NextPage = () => {
                     if (currentTransPositionMain.current < 0) {
                         const ratio = Math.ceil(currentTransPositionMain.current / (sliderItemWidth + 20));
                         const transitionTo = (sliderItemWidth + 20) * ratio;
-                        console.log(transitionTo);
                         mainContainer.current.style.transitionDuration = "0.3s";
                         mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
                         currentTransPositionMain.current = transitionTo;
@@ -120,7 +117,6 @@ const TestimonialSlider: NextPage = () => {
                     if (currentTransPositionMain.current > maxRightTransition.current) {
                         const ratio = Math.floor(currentTransPositionMain.current / (sliderItemWidth + 20));
                         const transitionTo = (sliderItemWidth + 20) * ratio;
-                        console.log(transitionTo);
                         mainContainer.current.style.transitionDuration = "0.3s";
                         mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
                         currentTransPositionMain.current = transitionTo;
@@ -147,55 +143,57 @@ const TestimonialSlider: NextPage = () => {
     const handlePointerMove = (e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>) => {
         // Get Touches object
         // if event type is mousemove then check if the mouse button is pressed. It the button is pressed then only transition the slider else do nothing
-        if (startPointerCapturePosition && currentPointerCapturePosition && mainContainer.current){
-
             if (isMouseEvent(e)) {
                 if (mousePressed) {
-                    // get current touch or mouse Position
-                    currentPointerCapturePosition = e.clientX;
-                    // get transition amount in px based on touchstart or mousedown position and current position
-                    let transitionAmount =
-                        currentTransPositionMain.current +
-                        (startPointerCapturePosition > currentPointerCapturePosition
-                            ? -(startPointerCapturePosition - currentPointerCapturePosition)
-                            : currentPointerCapturePosition - startPointerCapturePosition);
-                    if (transitionAmount > 0) {
-                        transitionAmount /= 6;
-                    } else if (maxRightTransition.current && transitionAmount < maxRightTransition.current) {
-                        let extra_trans = maxRightTransition.current - transitionAmount;
-                        extra_trans /= 6;
-                        transitionAmount = maxRightTransition.current - extra_trans;
+                    if (startPointerCapturePosition && mainContainer.current){
+                        // get current touch or mouse Position
+                        currentPointerCapturePosition = e.clientX;
+                        // get transition amount in px based on touchstart or mousedown position and current position
+                        let transitionAmount =
+                            currentTransPositionMain.current +
+                            (startPointerCapturePosition > currentPointerCapturePosition
+                                ? -(startPointerCapturePosition - currentPointerCapturePosition)
+                                : currentPointerCapturePosition - startPointerCapturePosition);
+                        if (transitionAmount > 0) {
+                            transitionAmount /= 6;
+                        } else if (maxRightTransition.current && transitionAmount < maxRightTransition.current) {
+                            let extra_trans = maxRightTransition.current - transitionAmount;
+                            extra_trans /= 6;
+                            transitionAmount = maxRightTransition.current - extra_trans;
+                        }
+                        mainContainer.current.style.transitionDuration = "0s";
+                        mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
+        
+                        currentTransPosition.current = transitionAmount;
                     }
-                    mainContainer.current.style.transitionDuration = "0s";
-                    mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
-    
-                    currentTransPosition.current = transitionAmount;
                 }
             } 
 
             if (isTouchEvent(e)) {
-                const touches = e.touches;
-                // get current Page Position same as clientX
-                currentPointerCapturePosition = touches[0].clientX;
-                let transitionAmount =
-                    currentTransPositionMain.current +
-                    (startPointerCapturePosition > currentPointerCapturePosition
-                        ? -(startPointerCapturePosition - currentPointerCapturePosition)
-                        : currentPointerCapturePosition - startPointerCapturePosition);
-                if (transitionAmount > 0) {
-                    transitionAmount /= 6;
-                } else if (maxRightTransition.current && transitionAmount < maxRightTransition.current) {
-                    let extra_trans = maxRightTransition.current - transitionAmount;
-                    extra_trans /= 6;
-                    transitionAmount = maxRightTransition.current - extra_trans;
+                if (startPointerCapturePosition && mainContainer.current){
+                        const touches = e.touches;
+                        // get current Page Position same as clientX
+                        currentPointerCapturePosition = touches[0].clientX;
+                        let transitionAmount =
+                            currentTransPositionMain.current +
+                            (startPointerCapturePosition > currentPointerCapturePosition
+                                ? -(startPointerCapturePosition - currentPointerCapturePosition)
+                                : currentPointerCapturePosition - startPointerCapturePosition);
+                        if (transitionAmount > 0) {
+                            transitionAmount /= 6;
+                        } else if (maxRightTransition.current && transitionAmount < maxRightTransition.current) {
+                            let extra_trans = maxRightTransition.current - transitionAmount;
+                            extra_trans /= 6;
+                            transitionAmount = maxRightTransition.current - extra_trans;
+                        }
+                        mainContainer.current.style.transitionDuration = "0s";
+                        mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
+                        currentTransPosition.current = transitionAmount;
                 }
-                mainContainer.current.style.transitionDuration = "0s";
-                mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
-                currentTransPosition.current = transitionAmount;
-        }
+            }
 
            
-        }
+        
     };
 
     const slideLEft = () => {
