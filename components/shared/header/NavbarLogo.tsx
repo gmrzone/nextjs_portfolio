@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 const NavbarLogo: NextPage = () => {
     return (
-        <div className="w-14 cursor-pointer">
+        <div className="w-14">
             {/* style={{ enableBackground: "new 0 0 567 500" }} */}
             <svg
                 version="1.1"
