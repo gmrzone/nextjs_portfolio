@@ -18,7 +18,7 @@ const AboutContent = () => {
                     icon="far fa-file text-xl"
                     cssClasses="dark:bg-sec-dark dark:text-bg-sec-inverted dark:hover:bg-main-dark"
                     href="#"
-                    download
+                    download={true}
                 />
             </div>
         </div>

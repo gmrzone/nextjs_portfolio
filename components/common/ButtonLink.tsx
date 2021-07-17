@@ -3,7 +3,7 @@ interface ButtonProps {
     text: string;
     action?: boolean;
     icon: null | string;
-    forceBig: boolean;
+    forceBig?: boolean;
     cssClasses?: string;
     href: string;
     download: boolean
