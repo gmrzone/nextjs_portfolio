@@ -2,11 +2,17 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+### Portfolio Website Created using Nextjs, Typescript and Tailwindcss
+
+![portfolio_main](https://user-images.githubusercontent.com/65633542/126047280-4db96a72-bf22-44a6-a41c-8d6b6a86dabb.jpg)
+
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
 # or
+yarn install
 yarn dev
 ```
 
