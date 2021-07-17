@@ -130,7 +130,7 @@ export const skillsData: ISkillData[] = [
         ],
     },
 ];
-interface IReviewData {
+export interface IReviewData {
     id: number;
     photo: StaticImageData;
     name: string;

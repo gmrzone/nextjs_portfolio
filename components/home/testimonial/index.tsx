@@ -1,6 +1,7 @@
 import SectionHeader from "../../common/SectionHeader";
 import TestimonialSlider from "./TestimonialSlider";
-const Testimonial = () => {
+import { NextPage } from 'next'
+const Testimonial: NextPage = () => {
     return (
         <div className="mt-10 desktop-st:mt-16 bg-main dark:bg-main-dark transition-colors duration-300 py-8">
             <div className="container">
