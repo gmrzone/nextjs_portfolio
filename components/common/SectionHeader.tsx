@@ -5,7 +5,7 @@ interface SectionProps {
     meta: string;
     inverted: boolean;
 }
-const SectionHeader: NextPage<SectionProps> = ({ title, meta, inverted = false }) => {
+const SectionHeader: NextPage<SectionProps> = ({ title, meta, inverted }) => {
     return (
         <div className="mb-10 desktop-st:mb-16">
             <h2 className={`text-center ${inverted ? "text-white" : "text-main dark:text-main-dark"}`}>{title}</h2>

@@ -1,10 +1,16 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import ResponsiveLink from "../../common/ResponsiveLink";
+import { IProjectData } from '../data';
+import { NextPage } from 'next'
 
-const ProjectItem = ({ item, openProjectModal }) => {
-    const projectRef = useRef();
-    const projectText = useRef();
+interface IProjectProps {
+    item: IProjectData,
+    openProjectModal: (item: IProjectData) => void
+}
+const ProjectItem:NextPage<IProjectProps> = ({ item, openProjectModal }) => {
+    const projectRef = useRef<HTMLDivElement | null>(null);
+    const projectText = useRef<HTMLParagraphElement | null>(null);
 
     useEffect(() => {
         const options = {
@@ -20,8 +26,13 @@ const ProjectItem = ({ item, openProjectModal }) => {
                 }
             });
         }, options);
-        observer.observe(projectRef.current);
-        observer.observe(projectText.current);
+        if (projectRef.current){
+            observer.observe(projectRef.current);
+        }
+        if (projectText.current){
+            observer.observe(projectText.current);
+        }
+       
     }, []);
     const openItemModal = () => {
         openProjectModal(item);

@@ -1,12 +1,19 @@
-import { ProjectData } from "../data";
+import { ProjectData, IProjectData } from "../data";
 import ProjectItem from "./ProjectItem";
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import {NextPage} from 'next'
+
+interface IState {
+    active: boolean,
+    activeItem: IProjectData | null
+}
 
 const ProjectModal = dynamic(() => import("./ProjectDetailModal"), { ssr: false });
-const ProjectItems = () => {
-    const [modalActive, setModalActive] = useState({ active: false, activeItem: null });
-    const openProjectModal = (item) => {
+const ProjectItems: NextPage = () => {
+    const [modalActive, setModalActive] = useState<IState>({ active: false, activeItem: null });
+    
+    const openProjectModal: (item: IProjectData) => void = (item) => {
         setModalActive({ active: true, activeItem: item });
     };
     const closeProjectModal = () => {

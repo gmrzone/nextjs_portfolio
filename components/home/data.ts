@@ -194,7 +194,7 @@ export const reviewData: IReviewData[] = [
     },
 ];
 
-interface IProjectData {
+export interface IProjectData {
     id: number;
     name: string;
     context: string;

@@ -6,7 +6,9 @@ interface ButtonProps {
     forceBig?: boolean;
     cssClasses?: string;
     href: string;
-    download: boolean;
+    download?: boolean;
+    target?: string;
+    rel?: string;
 }
 const ButtonLink: NextPage<ButtonProps> = ({ text, action, icon = null, forceBig, cssClasses = null, ...attr }) => {
     return (
