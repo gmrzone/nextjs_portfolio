@@ -11,7 +11,7 @@ const MainLayout: NextPage<IHeader> = ({ children }) => {
 
     return (
         <div className="main-body h-full flex flex-col">
-            <header id="header" className="bg-bg-sec dark:bg-bg-sec-inverted sm:dark:bg-sec-dark fixed w-full z-30" ref={headerRef}>
+            <header id="header" className="bg-bg-sec dark:bg-bg-sec-inverted sm:dark:bg-sec-dark fixed w-full z-30 transition-colors duration-500" ref={headerRef}>
                 <Navbar />
             </header>
             <main id="main" className="bg-bg-sec dark:bg-bg-sec-dark">

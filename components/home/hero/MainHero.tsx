@@ -64,8 +64,11 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             headerRef.current.children[0].children[3].children[1].children as unknown as HTMLElement[],
                         ).forEach((x) => {
                             if (!x?.dataset?.ignore) {
-                                x.classList.remove("desktop-st:text-bg-sec");
-                                x.classList.add("desktop-st:text-main");
+                                const child = x.firstChild as HTMLLinkElement
+                                if (child){
+                                    child.classList.remove("desktop-st:text-bg-sec");
+                                    child.classList.add("desktop-st:text-main");
+                                }
                             }
                         });
                     }
@@ -111,8 +114,11 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             headerRef.current.children[0].children[3].children[1].children as unknown as HTMLElement[],
                         ).forEach((x) => {
                             if (!x?.dataset?.ignore) {
-                                x.classList.remove("desktop-st:text-main");
-                                x.classList.add("desktop-st:text-bg-sec");
+                                const child = x.firstChild as HTMLLinkElement
+                                if (child){
+                                    child.classList.remove("desktop-st:text-main");
+                                    child.classList.add("desktop-st:text-bg-sec");
+                                }
                             }
                         });
                     }

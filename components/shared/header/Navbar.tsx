@@ -24,6 +24,10 @@ const Navbar: NextPage = () => {
             to: "#projects",
         },
         {
+            name: "Testimonials",
+            to: "#testimonials"
+        },
+        {
             name: "About",
             to: "#about",
         },
