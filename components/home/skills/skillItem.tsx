@@ -15,8 +15,8 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
             entries.forEach((x) => {
                 const target = x.target as HTMLDivElement;
                 if (x.isIntersecting) {
-                    target.classList.remove("w-0");
-                    target.style.width = `${item.skill}%`;
+                    target.style.transform = `translate3d(${-(100 - item.skill)}%, 0px, 0px)`
+                    console.log("Afzal Saiyed")
                     observer.unobserve(x.target);
                 }
             });
@@ -32,12 +32,19 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
                 <span className="text-gray-600">{item.skill}%</span>
             </div>
             <div className="relative">
-                <div className="w-full h-2 bg-sec-lg dark:bg-bg-sec-dark rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-sec-lg dark:bg-bg-sec-dark rounded-full overflow-hidden relative">
                     <div
-                        className="h-full bg-sec dark:bg-sec-dark w-0 transform-gpu transition-transform duration-500"
-                        ref={progressBar}></div>
+                        className="h-full absolute bg-sec dark:bg-sec-dark w-full transform-gpu transition-transform duration-500 progress-bar"
+                        ref={progressBar}>
+                    </div>
                 </div>
             </div>
+            <style jsx>{`
+                .progress-bar {
+                    transform: translate3d(-99%, 0px, 0px);
+                }
+
+            `}</style>
         </div>
     );
 };

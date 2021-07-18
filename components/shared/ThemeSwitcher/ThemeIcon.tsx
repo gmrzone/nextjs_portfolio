@@ -25,7 +25,7 @@ const ThemeIcon: NextPage<IProps> = ({ mainRef, centerRef, themeMainG, darkTheme
                     <g transform="matrix(1,0,0,1,12,12)" opacity="1" className="block">
                         <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                             <path
-                                className="text-bg-sec-inverted dark:text-bg-sec transform-gpu transition-transform duration-300 ease-out fill-current opacity-100"
+                                className="text-bg-sec-inverted dark:text-bg-sec transform-gpu transition-transform duration-1000 ease-out fill-current opacity-100"
                                 ref={centerRef}
                                 d=" M0,-4 C-2.2100000381469727,-4 -4,-2.2100000381469727 -4,0 C-4,2.2100000381469727 -2.2100000381469727,4 0,4 C2.2100000381469727,4 4,2.2100000381469727 4,0 C4,-2.2100000381469727 2.2100000381469727,-4 0,-4z"></path>
                         </g>
@@ -33,7 +33,7 @@ const ThemeIcon: NextPage<IProps> = ({ mainRef, centerRef, themeMainG, darkTheme
                     <g transform="matrix(-1,0,0,-1,12,12)" opacity="1" className="block" ref={themeMainG}>
                         <g opacity="1" transform="matrix(1,0,0,1,0,0)">
                             <path
-                                className="text-bg-sec-inverted dark:text-bg-sec fill-current opacity-100 transform-gpu transition-transform duration-500 ease-out rotate-0"
+                                className="text-bg-sec-inverted dark:text-bg-sec fill-current opacity-100 transform-gpu transition-transform duration-700 ease-out rotate-0"
                                 d=" M0,6 C-3.309999942779541,6 -6,3.309999942779541 -6,0 C-6,-3.309999942779541 -3.309999942779541,-6 0,-6 C3.309999942779541,-6 6,-3.309999942779541 6,0 C6,3.309999942779541 3.309999942779541,6 0,6z M8,-3.309999942779541 C8,-3.309999942779541 8,-8 8,-8 C8,-8 3.309999942779541,-8 3.309999942779541,-8 C3.309999942779541,-8 0,-11.3100004196167 0,-11.3100004196167 C0,-11.3100004196167 -3.309999942779541,-8 -3.309999942779541,-8 C-3.309999942779541,-8 -8,-8 -8,-8 C-8,-8 -8,-3.309999942779541 -8,-3.309999942779541 C-8,-3.309999942779541 -11.3100004196167,0 -11.3100004196167,0 C-11.3100004196167,0 -8,3.309999942779541 -8,3.309999942779541 C-8,3.309999942779541 -8,8 -8,8 C-8,8 -3.309999942779541,8 -3.309999942779541,8 C-3.309999942779541,8 0,11.3100004196167 0,11.3100004196167 C0,11.3100004196167 3.309999942779541,8 3.309999942779541,8 C3.309999942779541,8 8,8 8,8 C8,8 8,3.309999942779541 8,3.309999942779541 C8,3.309999942779541 11.3100004196167,0 11.3100004196167,0 C11.3100004196167,0 8,-3.309999942779541 8,-3.309999942779541z"
                                 ref={mainRef}></path>
                         </g>
