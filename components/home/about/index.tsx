@@ -36,7 +36,7 @@ const About: NextPage = () => {
         }
     }, []);
     return (
-        <div className="mt-10 desktop-st:mt-16 overflow-x-hidden">
+        <div className="mt-10 desktop-st:mt-16 overflow-x-hidden" id="about">
             <div className="container">
                 <SectionHeader title="About" meta="My Introduction" inverted={false} />
                 <div className="flex flex-col text-center desktop-st:flex-row desktop-st:text-left" ref={aboutContentRef}>

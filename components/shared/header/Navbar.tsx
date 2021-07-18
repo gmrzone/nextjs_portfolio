@@ -17,19 +17,19 @@ const Navbar: NextPage = () => {
         },
         {
             name: "Skills",
-            to: "#Skills",
+            to: "#skills",
         },
         {
             name: "Projects",
-            to: "#Projects",
+            to: "#projects",
         },
         {
             name: "About",
-            to: "#About",
+            to: "#about",
         },
         {
             name: "Contact",
-            to: "#Contact",
+            to: "#contact",
         },
     ];
     const transitionMobileNav: () => void = () => {

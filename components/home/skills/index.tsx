@@ -3,7 +3,7 @@ import SectionHeader from "../../common/SectionHeader";
 import { NextPage } from "next";
 const Skills: NextPage = () => {
     return (
-        <div className="mt-10 desktop-st:mt-16">
+        <div className="mt-10 desktop-st:mt-16" id="skills">
             <div className="container">
                 <SectionHeader title="Skills" meta="My Tech Stack" inverted={false} />
                 <SkillAccordian />

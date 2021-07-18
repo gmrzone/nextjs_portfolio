@@ -126,7 +126,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
     return (
         <div
             className="w-full bg-main dark:bg-main-dark h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative main-gradiant before:absolute before:w-full before:h-full before:-translate-x-full transform-gpu before:animate-main-gradiant"
-            ref={mainRef}>
+            ref={mainRef} id="home">
             <div className="container h-full flex flex-col justify-center sm:flex-row absolute right-0 left-0 mx-auto">
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
                     <div className="">

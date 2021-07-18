@@ -3,7 +3,7 @@ import SectionHeader from "../../common/SectionHeader";
 import { NextPage } from "next";
 const ContactMain: NextPage = () => {
     return (
-        <div className="mt-10 mb-10 desktop-st:mt-16 overflow-x-hidden">
+        <div className="mt-10 mb-10 desktop-st:mt-16 overflow-x-hidden" id="contact">
             <div className="container">
                 <SectionHeader title="Contact Me" meta="Get in Touch" inverted={false} />
                 <div>
