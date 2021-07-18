@@ -3,46 +3,43 @@ import { useRef, useEffect } from "react";
 import reactDom from "react-dom";
 import ButtonLink from "../../common/ButtonLink";
 import Image from "next/image";
-import { IProjectData } from '../data'
-import { NextPage } from 'next'
+import { IProjectData } from "../data";
+import { NextPage } from "next";
 
 interface IProjectDetailProps {
     active: boolean;
     closeModal: () => void;
-    activeItem: IProjectData | null
+    activeItem: IProjectData | null;
 }
 const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal, activeItem }) => {
-
     const backdrop = useRef<HTMLDivElement | null>(null);
     const container = useRef<HTMLDivElement | null>(null);
     const modalRight = useRef<HTMLDivElement | null>(null);
     const modalLeft = useRef<HTMLDivElement | null>(null);
 
     const transitionOutModal = () => {
-
-        if (backdrop.current && container.current && modalRight.current && modalLeft.current){
+        if (backdrop.current && container.current && modalRight.current && modalLeft.current) {
             backdrop.current.classList.remove("block");
             backdrop.current.classList.remove("desktop-st:block");
             backdrop.current.classList.add("hidden");
             backdrop.current.classList.add("desktop-st:hidden");
-    
+
             container.current.classList.remove("flex");
             container.current.classList.add("hidden");
-    
+
             modalRight.current.classList.remove("block");
             modalLeft.current.classList.remove("block");
             modalRight.current.classList.add("hidden");
             modalLeft.current.classList.add("hidden");
         }
-
     };
     const transitionInModal = () => {
-        if (backdrop.current && modalLeft.current && modalRight.current){
+        if (backdrop.current && modalLeft.current && modalRight.current) {
             backdrop.current.classList.remove("bg-opacity-0");
             backdrop.current.classList.remove("backdrop-opacity-0");
             backdrop.current.classList.add("bg-opacity-60");
             backdrop.current.classList.add("backdrop-opacity-100");
-    
+
             modalLeft.current.classList.remove("opacity-0");
             modalRight.current.classList.remove("opacity-0");
             modalLeft.current.classList.add("opacity-100");
@@ -65,16 +62,15 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
     };
     useEffect(() => {
         if (active) {
-            if (backdrop.current && container.current && modalRight.current && modalLeft.current){
-
+            if (backdrop.current && container.current && modalRight.current && modalLeft.current) {
                 backdrop.current.classList.remove("hidden");
                 backdrop.current.classList.remove("desktop-st:hidden");
                 backdrop.current.classList.add("block");
                 backdrop.current.classList.add("desktop-st:block");
-    
+
                 container.current.classList.remove("hidden");
                 container.current.classList.add("flex");
-    
+
                 modalRight.current.classList.remove("hidden");
                 modalLeft.current.classList.remove("hidden");
                 modalRight.current.classList.add("block");
@@ -83,19 +79,17 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
 
             setTimeout(transitionInModal, 50);
         } else {
-
-            if (backdrop.current && container.current && modalRight.current && modalLeft.current){
-
+            if (backdrop.current && container.current && modalRight.current && modalLeft.current) {
                 backdrop.current.classList.remove("bg-opacity-60");
                 backdrop.current.classList.remove("backdrop-opacity-100");
                 backdrop.current.classList.add("bg-opacity-0");
                 backdrop.current.classList.add("backdrop-opacity-0");
-    
+
                 modalLeft.current.classList.remove("opacity-100");
                 modalRight.current.classList.remove("opacity-100");
                 modalLeft.current.classList.add("opacity-0");
                 modalRight.current.classList.add("opacity-0");
-    
+
                 if (typeof window !== undefined) {
                     if (window.innerWidth > 991) {
                         modalLeft.current.classList.remove("desktop-st:translate-y-0");
@@ -109,7 +103,6 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                         modalRight.current.classList.add("translate-x-full");
                     }
                 }
-
             }
 
             setTimeout(transitionOutModal, 500);
@@ -127,12 +120,9 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                 className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 px-4 desktop-st:px-0 desktop-st:grid-cols-2"
                 style={{ maxHeight: "95%" }}>
                 <div
-                    className="bg-main dark:bg-sec-dark hidden opacity-0 transition-all duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full"
+                    className="bg-main dark:bg-sec-dark hidden opacity-0 transition-transform duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full"
                     ref={modalLeft}>
-                    <i
-                        className="far fa-times text-2xl cursor-pointer text-white transition-colors duration-300 px-6 py-3"
-                        onClick={closeModal}
-                    />
+                    <i className="far fa-times text-2xl cursor-pointer text-white px-6 py-3" onClick={closeModal} />
                     <div className="flex justify-center">
                         <div className="p-4">
                             {activeItem && (
@@ -149,7 +139,7 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                     </div>
                 </div>
                 <div
-                    className="bg-bg-sec dark:bg-bg-sec-inverted hidden p-8 opacity-0 text-main transition-all duration-500 translate-x-full desktop-st:translate-x-0 desktop-st:translate-y-full"
+                    className="bg-bg-sec dark:bg-bg-sec-inverted hidden p-8 opacity-0 text-main transition-transform duration-500 translate-x-full desktop-st:translate-x-0 desktop-st:translate-y-full"
                     ref={modalRight}>
                     <div className="space-y-2">
                         <h3 className="text-main dark:text-main-dark">{activeItem?.name}</h3>

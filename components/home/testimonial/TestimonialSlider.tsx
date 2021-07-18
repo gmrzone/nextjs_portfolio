@@ -2,10 +2,10 @@ import { reviewData } from "../data";
 import SliderItems from "./SliderItem";
 import style from "../../../styles/reviewSlider.module.scss";
 import { useRef, useEffect, MouseEvent, TouchEvent } from "react";
-import { NextPage } from 'next'
+import { NextPage } from "next";
 
-type TStartPointerPosition = null | number
-type TCurrentPointerPosition = null | number
+type TStartPointerPosition = null | number;
+type TCurrentPointerPosition = null | number;
 const TestimonialSlider: NextPage = () => {
     const mainContainer = useRef<HTMLDivElement | null>(null);
     const renderReviewData = reviewData.map((x) => {
@@ -22,21 +22,30 @@ const TestimonialSlider: NextPage = () => {
 
     // reset slider transition position to zero on window resize to avoid layout mess (workaround)
     const calculateMAxRightTransaction = () => {
-        if (mainContainer.current){
+        if (mainContainer.current) {
             if (typeof window !== undefined) {
                 if (window.innerWidth <= 766) {
-                    maxRightTransition.current = -(((mainContainer.current.firstChild as HTMLDivElement).clientWidth + 20) * (reviewData.length - 1));
+                    maxRightTransition.current = -(
+                        ((mainContainer.current.firstChild as HTMLDivElement).clientWidth + 20) *
+                        (reviewData.length - 1)
+                    );
                 } else if (window.innerWidth <= 991 && window.innerWidth >= 767) {
-                    maxRightTransition.current = -(((mainContainer.current.firstChild as HTMLDivElement).clientWidth + 20) * (reviewData.length - 2));
+                    maxRightTransition.current = -(
+                        ((mainContainer.current.firstChild as HTMLDivElement).clientWidth + 20) *
+                        (reviewData.length - 2)
+                    );
                 } else {
-                    maxRightTransition.current = -(((mainContainer.current.firstChild as HTMLDivElement).clientWidth + 20) * (reviewData.length - 3));
+                    maxRightTransition.current = -(
+                        ((mainContainer.current.firstChild as HTMLDivElement).clientWidth + 20) *
+                        (reviewData.length - 3)
+                    );
                 }
             }
         }
     };
     useEffect(() => {
         const resetSlider = () => {
-            if (mainContainer.current){
+            if (mainContainer.current) {
                 mainContainer.current.style.transform = "translate3d(0px, 0px, 0px)";
                 currentTransPositionMain.current = 0;
                 currentTransPosition.current = 0;
@@ -50,11 +59,11 @@ const TestimonialSlider: NextPage = () => {
     }, []);
 
     const isMouseEvent = (e: MouseEvent | TouchEvent): e is MouseEvent => {
-        return e.type === "mouseup" || e.type === "mousedown" || e.type === "mousemove"
-    }
+        return e.type === "mouseup" || e.type === "mousedown" || e.type === "mousemove";
+    };
     const isTouchEvent = (e: MouseEvent | TouchEvent): e is TouchEvent => {
-        return e.type === "touchstart" || e.type === "touchend" || e.type === "touchmove"
-    }
+        return e.type === "touchstart" || e.type === "touchend" || e.type === "touchmove";
+    };
 
     // this event callback is triggered on touch start and mouse down . Save touch start position of mouse down button press position so we can compare it with current touch position or mouse up button position to find if the user has swiped left or right
     const handlePointerStart = (e: MouseEvent<HTMLDivElement> | TouchEvent<HTMLDivElement>) => {
@@ -79,7 +88,7 @@ const TestimonialSlider: NextPage = () => {
         }
 
         currentTransPositionMain.current = currentTransPosition.current;
-        if (mainContainer.current){
+        if (mainContainer.current) {
             if (currentTransPositionMain.current > 0) {
                 mainContainer.current.style.transitionDuration = "0.3s";
                 mainContainer.current.style.transform = "translate3d(0px, 0px, 0px)";
@@ -94,8 +103,14 @@ const TestimonialSlider: NextPage = () => {
         }
 
         if (currentPointerCapturePosition) {
-            if (mainContainer.current && mainContainer.current.firstChild && sliderRightButton.current && sliderLeftButton.current && startPointerCapturePosition){
-                let sliderItemWidth =( mainContainer.current.firstChild as HTMLDivElement).clientWidth;
+            if (
+                mainContainer.current &&
+                mainContainer.current.firstChild &&
+                sliderRightButton.current &&
+                sliderLeftButton.current &&
+                startPointerCapturePosition
+            ) {
+                let sliderItemWidth = (mainContainer.current.firstChild as HTMLDivElement).clientWidth;
                 if (currentPointerCapturePosition > startPointerCapturePosition) {
                     if (currentTransPositionMain.current < 0) {
                         const ratio = Math.ceil(currentTransPositionMain.current / (sliderItemWidth + 20));
@@ -104,7 +119,7 @@ const TestimonialSlider: NextPage = () => {
                         mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
                         currentTransPositionMain.current = transitionTo;
                         currentTransPosition.current = transitionTo;
-    
+
                         //  Hide right slide button when slide not available and show left slide button as soon as slide on left side are available
                         if (currentTransPosition.current > maxRightTransition.current) {
                             sliderRightButton.current.classList.remove(style["hidden"]);
@@ -121,7 +136,7 @@ const TestimonialSlider: NextPage = () => {
                         mainContainer.current.style.transform = `translate3d(${transitionTo}px, 0px, 0px)`;
                         currentTransPositionMain.current = transitionTo;
                         currentTransPosition.current = transitionTo;
-    
+
                         //  Hide left slide button when slide not available and show right slide button as soon as slide on right side are available
                         if (currentTransPosition.current < 0) {
                             sliderLeftButton.current.classList.remove(style["hidden"]);
@@ -132,7 +147,6 @@ const TestimonialSlider: NextPage = () => {
                     }
                 }
             }
-
         }
     };
     // Touch Move Event. This callback will slide the slider as user holds and move touch
@@ -143,67 +157,65 @@ const TestimonialSlider: NextPage = () => {
     const handlePointerMove = (e: TouchEvent<HTMLDivElement> | MouseEvent<HTMLDivElement>) => {
         // Get Touches object
         // if event type is mousemove then check if the mouse button is pressed. It the button is pressed then only transition the slider else do nothing
-            if (isMouseEvent(e)) {
-                if (mousePressed) {
-                    if (startPointerCapturePosition && mainContainer.current){
-                        // get current touch or mouse Position
-                        currentPointerCapturePosition = e.clientX;
-                        // get transition amount in px based on touchstart or mousedown position and current position
-                        let transitionAmount =
-                            currentTransPositionMain.current +
-                            (startPointerCapturePosition > currentPointerCapturePosition
-                                ? -(startPointerCapturePosition - currentPointerCapturePosition)
-                                : currentPointerCapturePosition - startPointerCapturePosition);
-                        if (transitionAmount > 0) {
-                            transitionAmount /= 6;
-                        } else if (maxRightTransition.current && transitionAmount < maxRightTransition.current) {
-                            let extra_trans = maxRightTransition.current - transitionAmount;
-                            extra_trans /= 6;
-                            transitionAmount = maxRightTransition.current - extra_trans;
-                        }
-                        mainContainer.current.style.transitionDuration = "0s";
-                        mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
-        
-                        currentTransPosition.current = transitionAmount;
+        if (isMouseEvent(e)) {
+            if (mousePressed) {
+                if (startPointerCapturePosition && mainContainer.current) {
+                    // get current touch or mouse Position
+                    currentPointerCapturePosition = e.clientX;
+                    // get transition amount in px based on touchstart or mousedown position and current position
+                    let transitionAmount =
+                        currentTransPositionMain.current +
+                        (startPointerCapturePosition > currentPointerCapturePosition
+                            ? -(startPointerCapturePosition - currentPointerCapturePosition)
+                            : currentPointerCapturePosition - startPointerCapturePosition);
+                    if (transitionAmount > 0) {
+                        transitionAmount /= 6;
+                    } else if (maxRightTransition.current && transitionAmount < maxRightTransition.current) {
+                        let extra_trans = maxRightTransition.current - transitionAmount;
+                        extra_trans /= 6;
+                        transitionAmount = maxRightTransition.current - extra_trans;
                     }
-                }
-            } 
+                    mainContainer.current.style.transitionDuration = "0s";
+                    mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
 
-            if (isTouchEvent(e)) {
-                if (startPointerCapturePosition && mainContainer.current){
-                        const touches = e.touches;
-                        // get current Page Position same as clientX
-                        currentPointerCapturePosition = touches[0].clientX;
-                        let transitionAmount =
-                            currentTransPositionMain.current +
-                            (startPointerCapturePosition > currentPointerCapturePosition
-                                ? -(startPointerCapturePosition - currentPointerCapturePosition)
-                                : currentPointerCapturePosition - startPointerCapturePosition);
-                        if (transitionAmount > 0) {
-                            transitionAmount /= 6;
-                        } else if (maxRightTransition.current && transitionAmount < maxRightTransition.current) {
-                            let extra_trans = maxRightTransition.current - transitionAmount;
-                            extra_trans /= 6;
-                            transitionAmount = maxRightTransition.current - extra_trans;
-                        }
-                        mainContainer.current.style.transitionDuration = "0s";
-                        mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
-                        currentTransPosition.current = transitionAmount;
+                    currentTransPosition.current = transitionAmount;
                 }
             }
+        }
 
-           
-        
+        if (isTouchEvent(e)) {
+            if (startPointerCapturePosition && mainContainer.current) {
+                const touches = e.touches;
+                // get current Page Position same as clientX
+                currentPointerCapturePosition = touches[0].clientX;
+                let transitionAmount =
+                    currentTransPositionMain.current +
+                    (startPointerCapturePosition > currentPointerCapturePosition
+                        ? -(startPointerCapturePosition - currentPointerCapturePosition)
+                        : currentPointerCapturePosition - startPointerCapturePosition);
+                if (transitionAmount > 0) {
+                    transitionAmount /= 6;
+                } else if (maxRightTransition.current && transitionAmount < maxRightTransition.current) {
+                    let extra_trans = maxRightTransition.current - transitionAmount;
+                    extra_trans /= 6;
+                    transitionAmount = maxRightTransition.current - extra_trans;
+                }
+                mainContainer.current.style.transitionDuration = "0s";
+                mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
+                currentTransPosition.current = transitionAmount;
+            }
+        }
     };
 
     const slideLEft = () => {
-        if (mainContainer.current &&  mainContainer.current.firstChild  && sliderLeftButton.current && sliderRightButton.current){
+        if (mainContainer.current && mainContainer.current.firstChild && sliderLeftButton.current && sliderRightButton.current) {
             if (currentTransPosition.current > maxRightTransition.current) {
-                const transitionAmount = currentTransPosition.current - (mainContainer.current.firstChild as HTMLDivElement).clientWidth - 20;
+                const transitionAmount =
+                    currentTransPosition.current - (mainContainer.current.firstChild as HTMLDivElement).clientWidth - 20;
                 mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
                 currentTransPosition.current = transitionAmount;
                 currentTransPositionMain.current = transitionAmount;
-    
+
                 //  Hide left slide button when slide not available and show right slide button as soon as slide on right side are available
                 if (currentTransPosition.current < 0) {
                     sliderLeftButton.current.classList.remove(style["hidden"]);
@@ -215,9 +227,10 @@ const TestimonialSlider: NextPage = () => {
         }
     };
     const slideRight = () => {
-        if (mainContainer.current &&  mainContainer.current.firstChild  && sliderLeftButton.current && sliderRightButton.current){
+        if (mainContainer.current && mainContainer.current.firstChild && sliderLeftButton.current && sliderRightButton.current) {
             if (currentTransPosition.current < 0) {
-                const transitionAmount = currentTransPosition.current + (mainContainer.current.firstChild as HTMLDivElement).clientWidth + 20;
+                const transitionAmount =
+                    currentTransPosition.current + (mainContainer.current.firstChild as HTMLDivElement).clientWidth + 20;
                 mainContainer.current.style.transform = `translate3d(${transitionAmount}px, 0px, 0px)`;
                 currentTransPosition.current = transitionAmount;
                 currentTransPositionMain.current = transitionAmount;

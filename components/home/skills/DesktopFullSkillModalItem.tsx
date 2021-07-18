@@ -2,30 +2,30 @@ import BlurBackDrop from "../../shared/header/BlurBackDrop";
 import { useRef, useEffect } from "react";
 import reactDom from "react-dom";
 import SkillItems from "./SkillItems";
-import { NextPage } from 'next';
-import { ISkillsDataStats } from '../data'
+import { NextPage } from "next";
+import { ISkillsDataStats } from "../data";
 
 interface IPROPS {
     active: boolean;
     close: () => void;
     title: string;
     data: ISkillsDataStats[];
-    id: number
+    id: number;
 }
-const DesktopFullSkillModalItem:NextPage<IPROPS> = ({ active, close, title, data, id }) => {
+const DesktopFullSkillModalItem: NextPage<IPROPS> = ({ active, close, title, data, id }) => {
     const backdrop = useRef<HTMLDivElement | null>(null);
     const container = useRef<HTMLDivElement | null>(null);
     const modal = useRef<HTMLDivElement | null>(null);
     const transitionIn = () => {
-        if (backdrop.current && modal.current){
+        if (backdrop.current && modal.current) {
             backdrop.current.classList.remove("backdrop-opacity-0");
             backdrop.current.classList.remove("bg-opacity-0");
             backdrop.current.classList.add("bg-opacity-60");
             backdrop.current.classList.add("backdrop-opacity-100");
-    
+
             modal.current.classList.remove("opacity-0");
             modal.current.classList.add("opacity-100");
-    
+
             modal.current.children[0].classList.remove("-translate-y-full");
             modal.current.children[0].classList.add("translate-y-0");
             modal.current.children[1].classList.remove("translate-y-full");
@@ -33,38 +33,38 @@ const DesktopFullSkillModalItem:NextPage<IPROPS> = ({ active, close, title, data
         }
     };
     const transitionOut = () => {
-        if (backdrop.current && container.current && modal.current){
+        if (backdrop.current && container.current && modal.current) {
             backdrop.current.classList.add("desktop-st:hidden");
 
             container.current.classList.remove("desktop-st:flex");
             container.current.classList.add("desktop-st:hidden");
-    
+
             modal.current.classList.add("desktop-st:hidden");
-        }   
+        }
     };
     useEffect(() => {
         if (active) {
-            if (backdrop.current && container.current && modal.current){
+            if (backdrop.current && container.current && modal.current) {
                 backdrop.current.classList.remove("desktop-st:hidden");
                 backdrop.current.classList.add("desktop-st:block");
-    
+
                 container.current.classList.remove("desktop-st:hidden");
                 container.current.classList.add("desktop-st:flex");
-    
+
                 modal.current.classList.remove("desktop-st:hidden");
                 modal.current.classList.add("desktop-st:flex");
             }
             setTimeout(transitionIn, 25);
         } else {
-            if (backdrop.current && modal.current){
+            if (backdrop.current && modal.current) {
                 backdrop.current.classList.remove("bg-opacity-60");
                 backdrop.current.classList.remove("backdrop-opacity-100");
                 backdrop.current.classList.add("backdrop-opacity-0");
                 backdrop.current.classList.add("bg-opacity-0");
-    
+
                 modal.current.classList.remove("opacity-100");
                 modal.current.classList.add("opacity-0");
-    
+
                 modal.current.children[0].classList.remove("translate-y-0");
                 modal.current.children[0].classList.add("-translate-y-full");
                 modal.current.children[1].classList.remove("translate-y-0");

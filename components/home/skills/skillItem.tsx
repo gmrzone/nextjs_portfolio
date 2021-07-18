@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
-import { NextPage } from 'next'
-import { ISkillsDataStats } from '../data'
-
+import { NextPage } from "next";
+import { ISkillsDataStats } from "../data";
 
 interface iProps {
-    item: ISkillsDataStats
+    item: ISkillsDataStats;
 }
 const SkillItem: NextPage<iProps> = ({ item }) => {
     const progressBar = useRef<HTMLDivElement | null>(null);
@@ -14,7 +13,7 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
         };
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach((x) => {
-                const target = x.target as HTMLDivElement
+                const target = x.target as HTMLDivElement;
                 if (x.isIntersecting) {
                     target.classList.remove("w-0");
                     target.style.width = `${item.skill}%`;
@@ -22,7 +21,7 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
                 }
             });
         }, options);
-        if (progressBar.current){
+        if (progressBar.current) {
             observer.observe(progressBar.current);
         }
     }, [item]);
@@ -34,7 +33,9 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
             </div>
             <div className="relative">
                 <div className="w-full h-2 bg-sec-lg dark:bg-bg-sec-dark rounded-full overflow-hidden">
-                    <div className="h-full bg-sec dark:bg-sec-dark w-0 transform-gpu transition-all duration-500" ref={progressBar}></div>
+                    <div
+                        className="h-full bg-sec dark:bg-sec-dark w-0 transform-gpu transition-transform duration-500"
+                        ref={progressBar}></div>
                 </div>
             </div>
         </div>

@@ -1,13 +1,12 @@
 import SkillItem from "./skillItem";
-import { NextPage } from 'next';
-import { ISkillsDataStats } from '../data'
-
+import { NextPage } from "next";
+import { ISkillsDataStats } from "../data";
 
 interface IProps {
-    data: ISkillsDataStats[],
-    activeAccordian?: number | null,
-    id: number,
-    forceFull: boolean,
+    data: ISkillsDataStats[];
+    activeAccordian?: number | null;
+    id: number;
+    forceFull: boolean;
 }
 const RenderItems: NextPage<IProps> = ({ data, activeAccordian, id, forceFull = false }) => {
     const renderData = data.map((x, i) => {
@@ -15,7 +14,7 @@ const RenderItems: NextPage<IProps> = ({ data, activeAccordian, id, forceFull = 
     });
     return (
         <div
-            className={`space-y-6 bg-white dark:bg-bg-sec-inverted transition-colors duration-300 px-4 mb-8 py-6 rounded-md accordian-content overflow-hidden h-auto ${
+            className={`space-y-6 bg-white dark:bg-bg-sec-inverted px-4 mb-8 py-6 rounded-md accordian-content overflow-hidden h-auto ${
                 forceFull ? "shadow-none" : "shadow-md"
             }`}>
             {renderData}

@@ -125,13 +125,13 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
     }, [headerRef]);
     return (
         <div
-            className="w-full bg-main transition-colors duration-300 dark:bg-main-dark h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative main-gradiant before:absolute before:w-full before:h-full before:-translate-x-full before:animate-main-gradiant"
+            className="w-full bg-main dark:bg-main-dark h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative main-gradiant before:absolute before:w-full before:h-full before:-translate-x-full before:animate-main-gradiant"
             ref={mainRef}>
             <div className="container h-full flex flex-col justify-center sm:flex-row absolute right-0 left-0 mx-auto">
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
                     <div className="">
                         <h1 className="text-bg-sec dark:text-bg-sec-inverted 2xl:text-6xl tracking-widest mb-2 inline-block overflow-hidden relative after:absolute after:w-full after:h-full after:bg-bg-sec after:left-0 after:translate-x-0 after:top-0 after:animate-theme-text desktop-st:mb-4">
-                            Hi, I&apos;am <span className="text-action dark:text-blue-600 transition-colors duration-300">AFzal</span>
+                            Hi, I&apos;am <span className="text-action dark:text-blue-600   ">AFzal</span>
                         </h1>
                         <br />
                         <span className="text-gray-200 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-full after:h-full after:bg-bg-sec after:top-0 after:left-0 after:animate-theme-text">

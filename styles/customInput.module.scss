@@ -47,7 +47,7 @@
         border: 1px solid rgba($color: #000000, $alpha: 0.2);
 
         &:focus + .custom-input__placeholder {
-            transform: translate(-14px, -40px);
+            transform: translate3d(-14px, -40px, 0px);
             font-size: 14px;
             font-weight: 700;
             color: var(--color-main);
@@ -80,7 +80,7 @@
         top: 14px;
         font-size: 18px;
         font-family: Poppins;
-        transform: translate(0, 0);
+        transform: translate3d(0px, 0px, 0px);
         transition: 0.4s transform ease-in-out, color 0.4s ease-in-out, font-size 0.4s linear;
         font-weight: 400;
         color: rgba(87, 87, 87, 0.945);

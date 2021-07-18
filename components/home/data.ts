@@ -16,7 +16,6 @@ import corecare_main_secondary from "../../public/corecare_main-trans.png";
 import corecare_admin_secondary from "../../public/corecare_admin-trans.png";
 import protfolio_secondary from "../../public/portfolio-trans.png";
 
-
 export interface ISkillsDataStats {
     name: string;
     skill: number;

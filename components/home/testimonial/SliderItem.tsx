@@ -1,12 +1,11 @@
 import Image from "next/image";
 import style from "../../../styles/reviewSlider.module.scss";
-import { NextPage } from 'next'
-import {IReviewData} from '../data'
+import { NextPage } from "next";
+import { IReviewData } from "../data";
 interface IProps {
-    item: IReviewData
+    item: IReviewData;
 }
 const SliderItems: NextPage<IProps> = ({ item }) => {
-
     const renderStars: () => JSX.Element[] = () => {
         const stars: JSX.Element[] = [];
 
@@ -15,7 +14,7 @@ const SliderItems: NextPage<IProps> = ({ item }) => {
         }
         return stars;
     };
-    
+
     return (
         <div className={style["slider-item"]}>
             <div className={style["slider-item-header"]}>
