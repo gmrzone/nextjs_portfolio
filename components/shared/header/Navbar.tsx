@@ -1,39 +1,42 @@
 import NavBarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
-import { useRef } from "react";
+import { useRef, MutableRefObject } from "react";
 import dynamic from "next/dynamic";
 import BlurBackDrop from "./BlurBackDrop";
 import { NextPage } from "next";
 
 const ThemeSwitcher = dynamic(() => import("../ThemeSwitcher"), { ssr: false });
-const Navbar: NextPage = () => {
+interface iProps {
+    mainRef: MutableRefObject<HTMLDivElement>
+}
+const Navbar: NextPage<iProps> = ({ mainRef }) => {
     // const [mobileNanActive, setMobileNavActive] = useState(false);
     const mobileNav = useRef<HTMLUListElement | null>(null);
     const backdrop = useRef<HTMLDivElement | null>(null);
     const navData = [
         {
             name: "Home",
-            to: "#home",
+            to: "home",
         },
         {
             name: "Skills",
-            to: "#skills",
+            to: "skills",
         },
         {
             name: "Projects",
-            to: "#projects",
-        },
-        {
-            name: "Testimonials",
-            to: "#testimonials"
+            to: "projects",
         },
         {
             name: "About",
-            to: "#about",
+            to: "about",
+        },
+        {
+            name: "Testimonials",
+            to: "testimonials"
         },
         {
             name: "Contact",
-            to: "#contact",
+            to: "contact",
         },
     ];
     const transitionMobileNav: () => void = () => {
@@ -76,7 +79,7 @@ const Navbar: NextPage = () => {
         setTimeout(hideMobileNav, 500);
     };
     const renderNavItems = navData.map((x, i) => {
-        return <NavBarItem item={x} key={i} />;
+        return <NavBarItem item={x} key={i} closeNav={closeMobileNav} mainRef={mainRef}/>;
     });
     return (
         <nav className="container flex justify-between items-center p-2 mx-5">

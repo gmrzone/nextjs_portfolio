@@ -8,13 +8,13 @@ interface IHeader {
 }
 const MainLayout: NextPage<IHeader> = ({ children }) => {
     const headerRef = useRef<HTMLHeadElement | null>(null);
-
+    const mainRef = useRef<HTMLDivElement | null>(null)
     return (
         <div className="main-body h-full flex flex-col">
             <header id="header" className="bg-bg-sec dark:bg-bg-sec-inverted sm:dark:bg-sec-dark fixed w-full z-30 transition-colors duration-500" ref={headerRef}>
-                <Navbar />
+                <Navbar mainRef={mainRef}/>
             </header>
-            <main id="main" className="bg-bg-sec dark:bg-bg-sec-dark">
+            <main id="main" className="bg-bg-sec dark:bg-bg-sec-dark" ref={mainRef}>
                 {children(headerRef)}
             </main>
             <footer id="footer" className="bg-main dark:bg-black mt-auto w-full text-center">
