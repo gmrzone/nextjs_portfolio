@@ -6,26 +6,28 @@ interface Item {
         to: string;
     };
     closeNav: () => void;
-    mainRef: MutableRefObject<HTMLDivElement>
+    mainRef: MutableRefObject<HTMLDivElement | null>
 }
 const NavbarItem: NextPage<Item> = ({ item, closeNav, mainRef }) => {
     const handleNavItemClick = (e: MouseEvent<HTMLAnchorElement>) => {
-        e.preventDefault()
-        const scrollId = (e.target as HTMLAnchorElement).dataset.scroll
-        let HeightToScroll = 0
-        const sections = Array.from(mainRef.current.children)
-        let iterator = 0
-        while (sections[iterator].id !== scrollId || iterator > sections.length){
-            const elStyle = window.getComputedStyle(sections[iterator])
-            const margin = parseFloat(elStyle['marginTop']) + parseFloat(elStyle['marginBottom'])
-            HeightToScroll += sections[iterator].clientHeight
-            HeightToScroll += margin
-            iterator++
+        if (mainRef.current){
+            e.preventDefault()
+            const scrollId = (e.target as HTMLAnchorElement).dataset.scroll
+            let HeightToScroll = 0
+            const sections = Array.from(mainRef.current.children)
+            let iterator = 0
+            while (sections[iterator].id !== scrollId || iterator > sections.length){
+                const elStyle = window.getComputedStyle(sections[iterator])
+                const margin = parseFloat(elStyle['marginTop']) + parseFloat(elStyle['marginBottom'])
+                HeightToScroll += sections[iterator].clientHeight
+                HeightToScroll += margin
+                iterator++
+            }
+    
+            window.scrollTo({top: HeightToScroll, behavior: 'smooth'})
+            console.log(HeightToScroll)
+            closeNav()
         }
-
-        window.scrollTo({top: HeightToScroll, behavior: 'smooth'})
-        console.log(HeightToScroll)
-        closeNav()
     }
     return (
         <li className="text-lg font-semibold cursor-pointer">
