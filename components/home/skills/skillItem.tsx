@@ -34,7 +34,7 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
             </div>
             <div className="relative">
                 <div className="w-full h-2 bg-sec-lg dark:bg-bg-sec-dark rounded-full overflow-hidden">
-                    <div className="h-full bg-sec dark:bg-sec-dark w-0 transition-all duration-500" ref={progressBar}></div>
+                    <div className="h-full bg-sec dark:bg-sec-dark w-0 transform-gpu transition-all duration-500" ref={progressBar}></div>
                 </div>
             </div>
         </div>

@@ -91,7 +91,7 @@ const ContactForm = () => {
     }, []);
     return (
         <form
-            className="space-y-6 w-full opacity-0 translate-x-full transition-all duration-500 desktop-st:w-1/2"
+            className="space-y-6 w-full opacity-0 transform-gpu translate-x-full transition-all duration-500 desktop-st:w-1/2"
             onSubmit={handleSubmit}
             ref={animationObj}>
             <div className="space-y-2">
