@@ -23,7 +23,7 @@ const HeroImageMain = () => {
                 {/* <path id="XMLID_23_" className="st1" d="M81,306c150,0,301,0,451.3,0"/> */}
                 <polygon
                     id="XMLID_31_"
-                    className="st4 fill-current text-sec dark:text-bg-sec-inverted translate-x-full opacity-0 animate-logo-center"
+                    className="st4 fill-current text-sec dark:text-bg-sec-inverted transform-gpu translate-x-full opacity-0 animate-logo-center"
                     points="558,378 54.1,378 79.5,306 530.2,306 "
                 />
             </svg>

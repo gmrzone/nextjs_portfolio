@@ -81,7 +81,7 @@ module.exports = {
             keyframes: {
                 "logo-one": {
                     to: {
-                        transform: "translateX(0px)",
+                        transform: "translate3d(0px, 0px, 0px)",
                         opacity: "1",
                     },
                 },
@@ -92,19 +92,19 @@ module.exports = {
                 },
                 "gradiant-bg": {
                     to: {
-                        transform: "translateX(0px)",
+                        transform: "translate3d(0px, 0px, 0px)",
                     },
                 },
                 "animated-text": {
                     "0%": {
-                        transform: "translateX(0px)",
+                        transform: "translate3d(0px, 0px. 0px)",
                     },
                     "99%": {
-                        transform: "translateX(100%)",
+                        transform: "translate3d(100%, 0px, 0px)",
                         opacity: "1",
                     },
                     "100%": {
-                        transform: "translateX(100%)",
+                        transform: "translate3d(100%, 0px, 0px)",
                         opacity: "0",
                     },
                 },
