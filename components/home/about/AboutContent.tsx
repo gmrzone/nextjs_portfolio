@@ -3,7 +3,7 @@ import { NextPage } from "next";
 const AboutContent: NextPage = () => {
     return (
         <div
-            className="w-full flex flex-col justify-center desktop-st:w-2/3 transform-gpu translate-x-full opacity-0 transition-all duration-500"
+            className="w-full flex flex-col justify-center desktop-st:w-2/3 transform-gpu translate-x-full opacity-0 transition-all duration-500 main-container"
             data-name="content">
             <div className="space-y-8">
                 <h3 className="text-main dark:text-main-dark">I am AFzal and I&apos;am a Fullstack Developer</h3>
@@ -22,6 +22,13 @@ const AboutContent: NextPage = () => {
                     download={true}
                 />
             </div>
+            <style jsx>{`
+                .main-container {
+                    backface-visibility: hidden;
+                    perspective: 1000;
+                    will-change: transform;
+                }
+            `}</style>
         </div>
     );
 };

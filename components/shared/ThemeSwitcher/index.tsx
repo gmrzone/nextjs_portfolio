@@ -54,7 +54,7 @@ const ThemeSwitcher: NextPage = () => {
                 darkThemeActive ? "border-blue-400" : "border-gray-400"
             } ${style["theme-switcher__container"]}`}>
             <div
-                className={`absolute flex left-0 rounded-full transition-all duration-300 w-8 h-8 bg-sec-dark dark:bg-sec cursor-pointer ${
+                className={`absolute flex left-0 rounded-full transition-all duration-300 w-8 h-8 transform-gpu bg-sec-dark dark:bg-sec cursor-pointer main-container ${
                     darkThemeActive ? "translate-x-full" : "translate-x-0"
                 } ${style["main-switch"]}`}
                 onClick={toggleTheme}>
@@ -62,6 +62,14 @@ const ThemeSwitcher: NextPage = () => {
                 <i className={`fas fa-sun w-3 text-white text-xl transition-opacity ${style["dark-icon"]}`} ref={LightIcon} /> */}
                 <ThemeIcon mainRef={ThemeMainRef} centerRef={ThemecenterRef} themeMainG={themeMainG} darkThemeActive={darkThemeActive} />
             </div>
+            <style jsx>{`
+                .main-container {
+                    backface-visibility: hidden;
+                    perspective: 1000;
+                    will-change: transform;
+                }
+            
+            `}</style>
         </div>
     );
 };

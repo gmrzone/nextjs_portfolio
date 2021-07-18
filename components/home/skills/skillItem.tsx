@@ -42,6 +42,9 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
             <style jsx>{`
                 .progress-bar {
                     transform: translate3d(-99%, 0px, 0px);
+                    backface-visibility: hidden;
+                    perspective: 1000;
+                    will-change: transform;
                 }
 
             `}</style>
