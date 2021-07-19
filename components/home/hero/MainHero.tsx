@@ -1,7 +1,7 @@
 import HeroImage from "./HeroImageMain";
 import ButtonLink from "../../common/ButtonLink";
 import { useEffect, useRef, MutableRefObject, MouseEvent } from "react";
-
+import { TypeWritterText } from '../../../context/typewritterText'
 import { NextPage } from "next";
 
 interface IMainHeroProps {
@@ -9,6 +9,7 @@ interface IMainHeroProps {
 }
 const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
     const mainRef = useRef<HTMLDivElement | null>(null);
+    const typingText = useRef<HTMLSpanElement | null>(null)
     const socialMouseOver = (e: MouseEvent<HTMLDivElement>) => {
         // e.target.classList.remove("text-sec");
         (e.target as HTMLDivElement).classList.add("scale-125");
@@ -19,6 +20,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
         (e.target as HTMLDivElement).classList.remove("scale-125");
         // e.target.classList.add("text-sec");
     };
+    const afzal = useRef<TypeWritterText | null>(null)
     useEffect(() => {
         const options = {
             rootMargin: "-150px 0px 0px 0px",
@@ -151,6 +153,12 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
             observer.observe(mainRef.current);
         }
     }, [headerRef]);
+
+    useEffect(() => {
+            if (!afzal.current){
+               afzal.current = new TypeWritterText(typingText, ['Fullstack Developer', "Freelancer"], 50, 160)
+            }
+    }, [])
     return (
         <div
             className="w-full bg-main dark:bg-main-dark h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative main-gradiant before:absolute before:w-full before:h-full before:-translate-x-full transform-gpu before:animate-main-gradiant"
@@ -162,8 +170,8 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             Hi, I&apos;am <span className="text-action dark:text-blue-600">AFzal</span>
                         </h1>
                         <br />
-                        <span className="text-gray-200 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-full after:h-full after:transform-gpu after:bg-bg-sec after:top-0 after:left-0 after:animate-theme-text">
-                            FullStack Developer
+                        <span className="text-gray-200 h-8 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-full after:h-full after:transform-gpu after:bg-bg-sec after:top-0 after:left-0 after:animate-theme-text" ref={typingText}>
+                            
                         </span>
                     </div>
                     <div className="space-x-4">
