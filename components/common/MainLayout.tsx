@@ -25,8 +25,22 @@ const MainLayout: NextPage<IHeader> = ({ children }) => {
                     if (scrollId !== 'home'){
                         offsetTop -= margin
                     }
-                    console.log(topScrollOffset, offsetTop, (offsetTop + sectionHeight + margin))
-                    if (topScrollOffset >= offsetTop && topScrollOffset < (offsetTop + sectionHeight + margin)){
+                    // console.log(topScrollOffset, offsetTop, (offsetTop + sectionHeight + margin))
+                    if ((topScrollOffset + window.innerHeight) === document.documentElement.scrollHeight){
+                        
+                        const navItems = mobileNav.current?.querySelectorAll(`a[class~=nav-link]`)
+                        if (navItems){
+                            navItems.forEach(x => {
+                                if ((x as HTMLAnchorElement).dataset.scroll === "contact"){
+                                    x.classList.add('nav-active')
+                                }
+                                else{
+                                    x.classList.remove('nav-active')
+                                }
+                            })
+                        }
+                    }
+                    else if (topScrollOffset >= offsetTop && topScrollOffset < (offsetTop + sectionHeight + margin)){
                         const navItem = mobileNav.current?.querySelector(`a[href=${scrollId}]`)
                         if (navItem){
                             navItem.classList.add("nav-active")

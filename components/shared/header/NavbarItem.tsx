@@ -34,7 +34,7 @@ const NavbarItem: NextPage<Item> = ({ item, closeNav, mainRef }) => {
     return (
         <li className="text-lg font-semibold cursor-pointer">
             {console.log(activeItem)}
-            <a className="text-main dark:text-bg-sec-inverted block hover:text-sec dark:hover:text-bg-sec-dark p-4 desktop-st:p-1" href={item.to} onClick={handleNavItemClick} data-scroll={item.to} data-active={activeItem === item.to}>{item.name}</a>
+            <a className="nav-link text-main dark:text-bg-sec-inverted block hover:text-sec dark:hover:text-bg-sec-dark p-4 desktop-st:p-1" href={item.to} onClick={handleNavItemClick} data-scroll={item.to} data-active={activeItem === item.to}>{item.name}</a>
             <style jsx>{`
                 .nav-active {
                     color: red;
