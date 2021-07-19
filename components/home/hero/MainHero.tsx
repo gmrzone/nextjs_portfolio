@@ -1,7 +1,7 @@
 import HeroImage from "./HeroImageMain";
 import ButtonLink from "../../common/ButtonLink";
 import { useEffect, useRef, MutableRefObject, MouseEvent } from "react";
-import { TypeWritterText } from '../../../context/typewritterText'
+import { TypeWritterText } from '../../../utils/typewritterText'
 import { NextPage } from "next";
 
 interface IMainHeroProps {
@@ -171,8 +171,8 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         </h1>
                         <br />
                         <div className="space-x-2">
-                            <span className="text-gray-200 h-7 desktop-st:h-8 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0">And i am a</span>
-                            <span className="text-action-hover dark:text-blue-600 h-7 desktop-st:h-8 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-1 after:h-full after:bg-white after:top-0 after:right-1 pr-3 after:animate-type-text-cursor" ref={typingText}></span>
+                            <span className="text-gray-200 h-8 desktop-st:h-9 inline-block overflow-hidden text-2xl desktop-st:text-3xl font-semibold m-0"></span>
+                            <span className="text-action dark:text-blue-600 h-8 desktop-st:h-9 inline-block overflow-hidden text-2xl desktop-st:text-3xl font-semibold m-0 relative after:absolute after:w-1 after:h-full after:bg-white after:top-0 after:right-1 pr-3 after:animate-type-text-cursor" ref={typingText}></span>
                         </div>
                     </div>
                     <div className="space-x-4">
