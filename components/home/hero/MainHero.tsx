@@ -66,6 +66,17 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             if (!x?.dataset?.ignore) {
                                 const child = x.firstChild as HTMLLinkElement
                                 if (child){
+                                    // if(child.dataset.active === "true"){
+                                    //     child.classList.remove("desktop-st:text-bg-sec");
+                                    //     child.classList.remove("text-main");
+                                    //     child.classList.remove("dark:text-bg-sec-inverted")
+                                    //     child.classList.add("desktop-st:text-sec");
+                                    //     child.classList.add("text-sec")
+                                    //     child.classList.add('dark:text-blue-600')
+                                    // }
+                                    // else{
+
+                                    // }
                                     child.classList.remove("desktop-st:text-bg-sec");
                                     child.classList.add("desktop-st:text-main");
                                 }
@@ -116,6 +127,17 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             if (!x?.dataset?.ignore) {
                                 const child = x.firstChild as HTMLLinkElement
                                 if (child){
+                                    // if(child.dataset.active === "true"){
+                                    //     child.classList.remove("desktop-st:text-main");
+                                    //     child.classList.remove("text-main");
+                                    //     child.classList.remove("dark:text-bg-sec-inverted")
+                                    //     child.classList.add("desktop-st:text-sec");
+                                    //     child.classList.add("text-sec")
+                                    //     child.classList.add('dark:text-blue-600')
+                                    // }
+                                    // else{
+                                        
+                                    // }
                                     child.classList.remove("desktop-st:text-main");
                                     child.classList.add("desktop-st:text-bg-sec");
                                 }

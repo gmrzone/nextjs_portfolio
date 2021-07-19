@@ -7,11 +7,10 @@ import { NextPage } from "next";
 
 const ThemeSwitcher = dynamic(() => import("../ThemeSwitcher"), { ssr: false });
 interface iProps {
-    mainRef: MutableRefObject<HTMLDivElement | null>
+    mainRef: MutableRefObject<HTMLDivElement | null>;
+    mobileNav: MutableRefObject<HTMLUListElement | null>;
 }
-const Navbar: NextPage<iProps> = ({ mainRef }) => {
-    // const [mobileNanActive, setMobileNavActive] = useState(false);
-    const mobileNav = useRef<HTMLUListElement | null>(null);
+const Navbar: NextPage<iProps> = ({ mainRef, mobileNav }) => {
     const backdrop = useRef<HTMLDivElement | null>(null);
     const navData = [
         {

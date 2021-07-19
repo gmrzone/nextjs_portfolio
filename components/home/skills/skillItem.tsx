@@ -16,7 +16,6 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
                 const target = x.target as HTMLDivElement;
                 if (x.isIntersecting) {
                     target.style.transform = `translate3d(${-(100 - item.skill)}%, 0px, 0px)`
-                    console.log("Afzal Saiyed")
                     observer.unobserve(x.target);
                 }
             });
