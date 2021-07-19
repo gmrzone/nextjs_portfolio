@@ -156,7 +156,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
 
     useEffect(() => {
             if (!afzal.current){
-               afzal.current = new TypeWritterText(typingText, ['Fullstack Developer', "Freelancer"], 50, 160)
+               afzal.current = new TypeWritterText(typingText, ['Fullstack Developer', "Freelancer", "Designer"], 50, 160)
             }
     }, [])
     return (
@@ -170,9 +170,10 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             Hi, I&apos;am <span className="text-action dark:text-blue-600">AFzal</span>
                         </h1>
                         <br />
-                        <span className="text-gray-200 h-8 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-full after:h-full after:transform-gpu after:bg-bg-sec after:top-0 after:left-0 after:animate-theme-text" ref={typingText}>
-                            
-                        </span>
+                        <div className="space-x-2">
+                            <span className="text-gray-200 h-7 desktop-st:h-8 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0">And i am a</span>
+                            <span className="text-action-hover dark:text-blue-600 h-7 desktop-st:h-8 inline-block overflow-hidden text-xl desktop-st:text-2xl font-semibold m-0 relative after:absolute after:w-1 after:h-full after:bg-white after:top-0 after:right-1 pr-3 after:animate-type-text-cursor" ref={typingText}></span>
+                        </div>
                     </div>
                     <div className="space-x-4">
                         <ButtonLink

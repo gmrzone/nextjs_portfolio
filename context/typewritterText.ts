@@ -10,8 +10,8 @@ export class TypeWritterText{
     private wait;
     private isDeleting;
 
-    
-    constructor(textElement: MutableRefObject<HTMLSpanElement | null>, word: string[], deleteSpeed: number, typeSpeed: number , wait: number=2000){
+
+    constructor(textElement: MutableRefObject<HTMLSpanElement | null>, word: string[], deleteSpeed: number, typeSpeed: number , wait: number=1500){
 
         this.textElement = textElement;
         this.words = word;
@@ -44,11 +44,13 @@ export class TypeWritterText{
         }
 
         if (this.domText === currentWord){
+            currentSpeed = this.wait
             this.isDeleting = true
         }
-        else if (this.domText === ""){
+        else if (this.domText === "" && this.isDeleting){
             this.wordIndex++
             this.isDeleting = false
+            currentSpeed = 220
         }
 
 
