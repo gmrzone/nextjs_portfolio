@@ -1,14 +1,14 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import ResponsiveLink from "../../common/ResponsiveLink";
-import { IProjectData } from '../data';
-import { NextPage } from 'next'
+import { IProjectData } from "../data";
+import { NextPage } from "next";
 
 interface IProjectProps {
-    item: IProjectData,
-    openProjectModal: (item: IProjectData) => void
+    item: IProjectData;
+    openProjectModal: (item: IProjectData) => void;
 }
-const ProjectItem:NextPage<IProjectProps> = ({ item, openProjectModal }) => {
+const ProjectItem: NextPage<IProjectProps> = ({ item, openProjectModal }) => {
     const projectRef = useRef<HTMLDivElement | null>(null);
     const projectText = useRef<HTMLParagraphElement | null>(null);
 
@@ -26,13 +26,12 @@ const ProjectItem:NextPage<IProjectProps> = ({ item, openProjectModal }) => {
                 }
             });
         }, options);
-        if (projectRef.current){
+        if (projectRef.current) {
             observer.observe(projectRef.current);
         }
-        if (projectText.current){
+        if (projectText.current) {
             observer.observe(projectText.current);
         }
-       
     }, []);
     const openItemModal = () => {
         openProjectModal(item);
@@ -61,13 +60,11 @@ const ProjectItem:NextPage<IProjectProps> = ({ item, openProjectModal }) => {
             <style jsx>{`
                 .main-container::after,
                 .secondary-container::after,
-                .title-text::after
-                .text-container::before {
+                .title-text::after .text-container::before {
                     backface-visibility: hidden;
                     perspective: 1000;
                     will-change: transform;
                 }
-            
             `}</style>
         </div>
     );

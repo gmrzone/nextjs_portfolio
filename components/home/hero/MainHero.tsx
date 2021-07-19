@@ -1,7 +1,7 @@
 import HeroImage from "./HeroImageMain";
 import ButtonLink from "../../common/ButtonLink";
 import { useEffect, useRef, MutableRefObject, MouseEvent } from "react";
-import { TypeWritterText } from '../../../utils/typewritterText'
+import { TypeWritterText } from "../../../utils/typewritterText";
 import { NextPage } from "next";
 
 interface IMainHeroProps {
@@ -9,7 +9,7 @@ interface IMainHeroProps {
 }
 const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
     const mainRef = useRef<HTMLDivElement | null>(null);
-    const typingText = useRef<HTMLSpanElement | null>(null)
+    const typingText = useRef<HTMLSpanElement | null>(null);
     const socialMouseOver = (e: MouseEvent<HTMLDivElement>) => {
         // e.target.classList.remove("text-sec");
         (e.target as HTMLDivElement).classList.add("scale-125");
@@ -20,7 +20,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
         (e.target as HTMLDivElement).classList.remove("scale-125");
         // e.target.classList.add("text-sec");
     };
-    const afzal = useRef<TypeWritterText | null>(null)
+    const afzal = useRef<TypeWritterText | null>(null);
     useEffect(() => {
         const options = {
             rootMargin: "-150px 0px 0px 0px",
@@ -66,8 +66,8 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             headerRef.current.children[0].children[3].children[1].children as unknown as HTMLElement[],
                         ).forEach((x) => {
                             if (!x?.dataset?.ignore) {
-                                const child = x.firstChild as HTMLLinkElement
-                                if (child){
+                                const child = x.firstChild as HTMLLinkElement;
+                                if (child) {
                                     // if(child.dataset.active === "true"){
                                     //     child.classList.remove("desktop-st:text-bg-sec");
                                     //     child.classList.remove("text-main");
@@ -127,8 +127,8 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             headerRef.current.children[0].children[3].children[1].children as unknown as HTMLElement[],
                         ).forEach((x) => {
                             if (!x?.dataset?.ignore) {
-                                const child = x.firstChild as HTMLLinkElement
-                                if (child){
+                                const child = x.firstChild as HTMLLinkElement;
+                                if (child) {
                                     // if(child.dataset.active === "true"){
                                     //     child.classList.remove("desktop-st:text-main");
                                     //     child.classList.remove("text-main");
@@ -138,7 +138,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                                     //     child.classList.add('dark:text-blue-600')
                                     // }
                                     // else{
-                                        
+
                                     // }
                                     child.classList.remove("desktop-st:text-main");
                                     child.classList.add("desktop-st:text-bg-sec");
@@ -155,14 +155,15 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
     }, [headerRef]);
 
     useEffect(() => {
-            if (!afzal.current){
-               afzal.current = new TypeWritterText(typingText, ['Fullstack Developer', "Freelancer", "Designer"], 50, 160)
-            }
-    }, [])
+        if (!afzal.current) {
+            afzal.current = new TypeWritterText(typingText, ["Fullstack Developer", "Freelancer", "Designer"], 50, 160);
+        }
+    }, []);
     return (
         <div
             className="w-full bg-main dark:bg-main-dark h-hero sm:h-hero-sm md:h-hero-mid lg:h-hero-large 2xl:h-hero-xl relative main-gradiant before:absolute before:w-full before:h-full before:-translate-x-full transform-gpu before:animate-main-gradiant"
-            ref={mainRef} id="home">
+            ref={mainRef}
+            id="home">
             <div className="container h-full flex flex-col justify-center sm:flex-row absolute right-0 left-0 mx-auto">
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
                     <div className="">
@@ -172,7 +173,9 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         <br />
                         <div className="space-x-2">
                             <span className="text-gray-200 h-8 desktop-st:h-9 inline-block overflow-hidden text-2xl desktop-st:text-3xl font-semibold m-0"></span>
-                            <span className="text-action dark:text-blue-600 h-8 desktop-st:h-9 inline-block overflow-hidden text-2xl desktop-st:text-3xl font-semibold m-0 relative after:absolute after:w-1 after:h-full after:bg-white after:top-0 after:right-1 pr-3 after:animate-type-text-cursor" ref={typingText}></span>
+                            <span
+                                className="text-action dark:text-blue-600 h-8 desktop-st:h-9 inline-block overflow-hidden text-2xl desktop-st:text-3xl font-semibold m-0 relative after:absolute after:w-1 after:h-full after:bg-white after:top-0 after:right-1 pr-3 after:animate-type-text-cursor"
+                                ref={typingText}></span>
                         </div>
                     </div>
                     <div className="space-x-4">

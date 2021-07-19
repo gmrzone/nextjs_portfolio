@@ -31,7 +31,7 @@ const Navbar: NextPage<iProps> = ({ mainRef, mobileNav }) => {
         },
         {
             name: "Testimonials",
-            to: "testimonials"
+            to: "testimonials",
         },
         {
             name: "Contact",
@@ -78,7 +78,7 @@ const Navbar: NextPage<iProps> = ({ mainRef, mobileNav }) => {
         setTimeout(hideMobileNav, 500);
     };
     const renderNavItems = navData.map((x, i) => {
-        return <NavBarItem item={x} key={i} closeNav={closeMobileNav} mainRef={mainRef}/>;
+        return <NavBarItem item={x} key={i} closeNav={closeMobileNav} mainRef={mainRef} />;
     });
     return (
         <nav className="container flex justify-between items-center p-2 mx-5">

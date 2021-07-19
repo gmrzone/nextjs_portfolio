@@ -68,7 +68,6 @@ const ThemeSwitcher: NextPage = () => {
                     perspective: 1000;
                     will-change: transform;
                 }
-            
             `}</style>
         </div>
     );

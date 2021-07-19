@@ -16,7 +16,6 @@ const AboutPhoto: NextPage = () => {
                     perspective: 1000;
                     will-change: transform;
                 }
-            
             `}</style>
         </div>
     );

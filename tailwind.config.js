@@ -77,7 +77,7 @@ module.exports = {
                 "main-gradiant": "gradiant-bg 0.6s ease-in forwards",
                 "theme-text": "animated-text 0.3s 0.35s ease-in forwards",
                 "theme-text-m": "animated-text 0.3s 0.05s ease-in forwards",
-                "type-text-cursor": "cursor 0.5s linear infinite"
+                "type-text-cursor": "cursor 0.5s linear infinite",
             },
             keyframes: {
                 "logo-one": {
@@ -91,13 +91,13 @@ module.exports = {
                         opacity: "1",
                     },
                 },
-                "cursor": {
+                cursor: {
                     from: {
-                        opacity: "0"
+                        opacity: "0",
                     },
                     to: {
-                        opacity: "1"
-                    }
+                        opacity: "1",
+                    },
                 },
                 "gradiant-bg": {
                     to: {
