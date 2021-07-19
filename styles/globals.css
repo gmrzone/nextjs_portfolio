@@ -10,6 +10,7 @@
     --color-theme: #ff4747;
     --color-bg: rgb(232, 240, 242);
     --color-bg-input: white;
+    --nav-item-color: var(--color-sec);
 
     --input-transition-width-duration: 0.1s;
     --input-transition-height-duration: 0.1s;
@@ -40,6 +41,7 @@
     --color-theme: rgb(37, 99, 235);
     --color-bg: rgb(226, 226, 233);
     --color-bg-input: rgb(226, 226, 233);
+    --nav-item-color: var(--color-theme);
 }
 @media (min-width: 767px) {
     :root {
