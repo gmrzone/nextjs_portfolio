@@ -86,9 +86,9 @@
     @apply h-full;
     scroll-behavior: smooth;
 }
-/* html {
+html {
     scroll-behavior: smooth;
-} */
+}
 h1 {
     @apply text-5xl-sm;
     @apply font-bold;

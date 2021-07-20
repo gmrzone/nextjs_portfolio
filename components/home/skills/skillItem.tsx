@@ -6,7 +6,6 @@ interface iProps {
     item: ISkillsDataStats;
 }
 const SkillItem: NextPage<iProps> = ({ item }) => {
-
     return (
         <div className="space-y-2">
             <div className="flex flex-row justify-between">
@@ -16,7 +15,8 @@ const SkillItem: NextPage<iProps> = ({ item }) => {
             <div className="relative">
                 <div className="w-full h-2 bg-sec-lg dark:bg-bg-sec-dark rounded-full overflow-hidden relative">
                     <div
-                        className="h-full absolute bg-sec dark:bg-sec-dark w-full transform-gpu transition-transform duration-500 progress-bar" data-skill={item.skill}></div>
+                        className="h-full absolute bg-sec dark:bg-sec-dark w-full transform-gpu transition-transform duration-500 progress-bar"
+                        data-skill={item.skill}></div>
                 </div>
             </div>
             <style jsx>{`

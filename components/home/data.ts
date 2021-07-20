@@ -31,7 +31,7 @@ export const skillsData: ISkillData[] = [
     {
         id: 1,
         title: "Frontend",
-        meta: "More Then 2 years",
+        meta: "More Then 1.5 years",
         icon: "fad fa-code",
         data: [
             {
@@ -75,7 +75,7 @@ export const skillsData: ISkillData[] = [
     {
         id: 2,
         title: "Backend",
-        meta: "More Then 2.5 years",
+        meta: "More Then 2 years",
         icon: "fas fa-server",
         data: [
             {

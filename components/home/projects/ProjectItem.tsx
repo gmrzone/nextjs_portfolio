@@ -9,8 +9,6 @@ interface IProjectProps {
     openProjectModal: (item: IProjectData) => void;
 }
 const ProjectItem: NextPage<IProjectProps> = ({ item, openProjectModal }) => {
-
-
     const openItemModal = () => {
         openProjectModal(item);
     };
@@ -28,8 +26,7 @@ const ProjectItem: NextPage<IProjectProps> = ({ item, openProjectModal }) => {
                 </div>
             </div>
             <div className="text-center bg-white dark:bg-bg-sec-inverted transition-colors duration-300 p-2 desktop-st:group-hover:before:translate-x-0 desktop-st:relative before:hidden desktop-st:before:block before:absolute before:w-full before:h-full before:bg-sec dark:before:bg-sec-dark before:top-0 before:-left-0 before:-translate-x-full before:transition-transform before:duration-300 text-container">
-                <p
-                    className="text-main dark:text-main-dark desktop-st:group-hover:text-white transition-colors duration-300 inline-block font-semibold overflow-hidden text-sm desktop-st:text-lg relative after:absolute after:top-0 after:h-full after:w-full after:bg-sec dark:after:bg-sec-dark after:left-0 after:translate-x-0 after:transition-transform after:duration-500 title-text">
+                <p className="text-main dark:text-main-dark desktop-st:group-hover:text-white transition-colors duration-300 inline-block font-semibold overflow-hidden text-sm desktop-st:text-lg relative after:absolute after:top-0 after:h-full after:w-full after:bg-sec dark:after:bg-sec-dark after:left-0 after:translate-x-0 after:transition-transform after:duration-500 title-text">
                     {item.name}
                 </p>
             </div>

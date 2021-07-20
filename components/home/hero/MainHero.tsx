@@ -165,7 +165,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
             ref={mainRef}
             id="home">
             <div className="container h-full flex flex-col justify-center sm:flex-row absolute right-0 left-0 mx-auto">
-                <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10">
+                <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10 z-10">
                     <div className="">
                         <h1 className="text-bg-sec dark:text-bg-sec-inverted 2xl:text-6xl tracking-widest mb-2 inline-block overflow-hidden relative after:absolute after:w-full after:h-full after:bg-bg-sec after:left-0 after:transform-gpu after:translate-x-0 after:top-0 after:animate-theme-text desktop-st:mb-4">
                             Hi, I&apos;am <span className="text-action dark:text-blue-600">AFzal</span>
@@ -179,15 +179,8 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         </div>
                     </div>
                     <div className="space-x-4">
-                        <ButtonLink
-                            text="Hire Me"
-                            href="#"
-                            icon="far fa-shield-check text-xl"
-                            forceBig={true}
-                            download={true}
-                            action={true}
-                        />
-                        <ButtonLink text="Get CV" href="#" icon="far fa-file text-xl" forceBig={true} download={true} />
+                        <ButtonLink text="Hire Me" href="#contact" icon="far fa-shield-check text-xl" forceBig={true} action={true} />
+                        <ButtonLink text="Get CV" href="./sample.pdf" icon="far fa-file text-xl" forceBig={true} download={true} />
                     </div>
                     <div className="space-x-4 text-4xl">
                         <a href="https://github.com/gmrzone" target="_blank" rel="noreferrer" className="group">
@@ -213,7 +206,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         </a>
                     </div>
                 </div>
-                <div className="w-full absolute order-1 flex flex-col justify-center right-0 left-0 mr-auto ml-auto mb-10 opacity-10 sm:opacity-20 sm:static sm:w-2/5 sm:order-2 sm:mb-0">
+                <div className="w-full absolute order-1 flex flex-col justify-center right-0 left-0 mr-auto ml-auto mb-10 opacity-10 sm:opacity-20 sm:static sm:w-2/5 sm:order-2 sm:mb-0    ">
                     <HeroImage />
                 </div>
             </div>

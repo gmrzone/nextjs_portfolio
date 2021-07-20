@@ -32,7 +32,7 @@ const AboutContent: NextPage = () => {
                     text="Download CV"
                     icon="far fa-file text-xl"
                     cssClasses="dark:bg-sec-dark dark:text-bg-sec-inverted dark:hover:bg-main-dark"
-                    href="#"
+                    href="./sample.pdf"
                     download={true}
                 />
             </div>

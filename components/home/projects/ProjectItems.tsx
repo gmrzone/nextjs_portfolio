@@ -11,33 +11,31 @@ interface IState {
 
 const ProjectModal = dynamic(() => import("./ProjectDetailModal"), { ssr: false });
 const ProjectItems: NextPage = () => {
-    const mainContainerRef = useRef<HTMLDivElement | null>(null)
+    const mainContainerRef = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         const options = {
-            rootMargin: "0px 0px -25px 0px"
-        }
+            rootMargin: "0px 0px -25px 0px",
+        };
         const observer = new IntersectionObserver((entries, observe) => {
-            entries.forEach(x => {
-                if (x.isIntersecting){
+            entries.forEach((x) => {
+                if (x.isIntersecting) {
                     x.target.classList.remove("after:translate-x-0");
                     x.target.classList.add("after:translate-x-full");
                     x.target.classList.add("after:left-1");
-                    observer.unobserve(x.target); 
+                    observer.unobserve(x.target);
                 }
-            })
-        }, options)
-        if (mainContainerRef.current){
-            Array.from(mainContainerRef.current.children).forEach(x => {
-                observer.observe(x)
-                const projectText = x.lastChild?.firstChild as HTMLElement
-                if (projectText){
-                    observer.observe(projectText)
+            });
+        }, options);
+        if (mainContainerRef.current) {
+            Array.from(mainContainerRef.current.children).forEach((x) => {
+                observer.observe(x);
+                const projectText = x.lastChild?.firstChild as HTMLElement;
+                if (projectText) {
+                    observer.observe(projectText);
                 }
-            })
-            
+            });
         }
-
-    }, [])
+    }, []);
     const [modalActive, setModalActive] = useState<IState>({ active: false, activeItem: null });
 
     const openProjectModal: (item: IProjectData) => void = (item) => {
