@@ -75,9 +75,10 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                 modalLeft.current.classList.remove("hidden");
                 modalRight.current.classList.add("block");
                 modalLeft.current.classList.add("block");
+
+                setTimeout(transitionInModal, 50);
             }
 
-            setTimeout(transitionInModal, 50);
         } else {
             if (backdrop.current && container.current && modalRight.current && modalLeft.current) {
                 backdrop.current.classList.remove("bg-opacity-60");
@@ -90,19 +91,20 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                 modalLeft.current.classList.add("opacity-0");
                 modalRight.current.classList.add("opacity-0");
 
-                if (typeof window !== undefined) {
-                    if (window.innerWidth > 991) {
-                        modalLeft.current.classList.remove("desktop-st:translate-y-0");
-                        modalRight.current.classList.remove("desktop-st:translate-y-0");
-                        modalLeft.current.classList.add("desktop-st:-translate-y-full");
-                        modalRight.current.classList.add("desktop-st:translate-y-full");
-                    } else {
-                        modalLeft.current.classList.remove("translate-x-0");
-                        modalRight.current.classList.remove("translate-x-0");
-                        modalLeft.current.classList.add("-translate-x-full");
-                        modalRight.current.classList.add("translate-x-full");
-                    }
+                
+                if (window.innerWidth > 991) {
+
+                    modalLeft.current.classList.remove("desktop-st:translate-y-0");
+                    modalRight.current.classList.remove("desktop-st:translate-y-0");
+                    modalLeft.current.classList.add("desktop-st:-translate-y-full");
+                    modalRight.current.classList.add("desktop-st:translate-y-full");
+                } else {
+                    modalLeft.current.classList.remove("translate-x-0");
+                    modalRight.current.classList.remove("translate-x-0");
+                    modalLeft.current.classList.add("-translate-x-full");
+                    modalRight.current.classList.add("translate-x-full");
                 }
+                
             }
 
             setTimeout(transitionOutModal, 500);
@@ -120,7 +122,7 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                 className="absolute z-50 w-full max-w-6xl h-auto grid grid-cols-1 px-4 desktop-st:px-0 desktop-st:grid-cols-2"
                 style={{ maxHeight: "95%" }}>
                 <div
-                    className="bg-main dark:bg-sec-dark hidden opacity-0 transition-transform duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full"
+                    className="bg-main dark:bg-sec-dark hidden opacity-0 transition-all duration-500 -translate-x-full desktop-st:translate-x-0 desktop-st:-translate-y-full"
                     ref={modalLeft}>
                     <i className="far fa-times text-2xl cursor-pointer text-white px-6 py-3" onClick={closeModal} />
                     <div className="flex justify-center">
@@ -139,7 +141,7 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                     </div>
                 </div>
                 <div
-                    className="bg-bg-sec dark:bg-bg-sec-inverted hidden p-8 opacity-0 text-main transition-transform duration-500 translate-x-full desktop-st:translate-x-0 desktop-st:translate-y-full"
+                    className="bg-bg-sec dark:bg-bg-sec-inverted hidden p-8 opacity-0 text-main transition-all duration-500 translate-x-full desktop-st:translate-x-0 desktop-st:translate-y-full"
                     ref={modalRight}>
                     <div className="space-y-2">
                         <h3 className="text-main dark:text-main-dark">{activeItem?.name}</h3>
