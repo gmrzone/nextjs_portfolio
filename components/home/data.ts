@@ -88,7 +88,7 @@ export const skillsData: ISkillData[] = [
             },
             {
                 name: "PostgreSql",
-                skill: 65,
+                skill: 70,
             },
             {
                 name: "Redis",
@@ -108,7 +108,7 @@ export const skillsData: ISkillData[] = [
         data: [
             {
                 name: "Git CLI",
-                skill: 75,
+                skill: 70,
             },
             {
                 name: "Vs Code",
@@ -120,7 +120,7 @@ export const skillsData: ISkillData[] = [
             },
             {
                 name: "Linux",
-                skill: 75,
+                skill: 70,
             },
             {
                 name: "Windows",

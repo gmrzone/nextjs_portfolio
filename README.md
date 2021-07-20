@@ -2,7 +2,6 @@
 
 ![portfolio_sc](https://user-images.githubusercontent.com/81860468/126291610-bdc011e7-d882-4562-8cea-6c4ba343e4bf.png)
 
-
 First, run the development server:
 
 ```bash

@@ -1,7 +1,5 @@
 import { NextPage } from "next";
 import { MutableRefObject, MouseEvent } from "react";
-import { useContext } from "react";
-import { NavItemActiveContext } from "../../../context/navItemActiveContext";
 interface Item {
     item: {
         name: string;
@@ -11,7 +9,6 @@ interface Item {
     mainRef: MutableRefObject<HTMLDivElement | null>;
 }
 const NavbarItem: NextPage<Item> = ({ item, closeNav, mainRef }) => {
-    const { activeItem } = useContext(NavItemActiveContext);
     const handleNavItemClick = (e: MouseEvent<HTMLAnchorElement>) => {
         if (mainRef.current) {
             e.preventDefault();
@@ -33,13 +30,13 @@ const NavbarItem: NextPage<Item> = ({ item, closeNav, mainRef }) => {
     };
     return (
         <li className="text-lg font-semibold cursor-pointer">
-            {console.log(activeItem)}
             <a
-                className="nav-link text-main dark:text-bg-sec-inverted block hover:text-sec dark:hover:text-blue-600 p-4 desktop-st:p-1"
+                className={`nav-link text-main dark:text-bg-sec-inverted block hover:text-sec dark:hover:text-blue-600 p-4 desktop-st:p-1 ${
+                    item.to === "home" && "nav-active"
+                }`}
                 href={item.to}
                 onClick={handleNavItemClick}
-                data-scroll={item.to}
-                data-active={activeItem === item.to}>
+                data-scroll={item.to}>
                 {item.name}
             </a>
             <style jsx>{`

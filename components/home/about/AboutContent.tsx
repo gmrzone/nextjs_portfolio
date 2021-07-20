@@ -7,7 +7,7 @@ const AboutContent: NextPage = () => {
     const typingTextInstance = useRef<TypeWritterText | null>(null);
     useEffect(() => {
         if (!typingTextInstance.current) {
-            typingTextInstance.current = new TypeWritterText(typingText, ["Fullstack Developer.", "Freelancer.", "Designer."], 50, 160);
+            typingTextInstance.current = new TypeWritterText(typingText, ["Fullstack Developer.", "Freelancer.", "Web Designer."], 50, 160);
         }
     }, []);
     return (

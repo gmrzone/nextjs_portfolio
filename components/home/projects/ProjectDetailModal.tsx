@@ -78,7 +78,6 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
 
                 setTimeout(transitionInModal, 50);
             }
-
         } else {
             if (backdrop.current && container.current && modalRight.current && modalLeft.current) {
                 backdrop.current.classList.remove("bg-opacity-60");
@@ -91,9 +90,7 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                 modalLeft.current.classList.add("opacity-0");
                 modalRight.current.classList.add("opacity-0");
 
-                
                 if (window.innerWidth > 991) {
-
                     modalLeft.current.classList.remove("desktop-st:translate-y-0");
                     modalRight.current.classList.remove("desktop-st:translate-y-0");
                     modalLeft.current.classList.add("desktop-st:-translate-y-full");
@@ -104,7 +101,6 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                     modalLeft.current.classList.add("-translate-x-full");
                     modalRight.current.classList.add("translate-x-full");
                 }
-                
             }
 
             setTimeout(transitionOutModal, 500);

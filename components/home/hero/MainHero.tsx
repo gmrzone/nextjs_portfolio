@@ -156,7 +156,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
 
     useEffect(() => {
         if (!afzal.current) {
-            afzal.current = new TypeWritterText(typingText, ["Fullstack Developer", "Freelancer", "Designer"], 50, 160);
+            afzal.current = new TypeWritterText(typingText, ["Fullstack Developer", "Freelancer", "Web Designer"], 50, 160);
         }
     }, []);
     return (
