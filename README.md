@@ -1,7 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
 ### Portfolio Website Created using Nextjs, Typescript and Tailwindcss
 
 ![portfolio_sc](https://user-images.githubusercontent.com/81860468/126291610-bdc011e7-d882-4562-8cea-6c4ba343e4bf.png)
