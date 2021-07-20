@@ -4,7 +4,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### Portfolio Website Created using Nextjs, Typescript and Tailwindcss
 
-![portfolio_main](https://user-images.githubusercontent.com/65633542/126047280-4db96a72-bf22-44a6-a41c-8d6b6a86dabb.jpg)
+![portfolio_sc](https://user-images.githubusercontent.com/81860468/126291610-bdc011e7-d882-4562-8cea-6c4ba343e4bf.png)
+
 
 First, run the development server:
 
