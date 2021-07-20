@@ -35,7 +35,7 @@ export const skillsData: ISkillData[] = [
         icon: "fad fa-code",
         data: [
             {
-                name: "Javascript",
+                name: "Javascript/Typescript",
                 skill: 80,
             },
             {

@@ -1,5 +1,5 @@
-import photo from "../../../public/placeholder.png";
-// import photo from '../../../public/1621831871271.jpeg';
+// import photo from "../../../public/placeholder.png";
+import photo from '../../../public/1621831871271.jpeg';
 import Image from "next/image";
 import { NextPage } from "next";
 const AboutPhoto: NextPage = () => {
