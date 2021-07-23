@@ -1,6 +1,11 @@
 .theme-switcher__container {
     height: 38px !important;
-    width: 76px !important;
+    width: auto !important;
+
+
+    @media (min-width: 640px){
+        width: 76px !important;
+    }
 
     .main-switch {
         margin: 2px 4px;

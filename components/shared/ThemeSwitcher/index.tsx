@@ -50,16 +50,14 @@ const ThemeSwitcher: NextPage = () => {
     firstRender.current = false;
     return (
         <div
-            className={`relative border border-solid bg-white rounded-full transition duration-300 ${
+            className={`relative border border-solid bg-white rounded-full  ${
                 darkThemeActive ? "border-blue-400" : "border-gray-400"
             } ${style["theme-switcher__container"]}`}>
             <div
-                className={`absolute flex left-0 rounded-full transition-all duration-300 w-8 h-8 transform-gpu bg-sec-dark dark:bg-sec cursor-pointer main-container ${
-                    darkThemeActive ? "translate-x-full" : "translate-x-0"
+                className={`static desktop-st:absolute flex left-0 rounded-full transition-all duration-300 w-8 h-8 transform-gpu bg-sec-dark dark:bg-sec cursor-pointer main-container ${
+                    darkThemeActive ? "sm:translate-x-full" : "sm:translate-x-0"
                 } ${style["main-switch"]}`}
                 onClick={toggleTheme}>
-                {/* <i className={`fas fa-moon w-3 text-white text-xl mr-1 transition-opacity`} ref={dartIcon} />
-                <i className={`fas fa-sun w-3 text-white text-xl transition-opacity ${style["dark-icon"]}`} ref={LightIcon} /> */}
                 <ThemeIcon mainRef={ThemeMainRef} centerRef={ThemecenterRef} themeMainG={themeMainG} darkThemeActive={darkThemeActive} />
             </div>
             <style jsx>{`
