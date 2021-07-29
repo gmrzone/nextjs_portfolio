@@ -201,6 +201,18 @@ a:hover {
     }
 }
 
+body::-webkit-scrollbar {
+    width: 12px;               
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--color-sec);        
+  }
+body::-webkit-scrollbar-thumb {
+background-color: var(--color-bg);  
+border-radius: 20px;      
+border: 2px solid var(--color-sec);    
+}
 /*
  * Created on Wed Jul 07 2021
  *
