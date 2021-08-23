@@ -180,7 +180,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                     </div>
                     <div className="space-x-4">
                         <ButtonLink text="Hire Me" href="#contact" icon="far fa-shield-check text-xl" forceBig={true} action={true} />
-                        <ButtonLink text="Get CV" href="./sample.pdf" icon="far fa-file text-xl" forceBig={true} download={true} />
+                        <ButtonLink text="Get CV" href="./resume.pdf" icon="far fa-file text-xl" forceBig={true} download={true} />
                     </div>
                     <div className="space-x-4 text-4xl">
                         <a href="https://github.com/gmrzone" target="_blank" rel="noreferrer" className="group">

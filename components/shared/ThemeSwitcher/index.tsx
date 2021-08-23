@@ -50,9 +50,9 @@ const ThemeSwitcher: NextPage = () => {
     firstRender.current = false;
     return (
         <div
-            className={`relative border border-solid bg-white rounded-full  ${
-                darkThemeActive ? "border-blue-400" : "border-gray-400"
-            } ${style["theme-switcher__container"]}`}>
+            className={`relative border border-solid bg-white rounded-full  ${darkThemeActive ? "border-blue-400" : "border-gray-400"} ${
+                style["theme-switcher__container"]
+            }`}>
             <div
                 className={`static desktop-st:absolute flex left-0 rounded-full transition-all duration-300 w-8 h-8 transform-gpu bg-sec-dark dark:bg-sec cursor-pointer main-container ${
                     darkThemeActive ? "sm:translate-x-full" : "sm:translate-x-0"
