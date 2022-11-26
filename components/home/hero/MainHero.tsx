@@ -68,17 +68,6 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             if (!x?.dataset?.ignore) {
                                 const child = x.firstChild as HTMLLinkElement;
                                 if (child) {
-                                    // if(child.dataset.active === "true"){
-                                    //     child.classList.remove("desktop-st:text-bg-sec");
-                                    //     child.classList.remove("text-main");
-                                    //     child.classList.remove("dark:text-bg-sec-inverted")
-                                    //     child.classList.add("desktop-st:text-sec");
-                                    //     child.classList.add("text-sec")
-                                    //     child.classList.add('dark:text-blue-600')
-                                    // }
-                                    // else{
-
-                                    // }
                                     child.classList.remove("desktop-st:text-bg-sec");
                                     child.classList.add("desktop-st:text-main");
                                 }
@@ -129,17 +118,6 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                             if (!x?.dataset?.ignore) {
                                 const child = x.firstChild as HTMLLinkElement;
                                 if (child) {
-                                    // if(child.dataset.active === "true"){
-                                    //     child.classList.remove("desktop-st:text-main");
-                                    //     child.classList.remove("text-main");
-                                    //     child.classList.remove("dark:text-bg-sec-inverted")
-                                    //     child.classList.add("desktop-st:text-sec");
-                                    //     child.classList.add("text-sec")
-                                    //     child.classList.add('dark:text-blue-600')
-                                    // }
-                                    // else{
-
-                                    // }
                                     child.classList.remove("desktop-st:text-main");
                                     child.classList.add("desktop-st:text-bg-sec");
                                 }
@@ -179,8 +157,8 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         </div>
                     </div>
                     <div className="space-x-4">
-                        <ButtonLink text="Hire Me" href="#contact" icon="far fa-shield-check text-xl" forceBig={true} action={true} />
-                        <ButtonLink text="Get CV" href="./resume.pdf" icon="far fa-file text-xl" forceBig={true} download={true} />
+                        <ButtonLink text="Contact Me" href="#contact" icon="far fa-comments-alt text-xl" forceBig={true} action={true} />
+                        <ButtonLink text="Resume" href="./resume.pdf" icon="far fa-file text-xl" forceBig={true} download={true} />
                     </div>
                     <div className="space-x-4 text-4xl">
                         <a href="https://github.com/gmrzone" target="_blank" rel="noreferrer" className="group">
@@ -197,7 +175,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                                 onMouseOut={socialMouseOut}
                             />
                         </a>
-                        <a href="" target="_blank" rel="noreferrer" className="group">
+                        <a href="https://www.linkedin.com/in/afzal-saiyed-b25004200/" target="_blank" rel="noreferrer" className="group">
                             <i
                                 className="fab fa-linkedin text-sec dark:text-bg-sec-inverted cursor-pointer transition-all duration-300 group-hover:text-action dark:group-hover:text-blue-600"
                                 onMouseOver={socialMouseOver}
