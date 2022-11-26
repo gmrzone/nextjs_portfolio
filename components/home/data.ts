@@ -242,21 +242,22 @@ export const ProjectData: IProjectData[] = [
         main_image: corecare_old,
         secondary_image: corecare_main_secondary,
         points: [
-            "Used React with Redux for Front-end along with HTML, CSS, and SCSS",
+            "Used React with Redux and Typescript for Front-end along with HTML, CSS, and SCSS",
             "Lazy Load Images with placeholder to avoid Layout shift",
-            "Used Django and Django REST Framework to Create a Backend Restful API",
+            "Used Django/DRF and Node/Express to Create Backend Restful API",
             "Used Postgres as Database and Redis for Caching DB queried and for creating Service Recommendation Engine",
             "Implemented JWT based authentication system with Custom User and httpOnly Cookie",
-            "Used Django Session To create Cart and Coupon System",
+            "Used Session To create User Cart and Coupon System",
             "Use Celery to generate Invoice asynchronously and Sent it via Email on Successful order",
             "Integrated Razor Pay Payment Gateway",
             "Deployed backend on Digital Ocean with NGINX, UWSGI",
+            "Fully Responsive Design"
         ],
     },
     {
         id: 2,
         name: "Admin Dashboard",
-        context: "Frontend Redesign using Nextjs",
+        context: "Frontend using Nextjs",
         role: "Frontend Developer",
         period: "March 2021",
         about: "Admin Dashboard created using React and Charts.js",
@@ -267,13 +268,15 @@ export const ProjectData: IProjectData[] = [
         points: [
             "Used React with SWR to create a Performant Admin Dashboard",
             "Used Chart.js to visualize data",
+            "Created a custom Date Range Picker with calender",
+            "User React-hook-form.",
             "Fully Responsive Design",
         ],
     },
     {
         id: 4,
         name: "My Portfolio Website",
-        context: "Created usingTypeScript, Nextjs and Tailwing css",
+        context: "Created using TypeScript, Nextjs and Tailwing css",
         role: "Frontend Developer",
         period: "August 2021",
         about: "Personal portfolio website created using nextjs and tailwing css.",
@@ -281,7 +284,11 @@ export const ProjectData: IProjectData[] = [
         github: "https://github.com/gmrzone/nextjs_portfolio",
         main_image: portfolio_main,
         secondary_image: protfolio_secondary,
-        points: ["Created the frontend with next.js", "'Fully Responsive Design'"],
+        points: [
+            "Created the frontend with next.js and Typescript",
+            "Created a Custom fully Responsive carousel with touch support for mobile using touch events",
+            "Fully Responsive Design"
+        ],
     },
     {
         id: 3,
