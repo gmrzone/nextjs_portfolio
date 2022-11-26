@@ -32,16 +32,16 @@ export const skillsData: ISkillData[] = [
     {
         id: 1,
         title: "Frontend",
-        meta: "More Then 1.5 years",
+        meta: "More Then 3.5 years",
         icon: "fad fa-code",
         data: [
             {
                 name: "Javascript/Typescript",
-                skill: 80,
+                skill: 90,
             },
             {
                 name: "React",
-                skill: 85,
+                skill: 90,
             },
             {
                 name: "Next JS",
@@ -50,6 +50,18 @@ export const skillsData: ISkillData[] = [
             {
                 name: "Redux",
                 skill: 80,
+            },
+            {
+                name: "Jest",
+                skill: 80
+            },
+            {
+                name: "React testing library",
+                skill: 75
+            },
+            {
+                name: "enzyme",
+                skill: 80
             },
             {
                 name: "Chart.js",
@@ -66,17 +78,13 @@ export const skillsData: ISkillData[] = [
             {
                 name: "CSS",
                 skill: 75,
-            },
-            {
-                name: "HTML",
-                skill: 90,
-            },
+            }
         ],
     },
     {
         id: 2,
         title: "Backend",
-        meta: "More Then 2 years",
+        meta: "More Then 3.6 years",
         icon: "fas fa-server",
         data: [
             {
@@ -88,32 +96,40 @@ export const skillsData: ISkillData[] = [
                 skill: 83,
             },
             {
+                name: "Node",
+                skill: 70,
+            },
+            {
+                name: "Express",
+                skill: 70
+            },
+            {
                 name: "PostgreSql",
                 skill: 70,
             },
             {
-                name: "Redis",
-                skill: 65,
+                name: "MySQL",
+                skill: 70
             },
             {
-                name: "Node",
-                skill: 35,
-            },
+                name: "Redis",
+                skill: 65,
+            }
         ],
     },
     {
         id: 3,
         title: "Others",
-        meta: "More Then 1.5 years",
+        meta: "More Then 3.6 years",
         icon: "fas fa-toolbox",
         data: [
             {
                 name: "Git CLI",
-                skill: 70,
+                skill: 80,
             },
             {
                 name: "Vs Code",
-                skill: 75,
+                skill: 80,
             },
             {
                 name: "Docker / Docker Compose",
@@ -122,6 +138,10 @@ export const skillsData: ISkillData[] = [
             {
                 name: "Linux",
                 skill: 70,
+            },
+            {
+                name: "MacOS",
+                skill: 95,
             },
             {
                 name: "Windows",

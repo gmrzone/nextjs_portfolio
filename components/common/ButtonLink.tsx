@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { MouseEvent } from "react";
+
 interface ButtonProps {
     text: string;
     action?: boolean;
