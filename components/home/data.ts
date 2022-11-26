@@ -1,3 +1,5 @@
+import type { StaticImageData } from 'next/image'
+
 import review_image1 from "../../public/review_1.jpg";
 import review_image2 from "../../public/review_2.jpg";
 import review_image3 from "../../public/review_3.jpeg";
