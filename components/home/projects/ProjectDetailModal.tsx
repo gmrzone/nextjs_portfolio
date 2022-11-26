@@ -127,7 +127,6 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                                 <Image
                                     src={activeItem?.secondary_image}
                                     alt={activeItem?.name + " secondary"}
-                                    layout="intrinsic"
                                     width={688}
                                     height={363}
                                     placeholder="blur"
