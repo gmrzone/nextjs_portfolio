@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap") layer(base);
-
 /* Tailwind v4 would normally be a single `@import "tailwindcss"`, which puts
    utilities inside `@layer utilities`. Unlayered CSS always outranks layered
    CSS, so the Font Awesome stylesheet loaded via <link> in pages/_document.tsx
@@ -34,9 +32,10 @@
     --color-gray-900: #111827;
     --color-yellow-400: #facc15;
 
+    /* --font-poppins-loaded is set on :root by next/font in pages/_app.tsx */
     --font-poppins:
-        Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-        sans-serif;
+        var(--font-poppins-loaded), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+        Helvetica Neue, sans-serif;
 
     --text-5xl-sm: 2.2rem;
     --text-5xl-sm--line-height: 1.3;

@@ -20,7 +20,7 @@ The contact form API route needs these in `.env.local` (untracked): `SEND_GRID_A
 
 ## Stack versions
 
-Next.js 16 **Pages Router** (still no `app/` directory, no Server Components, no `next/font`), React 19, Tailwind CSS 4 (CSS-first `@theme` in `styles/globals.css`, no `tailwind.config.js`), TypeScript 5.9, Prettier 3, ESLint 9 (flat config in `eslint.config.mjs`). Builds run through **Turbopack** by default.
+Next.js 16 **Pages Router** (still no `app/` directory, no Server Components), React 19, Tailwind CSS 4 (CSS-first `@theme` in `styles/globals.css`, no `tailwind.config.js`), TypeScript 5.9, Prettier 3, ESLint 9 (flat config in `eslint.config.mjs`). Builds run through **Turbopack** by default.
 
 The site stays on the Pages Router — the upgrade deliberately did not migrate to the App Router. Don't introduce `app/` directory conventions.
 
@@ -48,6 +48,8 @@ Also note: v4 orders competing same-property colour utilities **alphabetically**
 **Animation is DOM-imperative throughout, not state-driven.** The dominant pattern: `useRef` on a container, `IntersectionObserver` in `useEffect`, then `classList.add/remove` of _Tailwind utility class names_ (`-translate-x-full`, `opacity-0`, `after:translate-x-full`, …) on children. Those class strings must also appear literally somewhere in the JSX so Tailwind's content scanner emits them — a class only ever passed to `classList.add` would be purged. Roughly half the components under `components/home/` do this. Expect refs and `useEffect` where you might expect state.
 
 **Modals are portals into a `_document`-declared node.** `pages/_document.tsx` renders `<div id="modal">`; `ProjectDetailModal` and `DesktopFullSkillModalItem` `createPortal` into `document.getElementById("modal")`. Both are imported with `next/dynamic` + `{ ssr: false }` because they touch the DOM at module scope.
+
+**Poppins is self-hosted via `next/font`.** `pages/_app.tsx` loads it with `next/font/google` and publishes the family as a `--font-poppins-loaded` CSS variable on `:root` (through `<style jsx global>`, deliberately — next/font's own `variable` className would need a wrapper element, and that extra node would break this layout's `h-full` chain). The Tailwind `--font-poppins` theme token reads that variable, so the `font-poppins` utility is unchanged. Two rules in `customInput.module.scss` reference `var(--font-poppins)` rather than the literal family name, because next/font hashes it. Don't reintroduce a `fonts.googleapis.com` `@import`.
 
 **Dark mode is hand-rolled on `<body>`, no next-themes.** The `dark:` variant is declared as `@custom-variant dark (&:is(.dark *))` in `globals.css`. An inline blocking script in `_document.tsx` reads `localStorage.getItem('dark')` and adds `.dark` to `document.body` before paint (avoids flash); `components/shared/ThemeSwitcher/` toggles both the body class and `localStorage`. The `.dark` selector also re-defines the CSS custom properties in `globals.css`. So theming works two ways at once — Tailwind `dark:` variants _and_ CSS vars — and both need updating for a new themed color.
 
