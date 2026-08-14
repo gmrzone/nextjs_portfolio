@@ -35,9 +35,9 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
     };
     const transitionInModal = () => {
         if (backdrop.current && modalLeft.current && modalRight.current) {
-            backdrop.current.classList.remove("bg-opacity-0");
+            backdrop.current.classList.remove("bg-black/0");
             backdrop.current.classList.remove("backdrop-opacity-0");
-            backdrop.current.classList.add("bg-opacity-60");
+            backdrop.current.classList.add("bg-black/60");
             backdrop.current.classList.add("backdrop-opacity-100");
 
             modalLeft.current.classList.remove("opacity-0");
@@ -80,9 +80,9 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
             }
         } else {
             if (backdrop.current && container.current && modalRight.current && modalLeft.current) {
-                backdrop.current.classList.remove("bg-opacity-60");
+                backdrop.current.classList.remove("bg-black/60");
                 backdrop.current.classList.remove("backdrop-opacity-100");
-                backdrop.current.classList.add("bg-opacity-0");
+                backdrop.current.classList.add("bg-black/0");
                 backdrop.current.classList.add("backdrop-opacity-0");
 
                 modalLeft.current.classList.remove("opacity-100");
@@ -157,7 +157,7 @@ const ProjectDetailModal: NextPage<IProjectDetailProps> = ({ active, closeModal,
                         <ButtonLink
                             text="Github"
                             icon="fab fa-github text-xl"
-                            cssClasses="bg-gray-900 dark:bg-gray-900 hover:bg-gray-700 dark:hover:bg-gray-700 dark:text-white"
+                            cssClasses="bg-gray-900! dark:bg-gray-900 hover:bg-gray-700 dark:hover:bg-gray-700 dark:text-white"
                             href={activeItem?.github as string}
                             target="_blank"
                             rel="noreferrer"

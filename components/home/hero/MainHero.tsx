@@ -194,12 +194,12 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                 }
                 @media (min-width: 640px) {
                     .main-gradiant {
-                        background: var(--color-main);
-                        background: linear-gradient(290deg, var(--color-main) 100%, var(--color-main-gradiant) 100%);
+                        background: var(--ui-main);
+                        background: linear-gradient(290deg, var(--ui-main) 100%, var(--ui-main-gradiant) 100%);
                     }
                     .main-gradiant::before {
                         display: block;
-                        background: linear-gradient(290deg, transparent 44%, var(--color-main-gradiant) 44%);
+                        background: linear-gradient(290deg, transparent 44%, var(--ui-main-gradiant) 44%);
                     }
                 }
             `}</style>

@@ -100,10 +100,7 @@ const ContactForm = () => {
                 <TextAreaField name="message" label="Message" value={inputValues.message} onChange={handleChange} required />
             </div>
             {formStats.status && (
-                <div
-                    className={`${
-                        formStats.status === "ok" ? "bg-sec bg-opacity-90" : "bg-action bg-opacity-85"
-                    } p-4 rounded-md font-semibold text-white`}>
+                <div className={`${formStats.status === "ok" ? "bg-sec/90" : "bg-action/85"} p-4 rounded-md font-semibold text-white`}>
                     {formStats.message}
                 </div>
             )}

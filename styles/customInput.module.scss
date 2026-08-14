@@ -10,7 +10,7 @@
         width: 100%;
         height: 100%;
         display: block;
-        background-color: var(--color-bg-input) !important;
+        background-color: var(--ui-bg-input) !important;
         border-radius: 4px;
 
         &.not-empty {
@@ -50,7 +50,7 @@
             transform: translate3d(-14px, -40px, 0px);
             font-size: 14px;
             font-weight: 700;
-            color: var(--color-main);
+            color: var(--ui-main);
         }
         &:focus ~ .custom-border::before {
             transition:
@@ -73,7 +73,7 @@
         &:-webkit-autofill:active {
             -webkit-box-shadow: 0 0 0 30px white inset !important;
             box-shadow: 0 0 0 30px white inset !important;
-            border: 2px solid var(--color-sec);
+            border: 2px solid var(--ui-sec);
         }
     }
     .custom-input__placeholder {
@@ -107,8 +107,8 @@
         border-radius: 4px;
         top: 0;
         right: 0;
-        border-top: 2px solid var(--color-sec);
-        border-right: 2px solid var(--color-sec);
+        border-top: 2px solid var(--ui-sec);
+        border-right: 2px solid var(--ui-sec);
         width: 100%;
         transform: translateX(-100%);
         height: 0%;
@@ -122,8 +122,8 @@
         bottom: 0;
         left: 0;
         position: absolute;
-        border-bottom: 2px solid var(--color-sec);
-        border-left: 2px solid var(--color-sec);
+        border-bottom: 2px solid var(--ui-sec);
+        border-left: 2px solid var(--ui-sec);
         transform: translateX(100%);
         width: 100%;
         height: 0%;

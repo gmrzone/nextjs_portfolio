@@ -43,8 +43,8 @@ const Navbar: NextPage<iProps> = ({ mainRef, mobileNav }) => {
             mobileNav.current.classList.remove("translate-x-full");
             mobileNav.current.classList.add("translate-x-0");
             backdrop.current.classList.remove("backdrop-opacity-0");
-            backdrop.current.classList.remove("bg-opacity-0");
-            backdrop.current.classList.add("bg-opacity-50");
+            backdrop.current.classList.remove("bg-black/0");
+            backdrop.current.classList.add("bg-black/50");
             backdrop.current.classList.add("backdrop-opacity-100");
         }
     };
@@ -71,8 +71,8 @@ const Navbar: NextPage<iProps> = ({ mainRef, mobileNav }) => {
             mobileNav.current.classList.add("translate-x-full");
             backdrop.current.classList.remove("backdrop-opacity-100");
             backdrop.current.classList.add("backdrop-opacity-0");
-            backdrop.current.classList.remove("bg-opacity-50");
-            backdrop.current.classList.add("bg-opacity-0");
+            backdrop.current.classList.remove("bg-black/50");
+            backdrop.current.classList.add("bg-black/0");
         }
 
         setTimeout(hideMobileNav, 500);
@@ -86,16 +86,16 @@ const Navbar: NextPage<iProps> = ({ mainRef, mobileNav }) => {
             <NavbarLogo />
             {/* Burger Icon */}
             <div className="flex flex-col p-4 desktop-st:hidden space-y-1 cursor-pointer" onClick={openMobileNav}>
-                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-8 rounded-sm"></span>
-                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
-                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
-                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-sm"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-8 rounded-xs"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-xs"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-xs"></span>
+                <span className="bg-main dark:bg-main-dark sm:dark:bg-bg-sec-inverted h-1 w-10 rounded-xs"></span>
             </div>
             {/* backdrop */}
             <BlurBackDrop backdrop={backdrop} close={closeMobileNav} zIndex={{ zIndex: 35 }} />
             {/* Nav */}
             <ul
-                className="hidden fixed right-0 translate-x-full transition-transform p-2 duration-500 top-0 h-full w-full max-w-full flex-col bg-bg-sec dark:bg-sec-dark desktop-st:dark:bg-transparent shadow-mobile-nav sm:max-w-sm z-40 desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:max-w-auto desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:-translate-x-0 desktop-st:z-0 main-container"
+                className="hidden fixed right-0 translate-x-full transition-transform p-2 duration-500 top-0 h-full w-full max-w-full flex-col bg-bg-sec dark:bg-sec-dark desktop-st:dark:bg-transparent shadow-mobile-nav sm:max-desktop-st:max-w-sm z-40 desktop-st:flex desktop-st:static desktop-st:w-auto desktop-st:bg-transparent desktop-st:text-black desktop-st:h-auto desktop-st:shadow-none desktop-st:max-w-max desktop-st:translate-x-0 desktop-st:z-0 main-container"
                 ref={mobileNav}>
                 <div className="flex flex-row align-middle justify-items-start py-3 px-4 text-main dark:text-bg-sec-inverted border-b border-gray-200 sm:px-6 desktop-st:hidden">
                     <i className="far fa-times text-2xl cursor-pointer" onClick={closeMobileNav} />

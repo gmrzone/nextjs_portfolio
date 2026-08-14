@@ -31,7 +31,7 @@ const AboutContent: NextPage = () => {
                 <ButtonLink
                     text="Download CV"
                     icon="far fa-file text-xl"
-                    cssClasses="dark:bg-sec-dark dark:text-bg-sec-inverted dark:hover:bg-main-dark"
+                    cssClasses="dark:bg-sec-dark dark:text-bg-sec-inverted! dark:hover:bg-main-dark"
                     href="./resume.pdf"
                     download={true}
                 />

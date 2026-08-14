@@ -40,7 +40,7 @@ const RenderItems: NextPage<IProps> = ({ data, activeAccordian, id, forceFull = 
 
     return (
         <div
-            className={`space-y-6 bg-white dark:bg-bg-sec-inverted px-4 mb-8 py-6 rounded-md accordian-content overflow-hidden h-auto ${
+            className={`space-y-6 bg-white dark:bg-bg-sec-inverted px-4 py-6 rounded-md accordian-content overflow-hidden h-auto ${
                 forceFull ? "shadow-none" : "shadow-md"
             }`}
             ref={mainContainer}>
