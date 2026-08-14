@@ -1,4 +1,4 @@
-import type { StaticImageData } from 'next/image'
+import type { StaticImageData } from "next/image";
 import review_image1 from "../../public/review_1.jpg";
 import review_image2 from "../../public/review_2.jpg";
 import review_image3 from "../../public/review_3.jpeg";
@@ -53,15 +53,15 @@ export const skillsData: ISkillData[] = [
             },
             {
                 name: "Jest",
-                skill: 80
+                skill: 80,
             },
             {
                 name: "React testing library",
-                skill: 75
+                skill: 75,
             },
             {
                 name: "enzyme",
-                skill: 80
+                skill: 80,
             },
             {
                 name: "Chart.js",
@@ -78,7 +78,7 @@ export const skillsData: ISkillData[] = [
             {
                 name: "CSS",
                 skill: 75,
-            }
+            },
         ],
     },
     {
@@ -101,7 +101,7 @@ export const skillsData: ISkillData[] = [
             },
             {
                 name: "Express",
-                skill: 70
+                skill: 70,
             },
             {
                 name: "PostgreSql",
@@ -109,12 +109,12 @@ export const skillsData: ISkillData[] = [
             },
             {
                 name: "MySQL",
-                skill: 70
+                skill: 70,
             },
             {
                 name: "Redis",
                 skill: 65,
-            }
+            },
         ],
     },
     {
@@ -251,7 +251,7 @@ export const ProjectData: IProjectData[] = [
             "Use Celery to generate Invoice asynchronously and Sent it via Email on Successful order",
             "Integrated Razor Pay Payment Gateway",
             "Deployed backend on Digital Ocean with NGINX, UWSGI",
-            "Fully Responsive Design"
+            "Fully Responsive Design",
         ],
     },
     {
@@ -287,7 +287,7 @@ export const ProjectData: IProjectData[] = [
         points: [
             "Created the frontend with next.js and Typescript",
             "Created a Custom fully Responsive carousel with touch support for mobile using touch events",
-            "Fully Responsive Design"
+            "Fully Responsive Design",
         ],
     },
     {

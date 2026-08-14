@@ -53,13 +53,15 @@
             color: var(--color-main);
         }
         &:focus ~ .custom-border::before {
-            transition: transform var(--input-transition-width-duration) var(--input-transition-in-top-delay) linear,
+            transition:
+                transform var(--input-transition-width-duration) var(--input-transition-in-top-delay) linear,
                 height var(--input-transition-height-duration) var(--input-transition-in-right-delay) linear;
             transform: translateX(0%);
             height: 100%;
         }
         &:focus ~ .custom-border::after {
-            transition: transform var(--input-transition-width-duration) var(--input-transition-in-bottom-delay) linear,
+            transition:
+                transform var(--input-transition-width-duration) var(--input-transition-in-bottom-delay) linear,
                 height var(--input-transition-height-duration) var(--input-transition-in-left-delay) linear;
             transform: translateX(0%);
             height: 100%;
@@ -81,7 +83,10 @@
         font-size: 18px;
         font-family: Poppins;
         transform: translate3d(0px, 0px, 0px);
-        transition: 0.4s transform ease-in-out, color 0.4s ease-in-out, font-size 0.4s linear;
+        transition:
+            0.4s transform ease-in-out,
+            color 0.4s ease-in-out,
+            font-size 0.4s linear;
         font-weight: 400;
         color: rgba(87, 87, 87, 0.945);
         text-transform: uppercase;
@@ -108,7 +113,8 @@
         transform: translateX(-100%);
         height: 0%;
         z-index: 2;
-        transition: height var(--input-transition-height-duration) var(--input-transition-out-right-delay) linear,
+        transition:
+            height var(--input-transition-height-duration) var(--input-transition-out-right-delay) linear,
             transform var(--input-transition-width-duration) var(--input-transition-out-top-delay) linear;
     }
     .custom-border::after {
@@ -121,7 +127,8 @@
         transform: translateX(100%);
         width: 100%;
         height: 0%;
-        transition: height var(--input-transition-height-duration) var(--input-transition-out-left-delay) linear,
+        transition:
+            height var(--input-transition-height-duration) var(--input-transition-out-left-delay) linear,
             transform var(--input-transition-width-duration) var(--input-transition-out-bottom-delay) linear;
     }
 
