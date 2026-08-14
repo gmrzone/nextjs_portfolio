@@ -21,8 +21,6 @@ const ThemeSwitcher: NextPage = () => {
     const themeMainG = useRef<SVGGeometryElement | null>(null);
     // const dartIcon = useRef<HTMLDivElement | null>(null);
     // const LightIcon = useRef<HTMLDivElement | null>(null);
-    const firstRender = useRef<boolean>(true);
-    const fr = firstRender.current;
 
     useEffect(() => {
         if (darkThemeActive) {
@@ -47,18 +45,22 @@ const ThemeSwitcher: NextPage = () => {
             }
         }
     }, [darkThemeActive]);
-    firstRender.current = false;
     return (
         <div
             className={`relative border border-solid bg-white rounded-full  ${darkThemeActive ? "border-blue-400" : "border-gray-400"} ${
                 style["theme-switcher__container"]
             }`}>
+            {/* The knob used to be `static` below 992px but only translate from
+                640px up, so on a phone it never slid — and between 640 and 992 it
+                slid while still in normal flow. Absolute positioning and the
+                translate now apply at every width, so the control behaves the
+                same everywhere. */}
             <div
-                className={`static desktop-st:absolute flex left-0 rounded-full transition-all duration-300 w-8 h-8 transform-gpu bg-sec-dark dark:bg-sec cursor-pointer main-container ${
-                    darkThemeActive ? "sm:translate-x-full" : "sm:translate-x-0"
+                className={`absolute flex left-0 rounded-full transition-all duration-300 w-8 h-8 transform-gpu bg-sec-dark dark:bg-sec cursor-pointer main-container ${
+                    darkThemeActive ? "translate-x-full" : "translate-x-0"
                 } ${style["main-switch"]}`}
                 onClick={toggleTheme}>
-                <ThemeIcon mainRef={ThemeMainRef} centerRef={ThemecenterRef} themeMainG={themeMainG} darkThemeActive={darkThemeActive} />
+                <ThemeIcon mainRef={ThemeMainRef} centerRef={ThemecenterRef} themeMainG={themeMainG} />
             </div>
             <style jsx>{`
                 .main-container {

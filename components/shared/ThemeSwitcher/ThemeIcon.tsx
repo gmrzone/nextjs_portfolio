@@ -4,9 +4,8 @@ interface IProps {
     mainRef: LegacyRef<SVGPathElement>;
     centerRef: LegacyRef<SVGPathElement>;
     themeMainG: LegacyRef<SVGGeometryElement>;
-    darkThemeActive: boolean;
 }
-const ThemeIcon: NextPage<IProps> = ({ mainRef, centerRef, themeMainG, darkThemeActive }) => {
+const ThemeIcon: NextPage<IProps> = ({ mainRef, centerRef, themeMainG }) => {
     return (
         <div className="w-6 mx-auto">
             <svg
