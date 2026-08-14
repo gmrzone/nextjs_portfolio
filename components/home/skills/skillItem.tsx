@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { NextPage } from "next";
 import { ISkillsDataStats } from "../data";
 

@@ -91,7 +91,10 @@ const DesktopFullSkillModalItem: NextPage<IPROPS> = ({ active, close, title, dat
                     <hr></hr>
                     <h2 className="text-bg-sec dark:text-bg-sec-inverted text-right">Skills</h2>
                 </div>
-                <div className="w-full bg-white dark:bg-bg-sec-inverted max-w-md p-6 relative translate-y-full transition-all duration-500">
+                {/* max-h + scroll: the skills column drives the modal's height, and a
+                    long group (Frontend has 12) otherwise pushed the panel past the top
+                    and bottom of shorter viewports with no way to reach the overflow. */}
+                <div className="w-full bg-white dark:bg-bg-sec-inverted max-w-md p-6 relative translate-y-full transition-all duration-500 max-h-[85vh] overflow-y-auto">
                     <SkillItems data={data} id={id} forceFull={true} />
                 </div>
             </div>

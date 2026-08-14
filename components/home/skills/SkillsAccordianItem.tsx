@@ -9,11 +9,10 @@ const DesktopFullSkillModalItem = dynamic(() => import("./DesktopFullSkillModalI
 
 interface IProps {
     item: ISkillData;
-    last: boolean;
     activeAccordian: number | null;
     activateAccordian: (id: number) => void;
 }
-const SkillsAccordianItem: NextPage<IProps> = ({ item: { title, meta, data, icon, id }, last, activeAccordian, activateAccordian }) => {
+const SkillsAccordianItem: NextPage<IProps> = ({ item: { title, meta, data, icon, id }, activeAccordian, activateAccordian }) => {
     const [desktopFullSkillActive, setDesktopFullSkillActive] = useState(false);
     const closeDesktopSkillModal = () => {
         setDesktopFullSkillActive(false);
@@ -39,13 +38,10 @@ const SkillsAccordianItem: NextPage<IProps> = ({ item: { title, meta, data, icon
                 onClick={openDesktopSkillModal}>
                 View All
             </div>
-            <style jsx>{`
-                @media only screen and (min-width: 992px) and (max-width: 1280px) {
-                    .accordian-item {
-                        display: ${last ? "none" : "block"};
-                    }
-                }
-            `}</style>
+            {/* Between 992px and 1280px only two cards fit per row, and this
+                previously hid the last group outright — so "DevOps & Cloud"
+                was invisible on most laptops. The parent already has
+                `flex-wrap`, so the third card simply wraps to a second row. */}
         </div>
     );
 };
