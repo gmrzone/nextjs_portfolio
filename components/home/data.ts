@@ -32,7 +32,7 @@ export const skillsData: ISkillData[] = [
     {
         id: 1,
         title: "Frontend",
-        meta: "More Then 3.5 years",
+        meta: "More Than 6 years",
         icon: "fad fa-code",
         data: [
             {
@@ -84,7 +84,7 @@ export const skillsData: ISkillData[] = [
     {
         id: 2,
         title: "Backend",
-        meta: "More Then 3.6 years",
+        meta: "More Than 6 years",
         icon: "fas fa-server",
         data: [
             {
@@ -120,7 +120,7 @@ export const skillsData: ISkillData[] = [
     {
         id: 3,
         title: "Others",
-        meta: "More Then 3.6 years",
+        meta: "More Than 6 years",
         icon: "fas fa-toolbox",
         data: [
             {
@@ -232,7 +232,7 @@ export interface IProjectData {
 export const ProjectData: IProjectData[] = [
     {
         id: 1,
-        name: "Cleaning and Maintanence Service Platform",
+        name: "Cleaning and Maintenance Service Platform",
         context: "Entire Frontend & Backend",
         role: "Fullstack Developer",
         period: "October 2020",
@@ -280,7 +280,7 @@ export const ProjectData: IProjectData[] = [
         role: "Frontend Developer",
         period: "August 2021",
         about: "Personal portfolio website created using nextjs and tailwing css.",
-        link: "https://afzalsaiyed.xyz/",
+        link: "https://www.afzalsaiyed.in/",
         github: "https://github.com/gmrzone/nextjs_portfolio",
         main_image: portfolio_main,
         secondary_image: protfolio_secondary,

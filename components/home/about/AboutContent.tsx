@@ -7,7 +7,12 @@ const AboutContent: NextPage = () => {
     const typingTextInstance = useRef<TypeWritterText | null>(null);
     useEffect(() => {
         if (!typingTextInstance.current) {
-            typingTextInstance.current = new TypeWritterText(typingText, ["Fullstack Developer.", "Freelancer.", "Web Designer."], 50, 160);
+            typingTextInstance.current = new TypeWritterText(
+                typingText,
+                ["Tech Lead Engineer.", "Fullstack Engineer.", "Fintech Builder."],
+                50,
+                160,
+            );
         }
         return () => {
             typingTextInstance.current?.stop();
@@ -20,15 +25,15 @@ const AboutContent: NextPage = () => {
             data-name="content">
             <div className="">
                 <h3 className="text-main dark:text-main-dark h-20">
-                    I am AFzal and I&apos;am a{" "}
+                    I am AFzal and I&apos;m a{" "}
                     <span
                         ref={typingText}
                         className="text-action inline-block dark:text-blue-600 relative after:absolute after:w-1 after:-right-2 after:animate-type-text-cursor after:bg-black after:h-full"></span>
                 </h3>
                 <p className="text-gray-700 dark:text-sec-dark font-semibold">
-                    Highly motivated self-thought developer seeking to launch a career building web application. High level experiance in
-                    web design and development Knowledge producing quality work. Familiar with development and deployment process of many
-                    web-based technologies such as Python, Django, DRF, JavaScript, JQuery, Node, React, Redux and Next.js etc..
+                    Fullstack engineer with more than five years of experience, the last three and a half in fintech, building KYC and
+                    identity-verification products that banks and insurers run in production. Currently leading two engineers at Perfios,
+                    working across the Python and JavaScript ecosystems and the AWS infrastructure behind them.
                 </p>
             </div>
             <div className="mt-8">

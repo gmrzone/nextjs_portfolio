@@ -135,7 +135,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
 
     useEffect(() => {
         if (!afzal.current) {
-            afzal.current = new TypeWritterText(typingText, ["Fullstack Developer", "Freelancer", "Web Designer"], 50, 160);
+            afzal.current = new TypeWritterText(typingText, ["Tech Lead Engineer", "Fullstack Engineer", "Fintech Builder"], 50, 160);
         }
         return () => {
             afzal.current?.stop();
@@ -151,7 +151,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                 <div className="w-full order-2 flex flex-col justify-center text-center sm:w-3/5 sm:order-1 sm:text-left sm:mt-0 sm:mb-0 space-y-10 z-10">
                     <div className="">
                         <h1 className="text-bg-sec dark:text-bg-sec-inverted 2xl:text-6xl tracking-widest mb-2 inline-block overflow-hidden relative after:absolute after:w-full after:h-full after:bg-bg-sec after:left-0 after:transform-gpu after:translate-x-0 after:top-0 after:animate-theme-text desktop-st:mb-4">
-                            Hi, I&apos;am <span className="text-action dark:text-blue-600">AFzal</span>
+                            Hi, I&apos;m <span className="text-action dark:text-blue-600">AFzal</span>
                         </h1>
                         <br />
                         <div className="space-x-2">

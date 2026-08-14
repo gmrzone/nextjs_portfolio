@@ -27,7 +27,7 @@ const MetaHead: NextPage<headProps> = ({ title, url, keywords, description }) =>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="keywords" content={keywords}></meta>
             <meta name="description" content={description} />
-            <meta name="twitter:domain" content="corecare.in" />
+            <meta name="twitter:domain" content="afzalsaiyed.in" />
             <meta name="twitter:site" content="@afzalsaiyed" />
             <meta name="twitter:creator" content="@afzalsaiyed" />
             <meta name="twitter:title" property="og:title" itemProp="name" content={title} />

@@ -36,7 +36,7 @@ const ContactContent: NextPage = () => {
                 <i className="fal fa-phone-alt text-4xl text-sec dark:text-blue-600 w-16" />
                 <div>
                     <h3 className="text-main dark:text-main-dark mb-1">Call Me</h3>
-                    <span className="text-gray-500 dark:text-gray-600 font-semibold">9220976696</span>
+                    <span className="text-gray-500 dark:text-gray-600 font-semibold">+91 9220976696</span>
                 </div>
             </div>
             <div className="flex flex-nowrap space-x-2 items-center transform-gpu -translate-x-full opacity-0 transition-all duration-500 ease-in-out main-container">
@@ -50,7 +50,7 @@ const ContactContent: NextPage = () => {
                 <i className="fal fa-map-marker-alt text-4xl text-sec dark:text-blue-600 w-16"></i>
                 <div>
                     <h3 className="text-main mb-1">Location</h3>
-                    <span className="text-gray-500 dark:text-gray-600 font-semibold">Mumbai/Maharashtra</span>
+                    <span className="text-gray-500 dark:text-gray-600 font-semibold">Mumbai, India</span>
                 </div>
             </div>
             <style jsx>{`

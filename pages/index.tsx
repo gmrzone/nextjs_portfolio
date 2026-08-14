@@ -16,8 +16,8 @@ export default function Home() {
                     <Head
                         title="Afzal Saiyed"
                         url="/"
-                        keywords="afzal, saiyed, fullstack, developer, python, javascript, react, nextjs, django, restapi"
-                        description="Afzal Saiyed is a Fullstack developer based in Mumbai with expertise in python/Django and Javascript/React."
+                        keywords="afzal saiyed, tech lead, fullstack engineer, fintech, kyc, identity verification, python, fastapi, typescript, react, angular, webrtc, aws"
+                        description="Afzal Saiyed is a Tech Lead Engineer (Fullstack) based in Mumbai, building KYC and identity-verification products in fintech across Python, TypeScript and AWS."
                     />
                     <>
                         <MainHero headerRef={headerRef} />
