@@ -1,9 +1,9 @@
-import { CSSProperties, MutableRefObject } from "react";
+import { CSSProperties, RefObject } from "react";
 import { NextPage } from "next";
 
 interface backdropProps {
     close: () => void;
-    backdrop: MutableRefObject<HTMLDivElement | null>;
+    backdrop: RefObject<HTMLDivElement | null>;
     zIndex: CSSProperties;
 }
 const BlurBackDrop: NextPage<backdropProps> = ({ backdrop, close, zIndex }) => {

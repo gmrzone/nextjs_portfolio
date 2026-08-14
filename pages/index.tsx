@@ -7,11 +7,11 @@ import ContactSection from "../components/home/contact";
 import TestimonialSection from "../components/home/testimonial";
 import ProjectSection from "../components/home/projects";
 import MainLayout from "../components/common/MainLayout";
-import { MutableRefObject } from "react";
+import { RefObject } from "react";
 export default function Home() {
     return (
         <MainLayout>
-            {(headerRef: MutableRefObject<HTMLHeadElement | null>) => (
+            {(headerRef: RefObject<HTMLHeadElement | null>) => (
                 <>
                     <Head
                         title="Afzal Saiyed"

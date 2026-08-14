@@ -1,10 +1,10 @@
 import Navbar from "../shared/header/Navbar";
 import Footer from "../shared/footer/Footer";
 import { NextPage } from "next";
-import { useRef, MutableRefObject, ReactNode, useEffect } from "react";
+import { useRef, RefObject, ReactNode, useEffect } from "react";
 
 interface IHeader {
-    children: (headerRef: MutableRefObject<HTMLHeadElement | null>) => ReactNode;
+    children: (headerRef: RefObject<HTMLHeadElement | null>) => ReactNode;
 }
 const MainLayout: NextPage<IHeader> = ({ children }) => {
     const headerRef = useRef<HTMLHeadElement | null>(null);

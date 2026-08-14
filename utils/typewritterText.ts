@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { RefObject } from "react";
 
 export class TypeWritterText {
     private textElement;
@@ -11,7 +11,7 @@ export class TypeWritterText {
     private isDeleting;
 
     constructor(
-        textElement: MutableRefObject<HTMLSpanElement | null>,
+        textElement: RefObject<HTMLSpanElement | null>,
         word: string[],
         deleteSpeed: number,
         typeSpeed: number,

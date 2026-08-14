@@ -1,11 +1,11 @@
 import HeroImage from "./HeroImageMain";
 import ButtonLink from "../../common/ButtonLink";
-import { useEffect, useRef, MutableRefObject, MouseEvent } from "react";
+import { useEffect, useRef, RefObject, MouseEvent } from "react";
 import { TypeWritterText } from "../../../utils/typewritterText";
 import { NextPage } from "next";
 
 interface IMainHeroProps {
-    headerRef: MutableRefObject<HTMLHeadElement | null>;
+    headerRef: RefObject<HTMLHeadElement | null>;
 }
 const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
     const mainRef = useRef<HTMLDivElement | null>(null);

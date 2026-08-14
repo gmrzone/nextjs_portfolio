@@ -1,14 +1,14 @@
 import NavBarItem from "./NavbarItem";
 import NavbarLogo from "./NavbarLogo";
-import { useRef, MutableRefObject } from "react";
+import { useRef, RefObject } from "react";
 import dynamic from "next/dynamic";
 import BlurBackDrop from "./BlurBackDrop";
 import { NextPage } from "next";
 
 const ThemeSwitcher = dynamic(() => import("../ThemeSwitcher"), { ssr: false });
 interface iProps {
-    mainRef: MutableRefObject<HTMLDivElement | null>;
-    mobileNav: MutableRefObject<HTMLUListElement | null>;
+    mainRef: RefObject<HTMLDivElement | null>;
+    mobileNav: RefObject<HTMLUListElement | null>;
 }
 const Navbar: NextPage<iProps> = ({ mainRef, mobileNav }) => {
     const backdrop = useRef<HTMLDivElement | null>(null);
