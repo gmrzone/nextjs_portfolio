@@ -1,6 +1,7 @@
 import SkillAccordianItem from "./SkillsAccordianItem";
 import { skillsData, ISkillData } from "../data";
 import { useState } from "react";
+import type { JSX } from "react";
 import { NextPage } from "next";
 const SkillAccordian: NextPage = () => {
     const [activeAccordian, setActiveAccordian] = useState<number | null>(skillsData[0].id);

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { JSX } from "react";
 import style from "../../../styles/reviewSlider.module.scss";
 import { NextPage } from "next";
 import { IReviewData } from "../data";
