@@ -95,7 +95,10 @@
 
     @keyframes logo-one {
         to {
-            transform: translate3d(0px, 0px, 0px);
+            /* `translate`, not `transform`: Tailwind v4's translate-x-* utilities
+               write the standalone translate property, and a transform here
+               would compose with it instead of replacing it. */
+            translate: 0 0;
             opacity: 1;
         }
     }
@@ -114,12 +117,13 @@
     }
     @keyframes gradiant-bg {
         to {
-            transform: translate3d(0px, 0px, 0px);
+            /* see logo-one: must be `translate` under Tailwind v4 */
+            translate: 0 0;
         }
     }
     @keyframes animated-text {
         0% {
-            transform: translate3d(0px, 0px. 0px);
+            transform: translate3d(0px, 0px, 0px);
         }
         99% {
             transform: translate3d(100%, 0px, 0px);
