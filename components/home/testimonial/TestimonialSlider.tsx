@@ -56,6 +56,7 @@ const TestimonialSlider: NextPage = () => {
         if (!maxRightTransition.current) {
             calculateMAxRightTransaction();
         }
+        return () => window.removeEventListener("resize", resetSlider);
     }, []);
 
     const isMouseEvent = (e: MouseEvent | TouchEvent): e is MouseEvent => {

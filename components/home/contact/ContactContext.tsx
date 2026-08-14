@@ -28,6 +28,7 @@ const ContactContent: NextPage = () => {
                 observer.observe(x);
             });
         }
+        return () => observer.disconnect();
     }, []);
     return (
         <div className="w-full space-y-4 desktop-st:space-y-8 desktop-st:pt-6 desktop-st:w-1/2 desktop-st:text-left" ref={container}>

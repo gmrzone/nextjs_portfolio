@@ -130,12 +130,17 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
         if (mainRef.current) {
             observer.observe(mainRef.current);
         }
+        return () => observer.disconnect();
     }, [headerRef]);
 
     useEffect(() => {
         if (!afzal.current) {
             afzal.current = new TypeWritterText(typingText, ["Fullstack Developer", "Freelancer", "Web Designer"], 50, 160);
         }
+        return () => {
+            afzal.current?.stop();
+            afzal.current = null;
+        };
     }, []);
     return (
         <div

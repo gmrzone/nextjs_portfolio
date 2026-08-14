@@ -9,6 +9,10 @@ const AboutContent: NextPage = () => {
         if (!typingTextInstance.current) {
             typingTextInstance.current = new TypeWritterText(typingText, ["Fullstack Developer.", "Freelancer.", "Web Designer."], 50, 160);
         }
+        return () => {
+            typingTextInstance.current?.stop();
+            typingTextInstance.current = null;
+        };
     }, []);
     return (
         <div

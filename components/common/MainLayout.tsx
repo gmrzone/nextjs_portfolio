@@ -13,7 +13,7 @@ const MainLayout: NextPage<IHeader> = ({ children }) => {
     useEffect(() => {
         const activateNavLink = () => {
             const navHeight = window.innerWidth > 992 ? 70 : 76;
-            const topScrollOffset = window.pageYOffset;
+            const topScrollOffset = window.scrollY;
             if (mainRef.current) {
                 const sections = Array.from(mainRef.current.children) as HTMLLIElement[];
                 for (let i = 0; i < sections.length; i++) {
@@ -51,7 +51,23 @@ const MainLayout: NextPage<IHeader> = ({ children }) => {
                 }
             }
         };
-        document.addEventListener("scroll", activateNavLink);
+        // activateNavLink reads offsetTop / clientHeight / getComputedStyle for
+        // every section, which forces a synchronous layout. Coalescing to one
+        // run per frame keeps a burst of scroll events from triggering repeated
+        // layout passes. `passive` because the handler never preventDefaults.
+        let frame = 0;
+        const onScroll = () => {
+            if (frame) return;
+            frame = window.requestAnimationFrame(() => {
+                frame = 0;
+                activateNavLink();
+            });
+        };
+        document.addEventListener("scroll", onScroll, { passive: true });
+        return () => {
+            document.removeEventListener("scroll", onScroll);
+            if (frame) window.cancelAnimationFrame(frame);
+        };
     }, []);
     return (
         <div className="main-body h-full flex flex-col">
