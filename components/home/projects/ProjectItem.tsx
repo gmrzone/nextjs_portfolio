@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useEffect, useRef } from "react";
 import ResponsiveLink from "../../common/ResponsiveLink";
 import { IProjectData } from "../data";
 import { NextPage } from "next";
@@ -8,6 +7,9 @@ interface IProjectProps {
     item: IProjectData;
     openProjectModal: (item: IProjectData) => void;
 }
+
+/** `period` is stored as "October 2020"; the card only has room for the year. */
+const projectYear = (period: string) => period.match(/\d{4}/)?.[0] ?? period;
 const ProjectItem: NextPage<IProjectProps> = ({ item, openProjectModal }) => {
     const openItemModal = () => {
         openProjectModal(item);
@@ -29,6 +31,11 @@ const ProjectItem: NextPage<IProjectProps> = ({ item, openProjectModal }) => {
                 <p className="text-main dark:text-main-dark desktop-st:group-hover:text-white transition-colors duration-300 inline-block font-semibold overflow-hidden text-sm desktop-st:text-lg relative after:absolute after:top-0 after:h-full after:w-full after:bg-sec dark:after:bg-sec-dark after:left-0 after:translate-x-0 after:transition-transform after:duration-500 title-text">
                     {item.name}
                 </p>
+                {/* `relative` so it paints above the container's absolutely
+                    positioned ::before sweep rather than behind it */}
+                <span className="relative block text-xs font-semibold text-gray-500 dark:text-gray-700 desktop-st:group-hover:text-bg-sec transition-colors duration-300">
+                    {projectYear(item.period)}
+                </span>
             </div>
             <style jsx>{`
                 .main-container::after,

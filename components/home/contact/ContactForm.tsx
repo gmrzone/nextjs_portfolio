@@ -104,13 +104,16 @@ const ContactForm = () => {
                     {formStats.message}
                 </div>
             )}
-            <div className="text-right">
+            {/* full width: a small button pinned bottom-right read as an
+                afterthought next to a full-width form */}
+            <div className="pt-1">
                 <CustomButton
                     type="submit"
-                    text="Send"
-                    icon="far fa-address-book text-md desktop-st:text-xl"
+                    text="Send message"
+                    icon="far fa-paper-plane text-md desktop-st:text-xl"
                     action={true}
                     loading={loading}
+                    cssClasses="w-full justify-center"
                 />
             </div>
             <style jsx>{`

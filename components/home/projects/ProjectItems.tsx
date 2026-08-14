@@ -16,7 +16,7 @@ const ProjectItems: NextPage = () => {
         const options = {
             rootMargin: "0px 0px -25px 0px",
         };
-        const observer = new IntersectionObserver((entries, observe) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach((x) => {
                 if (x.isIntersecting) {
                     x.target.classList.remove("after:translate-x-0");

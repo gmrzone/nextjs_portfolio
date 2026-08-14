@@ -2,9 +2,9 @@
 import Head from "../components/common/Head";
 import MainHero from "../components/home/hero/MainHero";
 import SkillSection from "../components/home/skills";
+import ExperienceSection from "../components/home/experience";
 import AboutSection from "../components/home/about";
 import ContactSection from "../components/home/contact";
-import TestimonialSection from "../components/home/testimonial";
 import ProjectSection from "../components/home/projects";
 import MainLayout from "../components/common/MainLayout";
 import { RefObject } from "react";
@@ -22,9 +22,9 @@ export default function Home() {
                     <>
                         <MainHero headerRef={headerRef} />
                         <SkillSection />
+                        <ExperienceSection />
                         <ProjectSection />
                         <AboutSection />
-                        <TestimonialSection />
                         <ContactSection />
                     </>
                 </>

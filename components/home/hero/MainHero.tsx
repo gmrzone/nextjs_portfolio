@@ -135,7 +135,7 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
 
     useEffect(() => {
         if (!afzal.current) {
-            afzal.current = new TypeWritterText(typingText, ["Tech Lead Engineer", "Fullstack Engineer", "Fintech Builder"], 50, 160);
+            afzal.current = new TypeWritterText(typingText, ["Tech Lead Engineer", "Fullstack Engineer"], 50, 160);
         }
         return () => {
             afzal.current?.stop();
@@ -160,6 +160,11 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                                 className="text-action dark:text-blue-600 h-8 desktop-st:h-9 inline-block overflow-hidden text-2xl desktop-st:text-3xl font-semibold m-0 relative after:absolute after:w-1 after:h-full after:bg-white after:top-0 after:right-1 pr-3 after:animate-type-text-cursor"
                                 ref={typingText}></span>
                         </div>
+                        {/* the hero previously carried no sentence at all — a visitor
+                            learned a name and a job title and nothing about the work */}
+                        <p className="text-gray-200 mt-5 max-w-[52ch] mx-auto sm:mx-0 leading-relaxed desktop-st:text-lg">
+                            I build KYC and identity-verification products that banks and insurers run in production.
+                        </p>
                     </div>
                     <div className="space-x-4">
                         <ButtonLink text="Contact Me" href="#contact" icon="far fa-comments-alt text-xl" forceBig={true} action={true} />
@@ -169,13 +174,6 @@ const MainHero: NextPage<IMainHeroProps> = ({ headerRef }) => {
                         <a href="https://github.com/gmrzone" target="_blank" rel="noreferrer" className="group">
                             <i
                                 className="fab fa-github text-sec dark:text-bg-sec-inverted cursor-pointer transition-all duration-300 group-hover:text-action dark:group-hover:text-blue-600"
-                                onMouseOver={socialMouseOver}
-                                onMouseOut={socialMouseOut}
-                            />
-                        </a>
-                        <a href="https://www.instagram.com/afzal__saiyed/" target="_blank" rel="noreferrer" className="group">
-                            <i
-                                className="fab fa-instagram text-sec dark:text-bg-sec-inverted cursor-pointer transition-all duration-300 group-hover:text-action dark:group-hover:text-blue-600"
                                 onMouseOver={socialMouseOver}
                                 onMouseOut={socialMouseOut}
                             />
