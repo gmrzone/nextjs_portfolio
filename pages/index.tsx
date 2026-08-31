@@ -2,29 +2,29 @@
 import Head from "../components/common/Head";
 import MainHero from "../components/home/hero/MainHero";
 import SkillSection from "../components/home/skills";
+import ExperienceSection from "../components/home/experience";
 import AboutSection from "../components/home/about";
 import ContactSection from "../components/home/contact";
-import TestimonialSection from "../components/home/testimonial";
 import ProjectSection from "../components/home/projects";
 import MainLayout from "../components/common/MainLayout";
-import { MutableRefObject } from "react";
+import { RefObject } from "react";
 export default function Home() {
     return (
         <MainLayout>
-            {(headerRef: MutableRefObject<HTMLHeadElement | null>) => (
+            {(headerRef: RefObject<HTMLHeadElement | null>) => (
                 <>
                     <Head
                         title="Afzal Saiyed"
                         url="/"
-                        keywords="afzal, saiyed, fullstack, developer, python, javascript, react, nextjs, django, restapi"
-                        description="Afzal Saiyed is a Fullstack developer based in Mumbai with expertise in python/Django and Javascript/React."
+                        keywords="afzal saiyed, tech lead, fullstack engineer, fintech, kyc, identity verification, python, fastapi, typescript, react, angular, webrtc, aws"
+                        description="Afzal Saiyed is a Tech Lead Engineer (Fullstack) based in Mumbai, building KYC and identity-verification products in fintech across Python, TypeScript and AWS."
                     />
                     <>
                         <MainHero headerRef={headerRef} />
                         <SkillSection />
+                        <ExperienceSection />
                         <ProjectSection />
                         <AboutSection />
-                        <TestimonialSection />
                         <ContactSection />
                     </>
                 </>

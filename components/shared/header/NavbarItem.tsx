@@ -1,12 +1,12 @@
 import { NextPage } from "next";
-import { MutableRefObject, MouseEvent } from "react";
+import { RefObject, MouseEvent } from "react";
 interface Item {
     item: {
         name: string;
         to: string;
     };
     closeNav: () => void;
-    mainRef: MutableRefObject<HTMLDivElement | null>;
+    mainRef: RefObject<HTMLDivElement | null>;
 }
 const NavbarItem: NextPage<Item> = ({ item, closeNav, mainRef }) => {
     const handleNavItemClick = (e: MouseEvent<HTMLAnchorElement>) => {

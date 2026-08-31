@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import { RefObject } from "react";
 
 export class TypeWritterText {
     private textElement;
@@ -9,9 +9,11 @@ export class TypeWritterText {
     private typeSpeed;
     private wait;
     private isDeleting;
+    private timer: ReturnType<typeof setTimeout> | null = null;
+    private stopped = false;
 
     constructor(
-        textElement: MutableRefObject<HTMLSpanElement | null>,
+        textElement: RefObject<HTMLSpanElement | null>,
         word: string[],
         deleteSpeed: number,
         typeSpeed: number,
@@ -28,7 +30,22 @@ export class TypeWritterText {
         this.startTyping();
     }
 
+    /**
+     * Cancels the pending tick and prevents any further rescheduling. Callers
+     * must invoke this when the owning component unmounts — without it the
+     * setTimeout loop reschedules itself forever and keeps writing innerHTML
+     * into a detached node.
+     */
+    stop() {
+        this.stopped = true;
+        if (this.timer !== null) {
+            clearTimeout(this.timer);
+            this.timer = null;
+        }
+    }
+
     startTyping() {
+        if (this.stopped) return;
         const currentWordIndex = this.wordIndex % this.words.length;
         const currentWord = this.words[currentWordIndex];
         let currentSpeed;
@@ -53,7 +70,7 @@ export class TypeWritterText {
             currentSpeed = 220;
         }
 
-        setTimeout(() => this.startTyping(), currentSpeed);
+        this.timer = setTimeout(() => this.startTyping(), currentSpeed);
     }
 }
 

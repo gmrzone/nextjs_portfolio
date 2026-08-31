@@ -1,12 +1,4 @@
-import type { StaticImageData } from 'next/image'
-import review_image1 from "../../public/review_1.jpg";
-import review_image2 from "../../public/review_2.jpg";
-import review_image3 from "../../public/review_3.jpeg";
-import review_image4 from "../../public/review_4.jpg";
-import review_image5 from "../../public/review_5.jpg";
-import review_image6 from "../../public/review_6.jpg";
-import review_image7 from "../../public/review_7.jpg";
-import review_image8 from "../../public/review_8.jpg";
+import type { StaticImageData } from "next/image";
 
 import corecare_main from "../../public/corecare_main.png";
 import corecare_old from "../../public/corecare_old.png";
@@ -32,11 +24,11 @@ export const skillsData: ISkillData[] = [
     {
         id: 1,
         title: "Frontend",
-        meta: "More Then 3.5 years",
+        meta: "More Than 6 years",
         icon: "fad fa-code",
         data: [
             {
-                name: "Javascript/Typescript",
+                name: "Typescript / Javascript",
                 skill: 90,
             },
             {
@@ -44,176 +36,221 @@ export const skillsData: ISkillData[] = [
                 skill: 90,
             },
             {
+                name: "Angular",
+                skill: 90,
+            },
+            {
+                name: "Vue",
+                skill: 90,
+            },
+            {
+                name: "WebRTC",
+                skill: 90,
+            },
+            {
+                name: "HTML / CSS",
+                skill: 90,
+            },
+            {
                 name: "Next JS",
-                skill: 85,
+                skill: 78,
             },
             {
                 name: "Redux",
-                skill: 80,
+                skill: 78,
             },
             {
-                name: "Jest",
-                skill: 80
+                name: "WebSockets",
+                skill: 78,
             },
             {
-                name: "React testing library",
-                skill: 75
-            },
-            {
-                name: "enzyme",
-                skill: 80
-            },
-            {
-                name: "Chart.js",
-                skill: 85,
-            },
-            {
-                name: "Tailwind CSS",
-                skill: 75,
+                name: "Jest / React Testing Library",
+                skill: 78,
             },
             {
                 name: "SCSS",
-                skill: 75,
+                skill: 78,
             },
             {
-                name: "CSS",
-                skill: 75,
-            }
+                name: "Web Workers",
+                skill: 65,
+            },
         ],
     },
     {
         id: 2,
         title: "Backend",
-        meta: "More Then 3.6 years",
+        meta: "More Than 6 years",
         icon: "fas fa-server",
         data: [
             {
                 name: "Python",
-                skill: 85,
+                skill: 90,
             },
             {
-                name: "Django / DRF",
-                skill: 83,
+                name: "FastAPI",
+                skill: 90,
             },
             {
-                name: "Node",
-                skill: 70,
+                name: "System Design",
+                skill: 90,
             },
             {
-                name: "Express",
-                skill: 70
+                name: "Django",
+                skill: 78,
             },
             {
-                name: "PostgreSql",
-                skill: 70,
+                name: "Node JS / Express",
+                skill: 78,
             },
             {
                 name: "MySQL",
-                skill: 70
+                skill: 78,
+            },
+            {
+                name: "MongoDB",
+                skill: 78,
             },
             {
                 name: "Redis",
+                skill: 78,
+            },
+            {
+                name: "Kafka",
                 skill: 65,
-            }
+            },
+            {
+                name: "RabbitMQ",
+                skill: 65,
+            },
+            {
+                name: "Elasticsearch",
+                skill: 65,
+            },
         ],
     },
     {
         id: 3,
-        title: "Others",
-        meta: "More Then 3.6 years",
-        icon: "fas fa-toolbox",
+        title: "DevOps & Cloud",
+        meta: "More Than 6 years",
+        icon: "fas fa-cloud",
         data: [
             {
-                name: "Git CLI",
-                skill: 80,
+                name: "AWS (ECS, EC2, Lambda, SQS)",
+                skill: 90,
             },
             {
-                name: "Vs Code",
-                skill: 80,
+                name: "Git",
+                skill: 90,
+            },
+            {
+                name: "Serverless Framework",
+                skill: 90,
             },
             {
                 name: "Docker / Docker Compose",
-                skill: 60,
+                skill: 78,
             },
             {
                 name: "Linux",
-                skill: 70,
+                skill: 78,
             },
             {
-                name: "MacOS",
-                skill: 95,
+                name: "CI/CD",
+                skill: 78,
             },
             {
-                name: "Windows",
-                skill: 95,
+                name: "HAProxy / NGINX",
+                skill: 65,
             },
         ],
     },
 ];
-export interface IReviewData {
-    id: number;
-    photo: StaticImageData;
-    name: string;
-    review: string;
-    star: number;
+// Deliberately thin - the resume is the source of truth for detail. Figures are
+// grouped under `did`, the change that produced them: a number on its own
+// ("6.9MB, bundle") names a measurement but not a subject or a cause, so it
+// tells a visitor nothing.
+export interface IExperienceFigure {
+    big: string;
+    sub: string;
+    countTo?: number;
+    decimals?: number;
+    suffix?: string;
+    prefix?: string;
 }
-export const reviewData: IReviewData[] = [
+export interface IExperienceProof {
+    did: string;
+    figures: IExperienceFigure[];
+}
+export interface IExperienceData {
+    id: number;
+    company: string;
+    client?: string;
+    period: string;
+    role: string;
+    previousRole?: string;
+    blurb: string;
+    proofs: IExperienceProof[];
+}
+
+export const experienceData: IExperienceData[] = [
     {
         id: 1,
-        photo: review_image1,
-        name: "@stu_mastersgolf",
-        review: "Afzal is a skilled professional with great understanding of customer needs. We are looking forward to many more projects with him. You can step in with confidence with Afzal.",
-        star: 5,
+        company: "Perfios",
+        period: "2023 - Now",
+        role: "Tech Lead Engineer, Fullstack",
+        previousRole: "Senior Software Engineer",
+        blurb: "I lead the team behind Perfios' KYC and identity products - PIVC, VKYC and OneSDK - and own the edge routing they run on.",
+        proofs: [
+            {
+                did: "Merged VKYC and VideoPD - two Angular apps sharing ~75% of their code - into one Vue 3 build",
+                figures: [
+                    { big: "6.9", countTo: 6.9, decimals: 1, suffix: "MB", sub: "bundle, from 27MB" },
+                    { big: "2-3", suffix: "s", sub: "load, from 7-8s" },
+                ],
+            },
+            {
+                did: "Multithreaded the API layer to remove serial bottlenecks",
+                figures: [{ big: "50", countTo: 50, suffix: "%", sub: "faster responses" }],
+            },
+        ],
     },
     {
         id: 2,
-        photo: review_image7,
-        name: "@mohjakhalil",
-        review: "Seller is very skillful with django provided me excellent and high-quality work in given time. Highly recommended and looking forward to work again with him in future.",
-        star: 5,
+        company: "Patch Infotech",
+        client: "Kroger",
+        period: "2021 - 2023",
+        role: "Senior Software Engineer",
+        blurb: "Built and ran the CMS powering Kroger's banner ecosystem.",
+        proofs: [
+            {
+                did: "Redesigned the CMS core modules around a JSON Schema driven form layer",
+                figures: [{ big: "80", countTo: 80, prefix: "~", suffix: "%", sub: "faster onboarding for new devs" }],
+            },
+        ],
     },
     {
         id: 3,
-        photo: review_image2,
-        name: "@majestic6548",
-        review: "Very detailed and professional Coder, takes into considerations of every requirement given and delivers accurately. Highly recommended, would definitely be coming back for more!.",
-        star: 5,
+        company: "Freelance",
+        client: "UpScriptHealth",
+        period: "2019 - 2021",
+        role: "Fullstack Developer",
+        blurb: "Automated telehealth operations for a US healthcare client - doctor assignment, reporting and SMS on a Python scheduler.",
+        proofs: [],
     },
-    {
-        id: 4,
-        photo: review_image3,
-        name: "@ZeeshanShaikh",
-        review: " Excellent experience. The communication was great and he took time to understand my requirements. Highly recommend!",
-        star: 5,
-    },
-    {
-        id: 5,
-        photo: review_image4,
-        name: "@superrek",
-        review: "Extremely helpful, ran into some server issues and he communicated with me and helped to find a solution. 5/5 stars!",
-        star: 5,
-    },
-    {
-        id: 6,
-        photo: review_image5,
-        name: "@zaidshaikh21",
-        review: "Afzal did an amazing job helping me out. He not only finished the project in less than a day he then helped me understand everything and help my run my code.",
-        star: 5,
-    },
-    {
-        id: 7,
-        photo: review_image6,
-        name: "@shinny10",
-        review: "A great delivery in record time for an affordable budget. Can recommend this seller with confidence!",
-        star: 5,
-    },
-    {
-        id: 8,
-        photo: review_image8,
-        name: "@briankraminit",
-        review: "I had a great experience working with Afzal, he was responsive and met all of his deadlines. He understood what I was asking of him and delivered, I would recommend and plan to use again.",
-        star: 5,
-    },
+];
+
+export interface IAwardData {
+    id: number;
+    title: string;
+    org: string;
+    year: string;
+    icon: string;
+}
+
+export const awardData: IAwardData[] = [
+    { id: 1, title: "Circle of Excellence", org: "Perfios", year: "2025", icon: "fas fa-trophy" },
+    { id: 2, title: "Blaze a Trail", org: "Perfios", year: "2024", icon: "fas fa-award" },
 ];
 
 export interface IProjectData {
@@ -232,12 +269,12 @@ export interface IProjectData {
 export const ProjectData: IProjectData[] = [
     {
         id: 1,
-        name: "Cleaning and Maintanence Service Platform",
+        name: "Cleaning and Maintenance Service Platform",
         context: "Entire Frontend & Backend",
         role: "Fullstack Developer",
         period: "October 2020",
         about: "A Fullstack cleaning and maintanence service platform created using React, redux on frontend and django, Postgresql and Redis as backend.",
-        link: "https://www.corecare.in/",
+        link: "https://corecare.afzalsaiyed.in/",
         github: "https://github.com/gmrzone/corecare_backend",
         main_image: corecare_old,
         secondary_image: corecare_main_secondary,
@@ -251,7 +288,7 @@ export const ProjectData: IProjectData[] = [
             "Use Celery to generate Invoice asynchronously and Sent it via Email on Successful order",
             "Integrated Razor Pay Payment Gateway",
             "Deployed backend on Digital Ocean with NGINX, UWSGI",
-            "Fully Responsive Design"
+            "Fully Responsive Design",
         ],
     },
     {
@@ -261,7 +298,7 @@ export const ProjectData: IProjectData[] = [
         role: "Frontend Developer",
         period: "March 2021",
         about: "Admin Dashboard created using React and Charts.js",
-        link: "https://corecare-admin.vercel.app/",
+        link: "https://admin.afzalsaiyed.in/",
         github: "https://github.com/gmrzone/corecare_admin",
         main_image: corecare_admin,
         secondary_image: corecare_admin_secondary,
@@ -280,14 +317,14 @@ export const ProjectData: IProjectData[] = [
         role: "Frontend Developer",
         period: "August 2021",
         about: "Personal portfolio website created using nextjs and tailwing css.",
-        link: "https://afzalsaiyed.xyz/",
+        link: "https://afzalsaiyed.in/",
         github: "https://github.com/gmrzone/nextjs_portfolio",
         main_image: portfolio_main,
         secondary_image: protfolio_secondary,
         points: [
             "Created the frontend with next.js and Typescript",
             "Created a Custom fully Responsive carousel with touch support for mobile using touch events",
-            "Fully Responsive Design"
+            "Fully Responsive Design",
         ],
     },
     {
@@ -297,7 +334,7 @@ export const ProjectData: IProjectData[] = [
         role: "Frontend Developer",
         period: "January 2021",
         about: "Cleaning and maintanence Services Platform frontend created using next.js and SWR",
-        link: "https://dev.corecare.in/",
+        link: "https://corecare-v2.afzalsaiyed.in/",
         github: "https://github.com/gmrzone/corecare_frontend_nextjs",
         main_image: corecare_main,
         secondary_image: corecare_main_secondary,

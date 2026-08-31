@@ -100,20 +100,20 @@ const ContactForm = () => {
                 <TextAreaField name="message" label="Message" value={inputValues.message} onChange={handleChange} required />
             </div>
             {formStats.status && (
-                <div
-                    className={`${
-                        formStats.status === "ok" ? "bg-sec bg-opacity-90" : "bg-action bg-opacity-85"
-                    } p-4 rounded-md font-semibold text-white`}>
+                <div className={`${formStats.status === "ok" ? "bg-sec/90" : "bg-action/85"} p-4 rounded-md font-semibold text-white`}>
                     {formStats.message}
                 </div>
             )}
-            <div className="text-right">
+            {/* full width: a small button pinned bottom-right read as an
+                afterthought next to a full-width form */}
+            <div className="pt-1">
                 <CustomButton
                     type="submit"
-                    text="Send"
-                    icon="far fa-address-book text-md desktop-st:text-xl"
+                    text="Send message"
+                    icon="far fa-paper-plane text-md desktop-st:text-xl"
                     action={true}
                     loading={loading}
+                    cssClasses="w-full justify-center"
                 />
             </div>
             <style jsx>{`

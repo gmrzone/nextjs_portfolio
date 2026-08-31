@@ -10,7 +10,7 @@
         width: 100%;
         height: 100%;
         display: block;
-        background-color: var(--color-bg-input) !important;
+        background-color: var(--ui-bg-input) !important;
         border-radius: 4px;
 
         &.not-empty {
@@ -43,23 +43,25 @@
         -ms-appearance: none;
         appearance: none;
         outline: none;
-        font-family: Poppins;
+        font-family: var(--font-poppins);
         border: 1px solid rgba($color: #000000, $alpha: 0.2);
 
         &:focus + .custom-input__placeholder {
             transform: translate3d(-14px, -40px, 0px);
             font-size: 14px;
             font-weight: 700;
-            color: var(--color-main);
+            color: var(--ui-main);
         }
         &:focus ~ .custom-border::before {
-            transition: transform var(--input-transition-width-duration) var(--input-transition-in-top-delay) linear,
+            transition:
+                transform var(--input-transition-width-duration) var(--input-transition-in-top-delay) linear,
                 height var(--input-transition-height-duration) var(--input-transition-in-right-delay) linear;
             transform: translateX(0%);
             height: 100%;
         }
         &:focus ~ .custom-border::after {
-            transition: transform var(--input-transition-width-duration) var(--input-transition-in-bottom-delay) linear,
+            transition:
+                transform var(--input-transition-width-duration) var(--input-transition-in-bottom-delay) linear,
                 height var(--input-transition-height-duration) var(--input-transition-in-left-delay) linear;
             transform: translateX(0%);
             height: 100%;
@@ -71,7 +73,7 @@
         &:-webkit-autofill:active {
             -webkit-box-shadow: 0 0 0 30px white inset !important;
             box-shadow: 0 0 0 30px white inset !important;
-            border: 2px solid var(--color-sec);
+            border: 2px solid var(--ui-sec);
         }
     }
     .custom-input__placeholder {
@@ -79,9 +81,12 @@
         left: 14px;
         top: 14px;
         font-size: 18px;
-        font-family: Poppins;
+        font-family: var(--font-poppins);
         transform: translate3d(0px, 0px, 0px);
-        transition: 0.4s transform ease-in-out, color 0.4s ease-in-out, font-size 0.4s linear;
+        transition:
+            0.4s transform ease-in-out,
+            color 0.4s ease-in-out,
+            font-size 0.4s linear;
         font-weight: 400;
         color: rgba(87, 87, 87, 0.945);
         text-transform: uppercase;
@@ -102,13 +107,14 @@
         border-radius: 4px;
         top: 0;
         right: 0;
-        border-top: 2px solid var(--color-sec);
-        border-right: 2px solid var(--color-sec);
+        border-top: 2px solid var(--ui-sec);
+        border-right: 2px solid var(--ui-sec);
         width: 100%;
         transform: translateX(-100%);
         height: 0%;
         z-index: 2;
-        transition: height var(--input-transition-height-duration) var(--input-transition-out-right-delay) linear,
+        transition:
+            height var(--input-transition-height-duration) var(--input-transition-out-right-delay) linear,
             transform var(--input-transition-width-duration) var(--input-transition-out-top-delay) linear;
     }
     .custom-border::after {
@@ -116,12 +122,13 @@
         bottom: 0;
         left: 0;
         position: absolute;
-        border-bottom: 2px solid var(--color-sec);
-        border-left: 2px solid var(--color-sec);
+        border-bottom: 2px solid var(--ui-sec);
+        border-left: 2px solid var(--ui-sec);
         transform: translateX(100%);
         width: 100%;
         height: 0%;
-        transition: height var(--input-transition-height-duration) var(--input-transition-out-left-delay) linear,
+        transition:
+            height var(--input-transition-height-duration) var(--input-transition-out-left-delay) linear,
             transform var(--input-transition-width-duration) var(--input-transition-out-bottom-delay) linear;
     }
 

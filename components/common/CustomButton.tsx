@@ -5,8 +5,10 @@ interface ButtonProps {
     action: boolean;
     icon: string | undefined;
     type: "button" | "submit" | undefined;
+    /** extra utilities from the caller, e.g. to make the button full width */
+    cssClasses?: string;
 }
-const ButtonLink: NextPage<ButtonProps> = ({ loading = false, text, action, icon = undefined, ...attr }) => {
+const ButtonLink: NextPage<ButtonProps> = ({ loading = false, text, action, icon = undefined, cssClasses = "", ...attr }) => {
     return (
         <button
             {...attr}
@@ -14,7 +16,7 @@ const ButtonLink: NextPage<ButtonProps> = ({ loading = false, text, action, icon
                 action
                     ? "bg-action hover:bg-action-hover dark:bg-blue-600 dark:text-bg-sec-inverted dark:hover:bg-blue-900"
                     : "bg-sec hover:bg-blue-700"
-            } hover:text-white sm:self-start ${icon && "space-x-2"}`}>
+            } hover:text-white sm:self-start ${icon && "space-x-2"} ${cssClasses}`}>
             {loading ? <i className="fas fa-circle-notch animate-spin-fast" /> : <i className={icon} />}
             <span className={`${loading && "ml-2.5"}`}>{text}</span>
         </button>

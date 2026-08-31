@@ -19,8 +19,8 @@ const DesktopFullSkillModalItem: NextPage<IPROPS> = ({ active, close, title, dat
     const transitionIn = () => {
         if (backdrop.current && modal.current) {
             backdrop.current.classList.remove("backdrop-opacity-0");
-            backdrop.current.classList.remove("bg-opacity-0");
-            backdrop.current.classList.add("bg-opacity-60");
+            backdrop.current.classList.remove("bg-black/0");
+            backdrop.current.classList.add("bg-black/60");
             backdrop.current.classList.add("backdrop-opacity-100");
 
             modal.current.classList.remove("opacity-0");
@@ -57,10 +57,10 @@ const DesktopFullSkillModalItem: NextPage<IPROPS> = ({ active, close, title, dat
             setTimeout(transitionIn, 25);
         } else {
             if (backdrop.current && modal.current) {
-                backdrop.current.classList.remove("bg-opacity-60");
+                backdrop.current.classList.remove("bg-black/60");
                 backdrop.current.classList.remove("backdrop-opacity-100");
                 backdrop.current.classList.add("backdrop-opacity-0");
-                backdrop.current.classList.add("bg-opacity-0");
+                backdrop.current.classList.add("bg-black/0");
 
                 modal.current.classList.remove("opacity-100");
                 modal.current.classList.add("opacity-0");
@@ -78,7 +78,7 @@ const DesktopFullSkillModalItem: NextPage<IPROPS> = ({ active, close, title, dat
         <div className="hidden fixed desktop-st:hidden w-screen h-screen z-40 justify-center items-center" ref={container}>
             <BlurBackDrop backdrop={backdrop} close={close} zIndex={{ zIndex: 40 }} />
             <div
-                className="absolute z-50 hidden desktop-st:hidden modal-main w-auto rounded-sm opacity-0 transition-all duration-300"
+                className="absolute z-50 hidden desktop-st:hidden modal-main w-auto rounded-xs opacity-0 transition-all duration-300"
                 ref={modal}>
                 <div className="w-full flex flex-col justify-center desktop-skill-item-content bg-main dark:bg-main-dark p-12 space-y-8 relative -translate-y-full transition-all duration-500">
                     <div className="absolute top-0 left-0">
@@ -91,7 +91,10 @@ const DesktopFullSkillModalItem: NextPage<IPROPS> = ({ active, close, title, dat
                     <hr></hr>
                     <h2 className="text-bg-sec dark:text-bg-sec-inverted text-right">Skills</h2>
                 </div>
-                <div className="w-full bg-white dark:bg-bg-sec-inverted max-w-md p-6 relative translate-y-full transition-all duration-500">
+                {/* max-h + scroll: the skills column drives the modal's height, and a
+                    long group (Frontend has 12) otherwise pushed the panel past the top
+                    and bottom of shorter viewports with no way to reach the overflow. */}
+                <div className="w-full bg-white dark:bg-bg-sec-inverted max-w-md p-6 relative translate-y-full transition-all duration-500 max-h-[85vh] overflow-y-auto">
                     <SkillItems data={data} id={id} forceFull={true} />
                 </div>
             </div>

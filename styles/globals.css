@@ -1,16 +1,167 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* Tailwind v4 would normally be a single `@import "tailwindcss"`, which puts
+   utilities inside `@layer utilities`. Unlayered CSS always outranks layered
+   CSS, so the Font Awesome stylesheet loaded via <link> in pages/_document.tsx
+   would then beat every utility — its `line-height: 1` on .fa/.fal/.fad/.fas
+   overrode `text-4xl`/`text-xl`, shrinking every icon box (36px instead of
+   40px) and shifting layout.
+   v3 emitted utilities as plain unlayered CSS, so they competed on source
+   order and won. Splitting the import and leaving utilities unlayered restores
+   that v3 cascade behaviour. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    /* Tailwind v4 rebuilt its default palette in a wider gamut, which shifts
+     every built-in colour this project uses (blue-600 #2563EB -> #155DFC,
+     gray-500 #6B7280 -> #6A7282, and so on). The dark theme in particular
+     defines its accent twice — once as --ui-theme below and once as the
+     `blue-600` utility — so an unpinned upgrade makes those two disagree.
+     Pinned to the v3 values to keep rendering identical. */
+    --color-blue-400: #60a5fa;
+    --color-blue-600: #2563eb;
+    --color-blue-700: #1d4ed8;
+    --color-blue-900: #1e3a8a;
+    --color-gray-200: #e5e7eb;
+    --color-gray-400: #9ca3af;
+    --color-gray-500: #6b7280;
+    --color-gray-600: #4b5563;
+    --color-gray-700: #374151;
+    --color-gray-900: #111827;
+    --color-yellow-400: #facc15;
+
+    /* --font-poppins-loaded is set on :root by next/font in pages/_app.tsx */
+    --font-poppins:
+        var(--font-poppins-loaded), -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+        Helvetica Neue, sans-serif;
+
+    --text-5xl-sm: 2.2rem;
+    --text-5xl-sm--line-height: 1.3;
+    --text-5xl-500: 2.4rem;
+    --text-5xl-500--line-height: 1.3;
+    --text-5xl-992: 2.6rem;
+    --text-5xl-992--line-height: 1.3;
+    --text-4xl-sm: 1.8rem;
+    --text-4xl-sm--line-height: 1.3;
+    --text-4xl-500: 1.9rem;
+    --text-4xl-500--line-height: 2.5rem;
+    --text-4xl-992: 2.1rem;
+    --text-4xl-992--line-height: 2.5rem;
+    --text-3xl-sm: 1.5rem;
+    --text-3xl-sm--line-height: 2.25rem;
+    --text-3xl-500: 1.6rem;
+    --text-3xl-500--line-height: 2.25rem;
+    --text-3xl-992: 1.8rem;
+    --text-3xl-992--line-height: 2.25rem;
+
+    --breakpoint-desktop-st: 992px;
+
+    --color-nav: transparent;
+    --color-main: rgb(5, 55, 66);
+    --color-sec: rgb(29, 161, 242);
+    --color-sec-lg: rgb(162, 219, 250);
+    --color-bg-sec: rgb(232, 240, 242);
+    --color-action: #ff4747;
+    --color-action-hover: #ff6666;
+    --color-nav-dark: rgb(22, 21, 23);
+    --color-main-dark: rgb(29, 31, 31);
+    --color-sec-dark: rgb(34, 34, 45);
+    --color-sec-lg-dark: rgb(162, 219, 250);
+    --color-bg-sec-dark: rgb(182, 182, 200);
+    --color-bg-sec-inverted: rgb(226, 226, 233);
+    --color-action-dark: #ff4747;
+    --color-action-hover-dark: #ff6666;
+
+    --shadow-mobile-nav: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+    --height-hero-xl: 40rem;
+    --height-hero-large: 38rem;
+    --height-hero-sl: 36rem;
+    --height-hero-mid: 34rem;
+    --height-hero-sm: 32rem;
+    --height-hero: 30rem;
+
+    --width-project-image: 30rem;
+
+    --animate-spin-fast: spin 0.6s linear infinite;
+    --animate-logo-center: logo-one 0.3s 1s ease-in forwards;
+    --animate-logo-main: logo-two 0.3s 0.7s ease-in forwards;
+    --animate-main-gradiant: gradiant-bg 0.6s ease-in forwards;
+    --animate-theme-text: animated-text 0.3s 0.35s ease-in forwards;
+    --animate-theme-text-m: animated-text 0.3s 0.05s ease-in forwards;
+    --animate-type-text-cursor: cursor 0.5s linear infinite;
+
+    @keyframes logo-one {
+        to {
+            /* `translate`, not `transform`: Tailwind v4's translate-x-* utilities
+               write the standalone translate property, and a transform here
+               would compose with it instead of replacing it. */
+            translate: 0 0;
+            opacity: 1;
+        }
+    }
+    @keyframes logo-two {
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes cursor {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    @keyframes gradiant-bg {
+        to {
+            /* see logo-one: must be `translate` under Tailwind v4 */
+            translate: 0 0;
+        }
+    }
+    @keyframes animated-text {
+        0% {
+            transform: translate3d(0px, 0px, 0px);
+        }
+        99% {
+            transform: translate3d(100%, 0px, 0px);
+            opacity: 1;
+        }
+        100% {
+            transform: translate3d(100%, 0px, 0px);
+            opacity: 0;
+        }
+    }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
+}
 
 :root {
-    --color-sec: rgb(57, 162, 219);
-    --color-main: rgb(5, 55, 66);
-    --color-main-gradiant: rgb(7, 79, 95);
-    --color-theme: #ff4747;
-    --color-bg: rgb(232, 240, 242);
-    --color-bg-input: white;
-    --nav-item-color: var(--color-sec);
+    --ui-sec: rgb(57, 162, 219);
+    --ui-main: rgb(5, 55, 66);
+    --ui-main-gradiant: rgb(7, 79, 95);
+    --ui-theme: #ff4747;
+    --ui-bg: rgb(232, 240, 242);
+    --ui-bg-input: white;
+    --nav-item-color: var(--ui-sec);
 
     --input-transition-width-duration: 0.1s;
     --input-transition-height-duration: 0.1s;
@@ -35,13 +186,13 @@
 }
 
 .dark {
-    --color-main: rgb(29, 31, 31);
-    --color-main-gradiant: rgb(34, 34, 45);
-    --color-sec: rgb(34, 34, 45);
-    --color-theme: rgb(37, 99, 235);
-    --color-bg: rgb(226, 226, 233);
-    --color-bg-input: rgb(226, 226, 233);
-    --nav-item-color: var(--color-theme);
+    --ui-main: rgb(29, 31, 31);
+    --ui-main-gradiant: rgb(34, 34, 45);
+    --ui-sec: rgb(34, 34, 45);
+    --ui-theme: rgb(37, 99, 235);
+    --ui-bg: rgb(226, 226, 233);
+    --ui-bg-input: rgb(226, 226, 233);
+    --nav-item-color: var(--ui-theme);
 }
 @media (min-width: 767px) {
     :root {
@@ -80,6 +231,101 @@
     --input-transition-out-right-delay: 0.3s;
     --input-transition-out-bottom-delay: 0.1s;
     --input-transition-out-left-delay: 0s;
+}
+
+/* Tailwind v4 reimplemented the `space-*` utilities:
+     v3: `> :not([hidden]) ~ :not([hidden])` — margin-TOP/LEFT on every child
+         after the first, and it also reset the opposite margin to 0.
+     v4: `> :not(:last-child)`             — margin-BOTTOM/RIGHT on every child
+         but the last.
+   For a plain stack of visible children both render identically, but they
+   diverge in three ways this project depends on:
+     1. a `display:none` last child (the desktop-only "View All" button in the
+        skills accordion) gains a trailing gap under v4  (+24px on mobile);
+     2. a shrink-to-fit parent (ResponsiveLink's inline-block pill) loses 8px,
+        because a trailing margin is excluded from the intrinsic width;
+     3. a zero-width first child (the hero typewriter's cursor span) shifts the
+        following text by the gap amount.
+   Rather than patch each site, the v3 selector and semantics are restored for
+   the space utilities this project actually uses. Remove this block only
+   alongside a deliberate visual re-check of those three cases. */
+/* Step 1 — undo v4's end-side margin. This must use v4's own selector
+   (`:not(:last-child)`, which includes the FIRST child), otherwise the first
+   child keeps v4's margin and the spacing doubles. Equal specificity to v4's
+   rule, but later in source order, so it wins. */
+.space-x-1 > :not(:last-child),
+.space-x-2 > :not(:last-child),
+.space-x-4 > :not(:last-child),
+.space-x-6 > :not(:last-child) {
+    margin-inline-end: 0;
+}
+.space-y-1 > :not(:last-child),
+.space-y-2 > :not(:last-child),
+.space-y-4 > :not(:last-child),
+.space-y-6 > :not(:last-child),
+.space-y-8 > :not(:last-child),
+.space-y-10 > :not(:last-child) {
+    margin-block-end: 0;
+}
+
+/* Step 2 — reapply v3's start-side margin on every child after the first.
+   v3 also zeroed the end-side margin on these children, which the reset above
+   already covers; the one v3 behaviour not reproduced is preserving an author
+   `mb-*`/`mr-*` on the FIRST child (no such case exists in this project). */
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+    margin-inline-start: 0.25rem;
+}
+.space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-inline-start: 0.5rem;
+}
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-inline-start: 1rem;
+}
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-inline-start: 1.5rem;
+}
+.space-y-1 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.25rem;
+}
+.space-y-2 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 0.5rem;
+}
+.space-y-4 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1rem;
+}
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 1.5rem;
+}
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 2rem;
+}
+.space-y-10 > :not([hidden]) ~ :not([hidden]) {
+    margin-top: 2.5rem;
+}
+@media (min-width: 992px) {
+    .desktop-st\:space-x-10 > :not(:last-child),
+    .desktop-st\:space-x-12 > :not(:last-child) {
+        margin-inline-end: 0;
+    }
+    .desktop-st\:space-y-8 > :not(:last-child) {
+        margin-block-end: 0;
+    }
+    .desktop-st\:space-x-10 > :not([hidden]) ~ :not([hidden]) {
+        margin-inline-start: 2.5rem;
+    }
+    .desktop-st\:space-x-12 > :not([hidden]) ~ :not([hidden]) {
+        margin-inline-start: 3rem;
+    }
+    .desktop-st\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 2rem;
+    }
+}
+
+/* Tailwind v3's preflight set `cursor: pointer` on buttons; v4 dropped it.
+   Restored so buttons keep the pointer cursor they had before the upgrade. */
+button,
+[role="button"] {
+    cursor: pointer;
 }
 
 #__next {
@@ -206,12 +452,12 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    background: var(--color-sec);
+    background: var(--ui-sec);
 }
 body::-webkit-scrollbar-thumb {
-    background-color: var(--color-bg);
+    background-color: var(--ui-bg);
     border-radius: 20px;
-    border: 2px solid var(--color-sec);
+    border: 2px solid var(--ui-sec);
 }
 /*
  * Created on Wed Jul 07 2021

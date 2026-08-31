@@ -1,10 +1,9 @@
 .theme-switcher__container {
     height: 38px !important;
-    width: auto !important;
-
-    @media (min-width: 640px) {
-        width: 76px !important;
-    }
+    /* One width at every breakpoint. Below 640px this used to be `auto`, which
+       collapsed the pill to just the knob (42px) and hid the slide track, so the
+       control looked different on a phone than on a laptop. */
+    width: 76px !important;
 
     .main-switch {
         margin: 2px 4px;
